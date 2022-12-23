@@ -4,13 +4,19 @@
 @font-face {
   font-family: 'Righteous';
   src: url('../assets/fonts/Righteous.ttf');
-  font-style: normal
+  font-style: normal;
+  font-display: swap
 }
 
 @font-face {
   font-family: 'Rubik';
   src: url('../assets/fonts/Rubik-Regular.ttf');
-  font-style: normal
+  font-style: normal;
+  font-display: swap
+}
+
+:root {
+  --heading: #070a2b;
 }
 
 html {
