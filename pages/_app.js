@@ -1,3 +1,4 @@
+import 'normalize.css/normalize.css'
 import '../styles/globals.css'
 
 export default function MyApp({ Component, pageProps }) {
