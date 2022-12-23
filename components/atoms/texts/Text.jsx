@@ -1,4 +1,3 @@
-// * Encerrar el componente Paragraph, SmallParagraph y Subtitle/Big Paragraph en un solo componente.
 import styles from '../../styles/atoms/texts/text.module.css'
 
 const Text = ({ type, children }) => {
