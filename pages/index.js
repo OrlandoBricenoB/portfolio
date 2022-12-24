@@ -6,6 +6,7 @@ import Heading from '../components/atoms/texts/Heading'
 import Text from '../components/atoms/texts/Text'
 
 import ContactPage from '../components/atoms/icons/ContactPage'
+import RateStar from '../components/atoms/rating/RateStar'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Text type='button'>Button</Text>
 
       <Container>
+        <RateStar />
         <Heading type='h3' color='#ffffff'>Título 3</Heading>
         <NavButton>Prueba 1</NavButton>
         <Text type='paragraph'>
