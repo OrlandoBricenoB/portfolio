@@ -1,0 +1,8 @@
+.social_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: .2s ease color
+}

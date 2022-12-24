@@ -1,0 +1,9 @@
+.language_selector {
+  display: flex;
+  cursor: pointer;
+}
+
+.language_selector__caret {
+  position: relative;
+  right: .25rem;
+}

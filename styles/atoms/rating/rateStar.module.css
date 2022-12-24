@@ -1,0 +1,12 @@
+.rate_star {
+  position: relative;
+  transition: .2s ease transform
+}
+
+.rate_star:hover {
+  transform: scale(1.1)
+}
+
+.rate_star:active {
+  transform: scale(1.25);
+}
