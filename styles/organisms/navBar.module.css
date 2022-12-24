@@ -1,0 +1,11 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  place-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.nav_buttons {
+  display: flex;
+  gap: 2rem
+}
