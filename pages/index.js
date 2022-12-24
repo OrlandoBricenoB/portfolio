@@ -13,6 +13,7 @@ import SocialButton from '../components/molecules/socials/SocialButton'
 import CSS from '../components/atoms/icons/tools/CSS'
 import Linkedin from '../components/atoms/icons/Linkedin'
 import Twitter from '../components/atoms/icons/Twitter'
+import LanguageSelector from '../components/molecules/LanguageSelector'
 
 export default function Home() {
   return (
@@ -57,6 +58,8 @@ export default function Home() {
           Icon={() => <ContactPage size='24' color='#070a2b' />}
         >Contáctame</Button>
       </Container>
+
+      <LanguageSelector />
     </div>
   )
 }
