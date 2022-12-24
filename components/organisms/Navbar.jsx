@@ -4,6 +4,7 @@ import Text from '../atoms/texts/Text'
 import Button from '../atoms/Button'
 
 import ContactPage from '../atoms/icons/ContactPage'
+import LanguageSelector from '../molecules/LanguageSelector'
 
 const Navbar = () => {
   return (
@@ -21,7 +22,8 @@ const Navbar = () => {
       </div>
 
       {/* CTA */}
-      <div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '.25rem' }}>
+        <LanguageSelector />
         <Button
           Icon={() => <ContactPage color='#070a2b' />}
         >Contáctame</Button>
