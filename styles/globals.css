@@ -33,3 +33,9 @@ html {
   background-color: var(--bg);
   color: var(--white)
 }
+
+body {
+  max-width: 1440px;
+  margin: 0px auto;
+  padding: 0 2rem
+}

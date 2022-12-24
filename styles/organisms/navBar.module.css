@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   place-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 0;
 }
 
 .nav_buttons {

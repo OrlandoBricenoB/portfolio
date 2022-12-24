@@ -10,19 +10,19 @@ const Navbar = () => {
   return (
     <header className={styles.header}>
       {/* Logo */}
-      <div>
+      <div style={{ justifySelf: 'flex-start' }}>
         <Text type='big_paragraph'>Orlando Briceño</Text>
       </div>
 
       {/* Buttons */}
       <div className={styles.nav_buttons}>
-        <NavButton>Inicio</NavButton>
+        <NavButton>Presentación</NavButton>
         <NavButton>Acerca de mí</NavButton>
         <NavButton>Proyectos</NavButton>
       </div>
 
       {/* CTA */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '.25rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '.25rem', justifySelf: 'flex-end' }}>
         <LanguageSelector />
         <Button
           Icon={() => <ContactPage color='#070a2b' />}
