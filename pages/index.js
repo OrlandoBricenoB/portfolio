@@ -1,9 +1,10 @@
+import Container from '../components/atoms/Container'
 import Heading from '../components/atoms/texts/Heading'
 import Text from '../components/atoms/texts/Text'
 
 export default function Home() {
   return (
-    <div>
+    <div style={{ padding: '1rem' }}>
       <Heading type='h1'>Título 1</Heading>
       <Heading type='h2'>Título 2</Heading>
       <Heading type='h3'>Título 3</Heading>
@@ -11,6 +12,10 @@ export default function Home() {
       <Text type='paragraph'>Test de párrafo</Text>
       <Text type='small_paragraph'>Small</Text>
       <Text type='button'>Button</Text>
+
+      <Container>
+        <Heading type='h3' color='#ffffff'>Título 3</Heading>
+      </Container>
     </div>
   )
 }
