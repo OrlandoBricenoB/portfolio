@@ -8,7 +8,11 @@ import Text from '../components/atoms/texts/Text'
 import ContactPage from '../components/atoms/icons/ContactPage'
 import RateStar from '../components/atoms/rating/RateStar'
 import Badge from '../components/atoms/Badge'
+import SocialButton from '../components/molecules/socials/SocialButton'
+
 import CSS from '../components/atoms/icons/tools/CSS'
+import Linkedin from '../components/atoms/icons/Linkedin'
+import Twitter from '../components/atoms/icons/Twitter'
 
 export default function Home() {
   return (
@@ -23,9 +27,17 @@ export default function Home() {
       <div style={{ display: 'flex', gap: '.5rem', marginBottom: '.5rem' }}>
         <Badge>Insignia</Badge>
         <Badge
-          style={{ backgroundColor: '' }}
           Icon={() => <CSS size='16' />}
         >Insignia</Badge>
+      </div>
+
+      <div style={{ width: '100px', display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>
+          LinkedIn
+        </SocialButton>
+        <SocialButton Icon={Twitter}>
+          Twitter
+        </SocialButton>
       </div>
 
       <Container>
