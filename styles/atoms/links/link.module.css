@@ -1,0 +1,12 @@
+.link {
+  margin: .75rem 0;
+  font-size: 1rem;
+  color: var(--primary);
+  line-height: 1.25;
+  text-decoration: none;
+  transition: .2s ease color
+}
+
+.link:hover {
+  color: var(--primary-lighter)
+}

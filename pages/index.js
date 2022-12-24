@@ -1,4 +1,5 @@
 import Container from '../components/atoms/Container'
+import Link from '../components/atoms/links/Link'
 import NavButton from '../components/atoms/links/NavButton'
 import Heading from '../components/atoms/texts/Heading'
 import Text from '../components/atoms/texts/Text'
@@ -17,6 +18,9 @@ export default function Home() {
       <Container>
         <Heading type='h3' color='#ffffff'>Título 3</Heading>
         <NavButton>Prueba 1</NavButton>
+        <Text type='paragraph'>
+          Este es un texto, pero puedes dar <Link>click aquí</Link> creo yo.
+        </Text>
       </Container>
     </div>
   )
