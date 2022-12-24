@@ -1,7 +1,7 @@
 .heading {
   margin: .85rem 0;
   font-family: 'Righteous';
-  color: var(--heading);
+  color: var(--white);
   line-height: 1.35
 }
 
