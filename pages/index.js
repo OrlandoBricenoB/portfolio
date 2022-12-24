@@ -1,8 +1,11 @@
+import Button from '../components/atoms/Button'
 import Container from '../components/atoms/Container'
 import Link from '../components/atoms/links/Link'
 import NavButton from '../components/atoms/links/NavButton'
 import Heading from '../components/atoms/texts/Heading'
 import Text from '../components/atoms/texts/Text'
+
+import ContactPage from '../components/atoms/icons/ContactPage'
 
 export default function Home() {
   return (
@@ -21,6 +24,15 @@ export default function Home() {
         <Text type='paragraph'>
           Este es un texto, pero puedes dar <Link>click aquí</Link> creo yo.
         </Text>
+        <Button keepCase={true}>Contáctame</Button>
+        <br />
+        <Button type='ghost'>Ghost</Button>
+        <br />
+        <Button type='outlined'>Outlined</Button>
+        <br />
+        <Button
+          Icon={() => <ContactPage size='24' color='#070a2b' />}
+        >Contáctame</Button>
       </Container>
     </div>
   )
