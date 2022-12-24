@@ -1,14 +1,17 @@
+import { createElement } from 'react'
 import styles from '../../../styles/atoms/texts/headings.module.css'
 
-const Heading = ({ type, color, children, ...rest }) => {
-  const elemStyle = {
+const Heading = ({ type = 'h3', color, children, ...rest }) => {
+  rest.className = `${styles.heading} ${styles[type]} ${rest.className || ''}`
+  rest.style= {
+    ...rest.style,
     color: color || '#ffffff'
   }
 
-  return (
-    <p className={`${styles.heading} ${styles[type]}`} style={elemStyle} {...rest}>
-      { children }
-    </p>
+  return createElement(
+    type,
+    rest,
+    children
   )
 }
 

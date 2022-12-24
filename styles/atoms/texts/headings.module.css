@@ -2,6 +2,7 @@
   margin: .85rem 0;
   font-family: 'Righteous';
   color: var(--white);
+  font-weight: normal;
   line-height: 1.35
 }
 
