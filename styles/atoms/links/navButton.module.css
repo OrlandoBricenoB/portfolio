@@ -1,0 +1,12 @@
+.nav_button {
+  margin: .75rem 0;
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.25;
+  text-decoration: none;
+  transition: .2s ease color
+}
+
+.nav_button:hover {
+  color: var(--white)
+}
