@@ -5,7 +5,6 @@ import NavButton from '../components/atoms/links/NavButton'
 import Heading from '../components/atoms/texts/Heading'
 import Text from '../components/atoms/texts/Text'
 
-import ContactPage from '../components/atoms/icons/ContactPage'
 import RateStar from '../components/atoms/rating/RateStar'
 import Badge from '../components/atoms/Badge'
 import SocialButton from '../components/molecules/socials/SocialButton'
@@ -13,11 +12,10 @@ import SocialButton from '../components/molecules/socials/SocialButton'
 import CSS from '../components/atoms/icons/tools/CSS'
 import Linkedin from '../components/atoms/icons/Linkedin'
 import Twitter from '../components/atoms/icons/Twitter'
-import LanguageSelector from '../components/molecules/LanguageSelector'
 
 export default function Home() {
   return (
-    <div style={{ padding: '1rem' }}>
+    <div>
       <Heading type='h1'>Título 1</Heading>
       <Heading type='h2'>Título 2</Heading>
       <Heading type='h3'>Título 3</Heading>
@@ -53,13 +51,7 @@ export default function Home() {
         <Button type='ghost'>Ghost</Button>
         <br />
         <Button type='outlined'>Outlined</Button>
-        <br />
-        <Button
-          Icon={() => <ContactPage size='24' color='#070a2b' />}
-        >Contáctame</Button>
       </Container>
-
-      <LanguageSelector />
     </div>
   )
 }

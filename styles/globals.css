@@ -31,5 +31,12 @@
 html {
   font-family: Rubik, Ubuntu, Cantarell, Fira Sans, Droid Sans;
   background-color: var(--bg);
-  color: var(--white)
+  color: var(--white);
+  scroll-behavior: smooth
+}
+
+body {
+  max-width: 1440px;
+  margin: 0px auto;
+  padding: 0 2rem
 }
