@@ -16,10 +16,16 @@
 }
 
 :root {
-  --heading: #070a2b;
+  --white: #ffffff;
+  --primary: #21c2e1;
+  --gold: #E1B721;
+  --bg: #070a2b;
   --container-bg: #292C51;
+  --gray: #8E92C2;
 }
 
 html {
-  font-family: Rubik, Ubuntu, Cantarell, Fira Sans, Droid Sans
+  font-family: Rubik, Ubuntu, Cantarell, Fira Sans, Droid Sans;
+  background-color: var(--bg);
+  color: var(--white)
 }
