@@ -7,6 +7,8 @@ import Text from '../components/atoms/texts/Text'
 
 import ContactPage from '../components/atoms/icons/ContactPage'
 import RateStar from '../components/atoms/rating/RateStar'
+import Badge from '../components/atoms/Badge'
+import CSS from '../components/atoms/icons/tools/CSS'
 
 export default function Home() {
   return (
@@ -18,6 +20,13 @@ export default function Home() {
       <Text type='paragraph'>Test de párrafo</Text>
       <Text type='small_paragraph'>Small</Text>
       <Text type='button'>Button</Text>
+      <div style={{ display: 'flex', gap: '.5rem', marginBottom: '.5rem' }}>
+        <Badge>Insignia</Badge>
+        <Badge
+          style={{ backgroundColor: '' }}
+          Icon={() => <CSS size='16' />}
+        >Insignia</Badge>
+      </div>
 
       <Container>
         <RateStar />
