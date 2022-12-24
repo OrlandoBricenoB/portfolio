@@ -1,12 +1,12 @@
-.nav_button {
+.link {
   margin: .75rem 0;
   font-size: 1rem;
-  color: var(--gray);
+  color: var(--primary);
   line-height: 1.25;
   text-decoration: none;
   transition: .2s ease color
 }
 
-.nav_button:hover {
-  color: var(--gray-lighter)
+.link:hover {
+  color: var(--primary-lighter)
 }

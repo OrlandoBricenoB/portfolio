@@ -18,10 +18,12 @@
 :root {
   --white: #ffffff;
   --primary: #21c2e1;
+  --primary-lighter: #6ee9ff;
   --gold: #E1B721;
   --bg: #070a2b;
   --container-bg: #292C51;
   --gray: #8E92C2;
+  --gray-lighter: #d6d9fd;
 }
 
 html {
