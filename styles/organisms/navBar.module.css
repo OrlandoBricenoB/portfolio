@@ -9,3 +9,15 @@
   display: flex;
   gap: 2rem
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    grid-template-columns: repeat(2, auto);
+    padding-bottom: 1rem;
+  }
+
+  .nav_buttons {
+    justify-content: space-between;
+    display: none
+  }
+}
