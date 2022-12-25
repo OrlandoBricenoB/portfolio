@@ -1,8 +1,10 @@
 import styles from '../../styles/atoms/container.module.css'
 
-const Container = ({ children, ...rest }) => {
+const Container = ({ children, className, ...rest }) => {
   return (
-    <div className={styles.container} {...rest}>{ children }</div>
+    <div className={`${styles.container} ${className || ''}`} {...rest}>
+      { children }
+    </div>
   )
 }
 
