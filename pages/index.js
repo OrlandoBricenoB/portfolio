@@ -24,16 +24,16 @@ export default function Home() {
         <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>LinkedIn</Text>
         </SocialButton>
-        <SocialButton Icon={Twitter}>
+        <SocialButton Icon={Twitter} to='https://twitter.com/orlandobricenob'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>Twitter</Text>
         </SocialButton>
-        <SocialButton Icon={Github}>
+        <SocialButton Icon={Github} to='https://github.com/OrlandoBricenoB'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>Github</Text>
         </SocialButton>
-        <SocialButton Icon={Codepen}>
+        <SocialButton Icon={Codepen} to='https://codepen.io/orlandobricenob'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>Codepen</Text>
         </SocialButton>
-        <SocialButton Icon={StackOverflow}>
+        <SocialButton Icon={StackOverflow} to='https://stackoverflow.com/users/20795121/orlando-jose-brice%C3%B1o-blanco'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>
             Stack<br />Overflow
           </Text>
