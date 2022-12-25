@@ -45,8 +45,8 @@ export default function Home() {
       </aside>
       {/* Content */}
       <div className={styles.home__content} style={{ width: '100%' }}>
-        <Heading type='h1' style={{ margin: '0' }}>Desarrollador Full Stack</Heading>
-        <Text type='big_paragraph' style={{ margin: '0' }}>NodeJS, React, SQL & NoSQL</Text>
+        <Heading type='h1' style={{ margin: '0', textAlign: 'center' }}>Desarrollador Full Stack</Heading>
+        <Text type='big_paragraph' style={{ margin: '0', textAlign: 'center' }}>NodeJS, React, SQL & NoSQL</Text>
         {/* Image Mobile */}
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <img src={profilePresentation.src} className={styles.profile_presentation__image} />
