@@ -1,8 +1,8 @@
 import styles from '../../../styles/atoms/texts/text.module.css'
 
-const Text = ({ type, children, ...rest }) => {
+const Text = ({ type, className = '', children, ...rest }) => {
   return (
-    <p className={`${styles.text} ${styles[type] || styles.paragraph}`} {...rest}>
+    <p className={`${styles.text} ${styles[type] || styles.paragraph} ${className}`} {...rest}>
       { children }
     </p>
   )

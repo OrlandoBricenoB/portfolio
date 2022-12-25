@@ -18,9 +18,12 @@ import Codepen from '../components/atoms/icons/Codepen'
 import StackOverflow from '../components/atoms/icons/StackOverflow'
 import Multirating from '../components/molecules/rating/Multirating'
 
+import profilePresentation from '../assets/images/profile-presentation.jpg'
+
 export default function Home() {
   return (
     <div className={styles.home_container}>
+      {/* Social Buttons */}
       <aside className={styles.social_buttons}>
         <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>LinkedIn</Text>
@@ -40,7 +43,8 @@ export default function Home() {
           </Text>
         </SocialButton>
       </aside>
-      <div>
+      {/* Content */}
+      <div className={styles.home__content} style={{ width: '100%' }}>
         <Heading type='h1' style={{ margin: '0' }}>Desarrollador Full Stack</Heading>
         <Text type='big_paragraph' style={{ margin: '0' }}>NodeJS, React, SQL & NoSQL</Text>
         <br /><br /><br />
@@ -71,6 +75,14 @@ export default function Home() {
           <br />
           <Button type='outlined'>Outlined</Button>
         </Container>
+      </div>
+      {/* Image */}
+      <div className={styles.profile_presentation}>
+        <img src={profilePresentation.src} style={{ width: '100%' }} />
+        <Text type='paragraph' className={styles.profile_presentation__paragraph}>
+          Orlando Jose Briceño Blanco<br />
+          🇻🇪 Venezuela
+        </Text>
       </div>
     </div>
   )

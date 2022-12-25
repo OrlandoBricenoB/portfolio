@@ -1,5 +1,6 @@
 .home_container {
-  display: flex;
+  display: grid;
+  grid-template-areas: "social content profile";
   gap: .75rem;
 }
 
@@ -9,17 +10,37 @@
   flex-direction: column;
   gap: 2rem;
   padding: 1rem 0;
+  grid-area: social
+}
+
+.home__content {
+  grid-area: content
+}
+
+.profile_presentation {
+  display: 'flex';
+  align-items: 'flex-end';
+  flex-direction: 'column';
+  grid-area: profile
+}
+
+.profile_presentation__paragraph {
+  padding: '0 1rem';
+  text-align: right
 }
 
 @media screen and (max-width: 768px) {
   .home_container {
-    flex-direction: column-reverse
+    grid-template-areas: "content" "profile" "social";
   }
 
   .social_buttons {
     flex-direction: row;
     place-items: center;
-    
-    justify-content: space-between;
+    justify-content: space-between
+  }
+
+  .profile_presentation__paragraph {
+    text-align: center
   }
 }
