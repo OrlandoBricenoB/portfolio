@@ -47,6 +47,13 @@ export default function Home() {
       <div className={styles.home__content} style={{ width: '100%' }}>
         <Heading type='h1' style={{ margin: '0' }}>Desarrollador Full Stack</Heading>
         <Text type='big_paragraph' style={{ margin: '0' }}>NodeJS, React, SQL & NoSQL</Text>
+        {/* Image Mobile */}
+        <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
+          <img src={profilePresentation.src} className={styles.profile_presentation__image} />
+          <figcaption className={styles.profile_presentation__caption}>
+            Orlando Jose Briceño Blanco<br />🇻🇪 Venezuela
+          </figcaption>
+        </figure>
         <br /><br /><br />
         
         <Heading type='h2'>Título 2</Heading>
@@ -77,13 +84,13 @@ export default function Home() {
         </Container>
       </div>
       {/* Image */}
-      <div className={styles.profile_presentation}>
-        <img src={profilePresentation.src} style={{ width: '100%' }} />
-        <Text type='paragraph' className={styles.profile_presentation__paragraph}>
+      <figure className={styles.profile_presentation}>
+        <img src={profilePresentation.src} className={styles.profile_presentation__image} />
+        <figcaption className={styles.profile_presentation__caption}>
           Orlando Jose Briceño Blanco<br />
           🇻🇪 Venezuela
-        </Text>
-      </div>
+        </figcaption>
+      </figure>
     </div>
   )
 }
