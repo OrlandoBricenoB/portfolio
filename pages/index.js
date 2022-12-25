@@ -1,3 +1,4 @@
+import styles from '../styles/pages/home.module.css'
 import Button from '../components/atoms/Button'
 import Container from '../components/atoms/Container'
 import Link from '../components/atoms/links/Link'
@@ -19,8 +20,8 @@ import Multirating from '../components/molecules/rating/Multirating'
 
 export default function Home() {
   return (
-    <div style={{ display: 'flex', gap: '.75rem' }}>
-      <aside style={{ width: 'auto', display: 'flex', flexDirection: 'column', gap: '2rem', padding: '1rem 0' }}>
+    <div className={styles.home_container}>
+      <aside className={styles.social_buttons}>
         <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>LinkedIn</Text>
         </SocialButton>
