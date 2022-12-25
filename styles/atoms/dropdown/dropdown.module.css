@@ -1,0 +1,29 @@
+.dropdown {
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0 0 .5rem 2px var(--bg);
+  transform: scale(0);
+  transition: .2s ease transform
+}
+
+.dropdown--bottom {
+  top: calc(100% + .35rem);
+  transform-origin: top left;
+  left: 0;
+}
+
+.dropdown--top {
+  bottom: calc(100% + .35rem);
+  transform-origin: bottom left;
+  left: 0;
+}
+.dropdown--open { transform: scale(1) }
+
+.overlayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 900
+}
