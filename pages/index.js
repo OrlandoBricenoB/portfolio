@@ -15,6 +15,7 @@ import Twitter from '../components/atoms/icons/Twitter'
 import Github from '../components/atoms/icons/Github'
 import Codepen from '../components/atoms/icons/Codepen'
 import StackOverflow from '../components/atoms/icons/StackOverflow'
+import Multirating from '../components/molecules/rating/Multirating'
 
 export default function Home() {
   return (
@@ -57,6 +58,7 @@ export default function Home() {
 
         <Container>
           <RateStar />
+          <Multirating />
           <Heading type='h3' color='#ffffff'>Título 3</Heading>
           <NavButton>Prueba 1</NavButton>
           <Text type='paragraph'>
