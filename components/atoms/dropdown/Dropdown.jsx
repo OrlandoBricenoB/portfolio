@@ -8,7 +8,6 @@ const Dropdown = ({
   setIsOpen,
   ...rest
 }) => {
-  console.log({ styles })
   return (
     <>
       <Container
