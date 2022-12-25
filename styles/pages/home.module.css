@@ -1,0 +1,25 @@
+.home_container {
+  display: flex;
+  gap: .75rem;
+}
+
+.social_buttons {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .home_container {
+    flex-direction: column-reverse
+  }
+
+  .social_buttons {
+    flex-direction: row;
+    place-items: center;
+    
+    justify-content: space-between;
+  }
+}
