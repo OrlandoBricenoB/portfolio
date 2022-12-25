@@ -32,7 +32,7 @@ const Navbar = () => {
     <header className={styles.header}>
       {/* Logo */}
       <div style={{ justifySelf: 'flex-start' }}>
-        <Text type='big_paragraph'>Orlando Briceño</Text>
+        <Text type='big_paragraph' style={{ margin: '1rem 0' }}>Orlando Briceño</Text>
       </div>
 
       {/* Buttons */}
