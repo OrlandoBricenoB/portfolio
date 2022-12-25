@@ -20,10 +20,7 @@ const RateStar = ({
     if (onClick) {
       onClick()
     } else {
-      setState(prev => {
-        console.log({ prev })
-        return prev !== 'filled' ? 'filled' : 'empty'
-      })
+      setState(prev => prev !== 'filled' ? 'filled' : 'empty')
     }
   }
 
