@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "server-dev": "pm2 start npm --name \"portfolio-dev\" -- run dev"
   },
   "dependencies": {
     "next": "latest",
