@@ -4,6 +4,10 @@
   gap: .75rem;
 }
 
+.home__title {
+  margin: 0
+}
+
 .social_buttons {
   width: auto;
   display: flex;
@@ -53,6 +57,10 @@
 @media screen and (max-width: 768px) {
   .home_container {
     grid-template-areas: "content" "profile" "social";
+  }
+
+  .home__title {
+    text-align: center
   }
 
   .social_buttons {
