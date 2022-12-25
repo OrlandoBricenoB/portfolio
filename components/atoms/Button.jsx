@@ -9,7 +9,7 @@ const Button = ({
 }) => {
   return (
     <button className={`${styles.button} ${styles['button--' + type]} ${keepCase && styles.keep_case}`}>
-      {Icon && <Icon />}
+      {Icon}
       <Text type='button' style={{ margin: 0 }}>{children}</Text>
     </button>
   )

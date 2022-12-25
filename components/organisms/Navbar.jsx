@@ -66,7 +66,7 @@ const Navbar = () => {
           </Dropdown>
         </div>
         <Button
-          Icon={() => <ContactPage color='#070a2b' />}
+          Icon={<ContactPage color='#070a2b' />}
         >Contáctame</Button>
       </div>
     </header>

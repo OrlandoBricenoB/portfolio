@@ -1,4 +1,3 @@
-import styles from '../styles/pages/home.module.css'
 import Button from '../components/atoms/Button'
 import Container from '../components/atoms/Container'
 import Link from '../components/atoms/links/Link'
@@ -19,6 +18,11 @@ import StackOverflow from '../components/atoms/icons/StackOverflow'
 import Multirating from '../components/molecules/rating/Multirating'
 
 import profilePresentation from '../assets/images/profile-presentation.jpg'
+
+import CloudDownload from '../components/atoms/icons/CloudDownload'
+import Email from '../components/atoms/icons/Email'
+
+import styles from '../styles/pages/home.module.css'
 
 export default function Home() {
   return (
@@ -44,9 +48,9 @@ export default function Home() {
         </SocialButton>
       </aside>
       {/* Content */}
-      <div className={styles.home__content} style={{ width: '100%' }}>
-        <Heading type='h1' style={{ margin: '0', textAlign: 'center' }}>Desarrollador Full Stack</Heading>
-        <Text type='big_paragraph' style={{ margin: '0', textAlign: 'center' }}>NodeJS, React, SQL & NoSQL</Text>
+      <div style={{ width: '100%' }}>
+        <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
+        <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
         {/* Image Mobile */}
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <img src={profilePresentation.src} className={styles.profile_presentation__image} />
@@ -54,8 +58,22 @@ export default function Home() {
             Orlando Jose Briceño Blanco<br />🇻🇪 Venezuela
           </figcaption>
         </figure>
-        <br /><br /><br />
-        
+        <Text type='paragraph'>
+          Hi! I'm Orlando. 👋🏼<br /><br />
+          Paso la vida disfrutando desarrollar soluciones automatizadas para todo tipo de problemas.<br /><br />
+          A mis 16 años de edad pasé de amar la programación a también vivir de ella, convirtiéndome en un profesional Full Stack capaz de desarrollar todo tipo de aplicaciones sobre sólidos patrones de arquitectura. Y es por esto y más que amo estudiar autodidactamente y me esfuerzo en crecer cada día adaptándome a las nuevas tecnologías.
+        </Text>
+
+      Me da pena con gente aquí en el cuarto xd, está César.
+
+        <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
+        <Button
+          type='ghost'
+          Icon={<Email color='#21c2e1' />}
+          keepCase
+        >Enviar email</Button>
+
+
         <Heading type='h2'>Título 2</Heading>
         <Heading type='h3'>Título 3</Heading>
         <Text type='paragraph'>Test de párrafo</Text>
@@ -64,7 +82,7 @@ export default function Home() {
         <div style={{ display: 'flex', gap: '.5rem', marginBottom: '.5rem' }}>
           <Badge>Insignia</Badge>
           <Badge
-            Icon={() => <CSS size='16' />}
+            Icon={<CSS size='16' />}
           >Insignia</Badge>
         </div>
 
@@ -77,10 +95,6 @@ export default function Home() {
             Este es un texto, pero puedes dar <Link>click aquí</Link> creo yo.
           </Text>
           <Button keepCase={true}>Contáctame</Button>
-          <br />
-          <Button type='ghost'>Ghost</Button>
-          <br />
-          <Button type='outlined'>Outlined</Button>
         </Container>
       </div>
       {/* Image */}

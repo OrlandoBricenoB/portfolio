@@ -4,7 +4,7 @@ import styles from '../../styles/atoms/badge.module.css'
 const Badge = ({
   children,
   style = {},
-  Icon,
+  Icon = null,
   withHover = false,
   ...rest
 }) => {
@@ -14,7 +14,7 @@ const Badge = ({
       className={`${styles.badge} ${withHover && styles['badge--hover']}`}
       {...rest}
     >
-      {Icon && <Icon />}
+      {Icon}
       <Text type='small_paragraph'>{children}</Text>
     </div>
   )
