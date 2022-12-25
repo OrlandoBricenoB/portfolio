@@ -64,12 +64,14 @@ export default function Home() {
           A mis 16 años de edad pasé de amar la programación a también vivir de ella, convirtiéndome en un profesional Full Stack capaz de desarrollar todo tipo de aplicaciones sobre sólidos patrones de arquitectura. Y es por esto y más que amo estudiar autodidactamente y me esfuerzo en crecer cada día adaptándome a las nuevas tecnologías.
         </Text>
 
-        <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
-        <Button
-          type='ghost'
-          Icon={<Email color='#21c2e1' />}
-          keepCase
-        >Enviar email</Button>
+        <div style={{ display: 'flex', gap: '.5rem' }}>
+          <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
+          <Button
+            type='ghost'
+            Icon={<Email color='#21c2e1' />}
+            keepCase
+          >Enviar email</Button>
+        </div>
 
 
         <Heading type='h2'>Título 2</Heading>
