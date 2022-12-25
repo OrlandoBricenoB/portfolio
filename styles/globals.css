@@ -32,7 +32,8 @@ html {
   font-family: Rubik, Ubuntu, Cantarell, Fira Sans, Droid Sans;
   background-color: var(--bg);
   color: var(--white);
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+  min-width: fit-content;
 }
 
 body {
