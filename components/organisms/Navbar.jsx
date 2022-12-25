@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import NavButton from '../atoms/links/NavButton'
 import styles from '../../styles/organisms/navBar.module.css'
 import Text from '../atoms/texts/Text'
@@ -8,10 +10,8 @@ import LanguageSelector from '../molecules/LanguageSelector'
 import Dropdown from '../atoms/dropdown/Dropdown'
 import Badge from '../atoms/Badge'
 
-import Venezuela from '../atoms/icons/flags/Venezuela'
 import Spain from '../atoms/icons/flags/Spain'
 import USA from '../atoms/icons/flags/USA'
-import { useState } from 'react'
 
 const Navbar = () => {
   // * Dropdown
@@ -52,7 +52,7 @@ const Navbar = () => {
             style={{ display: 'flex', flexDirection: 'column', gap: '.35rem' }}
           >
             <Badge
-              Icon={Venezuela}
+              Icon={Spain}
               style={{ cursor: 'pointer', width: '100%' }}
               onClick={() => handleClickLanguage('es')}
               withHover
