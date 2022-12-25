@@ -54,6 +54,7 @@ const Multirating = ({ onRate }) => {
         stars.map(star => {
           return (
             <RateStar
+              key={star.number}
               state={star.state}
               onClick={() => handleClickRating(star.number)}
               onMouseEnter={() => handleMouseEnter(star.number)}
