@@ -34,7 +34,7 @@ import profilePresentation from '../../../assets/images/profile-presentation.jpg
 /*
   * STYLES
 */
-import styles from '../../../styles/pages/home.module.css'
+import styles from '../../../styles/pages/home/home.module.css'
 
 const MainSection = () => {
   return (
@@ -65,9 +65,7 @@ const MainSection = () => {
         <div>
           <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
           <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
-          <div
-            style={{ display: 'flex', alignItems: 'center', gap: '.5rem'   }}
-          >
+          <div className={styles.home__rating}>
             <Multirating filled hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
@@ -92,11 +90,7 @@ const MainSection = () => {
         </Text>
 
         {/* Presentation Video */}
-        <Container style={{
-          display: 'flex',
-          padding: 0,
-          width: '75%'
-        }}>
+        <Container className={styles.home__presentation}>
           <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
             <img src={profilePresentation.src} style={{
               width: '100%',
@@ -122,7 +116,7 @@ const MainSection = () => {
         </Container>
 
         {/* CTA */}
-        <div style={{ display: 'flex', gap: '.5rem' }}>
+        <div className={styles.home__cta}>
           <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
           <Button
             type='ghost'
