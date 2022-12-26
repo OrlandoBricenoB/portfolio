@@ -130,29 +130,6 @@ const MainSection = () => {
             keepCase
           >Enviar email</Button>
         </div>
-
-        <Heading type='h2'>Título 2</Heading>
-        <Heading type='h3'>Título 3</Heading>
-        <Text type='paragraph'>Test de párrafo</Text>
-        <Text type='small_paragraph'>Small</Text>
-        <Text type='button'>Button</Text>
-        <div style={{ display: 'flex', gap: '.5rem', marginBottom: '.5rem' }}>
-          <Badge>Insignia</Badge>
-          <Badge
-            Icon={<CSS size='16' />}
-          >Insignia</Badge>
-        </div>
-
-        <Container>
-          <RateStar />
-          <Multirating />
-          <Heading type='h3' color='#ffffff'>Título 3</Heading>
-          <NavButton>Prueba 1</NavButton>
-          <Text type='paragraph'>
-            Este es un texto, pero puedes dar <Link>click aquí</Link> creo yo.
-          </Text>
-          <Button keepCase={true}>Contáctame</Button>
-        </Container>
       </div>
       {/* Image */}
       <figure className={styles.profile_presentation}>
