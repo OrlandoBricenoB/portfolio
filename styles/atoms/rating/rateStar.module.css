@@ -3,10 +3,10 @@
   transition: .2s ease transform
 }
 
-.rate_star:hover {
+.rate_star:hover:not(.rate_star--hoverless) {
   transform: scale(1.1)
 }
 
-.rate_star:active {
-  transform: scale(1.25);
+.rate_star:active:not(.rate_star--hoverless) {
+  transform: scale(1.25)
 }

@@ -7,6 +7,7 @@ const RateStar = ({
   color = '#21c2e1',
   state: fixedState = '',
   keepColor = false,
+  hoverLess = false,
   onClick,
   ...rest
 }) => {
@@ -31,7 +32,7 @@ const RateStar = ({
 
   return (
     <div
-      className={styles.rate_star}
+      className={`${styles.rate_star} ${hoverLess && styles['rate_star--hoverless']}`}
       onClick={handleClick}
       style={{ display: 'inline-flex', height: '100%', cursor: 'pointer' }}
       {...rest}

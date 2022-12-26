@@ -1,11 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import RateStar from "../../atoms/rating/RateStar"
 
-const Multirating = ({ onRate }) => {
+const Multirating = ({ onRate, filled, hoverLess = false }) => {
   const [stars, setStars] = useState([1, 2, 3, 4, 5].map(star => ({ number: star, state: 'empty' })))
   const [selectedValue, setSelectedValue] = useState(0)
 
+  useEffect(() => {
+    if (filled) {
+      setStars(stars => {
+        return stars.map(star => {
+          star.state = 'filled'
+          return star
+        })
+      })
+    }
+  }, [filled])
+
   const handleClickRating = quantity => {
+    if (filled) return
     setSelectedValue(quantity)
     onRate && onRate(quantity)
 
@@ -26,6 +38,7 @@ const Multirating = ({ onRate }) => {
   }
 
   const handleMouseEnter = starNumber => {
+    if (filled) return
     setStars(stars => {
       return stars.map(star => {
         // * Solo hacer hover a las estrellas que no estén seleccionadas.
@@ -39,6 +52,7 @@ const Multirating = ({ onRate }) => {
     })
   }
   const handleMouseLeave = () => {
+    if (filled) return
     setStars(stars => {
       // * Quitar el hover a todas las estrellas que no estén seleccionadas.
       return stars.map(star => {
@@ -60,6 +74,7 @@ const Multirating = ({ onRate }) => {
               onMouseEnter={() => handleMouseEnter(star.number)}
               onMouseLeave={handleMouseLeave}
               keepColor={star.keepColor}
+              hoverLess={hoverLess}
             />
           )
         })
