@@ -1,7 +1,15 @@
 .home_container {
   display: grid;
   grid-template-areas: "social content profile";
-  gap: .75rem;
+  gap: 1rem;
+}
+
+.home__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  grid-area: content
 }
 
 .home__title {
@@ -17,14 +25,12 @@
   grid-area: social
 }
 
-.home__content {
-  grid-area: content
-}
-
 .profile_presentation {
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 25vw;
+  margin: 0;
   grid-area: profile
 }
 
@@ -59,6 +65,10 @@
     grid-template-areas: "content" "profile" "social";
   }
 
+  .home__content {
+    height: fit-content
+  }
+
   .home__title {
     text-align: center
   }
@@ -67,6 +77,10 @@
     flex-direction: row;
     place-items: center;
     justify-content: space-between
+  }
+
+  .profile_presentation {
+    max-width: 100%;
   }
 
   .profile_presentation__caption {
