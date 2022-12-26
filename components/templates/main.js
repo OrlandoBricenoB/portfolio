@@ -1,6 +1,6 @@
 import Navbar from '../organisms/Navbar'
 
-export default function Layout({ children }) {
+export default function MainTemplate({ children }) {
   return (
     <>
       <Navbar />
