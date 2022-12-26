@@ -54,6 +54,15 @@ export default function Home() {
         <div>
           <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
           <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
+          <div
+            style={{ display: 'flex', alignItems: 'center', gap: '.5rem'   }}
+          >
+            <Multirating filled hoverLess />
+            <Link
+              style={{ cursor: 'pointer' }}
+              onClick={() => { alert('Open modal of recommendations') }}
+            >900 recomendaciones</Link>
+          </div>
         </div>
 
         {/* Image Mobile */}
@@ -75,8 +84,7 @@ export default function Home() {
         <Container style={{
           display: 'flex',
           padding: 0,
-          width: '75%',
-          height: '192px'
+          width: '75%'
         }}>
           <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
             <img src={profilePresentation.src} style={{
