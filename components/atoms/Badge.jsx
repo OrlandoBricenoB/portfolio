@@ -15,7 +15,7 @@ const Badge = ({
       {...rest}
     >
       {Icon}
-      <Text type='small_paragraph'>{children}</Text>
+      <Text type='small_paragraph' style={{ margin: 0 }}>{children}</Text>
     </div>
   )
 }

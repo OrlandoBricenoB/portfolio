@@ -2,6 +2,7 @@
   display: grid;
   grid-template-areas: "social content profile";
   gap: 1rem;
+  padding-bottom: 1rem
 }
 
 .home__content {
@@ -14,6 +15,23 @@
 
 .home__title {
   margin: 0
+}
+
+.home__rating {
+  display: flex;
+  align-items: center;
+  gap: .5rem
+}
+
+.home__presentation {
+  display: flex;
+  padding: 0;
+  width: 75%
+}
+
+.home__cta {
+  display: flex;
+  gap: .5rem
 }
 
 .social_buttons {
@@ -72,6 +90,17 @@
   .home__title {
     text-align: center
   }
+
+  .home__presentation {
+    width: 100%
+  }
+
+  .home__rating,
+  .home__cta {
+    justify-content: center
+  }
+
+  
 
   .social_buttons {
     flex-direction: row;

@@ -42,6 +42,11 @@ body {
   padding: 0 2rem
 }
 
+hr {
+  border: none;
+  border-top: 1px solid #fff
+}
+
 @media screen and (max-width: 768px) {
   html { font-size: .85rem }
 }
@@ -49,3 +54,8 @@ body {
 @media screen and (max-width: 480px) {
   html { font-size: .75rem }
 }
+
+/*
+  * Importing CSS
+*/
+@import url('./pages/home/projects.css')

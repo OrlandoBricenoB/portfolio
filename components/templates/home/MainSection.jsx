@@ -4,11 +4,8 @@
 import Button from '../../atoms/Button'
 import Container from '../../atoms/Container'
 import Link from '../../atoms/links/Link'
-import NavButton from '../../atoms/links/NavButton'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
-import RateStar from '../../atoms/rating/RateStar'
-import Badge from '../../atoms/Badge'
 
 import Multirating from '../../molecules/rating/Multirating'
 import SocialButton from '../../molecules/socials/SocialButton'
@@ -16,7 +13,6 @@ import SocialButton from '../../molecules/socials/SocialButton'
 /*
   * ICONS
 */
-import CSS from '../../atoms/icons/tools/CSS'
 import Linkedin from '../../atoms/icons/Linkedin'
 import Twitter from '../../atoms/icons/Twitter'
 import Github from '../../atoms/icons/Github'
@@ -34,7 +30,7 @@ import profilePresentation from '../../../assets/images/profile-presentation.jpg
 /*
   * STYLES
 */
-import styles from '../../../styles/pages/home.module.css'
+import styles from '../../../styles/pages/home/home.module.css'
 
 const MainSection = () => {
   return (
@@ -65,9 +61,7 @@ const MainSection = () => {
         <div>
           <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
           <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
-          <div
-            style={{ display: 'flex', alignItems: 'center', gap: '.5rem'   }}
-          >
+          <div className={styles.home__rating}>
             <Multirating filled hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
@@ -92,11 +86,7 @@ const MainSection = () => {
         </Text>
 
         {/* Presentation Video */}
-        <Container style={{
-          display: 'flex',
-          padding: 0,
-          width: '75%'
-        }}>
+        <Container className={styles.home__presentation}>
           <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
             <img src={profilePresentation.src} style={{
               width: '100%',
@@ -122,7 +112,7 @@ const MainSection = () => {
         </Container>
 
         {/* CTA */}
-        <div style={{ display: 'flex', gap: '.5rem' }}>
+        <div className={styles.home__cta}>
           <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
           <Button
             type='ghost'
@@ -130,29 +120,6 @@ const MainSection = () => {
             keepCase
           >Enviar email</Button>
         </div>
-
-        <Heading type='h2'>Título 2</Heading>
-        <Heading type='h3'>Título 3</Heading>
-        <Text type='paragraph'>Test de párrafo</Text>
-        <Text type='small_paragraph'>Small</Text>
-        <Text type='button'>Button</Text>
-        <div style={{ display: 'flex', gap: '.5rem', marginBottom: '.5rem' }}>
-          <Badge>Insignia</Badge>
-          <Badge
-            Icon={<CSS size='16' />}
-          >Insignia</Badge>
-        </div>
-
-        <Container>
-          <RateStar />
-          <Multirating />
-          <Heading type='h3' color='#ffffff'>Título 3</Heading>
-          <NavButton>Prueba 1</NavButton>
-          <Text type='paragraph'>
-            Este es un texto, pero puedes dar <Link>click aquí</Link> creo yo.
-          </Text>
-          <Button keepCase={true}>Contáctame</Button>
-        </Container>
       </div>
       {/* Image */}
       <figure className={styles.profile_presentation}>
