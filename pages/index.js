@@ -1,4 +1,4 @@
-import MainSection from '../components/templates/home/mainSection'
+import MainSection from '../components/templates/home/MainSection'
 
 export default function Home() {
   return (
