@@ -20,6 +20,7 @@ import Multirating from '../components/molecules/rating/Multirating'
 import profilePresentation from '../assets/images/profile-presentation.jpg'
 
 import CloudDownload from '../components/atoms/icons/CloudDownload'
+import Clock from '../components/atoms/icons/Clock'
 import Email from '../components/atoms/icons/Email'
 
 import styles from '../styles/pages/home.module.css'
@@ -49,10 +50,12 @@ export default function Home() {
       </aside>
       {/* Content */}
       <div className={styles.home__content}>
+        {/* Title */}
         <div>
           <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
           <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
         </div>
+
         {/* Image Mobile */}
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <img src={profilePresentation.src} className={styles.profile_presentation__image} />
@@ -60,12 +63,46 @@ export default function Home() {
             Orlando Jose Briceño Blanco<br />🇻🇪 Venezuela
           </figcaption>
         </figure>
+
+        {/* Bio */}
         <Text type='paragraph'>
           Hi! I'm Orlando. 👋🏼<br /><br />
           Paso la vida disfrutando desarrollar soluciones automatizadas para todo tipo de problemas.<br /><br />
           A mis 16 años de edad pasé de amar la programación a también vivir de ella, convirtiéndome en un profesional Full Stack capaz de desarrollar todo tipo de aplicaciones sobre sólidos patrones de arquitectura. Y es por esto y más que amo estudiar autodidactamente y me esfuerzo en crecer cada día adaptándome a las nuevas tecnologías.
         </Text>
 
+        {/* Presentation Video */}
+        <Container style={{
+          display: 'flex',
+          padding: 0,
+          width: '75%',
+          height: '192px'
+        }}>
+          <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
+            <img src={profilePresentation.src} style={{
+              width: '100%',
+              aspectRatio: '16 / 9',
+              borderRadius: '4px 0 0 4px',
+              objectFit: 'cover'
+            }} />
+          </div>
+          <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <Text type='big_paragraph' style={{ margin: 0, marginBottom: '.5rem' }}>
+              Presentación: Quién soy y qué hago
+            </Text>
+            <Text type='paragraph' style={{
+              color: '#8E92C2',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '.35rem',
+              margin: '0'
+            }}>
+              <Clock color='#8E92C2' /> 00:30
+            </Text>
+          </div>
+        </Container>
+
+        {/* CTA */}
         <div style={{ display: 'flex', gap: '.5rem' }}>
           <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
           <Button
