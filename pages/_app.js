@@ -1,6 +1,6 @@
 import 'normalizecss/normalize.css'
 import '../styles/globals.css'
-import Layout from '../components/layouts/main'
+import Layout from '../components/templates/main'
 import Head from 'next/head'
 
 export default function MyApp({ Component, pageProps }) {
