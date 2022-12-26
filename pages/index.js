@@ -48,9 +48,11 @@ export default function Home() {
         </SocialButton>
       </aside>
       {/* Content */}
-      <div style={{ width: '100%' }}>
-        <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
-        <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
+      <div className={styles.home__content}>
+        <div>
+          <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
+          <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
+        </div>
         {/* Image Mobile */}
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <img src={profilePresentation.src} className={styles.profile_presentation__image} />
@@ -72,7 +74,6 @@ export default function Home() {
             keepCase
           >Enviar email</Button>
         </div>
-
 
         <Heading type='h2'>Título 2</Heading>
         <Heading type='h3'>Título 3</Heading>
