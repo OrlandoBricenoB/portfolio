@@ -52,13 +52,13 @@ const Navbar = () => {
             style={{ display: 'flex', flexDirection: 'column', gap: '.35rem' }}
           >
             <Badge
-              Icon={Spain}
+              Icon={<Spain />}
               style={{ cursor: 'pointer', width: '100%' }}
               onClick={() => handleClickLanguage('es')}
               withHover
             >Español</Badge>
             <Badge
-              Icon={USA}
+              Icon={<USA />}
               style={{ cursor: 'pointer', width: '100%' }}
               onClick={() => handleClickLanguage('en')}
               withHover
