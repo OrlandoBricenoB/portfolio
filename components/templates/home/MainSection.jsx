@@ -4,11 +4,8 @@
 import Button from '../../atoms/Button'
 import Container from '../../atoms/Container'
 import Link from '../../atoms/links/Link'
-import NavButton from '../../atoms/links/NavButton'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
-import RateStar from '../../atoms/rating/RateStar'
-import Badge from '../../atoms/Badge'
 
 import Multirating from '../../molecules/rating/Multirating'
 import SocialButton from '../../molecules/socials/SocialButton'
@@ -16,7 +13,6 @@ import SocialButton from '../../molecules/socials/SocialButton'
 /*
   * ICONS
 */
-import CSS from '../../atoms/icons/tools/CSS'
 import Linkedin from '../../atoms/icons/Linkedin'
 import Twitter from '../../atoms/icons/Twitter'
 import Github from '../../atoms/icons/Github'
