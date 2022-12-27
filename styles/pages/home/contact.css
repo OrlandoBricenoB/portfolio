@@ -1,0 +1,10 @@
+.contact__information {
+  display: grid;
+  grid-template-columns: 2fr 8fr; 
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact__information_text {
+  padding: 0 4rem;
+}

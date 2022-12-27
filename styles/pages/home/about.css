@@ -1,0 +1,35 @@
+.about_certifications {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem
+}
+
+.about_certification {
+  width: 100%;
+  background-color: var(--container-bg);
+  border-radius: 0 0 4px 4px;
+}
+
+.about_certification__image {
+  margin: 0;
+  border-radius: 4px 4px 0 0;
+}
+
+.about_certification__image img {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+.about_certification__content {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  padding-top: 4rem;
+  align-items: flex-end;
+}

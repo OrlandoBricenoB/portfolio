@@ -55,6 +55,10 @@ hr {
   html { font-size: .75rem }
 }
 
+.section {
+  margin-top: 6rem
+}
+
 .image_gradient {
   position: absolute;
   top: calc(100% - 0.95rem);
@@ -100,3 +104,4 @@ hr {
 */
 @import url('./pages/home/projects.css');
 @import url('./pages/home/about.css');
+@import url('./pages/home/contact.css');
