@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import styles from '../../styles/atoms/button.module.css'
 import Text from './texts/Text'
 
@@ -5,13 +6,23 @@ const Button = ({
   children,
   type = 'default',
   Icon = null,
-  keepCase = false
+  keepCase = false,
+  componentElement = 'button',
+  ...rest
 }) => {
-  return (
-    <button className={`${styles.button} ${styles['button--' + type]} ${keepCase && styles.keep_case}`}>
+  rest.className = `${styles.button} ${styles['button--' + type]} ${keepCase && styles.keep_case}`
+
+  const Content = () => (
+    <>
       {Icon}
       <Text type='button' style={{ margin: 0 }}>{children}</Text>
-    </button>
+    </>
+  )
+
+  return createElement(
+    componentElement,
+    rest,
+    <Content />
   )
 }
 

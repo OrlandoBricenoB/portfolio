@@ -113,10 +113,18 @@ const MainSection = () => {
 
         {/* CTA */}
         <div className={styles.home__cta}>
-          <Button type='outlined' Icon={<CloudDownload color='#21c2e1' />}>Descargar CV</Button>
           <Button
-            type='ghost'
+            type='outlined'
+            Icon={<CloudDownload color='#21c2e1' />}
+            componentElement='a'
+            href='#!'
+          >Descargar CV</Button>
+          <Button
             Icon={<Email color='#21c2e1' />}
+            type='ghost'
+            componentElement='a'
+            href='mailto://orlando.briceno.blanco@gmail.com'
+            style={{ width: 'fit-content' }}
             keepCase
           >Enviar email</Button>
         </div>
