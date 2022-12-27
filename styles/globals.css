@@ -39,7 +39,7 @@ html {
 body {
   max-width: 1440px;
   margin: 0px auto;
-  padding: 0 2rem
+  padding: 0
 }
 
 hr {
@@ -53,6 +53,37 @@ hr {
 
 @media screen and (max-width: 480px) {
   html { font-size: .75rem }
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary);
+  color: var(--bg);
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.footer__description {
+  width: 100%;
+}
+
+.footer__brands {
+  width: 100%;
+  background-color: var(--bg)!important;
+  color: #fff;
+}
+
+.footer__credits {
+  background-color: var(--bg);
+  color: var(--white);
+  padding: 1.5rem;
+  grid-area: credits;
+  text-align: center
 }
 
 /*
