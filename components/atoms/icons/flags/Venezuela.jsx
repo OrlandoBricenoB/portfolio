@@ -3,7 +3,7 @@ const Venezuela = ({ size = '24', color = '#ffffff' }) => {
 
   return (
     <svg width={size} height={heightCalculated} viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_157_447)">
+      <g clipPath="url(#clip0_157_447)">
         <path d="M0 0H24V18H0V0Z" fill="#CF142B"/>
         <path d="M0 0H24V12H0V0Z" fill="#00247D"/>
         <path d="M0 0H24V6H0V0Z" fill="#FFCC00"/>
