@@ -71,7 +71,7 @@ const AboutSection = () => {
           {
             certifications.map(certification => {
               return (
-                <div className={classNames('about_certification')}>
+                <div className={classNames('about_certification')} key={certification.name}>
                   <figure className={classNames('about_certification__image')}>
                     <img src={certification.image.src} />
                   </figure>

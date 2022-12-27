@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import NavButton from '../atoms/links/NavButton'
 import styles from '../../styles/organisms/navBar.module.css'
@@ -14,6 +15,8 @@ import Spain from '../atoms/icons/flags/Spain'
 import USA from '../atoms/icons/flags/USA'
 
 const Navbar = () => {
+  const router = useRouter()
+
   // * Dropdown
   const [isOpenDropdown, setIsOpenDropdown] = useState(false)
 
@@ -22,10 +25,11 @@ const Navbar = () => {
   }
 
   // * Select language
-  const [language, setLanguage] = useState('es')
   const handleClickLanguage = lang => {
-    setLanguage(lang)
     setIsOpenDropdown(false)
+
+    const { pathname, asPath, query } = router
+    router.push({ pathname, query }, asPath, { locale: lang })
   }
 
   return (

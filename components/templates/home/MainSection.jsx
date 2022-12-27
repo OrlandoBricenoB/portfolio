@@ -1,4 +1,9 @@
 /*
+  * i18n
+*/
+import { useTranslation } from 'next-i18next'
+
+/*
   * COMPONENTS
 */
 import Button from '../../atoms/Button'
@@ -33,6 +38,8 @@ import profilePresentation from '../../../assets/images/profile-presentation.jpg
 import styles from '../../../styles/pages/home/home.module.css'
 
 const MainSection = () => {
+  const { t } = useTranslation('common')
+
   return (
     <div className={styles.home_container}>
       {/* Social Buttons */}
@@ -59,7 +66,7 @@ const MainSection = () => {
       <div className={styles.home__content}>
         {/* Title */}
         <div>
-          <Heading type='h1' className={styles.home__title}>Desarrollador Full Stack</Heading>
+          <Heading type='h1' className={styles.home__title}>{t('h1')}</Heading>
           <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
           <div className={styles.home__rating}>
             <Multirating filled hoverLess />
