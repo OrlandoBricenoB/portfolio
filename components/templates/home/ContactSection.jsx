@@ -19,7 +19,7 @@ import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
 
-const ContactSection = () => {
+const ContactSection = ({ recommendations, users }) => {
   /* * Swiper of Recommendations */
   const [swiper, setSwiper] = useState(null)
   const [position, setPosition] = useState(0)
@@ -99,38 +99,25 @@ const ContactSection = () => {
               onSlideChange={handleChangeSwiper}
               onSwiper={_swiper => setSwiper(_swiper)}
             >
-              <SwiperSlide>
-                <Recommendation
-                  image={ContactProfile.src}
-                  name='Oscar Barajas Tavares (@gndx)'
-                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
-                  stars={4}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Recommendation
-                  image={ContactProfile.src}
-                  name='Oscar Barajas Tavares (@gndx)'
-                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
-                  stars={4}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Recommendation
-                  image={ContactProfile.src}
-                  name='Oscar Barajas Tavares (@gndx)'
-                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
-                  stars={4}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Recommendation
-                  image={ContactProfile.src}
-                  name='Oscar Barajas Tavares (@gndx)'
-                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
-                  stars={4}
-                />
-              </SwiperSlide>
+              {
+                recommendations.map(recommendation => {
+                  const user = users.find(user => user.uuid === recommendation.userUUID)
+                  if (!user) return <></>
+
+                  const fullName = user.name + ' ' + user.lastname
+
+                  return (
+                    <SwiperSlide key={recommendation.uuid}>
+                      <Recommendation
+                        image={recommendation.image || ContactProfile.src}
+                        name={fullName}
+                        message={recommendation.message}
+                        stars={recommendation.quantity}
+                      />
+                    </SwiperSlide>
+                  )
+                })
+              }
             </Swiper>
 
             <div className={classNames('contact__pagination')}>
@@ -138,7 +125,7 @@ const ContactSection = () => {
                 onLeft={handlePrevSwiper}
                 onRight={handleNextSwiper}
                 disabledLeft={position <= 0}
-                disabledRight={position >= 3}
+                disabledRight={position >= recommendations.length - 1}
               />
               <div className={classNames('content__pagination_slides')}>
                 <Swiper

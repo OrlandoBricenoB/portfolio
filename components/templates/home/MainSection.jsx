@@ -37,7 +37,7 @@ import profilePresentation from '../../../assets/images/profile-presentation.jpg
 */
 import styles from '../../../styles/pages/home/home.module.css'
 
-const MainSection = () => {
+const MainSection = ({ recommendations = [] }) => {
   const { t } = useTranslation('common')
 
   return (
@@ -73,7 +73,7 @@ const MainSection = () => {
             <Link
               style={{ cursor: 'pointer' }}
               onClick={() => { alert('Open modal of recommendations') }}
-            >900 recomendaciones</Link>
+            >{recommendations.length} recomendaciones</Link>
           </div>
         </div>
 
