@@ -76,7 +76,7 @@ const AboutSection = () => {
       image: Intelligence
     },
     {
-      name: 'Curso de Pensamiento Lógico: Algoritmos y Diagramas de Flujo',
+      name: 'Curso de Pensamiento Lógico',
       description: '...',
       image: LogicThinking
     }
@@ -130,7 +130,7 @@ const AboutSection = () => {
                       </figure>
                       <div className={classNames('about_certification__content')}>
                         <Text type='big_paragraph' style={{ margin: 0 }}>{certification.name}</Text>
-                        <Text type='paragraph' style={{ margin: 0 }}>{certification.description}</Text>
+                        {/* <Text type='paragraph' style={{ margin: 0 }}>{certification.description}</Text> */}
                       </div>
                     </div>
                   </SwiperSlide>
