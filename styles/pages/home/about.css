@@ -51,7 +51,10 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .about__content { grid-template-columns: 1fr }
+  .about__content {
+    padding-top: 2rem;
+    grid-template-columns: 1fr
+  }
 
   .about__content_image {
     display: none
