@@ -18,6 +18,7 @@ import Twitter from '../../atoms/icons/Twitter'
 import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
+import Container from '../../atoms/Container'
 
 const ContactSection = ({ recommendations, users }) => {
   /* * Swiper of Recommendations */
@@ -50,6 +51,10 @@ const ContactSection = ({ recommendations, users }) => {
       !formData.quantity) return setIsValidForm(false)
   
     return setIsValidForm(true)
+  }
+
+  const handleCreateRecommendation = () => {
+    console.log({ formData })
   }
 
   return (
@@ -89,72 +94,83 @@ const ContactSection = ({ recommendations, users }) => {
           </div>
         </div>
         {/* Recommendations */}
-        <div className={classNames('contact__recommendations')}>
+        <div className={classNames('contact__recommendations')} id="recommendations">
           {/* Swiper Recommendations */}
-          <div style={{ overflow: 'hidden' }}>
-            <Swiper
-              modules={[Controller]}
-              spaceBetween={16}
-              slidesPerView={1}
-              onSlideChange={handleChangeSwiper}
-              onSwiper={_swiper => setSwiper(_swiper)}
-            >
-              {
-                recommendations.map(recommendation => {
-                  const user = users.find(user => user.uuid === recommendation.userUUID)
-                  if (!user) return <></>
-
-                  const fullName = user.name + ' ' + user.lastname
-
-                  return (
-                    <SwiperSlide key={recommendation.uuid}>
-                      <Recommendation
-                        image={recommendation.image || ContactProfile.src}
-                        name={fullName}
-                        message={recommendation.message}
-                        stars={recommendation.quantity}
-                      />
-                    </SwiperSlide>
-                  )
-                })
-              }
-            </Swiper>
-
-            <div className={classNames('contact__pagination')}>
-              <Pagination
-                onLeft={handlePrevSwiper}
-                onRight={handleNextSwiper}
-                disabledLeft={position <= 0}
-                disabledRight={position >= recommendations.length - 1}
-              />
-              <div className={classNames('content__pagination_slides')}>
+          {
+            recommendations.length !== 0 && (
+              <div style={{ overflow: 'hidden' }}>
                 <Swiper
                   modules={[Controller]}
-                  controller={{ control: swiper }}
-                  spaceBetween={8}
-                  slidesPerView={3}
-                  simulateTouch={false}
+                  spaceBetween={16}
+                  slidesPerView={1}
+                  onSlideChange={handleChangeSwiper}
+                  onSwiper={_swiper => setSwiper(_swiper)}
                 >
                   {
-                    swiper?.slides.map((slide, index) => {
+                    recommendations.map(recommendation => {
+                      const user = users.find(user => user.uuid === recommendation.userUUID)
+                      if (!user) return <></>
+
+                      const fullName = user.name + ' ' + user.lastname
+
                       return (
-                        <SwiperSlide key={index}>
-                          <div
-                            onClick={() => swiper.slideTo(index)}
-                            className={
-                              classNames('content__pagination_slide', {
-                                'content__pagination_slide--current': index === swiper.activeIndex
-                              })
-                            }
+                        <SwiperSlide key={recommendation.uuid}>
+                          <Recommendation
+                            image={recommendation.image || ContactProfile.src}
+                            name={fullName}
+                            message={recommendation.message}
+                            stars={recommendation.quantity}
                           />
                         </SwiperSlide>
                       )
                     })
                   }
-                </Swiper> 
+                </Swiper>
+
+                <div className={classNames('contact__pagination')}>
+                  <Pagination
+                    onLeft={handlePrevSwiper}
+                    onRight={handleNextSwiper}
+                    disabledLeft={position <= 0}
+                    disabledRight={position >= recommendations.length - 1}
+                  />
+                  <div className={classNames('content__pagination_slides')}>
+                    <Swiper
+                      modules={[Controller]}
+                      controller={{ control: swiper }}
+                      spaceBetween={8}
+                      slidesPerView={3}
+                      simulateTouch={false}
+                    >
+                      {
+                        swiper?.slides.map((slide, index) => {
+                          return (
+                            <SwiperSlide key={index}>
+                              <div
+                                onClick={() => swiper.slideTo(index)}
+                                className={
+                                  classNames('content__pagination_slide', {
+                                    'content__pagination_slide--current': index === swiper.activeIndex
+                                  })
+                                }
+                              />
+                            </SwiperSlide>
+                          )
+                        })
+                      }
+                    </Swiper> 
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            )
+          }
+          {
+            recommendations.length === 0 && (
+              <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ textAlign: 'center' }}>No hay recomendaciones<br /><br />¡Puedes ser el primero!</Text>
+              </Container>
+            )
+          }
           {/* Write Recommendation */}
           <div>
             <Text type='big_paragraph'>Deja tu recomendación</Text>
@@ -190,7 +206,7 @@ const ContactSection = ({ recommendations, users }) => {
               keepCase
               disabled={!isValidForm}
               style={{ marginTop: '1.5rem' }}
-              onClick={() => console.log({ formData })}
+              onClick={handleCreateRecommendation}
             >Enviar recomendación</Button>
           </div>
         </div>
