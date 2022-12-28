@@ -10,6 +10,8 @@ import ContactProfile from '../../../assets/images/contact-profile.png'
 import Linkedin from '../../atoms/icons/Linkedin'
 import Twitter from '../../atoms/icons/Twitter'
 import ImageGradient from '../../atoms/ImageGradient'
+import Recommendation from '../../organisms/Recommendation'
+import Pagination from '../../molecules/Pagination'
 
 const ContactSection = () => {
   return (
@@ -49,7 +51,27 @@ const ContactSection = () => {
           </div>
         </div>
         {/* Recommendations */}
-        <div>Bottom</div>
+        <div className={classNames('contact__recommendations')}>
+          <div>
+            <Recommendation
+              image={ContactProfile.src}
+              name='Oscar Barajas Tavares (@gndx)'
+              message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
+              stars={4}
+            />
+            <div className={classNames('contact__pagination')}>
+              <Pagination />
+              <div className={classNames('content__pagination_slides')}>
+                <div className={classNames('content__pagination_slide', { 'content__pagination_slide--current': true })}></div>
+                <div className={classNames('content__pagination_slide')}></div>
+                <div className={classNames('content__pagination_slide')}></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            Right side
+          </div>
+        </div>
       </div>
     </div>
   )
