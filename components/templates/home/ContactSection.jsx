@@ -30,10 +30,10 @@ const ContactSection = () => {
             </Text>
             {/* Social Buttons */}
             <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem' }}>
-              <a href='https://linkedin.com/in/orlandobricenob' target='_blank'>
+              <a href='https://linkedin.com/in/orlandobricenob' target='_blank' className={classNames('contact__social_button')}>
                 <Linkedin color='#21c2e1' size='32' />
               </a>
-              <a href='https://twitter.com/orlandobricenob' target='_blank'>
+              <a href='https://twitter.com/orlandobricenob' target='_blank' className={classNames('contact__social_button')}>
                 <Twitter color='#21c2e1' size='32' />
               </a>
             </div>

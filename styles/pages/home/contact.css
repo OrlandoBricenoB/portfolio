@@ -8,3 +8,11 @@
 .contact__information_text {
   padding: 0 4rem;
 }
+
+.contact__social_button path {
+  transition: .2s ease fill
+}
+
+.contact__social_button:hover path {
+  fill: var(--primary-lighter)
+}
