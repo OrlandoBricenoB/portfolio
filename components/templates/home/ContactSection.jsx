@@ -1,4 +1,6 @@
 import classNames from 'classnames'
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import 'swiper/css'
 
 import Button from '../../atoms/Button'
 import Heading from '../../atoms/texts/Heading'
@@ -12,8 +14,24 @@ import Twitter from '../../atoms/icons/Twitter'
 import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
 import Pagination from '../../molecules/Pagination'
+import { useEffect, useState } from 'react'
 
 const ContactSection = () => {
+  /* * Swiper of Recommendations */
+  const [swiper, setSwiper] = useState(null)
+  const [position, setPosition] = useState(0)
+
+  useEffect(() => {
+    console.log({ position })
+  }, [position])
+
+  const handleChangeSwiper = () => {
+    setPosition(swiper.activeIndex)
+  }
+
+  const handlePrevSwiper = () => swiper && swiper.slidePrev()
+  const handleNextSwiper = () => swiper && swiper.slideNext()
+
   return (
     <div className={classNames('contact', 'section')}>
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Hablemos</Heading>
@@ -52,15 +70,54 @@ const ContactSection = () => {
         </div>
         {/* Recommendations */}
         <div className={classNames('contact__recommendations')}>
-          <div>
-            <Recommendation
-              image={ContactProfile.src}
-              name='Oscar Barajas Tavares (@gndx)'
-              message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
-              stars={4}
-            />
+          <div style={{ overflow: 'hidden' }}>
+            <Swiper
+              spaceBetween={16}
+              slidesPerView={1}
+              onSlideChange={handleChangeSwiper}
+              onSwiper={_swiper => setSwiper(_swiper)}
+            >
+              <SwiperSlide>
+                <Recommendation
+                  image={ContactProfile.src}
+                  name='Oscar Barajas Tavares (@gndx)'
+                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
+                  stars={4}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Recommendation
+                  image={ContactProfile.src}
+                  name='Oscar Barajas Tavares (@gndx)'
+                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
+                  stars={4}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Recommendation
+                  image={ContactProfile.src}
+                  name='Oscar Barajas Tavares (@gndx)'
+                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
+                  stars={4}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Recommendation
+                  image={ContactProfile.src}
+                  name='Oscar Barajas Tavares (@gndx)'
+                  message='¡Orlando es un tipo con grandes capacidades, el mejor de lo mejor, sí que sí!'
+                  stars={4}
+                />
+              </SwiperSlide>
+            </Swiper>
+
             <div className={classNames('contact__pagination')}>
-              <Pagination />
+              <Pagination
+                onLeft={handlePrevSwiper}
+                onRight={handleNextSwiper}
+                disabledLeft={position <= 0}
+                disabledRight={position >= 3}
+              />
               <div className={classNames('content__pagination_slides')}>
                 <div className={classNames('content__pagination_slide', { 'content__pagination_slide--current': true })}></div>
                 <div className={classNames('content__pagination_slide')}></div>
