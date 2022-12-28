@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import RateStar from "../../atoms/rating/RateStar"
 
-const Multirating = ({ onRate, filled, hoverLess = false }) => {
+const Multirating = ({ onRate, filled = 0, hoverLess = false }) => {
   const [stars, setStars] = useState([1, 2, 3, 4, 5].map(star => ({ number: star, state: 'empty' })))
   const [selectedValue, setSelectedValue] = useState(0)
 
@@ -9,7 +9,8 @@ const Multirating = ({ onRate, filled, hoverLess = false }) => {
     if (filled) {
       setStars(stars => {
         return stars.map(star => {
-          star.state = 'filled'
+          if (star.number <= filled) star.state = 'filled'
+          else star.state = 'empty'
           return star
         })
       })

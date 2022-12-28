@@ -103,6 +103,7 @@ hr {
   * Importing CSS
 */
 @import url('./atoms/pagination.css');
+@import url('./organisms/recommendation.css');
 
 @import url('./pages/home/projects.css');
 @import url('./pages/home/about.css');

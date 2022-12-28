@@ -1,0 +1,13 @@
+.recommendation {
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  gap: 1rem;
+  padding: 1rem 0
+}
+
+.recommendation__image {
+  width: 100%;
+  border-radius: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}

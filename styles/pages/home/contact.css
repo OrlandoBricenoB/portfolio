@@ -16,3 +16,8 @@
 .contact__social_button:hover path {
   fill: var(--primary-lighter)
 }
+
+.contact__recommendations {
+  display: flex;
+  gap: 1.5rem
+}
