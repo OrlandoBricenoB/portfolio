@@ -61,3 +61,17 @@
   height: 1.5rem;
   background-color: var(--white);
 }
+
+@media screen and (max-width: 768px) {
+  .contact__recommendations {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__information {
+    grid-template-columns: 3fr 7fr;
+  }
+
+  .contact__information_text {
+    padding: 0 2rem;
+  }
+}

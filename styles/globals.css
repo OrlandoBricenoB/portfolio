@@ -38,8 +38,10 @@ html {
 
 body {
   max-width: 1440px;
+  width: 100vw;
   margin: 0px auto;
-  padding: 0
+  padding: 0;
+  overflow-x: hidden;
 }
 
 hr {

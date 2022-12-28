@@ -92,6 +92,14 @@ const AboutSection = () => {
             modules={[Controller, Pagination, Navigation, Scrollbar]}
             spaceBetween={16}
             slidesPerView={4}
+            breakpoints={{
+              320: {
+                slidesPerView: 2
+              },
+              640: {
+                slidesPerView: 4
+              }
+            }}
             controller
             scrollbar={{
               draggable: true,

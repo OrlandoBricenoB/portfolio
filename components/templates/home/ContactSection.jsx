@@ -170,6 +170,7 @@ const ContactSection = () => {
           </div>
           {/* Write Recommendation */}
           <div>
+            <Text type='big_paragraph'>Deja tu recomendación</Text>
             <Multirating onRate={handleRateRecommendation} />
             <input
               type='text'

@@ -1,10 +1,15 @@
+.about__container {
+  width: calc(100vw - 4rem)
+}
+
 .about__container,
 .about_certifications {
   overflow: hidden;
 }
 
 .about_certifications {
-  width: calc(100vw - 6rem)
+  width: 100%;
+  margin: 0 auto
 }
 
 .about_certification {
