@@ -13,12 +13,30 @@ function Document({ ...rest }) {
   return (
     <Html lang={currentLocale}>
       <Head>
-        <title>Desarrollador Web Full Stack - Orlando Briceño</title>
         <meta charSet="utf-8" />
         <meta
           property="viewport"
           content="width=device-width, initial-scale=1.0"
         />
+
+        {/* Primary Meta Tags */}
+        <title>Desarrollador Web Full Stack - Orlando Briceño</title>
+        <meta name="title" content="Desarrollador Web Full Stack - Orlando Briceño" />
+        <meta name="description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://orlandobricenob.dev/" />
+        <meta property="og:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
+        <meta property="og:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
+        <meta property="og:image" content="https://orlandobricenob.dev/meta-cover.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://orlandobricenob.dev/" />
+        <meta property="twitter:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
+        <meta property="twitter:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
+        <meta property="twitter:image" content="https://orlandobricenob.dev/meta-cover.png" />
       </Head>
       <body>
         <Main />
