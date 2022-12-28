@@ -69,7 +69,7 @@ const MainSection = () => {
           <Heading type='h1' className={styles.home__title}>{t('h1')}</Heading>
           <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
           <div className={styles.home__rating}>
-            <Multirating filled hoverLess />
+            <Multirating filled={5} hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
               onClick={() => { alert('Open modal of recommendations') }}
