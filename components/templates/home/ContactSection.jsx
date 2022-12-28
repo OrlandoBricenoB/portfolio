@@ -83,7 +83,7 @@ const ContactSection = () => {
               Icon={<Email color='#070a2b' />}
               keepCase
               componentElement='a'
-              href='mailto://orlando.briceno.blanco@gmail.com'
+              href='mailto:orlando.briceno.blanco@gmail.com'
               style={{ width: 'fit-content' }}
             >Enviar email</Button>
           </div>

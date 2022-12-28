@@ -131,7 +131,7 @@ const MainSection = () => {
             Icon={<Email color='#21c2e1' />}
             type='ghost'
             componentElement='a'
-            href='mailto://orlando.briceno.blanco@gmail.com'
+            href='mailto:orlando.briceno.blanco@gmail.com'
             style={{ width: 'fit-content' }}
             keepCase
           >Enviar email</Button>
