@@ -7,6 +7,8 @@ import Text from '../../atoms/texts/Text'
 import Email from '../../atoms/icons/Email'
 
 import ContactProfile from '../../../assets/images/contact-profile.png'
+import Linkedin from '../../atoms/icons/Linkedin'
+import Twitter from '../../atoms/icons/Twitter'
 
 const ContactSection = () => {
   return (
@@ -27,8 +29,13 @@ const ContactSection = () => {
               Si realmente te ha gustado mi trabajo y perfil como desarrollador, te pido, por favor que me des tu recomendación honesta para poder seguir creciendo y sustentar mi hogar, mi esposa y mi familia; con tu apoyo me ayudarías mucho más de lo que te imaginas.
             </Text>
             {/* Social Buttons */}
-            <div style={{ marginBottom: '1.5rem' }}>
-              LinkedIn y Twitter
+            <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem' }}>
+              <a href='https://linkedin.com/in/orlandobricenob' target='_blank'>
+                <Linkedin color='#21c2e1' size='32' />
+              </a>
+              <a href='https://twitter.com/orlandobricenob' target='_blank'>
+                <Twitter color='#21c2e1' size='32' />
+              </a>
             </div>
             <Button
               Icon={<Email color='#070a2b' />}
