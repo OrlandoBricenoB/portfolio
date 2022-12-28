@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import classNames from 'classnames'
+import { Controller } from 'swiper'
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import Pagination from '../../molecules/Pagination'
 import 'swiper/css'
 
 import Button from '../../atoms/Button'
@@ -13,24 +16,23 @@ import Linkedin from '../../atoms/icons/Linkedin'
 import Twitter from '../../atoms/icons/Twitter'
 import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
-import Pagination from '../../molecules/Pagination'
-import { useEffect, useState } from 'react'
 
 const ContactSection = () => {
   /* * Swiper of Recommendations */
   const [swiper, setSwiper] = useState(null)
   const [position, setPosition] = useState(0)
 
-  useEffect(() => {
-    console.log({ position })
-  }, [position])
-
   const handleChangeSwiper = () => {
+    console.log({ swiper })
     setPosition(swiper.activeIndex)
   }
 
-  const handlePrevSwiper = () => swiper && swiper.slidePrev()
-  const handleNextSwiper = () => swiper && swiper.slideNext()
+  const handlePrevSwiper = () => {
+    swiper && swiper.slidePrev()
+  }
+  const handleNextSwiper = () => {
+    swiper && swiper.slideNext()
+  }
 
   return (
     <div className={classNames('contact', 'section')}>
@@ -72,6 +74,7 @@ const ContactSection = () => {
         <div className={classNames('contact__recommendations')}>
           <div style={{ overflow: 'hidden' }}>
             <Swiper
+              modules={[Controller]}
               spaceBetween={16}
               slidesPerView={1}
               onSlideChange={handleChangeSwiper}
@@ -119,9 +122,30 @@ const ContactSection = () => {
                 disabledRight={position >= 3}
               />
               <div className={classNames('content__pagination_slides')}>
-                <div className={classNames('content__pagination_slide', { 'content__pagination_slide--current': true })}></div>
-                <div className={classNames('content__pagination_slide')}></div>
-                <div className={classNames('content__pagination_slide')}></div>
+                <Swiper
+                  modules={[Controller]}
+                  controller={{ control: swiper }}
+                  spaceBetween={8}
+                  slidesPerView={3}
+                  simulateTouch={false}
+                >
+                  {
+                    swiper?.slides.map((slide, index) => {
+                      return (
+                        <SwiperSlide>
+                          <div
+                            onClick={() => swiper.slideTo(index)}
+                            className={
+                              classNames('content__pagination_slide', {
+                                'content__pagination_slide--current': index === swiper.activeIndex
+                              })
+                            }
+                          />
+                        </SwiperSlide>
+                      )
+                    })
+                  }
+                </Swiper> 
               </div>
             </div>
           </div>

@@ -33,6 +33,15 @@
   display: flex;
   gap: .5rem;
   align-items: center;
+  overflow: hidden;
+}
+
+.content__pagination_slides .swiper-wrapper {
+  align-items: center
+}
+
+.content__pagination_slides .swiper-slide {
+  width: fit-content!important
 }
 
 .content__pagination_slide {
@@ -43,6 +52,8 @@
   height: 1rem;
   background-color: var(--gray);
   border-radius: 100%;
+  cursor: pointer;
+  transition: .2s ease all
 }
 
 .content__pagination_slide--current {
