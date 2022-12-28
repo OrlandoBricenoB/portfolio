@@ -68,10 +68,12 @@
   }
 
   .contact__information {
-    grid-template-columns: 3fr 7fr;
+    grid-template-columns: 1fr;
   }
 
+  .contact__information figure { display: none }
+
   .contact__information_text {
-    padding: 0 2rem;
+    padding: 0;
   }
 }

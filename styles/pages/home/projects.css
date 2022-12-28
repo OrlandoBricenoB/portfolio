@@ -8,3 +8,16 @@
   width: 100%;
   padding: 1rem 0;
 }
+
+@media screen and (max-width: 768px) {
+  .projects__content {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .projects__knowledges {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%
+  }
+}

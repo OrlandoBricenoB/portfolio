@@ -59,4 +59,9 @@
   .about__content_image {
     display: none
   }
+
+  .about__container {
+    min-width: 100%;
+    max-width: 100vw
+  }
 }

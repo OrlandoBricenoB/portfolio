@@ -90,16 +90,18 @@ const ProjectsSection = () => {
           <div>
             <Text type='big_paragraph' style={{ padding: '.75rem', margin: 0 }}>Conocimientos</Text>
 
-            {knowledges.map(knowledge => {
-              return (
-                <div key={knowledge.name}>
-                  <Badge
-                    Icon={<div style={{ width: '36px' }}><knowledge.icon /></div>}
-                    style={{ backgroundColor: 'transparent' }}
-                  >{knowledge.name}</Badge>
-                </div>
-              )
-            })}
+            <div className={classNames('projects__knowledges')}>
+              {knowledges.map(knowledge => {
+                return (
+                  <div key={knowledge.name}>
+                    <Badge
+                      Icon={<div style={{ width: '36px' }}><knowledge.icon /></div>}
+                      style={{ backgroundColor: 'transparent', color: '#8E92C2' }}
+                    >{knowledge.name}</Badge>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
         {/* Projects */}
