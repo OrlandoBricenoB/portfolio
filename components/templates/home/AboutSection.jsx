@@ -86,7 +86,7 @@ const AboutSection = () => {
         </div>
         {/* About */}
         <div className={classNames('about__content')}>
-          <figure style={{ margin: 0, position: 'relative' }}>
+          <figure className={classNames('about__content_image')} style={{ margin: 0, position: 'relative' }}>
             <img src={ThinkingProfile.src} style={{ width: '100%' }} />
             <ImageGradient />
           </figure>
