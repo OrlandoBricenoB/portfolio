@@ -72,7 +72,8 @@ const MainSection = ({ recommendations = [] }) => {
             <Multirating filled={5} hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
-              onClick={() => { alert('Open modal of recommendations') }}
+              to='#recommendations'
+              // onClick={() => { alert('Open modal of recommendations') }}
             >{recommendations.length} recomendaciones</Link>
           </div>
         </div>
