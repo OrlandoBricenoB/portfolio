@@ -102,6 +102,8 @@ hr {
 /*
   * Importing CSS
 */
+@import url('./atoms/pagination.css');
+
 @import url('./pages/home/projects.css');
 @import url('./pages/home/about.css');
 @import url('./pages/home/contact.css');
