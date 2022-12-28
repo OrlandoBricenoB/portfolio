@@ -35,7 +35,7 @@ const ContactSection = () => {
   }
 
   return (
-    <div className={classNames('contact', 'section')}>
+    <div className={classNames('contact', 'section')} id='contact'>
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Hablemos</Heading>
       <div className={classNames('contact_content')}>
         {/* Contact */}

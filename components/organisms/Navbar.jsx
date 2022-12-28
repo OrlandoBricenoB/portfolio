@@ -41,9 +41,9 @@ const Navbar = () => {
 
       {/* Buttons */}
       <div className={styles.nav_buttons}>
-        <NavButton>Presentación</NavButton>
-        <NavButton>Acerca de mí</NavButton>
-        <NavButton>Proyectos</NavButton>
+        <NavButton to='#presentation'>Presentación</NavButton>
+        <NavButton to='#about'>Acerca de mí</NavButton>
+        <NavButton to='#projects'>Proyectos</NavButton>
       </div>
 
       {/* CTA */}
@@ -70,7 +70,9 @@ const Navbar = () => {
           </Dropdown>
         </div>
         <Button
+          componentElement='a'
           Icon={<ContactPage color='#070a2b' />}
+          href='#contact'
         >Contáctame</Button>
       </div>
     </header>

@@ -41,7 +41,7 @@ const MainSection = () => {
   const { t } = useTranslation('common')
 
   return (
-    <div className={styles.home_container}>
+    <div className={styles.home_container} id='presentation'>
       {/* Social Buttons */}
       <aside className={styles.social_buttons}>
         <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>

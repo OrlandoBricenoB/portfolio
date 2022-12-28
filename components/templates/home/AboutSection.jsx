@@ -83,7 +83,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <div className={classNames('section')}>
+    <div className={classNames('section')} id='about'>
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Acerca de mí</Heading>
       <div className={classNames('about__container')}>
         {/* Certificates */}

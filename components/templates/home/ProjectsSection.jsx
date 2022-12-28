@@ -68,7 +68,7 @@ const ProjectsSection = () => {
   ]
 
   return (
-    <div className={classNames('projects', 'section')}>
+    <div className={classNames('projects', 'section')} id='projects'>
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Proyectos</Heading>
       <div className={classNames('projects__content')}>
         {/* Information Aside */}

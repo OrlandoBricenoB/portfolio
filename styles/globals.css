@@ -56,7 +56,8 @@ hr {
 }
 
 .section {
-  margin-top: 6rem
+  padding-top: 2rem;
+  margin-top: 4rem
 }
 
 .image_gradient {
