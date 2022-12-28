@@ -124,7 +124,8 @@ const MainSection = () => {
             type='outlined'
             Icon={<CloudDownload color='#21c2e1' />}
             componentElement='a'
-            href='#!'
+            href='https://drive.google.com/drive/folders/1bsw5DEICWihZpYH6XEXqm0TMuabJxmuy?usp=sharing'
+            target='_blank'
           >Descargar CV</Button>
           <Button
             Icon={<Email color='#21c2e1' />}
