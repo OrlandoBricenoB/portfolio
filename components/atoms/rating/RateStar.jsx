@@ -34,7 +34,7 @@ const RateStar = ({
     <div
       className={`${styles.rate_star} ${hoverLess && styles['rate_star--hoverless']}`}
       onClick={handleClick}
-      style={{ display: 'inline-flex', height: '100%', cursor: 'pointer' }}
+      style={{ display: 'inline-flex', height: '100%', cursor: hoverLess ? 'auto' : 'pointer' }}
       {...rest}
     >
       <Star
