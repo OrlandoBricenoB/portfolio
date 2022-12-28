@@ -9,6 +9,7 @@ import Email from '../../atoms/icons/Email'
 import ContactProfile from '../../../assets/images/contact-profile.png'
 import Linkedin from '../../atoms/icons/Linkedin'
 import Twitter from '../../atoms/icons/Twitter'
+import ImageGradient from '../../atoms/ImageGradient'
 
 const ContactSection = () => {
   return (
@@ -17,8 +18,9 @@ const ContactSection = () => {
       <div className={classNames('contact_content')}>
         {/* Contact */}
         <div className={classNames('contact__information')}>
-          <figure style={{ margin: 0 }}>
+          <figure style={{ margin: 0, position: 'relative' }}>
             <img src={ContactProfile.src} style={{ width: '100%' }} />
+            <ImageGradient />
           </figure>
           <div className={classNames('contact__information_text')}>
             <Heading type='h3' style={{ margin: 0, marginBottom: '4px' }}>Orlando Jose Briceño Blanco</Heading>
