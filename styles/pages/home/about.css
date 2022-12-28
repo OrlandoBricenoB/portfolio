@@ -1,7 +1,10 @@
+.about__container,
 .about_certifications {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem
+  overflow: hidden;
+}
+
+.about_certifications {
+  width: calc(100vw - 6rem)
 }
 
 .about_certification {
@@ -32,6 +35,14 @@
   grid-template-columns: 4fr 6fr;
   padding-top: 4rem;
   align-items: flex-end;
+}
+
+.swiper-scrollbar {
+  background-color: rgb(142 146 194 / 10%)!important;
+}
+
+.swiper-scrollbar-drag {
+  background-color: rgb(33 194 225 / 50%)!important
 }
 
 @media screen and (max-width: 1024px) {
