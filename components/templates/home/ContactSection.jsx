@@ -161,7 +161,7 @@ const ContactSection = ({ recommendations, users }) => {
             <Multirating onRate={handleRateRecommendation} />
             <input
               type='text'
-              placeholder='Aquí va tu nombre'
+              placeholder='¿Cuál es tu nombre?'
               style={{ marginTop: '1rem' }}
               onChange={event => {
                 setFormData(prev => {
@@ -175,7 +175,7 @@ const ContactSection = ({ recommendations, users }) => {
               rows={4}
               maxLength={200}
               defaultValue={''}
-              placeholder='¿Cómo me veo para ti? Máximo 200 caracteres.'
+              placeholder='¿Cómo me veo para ti? En máximo 200 caracteres.'
               style={{ marginTop: '1rem' }}
               onChange={event => {
                 setFormData(prev => {
