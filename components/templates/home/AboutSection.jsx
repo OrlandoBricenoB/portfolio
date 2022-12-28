@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react'
 import classNames from 'classnames'
 
 import Container from '../../atoms/Container'
@@ -16,8 +17,28 @@ import LogicThinking from '../../../assets/images/certifications/diploma-pensami
 
 import ThinkingProfile from '../../../assets/images/thinking-cut.png'
 import ImageGradient from '../../atoms/ImageGradient'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+import { Controller, Navigation, Pagination, Scrollbar } from 'swiper'
+
+let timeoutSlide
 
 const AboutSection = () => {
+  const [swiper, setSwiper] = useState(null)
+
+  const autoSlide = (_swiper, clonnedSwiper) => {
+    if (!clonnedSwiper || !_swiper) return
+    if (clonnedSwiper.isEnd) {
+      _swiper.slideTo(0)
+    } else {
+      _swiper.slideNext()
+    }
+  }
+
   const certifications = [
     {
       name: 'Curso Práctico de JavaScript',
@@ -67,22 +88,48 @@ const AboutSection = () => {
       <div className={classNames('about__container')}>
         {/* Certificates */}
         <div className={classNames('about_certifications')}>
-          {/* Render certificate */}
-          {
-            certifications.map(certification => {
-              return (
-                <div className={classNames('about_certification')} key={certification.name}>
-                  <figure className={classNames('about_certification__image')}>
-                    <img src={certification.image.src} />
-                  </figure>
-                  <div className={classNames('about_certification__content')}>
-                    <Text type='big_paragraph' style={{ margin: 0 }}>{certification.name}</Text>
-                    <Text type='paragraph' style={{ margin: 0 }}>{certification.description}</Text>
-                  </div>
-                </div>
-              )
-            })
-          }
+          <Swiper
+            modules={[Controller, Pagination, Navigation, Scrollbar]}
+            spaceBetween={16}
+            slidesPerView={4}
+            controller
+            scrollbar={{
+              draggable: true,
+              hide: true
+            }}
+            onSwiper={_swiper => {
+              setSwiper(_swiper)
+
+              // * First auto slide
+              clearTimeout(timeoutSlide)
+              timeoutSlide = setTimeout(() => {
+                autoSlide(_swiper, { ..._swiper })
+              }, 5000)
+            }}
+            onSlideChange={_swiper => {
+              clearTimeout(timeoutSlide)
+              timeoutSlide = setTimeout(() => autoSlide(_swiper, { ..._swiper }), 5000)
+            }}
+          >
+            {/* Render certificate */}
+            {
+              certifications.map(certification => {
+                return (
+                  <SwiperSlide key={certification.name}>
+                    <div className={classNames('about_certification')}>
+                      <figure className={classNames('about_certification__image')}>
+                        <img src={certification.image.src} />
+                      </figure>
+                      <div className={classNames('about_certification__content')}>
+                        <Text type='big_paragraph' style={{ margin: 0 }}>{certification.name}</Text>
+                        <Text type='paragraph' style={{ margin: 0 }}>{certification.description}</Text>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                )
+              })
+            }
+          </Swiper>
         </div>
         {/* About */}
         <div className={classNames('about__content')}>
