@@ -29,7 +29,9 @@ const Navbar = () => {
     setIsOpenDropdown(false)
 
     const { pathname, asPath, query } = router
-    router.push({ pathname, query }, asPath, { locale: lang })
+    const asPathScrollLess = asPath.includes('#!') ? asPath : asPath.replace('#', '#!')
+
+    router.push({ pathname, query }, asPathScrollLess, { locale: lang })
   }
 
   return (

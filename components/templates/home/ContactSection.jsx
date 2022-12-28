@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Controller } from 'swiper'
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
@@ -10,28 +10,46 @@ import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
 
 import Email from '../../atoms/icons/Email'
+import AccountStar from '../../atoms/icons/AccountStar'
 
 import ContactProfile from '../../../assets/images/contact-profile.png'
 import Linkedin from '../../atoms/icons/Linkedin'
 import Twitter from '../../atoms/icons/Twitter'
 import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
+import Multirating from '../../molecules/rating/Multirating'
 
 const ContactSection = () => {
   /* * Swiper of Recommendations */
   const [swiper, setSwiper] = useState(null)
   const [position, setPosition] = useState(0)
 
-  const handleChangeSwiper = () => {
-    console.log({ swiper })
-    setPosition(swiper.activeIndex)
+  const handleChangeSwiper = () => setPosition(swiper.activeIndex)
+  const handlePrevSwiper = () => swiper && swiper.slidePrev()
+  const handleNextSwiper = () => swiper && swiper.slideNext()
+
+  /* Form of Recommendation */
+  const [formData, setFormData] = useState({
+    name: '',
+    message: '',
+    quantity: 0
+  })
+  const [isValidForm, setIsValidForm] = useState(false)
+
+  const handleRateRecommendation = value => {
+    setFormData(prev => {
+      prev.quantity = value
+      return prev
+    })
+    checkValidForm()
   }
 
-  const handlePrevSwiper = () => {
-    swiper && swiper.slidePrev()
-  }
-  const handleNextSwiper = () => {
-    swiper && swiper.slideNext()
+  const checkValidForm = () => {
+    if (!formData.name || 
+      !formData.message || formData.message.length > 200 ||
+      !formData.quantity) return setIsValidForm(false)
+  
+    return setIsValidForm(true)
   }
 
   return (
@@ -72,6 +90,7 @@ const ContactSection = () => {
         </div>
         {/* Recommendations */}
         <div className={classNames('contact__recommendations')}>
+          {/* Swiper Recommendations */}
           <div style={{ overflow: 'hidden' }}>
             <Swiper
               modules={[Controller]}
@@ -132,7 +151,7 @@ const ContactSection = () => {
                   {
                     swiper?.slides.map((slide, index) => {
                       return (
-                        <SwiperSlide>
+                        <SwiperSlide key={index}>
                           <div
                             onClick={() => swiper.slideTo(index)}
                             className={
@@ -149,8 +168,42 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
+          {/* Write Recommendation */}
           <div>
-            Right side
+            <Multirating onRate={handleRateRecommendation} />
+            <input
+              type='text'
+              placeholder='Aquí va tu nombre'
+              style={{ marginTop: '1rem' }}
+              onChange={event => {
+                setFormData(prev => {
+                  prev.name = event.target.value
+                  return prev
+                })
+                checkValidForm()
+              }}
+            />
+            <textarea
+              rows={4}
+              maxLength={200}
+              defaultValue={''}
+              placeholder='¿Cómo me veo para ti? Máximo 200 caracteres.'
+              style={{ marginTop: '1rem' }}
+              onChange={event => {
+                setFormData(prev => {
+                  prev.message = event.target.value
+                  return prev
+                })
+                checkValidForm()
+              }}
+            />
+            <Button
+              Icon={<AccountStar color='#070a2b' />}
+              keepCase
+              disabled={!isValidForm}
+              style={{ marginTop: '1.5rem' }}
+              onClick={() => console.log({ formData })}
+            >Enviar recomendación</Button>
           </div>
         </div>
       </div>

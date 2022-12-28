@@ -69,6 +69,28 @@ hr {
   background-image: linear-gradient(to top, #070a2b, transparent)
 }
 
+/* Inputs */
+input, textarea {
+  width: 100%;
+  padding: .5rem 1rem;
+  background-color: var(--container-bg);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  resize: none;
+  transition: .2s ease border-color
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--gray);
+}
+
+input::placeholder, textarea::placeholder {
+  opacity: 0.5;
+  color: var(--gray-lighter)
+}
+
+
 /* Footer */
 .footer {
   background-color: var(--primary);
@@ -98,6 +120,20 @@ hr {
   padding: 1.5rem;
   grid-area: credits;
   text-align: center
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 8px
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg)
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
 }
 
 /*
