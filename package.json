@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "server-dev": "pm2 start npm --name \"portfolio-dev\" -- run dev"
+    "server-dev": "pm2 start npm --name \"portfolio-dev\" -- run dev",
+    "server-start": "pm2 start npm --name \"portfolio-production\" -- run start"
   },
   "dependencies": {
     "classnames": "^2.3.2",
