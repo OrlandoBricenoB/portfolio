@@ -23,6 +23,13 @@
   "projects--expertises-1": "Since 2011",
   "projects--expertises-2": "+10 years of experience",
 
+  "projects--leadingraph-content-1": "Product Manager and Lead Developer",
+  "projects--leadingraph-content-2": "LeadinGraph is time-saving software managing posts from multiple social media accounts.",
+
+  "projects--file-content-1": "I've built this JavaScript library that gets the extension and/or mimeType of a filename or path.",
+  "projects--file-content-2": "Its purpose is to make the job of managing file extensions in the backend easier.",
+  "projects--item-cta": "See the Project",
+
   "certification--professional-git": "Professional Git and GitHub Course",
   "certification--practical-javascript": "Practical JavaScript Course",
   "certification--professional-javascript": "Professional JavaScript Course",
