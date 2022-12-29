@@ -14,8 +14,16 @@
   transition: .2s ease color, .2s ease background-color, .2s ease transform
 }
 
+.button path {
+  transition: .2s ease fill
+}
+
 .button--default:hover:not(.button--disabled) {
   background-color: var(--primary-lighter);
+}
+
+.button--default:hover path {
+  fill: var(--container-bg)
 }
 
 .button--ghost {
@@ -36,6 +44,10 @@
 .button--outlined:hover:not(.button--disabled) {
   border-color: var(--primary-lighter);
   color: var(--primary-lighter);
+}
+
+.button--outlined:hover path {
+  fill: var(--primary-lighter)
 }
 
 .button--disabled {
