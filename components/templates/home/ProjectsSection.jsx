@@ -120,7 +120,7 @@ const ProjectsSection = () => {
             <figure style={{
               margin: 0,
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'flex-start'
             }}>
               <img src={LeadinGraph.src} style={{
                   maxWidth: '100%',
@@ -136,19 +136,18 @@ const ProjectsSection = () => {
                   LeadinGraph
                 </Heading>
                 <Text type='big_paragraph' style={{ color: '#8E92C2', margin: 0 }}>
-                  Este proyecto...
+                  {t('projects--leadingraph-content-1')}<br /><br />
+                  {t('projects--leadingraph-content-2')}
+                  <br /><br />
                 </Text>
                 {/* Badge Tools */}
                 <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}>
                   <Badge
-                    Icon={<HTML size='24' />}
-                  >HTML</Badge>
-                  <Badge
-                    Icon={<CSS size='24' />}
-                  >CSS</Badge>
-                  <Badge
                     Icon={<JavaScript size='24' />}
                   >JavaScript</Badge>
+                  <Badge
+                    Icon={<TypeScript size='24' />}
+                  >TypeScript</Badge>
                   <Badge
                     Icon={<React size='24' />}
                   >React</Badge>
@@ -165,8 +164,11 @@ const ProjectsSection = () => {
                 type='outlined'
                 Icon={<GoToFile color='#21c2e1' />}
                 style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://leadingraph.com'
+                target='_blank'
               >
-                Ver el proyecto
+                {t('projects--item-cta')}
               </Button>
             </div>
           </Container>
@@ -192,9 +194,9 @@ const ProjectsSection = () => {
                 File Ext
               </Text>
               <Text type='paragraph' style={{ color: '#8E92C2', margin: 0 }}>
-                Construí esta librería de JavaScript que obtiene la extensión y/o mimeType de un nombre de archivo o ruta.
+                {t('projects--file-content-1')}
                 <br /><br />
-                Su propósito es hacer más fácil el trabajo del manejo de extensiones de archivos en el backend.
+                {t('projects--file-content-2')}
               </Text>
               {/* Badge Tools */}
               <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
@@ -212,7 +214,7 @@ const ProjectsSection = () => {
                 href='https://www.npmjs.com/package/@jo-sword/file-ext'
                 target='_blank'
               >
-                Ver el proyecto
+                {t('projects--item-cta')}
               </Button>
             </div>
           </Container>
