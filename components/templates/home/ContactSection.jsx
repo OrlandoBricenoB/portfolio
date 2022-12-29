@@ -23,7 +23,7 @@ import useTranslate from '../../../hooks/useTranslate'
 import Image from 'next/image'
 
 const ContactSection = ({ recommendations, users }) => {
-  const { t, ready } = useTranslate()
+  const { t } = useTranslate()
 
   /* * Swiper of Recommendations */
   const [swiper, setSwiper] = useState(null)
@@ -63,7 +63,7 @@ const ContactSection = ({ recommendations, users }) => {
 
   return (
     <div className={classNames('contact', 'section')} id='contact'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{ready && t('contact--title')}</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('contact--title')}</Heading>
       <div className={classNames('contact_content')}>
         {/* Contact */}
         <div className={classNames('contact__information')}>
@@ -79,11 +79,11 @@ const ContactSection = ({ recommendations, users }) => {
           </figure>
           <div className={classNames('contact__information_text')}>
             <Heading type='h3' style={{ margin: 0, marginBottom: '4px' }}>Orlando Jose Briceño Blanco</Heading>
-            <Text type='big_paragraph' style={{ margin: 0 }}>{ready && t('common--role')}</Text>
+            <Text type='big_paragraph' style={{ margin: 0 }}>{t('common--role')}</Text>
             <Text type='paragraph' style={{ margin: '1.5rem 0' }}>
-              {ready && t('contact--content-1')}
+              {t('contact--content-1')}
               <br /><br />
-              {ready && t('contact--content-2')}
+              {t('contact--content-2')}
             </Text>
             {/* Social Buttons */}
             <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem' }}>
@@ -110,7 +110,7 @@ const ContactSection = ({ recommendations, users }) => {
               componentElement='a'
               href='mailto:orlando.briceno.blanco@gmail.com'
               style={{ width: 'fit-content' }}
-            >{ready && t('common--cta-email')}</Button>
+            >{t('common--cta-email')}</Button>
           </div>
         </div>
         {/* Recommendations */}
@@ -188,20 +188,20 @@ const ContactSection = ({ recommendations, users }) => {
             recommendations.length === 0 && (
               <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Text style={{ textAlign: 'center' }}>
-                  {ready && t('recommendation--empty-1')}
+                  {t('recommendation--empty-1')}
                   <br /><br />
-                  {ready && t('recommendation--empty-2')}
+                  {t('recommendation--empty-2')}
                 </Text>
               </Container>
             )
           }
           {/* Write Recommendation */}
           <div>
-            <Text type='big_paragraph'>{ready && t('recommendations--title')}</Text>
+            <Text type='big_paragraph'>{t('recommendations--title')}</Text>
             <Multirating onRate={handleRateRecommendation} />
             <input
               type='text'
-              placeholder={ready ? t('recommendations--placeholder-name') : ''}
+              placeholder={t('recommendations--placeholder-name')}
               style={{ marginTop: '1rem' }}
               onChange={event => {
                 setFormData(prev => {
@@ -215,7 +215,7 @@ const ContactSection = ({ recommendations, users }) => {
               rows={4}
               maxLength={200}
               defaultValue={''}
-              placeholder={ready ? t('recommendations--placeholder-message') : ''}
+              placeholder={t('recommendations--placeholder-message')}
               style={{ marginTop: '1rem' }}
               onChange={event => {
                 setFormData(prev => {
@@ -231,7 +231,7 @@ const ContactSection = ({ recommendations, users }) => {
               disabled={!isValidForm}
               style={{ marginTop: '1.5rem' }}
               onClick={handleCreateRecommendation}
-            >{ready && t('recommendations--cta')}</Button>
+            >{t('recommendations--cta')}</Button>
           </div>
         </div>
       </div>

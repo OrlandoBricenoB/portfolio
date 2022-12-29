@@ -7,7 +7,6 @@ import useTranslate from '../../../hooks/useTranslate'
   * COMPONENTS
 */
 import Button from '../../atoms/Button'
-import Container from '../../atoms/Container'
 import Link from '../../atoms/links/Link'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
@@ -23,7 +22,6 @@ import Twitter from '../../atoms/icons/Twitter'
 import Github from '../../atoms/icons/Github'
 import StackOverflow from '../../atoms/icons/StackOverflow'
 import CloudDownload from '../../atoms/icons/CloudDownload'
-import Clock from '../../atoms/icons/Clock'
 import Email from '../../atoms/icons/Email'
 import Codepen from '../../atoms/icons/Codepen'
 
@@ -39,7 +37,7 @@ import styles from '../../../styles/pages/home/home.module.css'
 import Image from 'next/image'
 
 const MainSection = ({ recommendations = [] }) => {
-  const { t, ready } = useTranslate()
+  const { t } = useTranslate()
 
   return (
     <div className={styles.home_container} id='presentation'>
@@ -68,10 +66,10 @@ const MainSection = ({ recommendations = [] }) => {
         {/* Title */}
         <div>
           <Heading type='h1' className={styles.home__title}>{
-            ready ? t('common--title') : 'Full Stack Developer'
+            t('common--title')
           }</Heading>
           <Text type='big_paragraph' className={styles.home__title}>{
-            ready ? t('common--specialization') : 'NodeJS, React, SQL & NoSQL'
+            t('common--specialization')
           }</Text>
           <div className={styles.home__rating}>
             <Multirating filled={5} hoverLess />
@@ -80,7 +78,7 @@ const MainSection = ({ recommendations = [] }) => {
               to='#recommendations'
               // onClick={() => { alerready && t('Open modal of recommendations') }}
             >{recommendations.length} {
-              ready ? t('common--recommendations') : 'recommendations'
+              t('common--recommendations')
             }</Link>
           </div>
         </div>
@@ -96,15 +94,15 @@ const MainSection = ({ recommendations = [] }) => {
             alt='Orlando Briceño'
           />
           <figcaption className={styles.profile_presentation__caption}>
-            {ready ? t('common--full-name') : 'Orlando Jose Briceño Blanco'}<br />🇻🇪 Venezuela
+            {t('common--full-name')}<br />🇻🇪 Venezuela
           </figcaption>
         </figure>
 
         {/* Bio */}
         <Text type='paragraph'>
-          {ready ? t('main--greetings') : "Hi! I'm Orlando. 👋🏼"}<br /><br />
-          {ready ? t('main--bio-1') : 'I spend my life developing automated solutions to all kinds of problems.'}<br /><br />
-          {ready ? t('main--bio-2') : 'When I turned 16 years old not only did I love programming, but I also started to make a living from it, becoming a full stack professional capable of developing all kinds of applications on top of solid architecture patterns. As a result of this and more I love self-taught studies and I make an effort to grow every day adapting myself to new technologies.'}
+          {t('main--greetings')}<br /><br />
+          {t('main--bio-1')}<br /><br />
+          {t('main--bio-2')}
         </Text>
 
         {/* Presentation Video */}
@@ -119,7 +117,7 @@ const MainSection = ({ recommendations = [] }) => {
           </div>
           <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Text type='big_paragraph' style={{ margin: 0, marginBottom: '.5rem' }}>
-              {ready && t('main--presentation-title')}
+              {t('main--presentation-title')}
             </Text>
             <Text type='paragraph' style={{
               color: '#8E92C2',
@@ -141,7 +139,7 @@ const MainSection = ({ recommendations = [] }) => {
             componentElement='a'
             href='https://drive.google.com/drive/folders/1bsw5DEICWihZpYH6XEXqm0TMuabJxmuy?usp=sharing'
             target='_blank'
-          >{ready ? t('main--cta-1') : 'Download CV'}</Button>
+          >{t('main--cta-1')}</Button>
           <Button
             Icon={<Email color='#21c2e1' />}
             type='ghost'
@@ -149,7 +147,7 @@ const MainSection = ({ recommendations = [] }) => {
             href='mailto:orlando.briceno.blanco@gmail.com'
             style={{ width: 'fit-content' }}
             keepCase
-          >{ready ? t('common--cta-email') : 'Send Email'}</Button>
+          >{t('common--cta-email')}</Button>
         </div>
       </div>
       {/* Image */}

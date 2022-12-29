@@ -4,7 +4,7 @@ import Container from '../atoms/Container'
 import Text from '../atoms/texts/Text'
 
 const Footer = () => {
-  const { t, ready } = useTranslate()
+  const { t } = useTranslate()
 
   return (
     <footer className={classNames('footer')}>

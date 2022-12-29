@@ -16,7 +16,7 @@ import USA from '../atoms/icons/flags/USA'
 import useTranslate from '../../hooks/useTranslate'
 
 const Navbar = () => {
-  const { t, ready } = useTranslate()
+  const { t } = useTranslate()
 
   const router = useRouter()
 
@@ -46,9 +46,9 @@ const Navbar = () => {
 
       {/* Buttons */}
       <div className={styles.nav_buttons}>
-        <NavButton to='#presentation'>{ready && t('nav--presentation')}</NavButton>
-        <NavButton to='#about'>{ready && t('common--about-me')}</NavButton>
-        <NavButton to='#projects'>{ready && t('common--projects')}</NavButton>
+        <NavButton to='#presentation'>{t('nav--presentation')}</NavButton>
+        <NavButton to='#about'>{t('common--about-me')}</NavButton>
+        <NavButton to='#projects'>{t('common--projects')}</NavButton>
       </div>
 
       {/* CTA */}
@@ -78,7 +78,7 @@ const Navbar = () => {
           componentElement='a'
           Icon={<ContactPage color='#070a2b' />}
           href='#contact'
-        >{ready && t('common--cta-contact')}</Button>
+        >{t('common--cta-contact')}</Button>
       </div>
     </header>
   )

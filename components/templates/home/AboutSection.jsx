@@ -30,7 +30,7 @@ import Image from 'next/image'
 let timeoutSlide
 
 const AboutSection = () => {
-  const { t, ready } = useTranslate()
+  const { t } = useTranslate()
 
   const [swiper, setSwiper] = useState(null)
 
@@ -46,49 +46,49 @@ const AboutSection = () => {
   const certifications = [
     {
       id: 1,
-      name: ready && t('certification--practical-javascript'),
+      name: t('certification--practical-javascript'),
       description: '...',
       image: JavaScriptPractice
     },
     {
       id: 2,
-      name: ready && t('certification--professional-javascript'),
+      name: t('certification--professional-javascript'),
       description: '...',
       image: JavaScriptProfessional
     },
     {
       id: 3,
-      name: ready && t('certification--nodejs'),
+      name: t('certification--nodejs'),
       description: '...',
       image: FundamentalsNodeJS
     },
     {
       id: 4,
-      name: ready && t('certification--professional-git'),
+      name: t('certification--professional-git'),
       description: '...',
       image: GitGithub
     },
     {
       id: 5,
-      name: ready && t('certification--html-css'),
+      name: t('certification--html-css'),
       description: '...',
       image: HTMLCSS
     },
     {
       id: 6,
-      name: ready && t('certification--time-management'),
+      name: t('certification--time-management'),
       description: '...',
       image: TimeManagement
     },
     {
       id: 7,
-      name: ready && t('certification--emotional-intelligence'),
+      name: t('certification--emotional-intelligence'),
       description: '...',
       image: Intelligence
     },
     {
       id: 8,
-      name: ready && t('certification--logical-thinking'),
+      name: t('certification--logical-thinking'),
       description: '...',
       image: LogicThinking
     }
@@ -96,7 +96,7 @@ const AboutSection = () => {
 
   return (
     <div className={classNames('section')} id='about'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{ready && t('common--about-me')}</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('common--about-me')}</Heading>
       <div className={classNames('about__container')}>
         {/* Certificates */}
         <div className={classNames('about_certifications')}>
@@ -170,34 +170,34 @@ const AboutSection = () => {
             <ImageGradient />
           </figure>
           <Container>
-            <Heading type='h3'>{ready && t('about--story-title')}</Heading>
+            <Heading type='h3'>{t('about--story-title')}</Heading>
             <Text type='paragraph'>
-              {ready && t('about--story-content-1')}
+              {t('about--story-content-1')}
               <br /><br />
-              {ready && t('about--story-content-2')}
+              {t('about--story-content-2')}
               <br /><br />
-              {ready && t('about--story-content-3')}
+              {t('about--story-content-3')}
               <br /><br />
-              {ready && t('about--story-content-4')}
+              {t('about--story-content-4')}
               <br /><br />
-              {ready && t('about--story-content-5')}
+              {t('about--story-content-5')}
               <br /><br />
-              {ready && t('about--story-content-6')}
+              {t('about--story-content-6')}
             </Text>
             <ul style={{ paddingLeft: '1.5rem' }}>
-              <li>{ready && t('about--story-content-6-a')}</li>
-              <li>{ready && t('about--story-content-6-b')}</li>
-              <li>{ready && t('about--story-content-6-c')}</li>
-              <li>{ready && t('about--story-content-6-d')}</li>
-              <li>{ready && t('about--story-content-6-e')}</li>
-              <li>{ready && t('about--story-content-6-f')}</li>
+              <li>{t('about--story-content-6-a')}</li>
+              <li>{t('about--story-content-6-b')}</li>
+              <li>{t('about--story-content-6-c')}</li>
+              <li>{t('about--story-content-6-d')}</li>
+              <li>{t('about--story-content-6-e')}</li>
+              <li>{t('about--story-content-6-f')}</li>
             </ul>
             <Text type='paragraph'>
-              {ready && t('about--story-content-7')}
+              {t('about--story-content-7')}
               <br /><br />
-              {ready && t('about--story-content-8')}
+              {t('about--story-content-8')}
               <br /><br />
-              {ready && t('about--story-content-9')}
+              {t('about--story-content-9')}
             </Text>
           </Container>
         </div>
