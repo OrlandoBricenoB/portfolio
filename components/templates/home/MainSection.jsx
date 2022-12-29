@@ -86,7 +86,6 @@ const MainSection = ({ recommendations = [] }) => {
             width={348}
             height={499.2}
             className={styles.profile_presentation__image}
-            priority
             alt='Orlando Briceño'
           />
           <figcaption className={styles.profile_presentation__caption}>
@@ -153,7 +152,6 @@ const MainSection = ({ recommendations = [] }) => {
           width={348}
           height={499.2}
           className={styles.profile_presentation__image}
-          priority
           alt='Orlando Briceño'
         />
         <figcaption className={styles.profile_presentation__caption}>
