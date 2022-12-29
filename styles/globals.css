@@ -49,10 +49,6 @@ hr {
   border-top: 1px solid #fff
 }
 
-@media screen and (max-width: 480px) {
-  html { font-size: 1rem }
-}
-
 .section {
   padding-top: 2rem;
   margin-top: 4rem
@@ -97,7 +93,7 @@ input::placeholder, textarea::placeholder {
 
 .footer__content {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr auto;
   gap: 1rem;
   padding: 2rem;
 }
@@ -107,9 +103,23 @@ input::placeholder, textarea::placeholder {
 }
 
 .footer__brands {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
   width: 100%;
   background-color: var(--bg)!important;
   color: #fff;
+}
+
+.footer__brand {
+  margin: 0
+}
+
+.footer__brand img {
+  width: 100%;
+  height: auto;
 }
 
 .footer__credits {
@@ -118,6 +128,18 @@ input::placeholder, textarea::placeholder {
   padding: 1.5rem;
   grid-area: credits;
   text-align: center
+}
+
+@media screen and (max-width: 768px) {
+  .footer__content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__brands {
+    max-height: 128px;
+    display: flex;
+    justify-content: space-around
+  }
 }
 
 /* Scroll Bar */
