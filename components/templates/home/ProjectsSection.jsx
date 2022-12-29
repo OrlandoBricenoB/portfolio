@@ -141,7 +141,7 @@ const ProjectsSection = () => {
                 <Heading type='h3' style={{ margin: 0 }}>
                   LeadinGraph
                 </Heading>
-                <Text type='big_paragraph' style={{ color: '#8E92C2', margin: 0 }}>
+                <Text type='big_paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                   {t('projects--leadingraph-content-1')}<br /><br />
                   {t('projects--leadingraph-content-2')}
                   <br /><br />
@@ -204,7 +204,7 @@ const ProjectsSection = () => {
               <Text type='big_paragraph' style={{ margin: 0 }}>
                 File Ext
               </Text>
-              <Text type='paragraph' style={{ color: '#8E92C2', margin: 0 }}>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--file-content-1')}
                 <br /><br />
                 {t('projects--file-content-2')}
