@@ -11,7 +11,7 @@ const Badge = ({
 }) => {
   return (
     <div
-      style={{ ...style, backgroundColor: style.backgroundColor || '#292C51' }}
+      style={{ ...style, backgroundColor: style.backgroundColor || '#33375e' }}
       className={`${styles.badge} ${withHover && styles['badge--hover']}`}
       {...rest}
     >
