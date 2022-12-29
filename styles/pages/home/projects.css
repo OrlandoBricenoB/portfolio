@@ -9,10 +9,50 @@
   padding: 1rem 0;
 }
 
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.projects__item {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: fit-content;
+  padding: 0!important;
+}
+
+.projects__item--big {
+  background-color: transparent!important;
+  grid-template-columns: 6fr 4fr;
+}
+
+.projects__item_content {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  gap: .5rem
+}
+
+.projects__item--big .projects__item_content {
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 999px) {
+  .projects__item--big {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .projects__content {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .projects__item {
+    display: block
   }
 
   .projects__expertises {
