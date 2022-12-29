@@ -67,15 +67,21 @@ const MainSection = ({ recommendations = [] }) => {
       <div className={styles.home__content}>
         {/* Title */}
         <div>
-          <Heading type='h1' className={styles.home__title}>{ready && t('common--title')}</Heading>
-          <Text type='big_paragraph' className={styles.home__title}>{ready && t('common--specialization')}</Text>
+          <Heading type='h1' className={styles.home__title}>{
+            ready ? t('common--title') : 'Full Stack Developer'
+          }</Heading>
+          <Text type='big_paragraph' className={styles.home__title}>{
+            ready ? t('common--specialization') : 'NodeJS, React, SQL & NoSQL'
+          }</Text>
           <div className={styles.home__rating}>
             <Multirating filled={5} hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
               to='#recommendations'
               // onClick={() => { alerready && t('Open modal of recommendations') }}
-            >{recommendations.length} {ready && t('common--recommendations')}</Link>
+            >{recommendations.length} {
+              ready ? t('common--recommendations') : 'recommendations'
+            }</Link>
           </div>
         </div>
 
@@ -90,15 +96,15 @@ const MainSection = ({ recommendations = [] }) => {
             alt='Orlando Briceño'
           />
           <figcaption className={styles.profile_presentation__caption}>
-            {ready && t('common--full-name')}<br />🇻🇪 Venezuela
+            {ready ? t('common--full-name') : 'Orlando Jose Briceño Blanco'}<br />🇻🇪 Venezuela
           </figcaption>
         </figure>
 
         {/* Bio */}
         <Text type='paragraph'>
-          {ready && t('main--greetings')}<br /><br />
-          {ready && t('main--bio-1')}<br /><br />
-          {ready && t('main--bio-2')}
+          {ready ? t('main--greetings') : "Hi! I'm Orlando. 👋🏼"}<br /><br />
+          {ready ? t('main--bio-1') : 'I spend my life developing automated solutions to all kinds of problems.'}<br /><br />
+          {ready ? t('main--bio-2') : 'When I turned 16 years old not only did I love programming, but I also started to make a living from it, becoming a full stack professional capable of developing all kinds of applications on top of solid architecture patterns. As a result of this and more I love self-taught studies and I make an effort to grow every day adapting myself to new technologies.'}
         </Text>
 
         {/* Presentation Video */}
@@ -135,7 +141,7 @@ const MainSection = ({ recommendations = [] }) => {
             componentElement='a'
             href='https://drive.google.com/drive/folders/1bsw5DEICWihZpYH6XEXqm0TMuabJxmuy?usp=sharing'
             target='_blank'
-          >{ready && t('main--cta-1')}</Button>
+          >{ready ? t('main--cta-1') : 'Download CV'}</Button>
           <Button
             Icon={<Email color='#21c2e1' />}
             type='ghost'
@@ -143,7 +149,7 @@ const MainSection = ({ recommendations = [] }) => {
             href='mailto:orlando.briceno.blanco@gmail.com'
             style={{ width: 'fit-content' }}
             keepCase
-          >{ready && t('common--cta-email')}</Button>
+          >{ready ? t('common--cta-email') : 'Send Email'}</Button>
         </div>
       </div>
       {/* Image */}
