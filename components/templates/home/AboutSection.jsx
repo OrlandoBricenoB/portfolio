@@ -117,6 +117,7 @@ const AboutSection = () => {
               draggable: true,
               hide: true
             }}
+            simulateTouch={true}
             onSwiper={_swiper => {
               setSwiper(_swiper)
 
