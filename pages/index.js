@@ -5,11 +5,8 @@ import ProjectsSection from '../components/templates/home/ProjectsSection'
 import AboutSection from '../components/templates/home/AboutSection'
 import ContactSection from '../components/templates/home/ContactSection'
 
-import { useEffect } from 'react'
-
 import useRecommendations from '../hooks/useRecommendations'
 import useUsers from '../hooks/useUsers'
-import nextI18nextConfig from '../next-i18next.config'
 
 export default function Home() {
   const {
@@ -19,14 +16,6 @@ export default function Home() {
   const {
     data: users
   } = useUsers()
-
-  useEffect(() => {
-    console.log({ recommendations })
-  }, [recommendations])
-
-  useEffect(() => {
-    console.log({ users })
-  }, [users])
 
   return (
     <>
