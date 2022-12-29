@@ -5,6 +5,7 @@ const Badge = ({
   children,
   style = {},
   Icon = null,
+  paragraphType = 'small_paragraph',
   withHover = false,
   ...rest
 }) => {
@@ -15,7 +16,7 @@ const Badge = ({
       {...rest}
     >
       {Icon}
-      <Text type='small_paragraph' style={{ margin: 0 }}>{children}</Text>
+      <Text type={paragraphType} style={{ margin: 0, marginLeft: Icon ? '.25rem' : '0' }}>{children}</Text>
     </div>
   )
 }
