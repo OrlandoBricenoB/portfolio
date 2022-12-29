@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next'
+import useTranslate from '../../hooks/useTranslate'
 import classNames from 'classnames'
 import Container from '../atoms/Container'
 import Text from '../atoms/texts/Text'
 
 const Footer = () => {
-  const { t } = useTranslation('common')
+  const { t, ready } = useTranslate()
 
   return (
     <footer className={classNames('footer')}>

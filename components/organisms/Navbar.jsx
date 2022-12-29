@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import NavButton from '../atoms/links/NavButton'
@@ -13,10 +13,10 @@ import Badge from '../atoms/Badge'
 
 import Spain from '../atoms/icons/flags/Spain'
 import USA from '../atoms/icons/flags/USA'
-import { useTranslation } from 'react-i18next'
+import useTranslate from '../../hooks/useTranslate'
 
 const Navbar = () => {
-  const { t } = useTranslation('common')
+  const { t, ready } = useTranslate()
 
   const router = useRouter()
 
@@ -46,9 +46,9 @@ const Navbar = () => {
 
       {/* Buttons */}
       <div className={styles.nav_buttons}>
-        <NavButton to='#presentation'>{t('nav--presentation')}</NavButton>
-        <NavButton to='#about'>{t('common--about-me')}</NavButton>
-        <NavButton to='#projects'>{t('common--projects')}</NavButton>
+        <NavButton to='#presentation'>{ready && t('nav--presentation')}</NavButton>
+        <NavButton to='#about'>{ready && t('common--about-me')}</NavButton>
+        <NavButton to='#projects'>{ready && t('common--projects')}</NavButton>
       </div>
 
       {/* CTA */}
@@ -78,7 +78,7 @@ const Navbar = () => {
           componentElement='a'
           Icon={<ContactPage color='#070a2b' />}
           href='#contact'
-        >{t('common--cta-contact')}</Button>
+        >{ready && t('common--cta-contact')}</Button>
       </div>
     </header>
   )

@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 
 import useRecommendations from '../hooks/useRecommendations'
 import useUsers from '../hooks/useUsers'
+import nextI18nextConfig from '../next-i18next.config'
 
 export default function Home() {
   const {
@@ -40,7 +41,7 @@ export default function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"]))
+      ...(await serverSideTranslations(locale, ['common']))
     }
   }
 }

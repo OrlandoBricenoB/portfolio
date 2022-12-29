@@ -1,7 +1,7 @@
 /*
   * i18n
 */
-import { useTranslation } from 'next-i18next'
+import useTranslate from '../../../hooks/useTranslate'
 
 /*
   * COMPONENTS
@@ -38,7 +38,7 @@ import profilePresentation from '../../../assets/images/profile-presentation.jpg
 import styles from '../../../styles/pages/home/home.module.css'
 
 const MainSection = ({ recommendations = [] }) => {
-  const { t } = useTranslation('common')
+  const { t, ready } = useTranslate()
 
   return (
     <div className={styles.home_container} id='presentation'>
@@ -66,15 +66,15 @@ const MainSection = ({ recommendations = [] }) => {
       <div className={styles.home__content}>
         {/* Title */}
         <div>
-          <Heading type='h1' className={styles.home__title}>{t('common--title')}</Heading>
-          <Text type='big_paragraph' className={styles.home__title}>{t('common--specialization')}</Text>
+          <Heading type='h1' className={styles.home__title}>{ready && t('common--title')}</Heading>
+          <Text type='big_paragraph' className={styles.home__title}>{ready && t('common--specialization')}</Text>
           <div className={styles.home__rating}>
             <Multirating filled={5} hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
               to='#recommendations'
-              // onClick={() => { alert('Open modal of recommendations') }}
-            >{recommendations.length} {t('common--recommendations')}</Link>
+              // onClick={() => { alerready && t('Open modal of recommendations') }}
+            >{recommendations.length} {ready && t('common--recommendations')}</Link>
           </div>
         </div>
 
@@ -82,15 +82,15 @@ const MainSection = ({ recommendations = [] }) => {
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <img src={profilePresentation.src} className={styles.profile_presentation__image} />
           <figcaption className={styles.profile_presentation__caption}>
-            {t('common--full-name')}<br />🇻🇪 Venezuela
+            {ready && t('common--full-name')}<br />🇻🇪 Venezuela
           </figcaption>
         </figure>
 
         {/* Bio */}
         <Text type='paragraph'>
-          {t('main--greetings')}<br /><br />
-          {t('main--bio-1')}<br /><br />
-          {t('main--bio-2')}
+          {ready && t('main--greetings')}<br /><br />
+          {ready && t('main--bio-1')}<br /><br />
+          {ready && t('main--bio-2')}
         </Text>
 
         {/* Presentation Video */}
@@ -105,7 +105,7 @@ const MainSection = ({ recommendations = [] }) => {
           </div>
           <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Text type='big_paragraph' style={{ margin: 0, marginBottom: '.5rem' }}>
-              {t('main--presentation-title')}
+              {ready && t('main--presentation-title')}
             </Text>
             <Text type='paragraph' style={{
               color: '#8E92C2',
@@ -127,7 +127,7 @@ const MainSection = ({ recommendations = [] }) => {
             componentElement='a'
             href='https://drive.google.com/drive/folders/1bsw5DEICWihZpYH6XEXqm0TMuabJxmuy?usp=sharing'
             target='_blank'
-          >{t('main--cta-1')}</Button>
+          >{ready && t('main--cta-1')}</Button>
           <Button
             Icon={<Email color='#21c2e1' />}
             type='ghost'
@@ -135,7 +135,7 @@ const MainSection = ({ recommendations = [] }) => {
             href='mailto:orlando.briceno.blanco@gmail.com'
             style={{ width: 'fit-content' }}
             keepCase
-          >{t('common--cta-email')}</Button>
+          >{ready && t('common--cta-email')}</Button>
         </div>
       </div>
       {/* Image */}

@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
+import useTranslate from '../../../hooks/useTranslate'
 import classNames from 'classnames'
 
 import Container from '../../atoms/Container'
@@ -29,7 +29,7 @@ import { Controller, Navigation, Pagination, Scrollbar } from 'swiper'
 let timeoutSlide
 
 const AboutSection = () => {
-  const { t } = useTranslation('common')
+  const { t, ready } = useTranslate()
 
   const [swiper, setSwiper] = useState(null)
 
@@ -44,42 +44,50 @@ const AboutSection = () => {
 
   const certifications = [
     {
-      name: t('certification--practical-javascript'),
+      id: 1,
+      name: ready && t('certification--practical-javascript'),
       description: '...',
       image: JavaScriptPractice
     },
     {
-      name: t('certification--professional-javascript'),
+      id: 2,
+      name: ready && t('certification--professional-javascript'),
       description: '...',
       image: JavaScriptProfessional
     },
     {
-      name: t('certification--nodejs'),
+      id: 3,
+      name: ready && t('certification--nodejs'),
       description: '...',
       image: FundamentalsNodeJS
     },
     {
-      name: t('certification--professional-git'),
+      id: 4,
+      name: ready && t('certification--professional-git'),
       description: '...',
       image: GitGithub
     },
     {
-      name: t('certification--html-css'),
+      id: 5,
+      name: ready && t('certification--html-css'),
       description: '...',
       image: HTMLCSS
     },
     {
-      name: t('certification--time-management'),
+      id: 6,
+      name: ready && t('certification--time-management'),
       description: '...',
       image: TimeManagement
     },
     {
-      name: t('certification--emotional-intelligence'),
+      id: 7,
+      name: ready && t('certification--emotional-intelligence'),
       description: '...',
       image: Intelligence
     },
     {
-      name: t('certification--logical-thinking'),
+      id: 8,
+      name: ready && t('certification--logical-thinking'),
       description: '...',
       image: LogicThinking
     }
@@ -87,7 +95,7 @@ const AboutSection = () => {
 
   return (
     <div className={classNames('section')} id='about'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('common--about-me')}</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{ready && t('common--about-me')}</Heading>
       <div className={classNames('about__container')}>
         {/* Certificates */}
         <div className={classNames('about_certifications')}>
@@ -126,7 +134,7 @@ const AboutSection = () => {
             {
               certifications.map(certification => {
                 return (
-                  <SwiperSlide key={certification.name}>
+                  <SwiperSlide key={certification.id}>
                     <div className={classNames('about_certification')}>
                       <figure className={classNames('about_certification__image')}>
                         <img src={certification.image.src} />
@@ -149,34 +157,34 @@ const AboutSection = () => {
             <ImageGradient />
           </figure>
           <Container>
-            <Heading type='h3'>{t('about--story-title')}</Heading>
+            <Heading type='h3'>{ready && t('about--story-title')}</Heading>
             <Text type='paragraph'>
-              {t('about--story-content-1')}
+              {ready && t('about--story-content-1')}
               <br /><br />
-              {t('about--story-content-2')}
+              {ready && t('about--story-content-2')}
               <br /><br />
-              {t('about--story-content-3')}
+              {ready && t('about--story-content-3')}
               <br /><br />
-              {t('about--story-content-4')}
+              {ready && t('about--story-content-4')}
               <br /><br />
-              {t('about--story-content-5')}
+              {ready && t('about--story-content-5')}
               <br /><br />
-              {t('about--story-content-6')}
+              {ready && t('about--story-content-6')}
             </Text>
             <ul style={{ paddingLeft: '1.5rem' }}>
-              <li>{t('about--story-content-6-a')}</li>
-              <li>{t('about--story-content-6-b')}</li>
-              <li>{t('about--story-content-6-c')}</li>
-              <li>{t('about--story-content-6-d')}</li>
-              <li>{t('about--story-content-6-e')}</li>
-              <li>{t('about--story-content-6-f')}</li>
+              <li>{ready && t('about--story-content-6-a')}</li>
+              <li>{ready && t('about--story-content-6-b')}</li>
+              <li>{ready && t('about--story-content-6-c')}</li>
+              <li>{ready && t('about--story-content-6-d')}</li>
+              <li>{ready && t('about--story-content-6-e')}</li>
+              <li>{ready && t('about--story-content-6-f')}</li>
             </ul>
             <Text type='paragraph'>
-              {t('about--story-content-7')}
+              {ready && t('about--story-content-7')}
               <br /><br />
-              {t('about--story-content-8')}
+              {ready && t('about--story-content-8')}
               <br /><br />
-              {t('about--story-content-9')}
+              {ready && t('about--story-content-9')}
             </Text>
           </Container>
         </div>

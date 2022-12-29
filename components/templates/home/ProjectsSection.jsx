@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import useTranslate from '../../../hooks/useTranslate'
 
 import classNames from 'classnames'
 import Clock from '../../atoms/icons/Clock'
@@ -22,7 +22,7 @@ import Separator from '../../atoms/Separator'
 import Badge from '../../atoms/Badge'
 
 const ProjectsSection = () => {
-  const { t } = useTranslation('common')
+  const { t, ready } = useTranslate()
 
   const expertises = [
     {
@@ -73,26 +73,26 @@ const ProjectsSection = () => {
 
   return (
     <div className={classNames('projects', 'section')} id='projects'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('common--projects')}</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{ready && t('common--projects')}</Heading>
       <div className={classNames('projects__content')}>
         {/* Information Aside */}
         <div>
           {/* Top Information */}
           <div>
-            <Text type='button' style={{ margin: 0, color: '#8E92C2', padding: '.5rem 0' }}>{t('projects--expertises-title')}</Text>
+            <Text type='button' style={{ margin: 0, color: '#8E92C2', padding: '.5rem 0' }}>{ready && t('projects--expertises-title')}</Text>
             <div style={{ color: '#8E92C2', display: 'flex', alignItems: 'center', gap: '.5rem', padding: '.5rem 0' }}>
               <Clock color='#8E92C2' />
-              <Text type='paragraph' style={{ margin: 0 }}>{t('projects--expertises-1')}</Text>
+              <Text type='paragraph' style={{ margin: 0 }}>{ready && t('projects--expertises-1')}</Text>
             </div>
             <div style={{ color: '#8E92C2', display: 'flex', alignItems: 'center', gap: '.5rem', padding: '.5rem 0' }}>
               <UserTie color='#8E92C2' />
-              <Text type='paragraph' style={{ margin: 0 }}>{t('projects--expertises-2')}</Text>
+              <Text type='paragraph' style={{ margin: 0 }}>{ready && t('projects--expertises-2')}</Text>
             </div>
             <Separator color='#8E92C2' />
           </div>
           {/* Expertises */}
           <div>
-            <Text type='big_paragraph' style={{ padding: '.75rem', margin: 0 }}>{t('common--expertises')}</Text>
+            <Text type='big_paragraph' style={{ padding: '.75rem', margin: 0 }}>{ready && t('common--expertises')}</Text>
 
             <div className={classNames('projects__expertises')}>
               {expertises.map(expertise => {
