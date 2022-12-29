@@ -66,15 +66,15 @@ const MainSection = ({ recommendations = [] }) => {
       <div className={styles.home__content}>
         {/* Title */}
         <div>
-          <Heading type='h1' className={styles.home__title}>{t('h1')}</Heading>
-          <Text type='big_paragraph' className={styles.home__title}>NodeJS, React, SQL & NoSQL</Text>
+          <Heading type='h1' className={styles.home__title}>{t('common--title')}</Heading>
+          <Text type='big_paragraph' className={styles.home__title}>{t('common--specialization')}</Text>
           <div className={styles.home__rating}>
             <Multirating filled={5} hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
               to='#recommendations'
               // onClick={() => { alert('Open modal of recommendations') }}
-            >{recommendations.length} recomendaciones</Link>
+            >{recommendations.length} {t('common--recommendations')}</Link>
           </div>
         </div>
 
@@ -82,19 +82,19 @@ const MainSection = ({ recommendations = [] }) => {
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <img src={profilePresentation.src} className={styles.profile_presentation__image} />
           <figcaption className={styles.profile_presentation__caption}>
-            Orlando Jose Briceño Blanco<br />🇻🇪 Venezuela
+            {t('common--full-name')}<br />🇻🇪 Venezuela
           </figcaption>
         </figure>
 
         {/* Bio */}
         <Text type='paragraph'>
-          Hi! I'm Orlando. 👋🏼<br /><br />
-          Paso la vida disfrutando desarrollar soluciones automatizadas para todo tipo de problemas.<br /><br />
-          A mis 16 años de edad pasé de amar la programación a también vivir de ella, convirtiéndome en un profesional Full Stack capaz de desarrollar todo tipo de aplicaciones sobre sólidos patrones de arquitectura. Y es por esto y más que amo estudiar autodidactamente y me esfuerzo en crecer cada día adaptándome a las nuevas tecnologías.
+          {t('main--greetings')}<br /><br />
+          {t('main--bio-1')}<br /><br />
+          {t('main--bio-2')}
         </Text>
 
         {/* Presentation Video */}
-        <Container className={styles.home__presentation}>
+        {/* <Container className={styles.home__presentation}>
           <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
             <img src={profilePresentation.src} style={{
               width: '100%',
@@ -105,7 +105,7 @@ const MainSection = ({ recommendations = [] }) => {
           </div>
           <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Text type='big_paragraph' style={{ margin: 0, marginBottom: '.5rem' }}>
-              Presentación: Quién soy y qué hago
+              {t('main--presentation-title')}
             </Text>
             <Text type='paragraph' style={{
               color: '#8E92C2',
@@ -117,7 +117,7 @@ const MainSection = ({ recommendations = [] }) => {
               <Clock color='#8E92C2' /> 00:30
             </Text>
           </div>
-        </Container>
+        </Container> */}
 
         {/* CTA */}
         <div className={styles.home__cta}>
@@ -127,7 +127,7 @@ const MainSection = ({ recommendations = [] }) => {
             componentElement='a'
             href='https://drive.google.com/drive/folders/1bsw5DEICWihZpYH6XEXqm0TMuabJxmuy?usp=sharing'
             target='_blank'
-          >Descargar CV</Button>
+          >{t('main--cta-1')}</Button>
           <Button
             Icon={<Email color='#21c2e1' />}
             type='ghost'
@@ -135,7 +135,7 @@ const MainSection = ({ recommendations = [] }) => {
             href='mailto:orlando.briceno.blanco@gmail.com'
             style={{ width: 'fit-content' }}
             keepCase
-          >Enviar email</Button>
+          >{t('common--cta-email')}</Button>
         </div>
       </div>
       {/* Image */}

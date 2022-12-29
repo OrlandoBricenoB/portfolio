@@ -1,3 +1,5 @@
+import { useTranslation } from 'next-i18next'
+
 import classNames from 'classnames'
 import Clock from '../../atoms/icons/Clock'
 import UserTie from '../../atoms/icons/UserTie'
@@ -20,7 +22,9 @@ import Separator from '../../atoms/Separator'
 import Badge from '../../atoms/Badge'
 
 const ProjectsSection = () => {
-  const knowledges = [
+  const { t } = useTranslation('common')
+
+  const expertises = [
     {
       name: 'HTML',
       icon: HTML
@@ -69,35 +73,35 @@ const ProjectsSection = () => {
 
   return (
     <div className={classNames('projects', 'section')} id='projects'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Proyectos</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('common--projects')}</Heading>
       <div className={classNames('projects__content')}>
         {/* Information Aside */}
         <div>
           {/* Top Information */}
           <div>
-            <Text type='button' style={{ margin: 0, color: '#8E92C2', padding: '.5rem 0' }}>Desarrollando proyectos</Text>
+            <Text type='button' style={{ margin: 0, color: '#8E92C2', padding: '.5rem 0' }}>{t('projects--expertises-title')}</Text>
             <div style={{ color: '#8E92C2', display: 'flex', alignItems: 'center', gap: '.5rem', padding: '.5rem 0' }}>
               <Clock color='#8E92C2' />
-              <Text type='paragraph' style={{ margin: 0 }}>Desde 2011</Text>
+              <Text type='paragraph' style={{ margin: 0 }}>{t('projects--expertises-1')}</Text>
             </div>
             <div style={{ color: '#8E92C2', display: 'flex', alignItems: 'center', gap: '.5rem', padding: '.5rem 0' }}>
               <UserTie color='#8E92C2' />
-              <Text type='paragraph' style={{ margin: 0 }}>+10 años de experiencia</Text>
+              <Text type='paragraph' style={{ margin: 0 }}>{t('projects--expertises-2')}</Text>
             </div>
             <Separator color='#8E92C2' />
           </div>
-          {/* Knowledges */}
+          {/* Expertises */}
           <div>
-            <Text type='big_paragraph' style={{ padding: '.75rem', margin: 0 }}>Conocimientos</Text>
+            <Text type='big_paragraph' style={{ padding: '.75rem', margin: 0 }}>{t('common--expertises')}</Text>
 
-            <div className={classNames('projects__knowledges')}>
-              {knowledges.map(knowledge => {
+            <div className={classNames('projects__expertises')}>
+              {expertises.map(expertise => {
                 return (
-                  <div key={knowledge.name}>
+                  <div key={expertise.name}>
                     <Badge
-                      Icon={<div style={{ width: '36px' }}><knowledge.icon /></div>}
+                      Icon={<div style={{ width: '36px' }}><expertise.icon /></div>}
                       style={{ backgroundColor: 'transparent', color: '#8E92C2' }}
-                    >{knowledge.name}</Badge>
+                    >{expertise.name}</Badge>
                   </div>
                 )
               })}
@@ -105,7 +109,9 @@ const ProjectsSection = () => {
           </div>
         </div>
         {/* Projects */}
-        <div>Right</div>
+        <div>
+          Right
+        </div>
       </div>
     </div>
   )

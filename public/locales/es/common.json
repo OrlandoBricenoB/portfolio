@@ -1,3 +1,68 @@
 {
-  "h1": "Desarrollador Full Stack" 
+  "nav--presentation": "Presentación",
+
+  "common--title": "Desarrollador Full Stack",
+  "common--specialization": "NodeJS, React, SQL & NoSQL",
+  "common--role": "Desarrollador Full Stack NodeJS & React",
+  "common--recommendations": "recomendaciones",
+  "common--projects": "Proyectos",
+  "common--expertises": "Conocimientos",
+  "common--about-me": "Acerca de mí",
+  "common--full-name": "Orlando Jose Briceño Blanco",
+  "common--cta-email": "Enviar email",
+  "common--cta-contact": "Contáctame",
+
+  "main--greetings": "Hi! I'm Orlando. 👋🏼",
+  "main--bio-1": "Paso la vida disfrutando desarrollar soluciones automatizadas para todo tipo de problemas.",
+  "main--bio-2": "A mis 16 años de edad pasé de amar la programación a también vivir de ella, convirtiéndome en un profesional Full Stack capaz de desarrollar todo tipo de aplicaciones sobre sólidos patrones de arquitectura. Y es por esto y más que amo estudiar autodidactamente y me esfuerzo en crecer cada día adaptándome a las nuevas tecnologías.",
+
+  "main--presentation-title": "Presentación: Quién soy y qué hago",
+  "main--cta-1": "Descargar CV",
+
+  "projects--expertises-title": "Desarrollando proyectos",
+  "projects--expertises-1": "Desde 2011",
+  "projects--expertises-2": "+10 años de experiencia",
+
+  "certification--professional-git": "Curso Profesional de Git y Github",
+  "certification--practical-javascript": "Curso Práctico de JavaScript",
+  "certification--professional-javascript": "Curso Profesional de JavaScript",
+  "certification--nodejs": "Curso de Fundamentos de Node.JS",
+  "certification--html-css": "Curso Definitivo de HTML y CSS",
+  "certification--time-management": "Curso de Gestión Efectiva del Tiempo",
+  "certification--emotional-intelligence": "Curso de Inteligencia Emocional",
+  "certification--logical-thinking": "Curso de Pensamiento Lógico",
+
+  "about--story-title": "Mi Historia como Desarrollador",
+  "about--story-content-1": "Soy Orlando Jose Briceño Blanco, la programación ha formado parte de mi vida desde mi niñez, de ella me enamoré y sin importar qué, siempre estuve con ella.",
+  "about--story-content-2": "No tuve los recursos para estudiar apropiadamente e incluso pasé un tiempo donde desarrollaba en una libreta, en mis tiempos libres trabajando en el campo (sí, agricultura y todo ese trabajo hermoso).",
+  "about--story-content-3": "Aún así, a lo largo del tiempo y los años, me convertí en aquello que quería ser, alguien que pudiera construir cualquier cosa por sí solo, pero eso no fue suficiente, construí equipos de trabajo y me di cuenta de lo poderoso que podía ser un buen equipo.",
+  "about--story-content-4": "Estudié duro y sin parar de practicar, desarrollé aplicaciones con arquitecturas cada vez más complejas, siempre enfocado en el desarrollo web, trabajé el backend con PHP hasta mudarme a NodeJS en el 2015, en esas fechas conocí de SPA/PWA, NoSQL, ODMs, ORMs, API RESTs y a partir de allí crecí exponencialmente (gracias a las comunidades donde formé parte).",
+  "about--story-content-5": "En todo este largo trayecto desarrollé habilidades para Resolver problemas con autonomía, Trabajar en equipo y Construir código y arquitecturas limpias.",
+  "about--story-content-6": "Actualmente me especializo en desarrollo web Full Stack con:",
+  "about--story-content-6-a": "HTML, CSS, JavaScript y TypeScript.",
+  "about--story-content-6-b": "TailwindCSS / Sass",
+  "about--story-content-6-c": "MongoDB, Express, React y NodeJS (Stack MERN)",
+  "about--story-content-6-d": "NextJS",
+  "about--story-content-6-e": "PostgreSQL / MySQL / SQLite",
+  "about--story-content-6-f": "Documentación para Usuarios y Desarrolladores",
+  "about--story-content-7": "En el año 2016 comenzé mi carrera profesional como Freelancer, desarrollando tanto aplicaciones webs como aplicaciones móviles híbridas y de escritorio para clientes y proyectos personales, logrando un avance gigantesco en mi vida profesional y personal.",
+  "about--story-content-8": "Actualmente quiero seguir creciendo junto a mi esposa, educando y guiando a cualquier persona que se encuentra ahora en la misma situación en la que una vez estuve.",
+  "about--story-content-9": "Estoy consciente de que nunca debo parar de aprender, seguir creciendo y aportar gran valor al mundo del desarrollo web.",
+
+  "contact--title": "Hablemos",
+  "contact--content-1": "Espero haber logrado captar tu atención y ser de agrado para tus ojos. Sinceramente me encantaría que podamos trabajar juntos en tu nuevo proyecto.",
+  "contact--content-2": "Si realmente te ha gustado mi trabajo y perfil como desarrollador, te pido, por favor que me des tu recomendación honesta para poder seguir creciendo y sustentar mi hogar, mi esposa y mi familia; con tu apoyo me ayudarías mucho más de lo que te imaginas.",
+
+  "recommendations--title": "Deja tu recomendación",
+  "recommendations--placeholder-name": "¿Cuál es tu nombre?",
+  "recommendations--placeholder-message": "¿Cómo me veo para ti? En máximo 200 caracteres.",
+  "recommendations--cta": "Enviar recomendación",
+
+  "recommendation--empty-1": "No hay recomendaciones",
+  "recommendation--empty-2": "¡Puedes ser el primero!",
+
+  "footer--title": "Un poco más de mí, ya que no todos leen esto",
+  "footer--content-1": "Cuando no estoy creando contenido para Develandia o compartiendo tiempo con mi esposa, estoy creando cosas increíbles junto a mis compañeros.",
+  "footer--content-2": "Mi mayor fortaleza y debilidad al mismo tiempo es mi honestidad, la siguiente que la acompaña es mi pasión por hacer las cosas ordenadamente.",
+  "footer--credits": "Hecho con 💙 por mí"
 }

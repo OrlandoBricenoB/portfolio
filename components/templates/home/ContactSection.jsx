@@ -19,8 +19,11 @@ import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
 import Container from '../../atoms/Container'
+import { useTranslation } from 'react-i18next'
 
 const ContactSection = ({ recommendations, users }) => {
+  const { t } = useTranslation('common')
+
   /* * Swiper of Recommendations */
   const [swiper, setSwiper] = useState(null)
   const [position, setPosition] = useState(0)
@@ -59,7 +62,7 @@ const ContactSection = ({ recommendations, users }) => {
 
   return (
     <div className={classNames('contact', 'section')} id='contact'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Hablemos</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('contact--title')}</Heading>
       <div className={classNames('contact_content')}>
         {/* Contact */}
         <div className={classNames('contact__information')}>
@@ -69,11 +72,11 @@ const ContactSection = ({ recommendations, users }) => {
           </figure>
           <div className={classNames('contact__information_text')}>
             <Heading type='h3' style={{ margin: 0, marginBottom: '4px' }}>Orlando Jose Briceño Blanco</Heading>
-            <Text type='big_paragraph' style={{ margin: 0 }}>Full Stack Developer NodeJS & React</Text>
+            <Text type='big_paragraph' style={{ margin: 0 }}>{t('common--role')}</Text>
             <Text type='paragraph' style={{ margin: '1.5rem 0' }}>
-              Espero haber logrado captar tu atención y ser de agrado para tus ojos. Sinceramente me encantaría que podamos trabajar juntos en tu nuevo proyecto.
+              {t('contact--content-1')}
               <br /><br />
-              Si realmente te ha gustado mi trabajo y perfil como desarrollador, te pido, por favor que me des tu recomendación honesta para poder seguir creciendo y sustentar mi hogar, mi esposa y mi familia; con tu apoyo me ayudarías mucho más de lo que te imaginas.
+              {t('contact--content-2')}
             </Text>
             {/* Social Buttons */}
             <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem' }}>
@@ -90,7 +93,7 @@ const ContactSection = ({ recommendations, users }) => {
               componentElement='a'
               href='mailto:orlando.briceno.blanco@gmail.com'
               style={{ width: 'fit-content' }}
-            >Enviar email</Button>
+            >{t('common--cta-email')}</Button>
           </div>
         </div>
         {/* Recommendations */}
@@ -167,17 +170,21 @@ const ContactSection = ({ recommendations, users }) => {
           {
             recommendations.length === 0 && (
               <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ textAlign: 'center' }}>No hay recomendaciones<br /><br />¡Puedes ser el primero!</Text>
+                <Text style={{ textAlign: 'center' }}>
+                  {t('recommendation--empty-1')}
+                  <br /><br />
+                  {t('recommendation--empty-2')}
+                </Text>
               </Container>
             )
           }
           {/* Write Recommendation */}
           <div>
-            <Text type='big_paragraph'>Deja tu recomendación</Text>
+            <Text type='big_paragraph'>{t('recommendations--title')}</Text>
             <Multirating onRate={handleRateRecommendation} />
             <input
               type='text'
-              placeholder='¿Cuál es tu nombre?'
+              placeholder={t('recommendations--placeholder-name')}
               style={{ marginTop: '1rem' }}
               onChange={event => {
                 setFormData(prev => {
@@ -191,7 +198,7 @@ const ContactSection = ({ recommendations, users }) => {
               rows={4}
               maxLength={200}
               defaultValue={''}
-              placeholder='¿Cómo me veo para ti? En máximo 200 caracteres.'
+              placeholder={t('recommendations--placeholder-message')}
               style={{ marginTop: '1rem' }}
               onChange={event => {
                 setFormData(prev => {
@@ -207,7 +214,7 @@ const ContactSection = ({ recommendations, users }) => {
               disabled={!isValidForm}
               style={{ marginTop: '1.5rem' }}
               onClick={handleCreateRecommendation}
-            >Enviar recomendación</Button>
+            >{t('recommendations--cta')}</Button>
           </div>
         </div>
       </div>

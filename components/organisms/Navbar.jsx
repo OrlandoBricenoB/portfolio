@@ -13,8 +13,11 @@ import Badge from '../atoms/Badge'
 
 import Spain from '../atoms/icons/flags/Spain'
 import USA from '../atoms/icons/flags/USA'
+import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
+  const { t } = useTranslation('common')
+
   const router = useRouter()
 
   // * Dropdown
@@ -43,9 +46,9 @@ const Navbar = () => {
 
       {/* Buttons */}
       <div className={styles.nav_buttons}>
-        <NavButton to='#presentation'>Presentación</NavButton>
-        <NavButton to='#about'>Acerca de mí</NavButton>
-        <NavButton to='#projects'>Proyectos</NavButton>
+        <NavButton to='#presentation'>{t('nav--presentation')}</NavButton>
+        <NavButton to='#about'>{t('common--about-me')}</NavButton>
+        <NavButton to='#projects'>{t('common--projects')}</NavButton>
       </div>
 
       {/* CTA */}
@@ -75,7 +78,7 @@ const Navbar = () => {
           componentElement='a'
           Icon={<ContactPage color='#070a2b' />}
           href='#contact'
-        >Contáctame</Button>
+        >{t('common--cta-contact')}</Button>
       </div>
     </header>
   )

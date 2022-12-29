@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import classNames from 'classnames'
 
 import Container from '../../atoms/Container'
@@ -28,6 +29,8 @@ import { Controller, Navigation, Pagination, Scrollbar } from 'swiper'
 let timeoutSlide
 
 const AboutSection = () => {
+  const { t } = useTranslation('common')
+
   const [swiper, setSwiper] = useState(null)
 
   const autoSlide = (_swiper, clonnedSwiper) => {
@@ -41,42 +44,42 @@ const AboutSection = () => {
 
   const certifications = [
     {
-      name: 'Curso Práctico de JavaScript',
+      name: t('certification--practical-javascript'),
       description: '...',
       image: JavaScriptPractice
     },
     {
-      name: 'Curso Profesional de JavaScript',
+      name: t('certification--professional-javascript'),
       description: '...',
       image: JavaScriptProfessional
     },
     {
-      name: 'Curso de Fundamentos de Node.JS',
+      name: t('certification--nodejs'),
       description: '...',
       image: FundamentalsNodeJS
     },
     {
-      name: 'Curso Profesional de Git y Github',
+      name: t('certification--professional-git'),
       description: '...',
       image: GitGithub
     },
     {
-      name: 'Curso Definitivo de HTML y CSS',
+      name: t('certification--html-css'),
       description: '...',
       image: HTMLCSS
     },
     {
-      name: 'Curso de Gestión Efectiva del Tiempo',
+      name: t('certification--time-management'),
       description: '...',
       image: TimeManagement
     },
     {
-      name: 'Curso de Inteligencia Emocional',
+      name: t('certification--emotional-intelligence'),
       description: '...',
       image: Intelligence
     },
     {
-      name: 'Curso de Pensamiento Lógico',
+      name: t('certification--logical-thinking'),
       description: '...',
       image: LogicThinking
     }
@@ -84,7 +87,7 @@ const AboutSection = () => {
 
   return (
     <div className={classNames('section')} id='about'>
-      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>Acerca de mí</Heading>
+      <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('common--about-me')}</Heading>
       <div className={classNames('about__container')}>
         {/* Certificates */}
         <div className={classNames('about_certifications')}>
@@ -146,34 +149,34 @@ const AboutSection = () => {
             <ImageGradient />
           </figure>
           <Container>
-            <Heading type='h3'>Mi Historia como Desarrollador</Heading>
+            <Heading type='h3'>{t('about--story-title')}</Heading>
             <Text type='paragraph'>
-              Soy Orlando Jose Briceño Blanco, la programación ha formado parte de mi vida desde mi niñez, de ella me enamoré y sin importar qué, siempre estuve con ella.
+              {t('about--story-content-1')}
               <br /><br />
-              No tuve los recursos para estudiar apropiadamente e incluso pasé un tiempo donde desarrollaba en una libreta, en mis tiempos libres trabajando en el campo (sí, agricultura y todo ese trabajo hermoso).
+              {t('about--story-content-2')}
               <br /><br />
-              Aún así, a lo largo del tiempo y los años, me convertí en aquello que quería ser, alguien que pudiera construir cualquier cosa por sí solo, pero eso no fue suficiente, construí equipos de trabajo y me di cuenta de lo poderoso que podía ser un buen equipo.
+              {t('about--story-content-3')}
               <br /><br />
-              Estudié duro y sin parar de practicar, desarrollé aplicaciones con arquitecturas cada vez más complejas, siempre enfocado en el desarrollo web, trabajé el backend con PHP hasta mudarme a NodeJS en el 2015, en esas fechas conocí de SPA/PWA, NoSQL, ODMs, ORMs, API RESTs y a partir de allí crecí exponencialmente (gracias a las comunidades donde formé parte).
+              {t('about--story-content-4')}
               <br /><br />
-              En todo este largo trayecto desarrollé habilidades para Resolver problemas con autonomía, Trabajar en equipo y Construir código y arquitecturas limpias.
+              {t('about--story-content-5')}
               <br /><br />
-              Actualmente me especializo en desarrollo web Full Stack con:
+              {t('about--story-content-6')}
             </Text>
             <ul style={{ paddingLeft: '1.5rem' }}>
-              <li>HTML, CSS, JavaScript y TypeScript</li>
-              <li>TailwindCSS / Sass</li>
-              <li>MongoDB, Express, React y NodeJS (Stack MERN)</li>
-              <li>NextJS</li>
-              <li>PostgreSQL / MySQL / SQLite</li>
-              <li>Documentación para Usuarios y Desarrolladores</li>
+              <li>{t('about--story-content-6-a')}</li>
+              <li>{t('about--story-content-6-b')}</li>
+              <li>{t('about--story-content-6-c')}</li>
+              <li>{t('about--story-content-6-d')}</li>
+              <li>{t('about--story-content-6-e')}</li>
+              <li>{t('about--story-content-6-f')}</li>
             </ul>
             <Text type='paragraph'>
-              En el año 2016 comenzé mi carrera profesional como Freelancer, desarrollando tanto aplicaciones webs como aplicaciones móviles híbridas y de escritorio para clientes y proyectos personales, logrando un avance gigantesco en mi vida profesional y personal.
+              {t('about--story-content-7')}
               <br /><br />
-              Actualmente quiero seguir creciendo junto a mi esposa, educando y guiando a cualquier persona que se encuentra ahora en la misma situación en la que una vez estuve.
+              {t('about--story-content-8')}
               <br /><br />
-              Estoy consciente de que nunca debo parar de aprender, seguir creciendo y aportar gran valor al mundo del desarrollo web.
+              {t('about--story-content-9')}
             </Text>
           </Container>
         </div>
