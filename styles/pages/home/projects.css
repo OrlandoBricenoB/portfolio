@@ -44,6 +44,10 @@
   .projects__item--big {
     grid-template-columns: 1fr;
   }
+
+  .projects__item--big .projects__item_content {
+    padding-top: 1rem
+  }
 }
 
 @media screen and (max-width: 768px) {

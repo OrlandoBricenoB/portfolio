@@ -20,6 +20,7 @@ import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
 import Container from '../../atoms/Container'
 import useTranslate from '../../../hooks/useTranslate'
+import Image from 'next/image'
 
 const ContactSection = ({ recommendations, users }) => {
   const { t, ready } = useTranslate()
@@ -67,7 +68,13 @@ const ContactSection = ({ recommendations, users }) => {
         {/* Contact */}
         <div className={classNames('contact__information')}>
           <figure style={{ margin: 0, position: 'relative' }}>
-            <img src={ContactProfile.src} style={{ width: '100%' }} alt='Orlando Briceño Atento' />
+            <Image
+              src={ContactProfile.src}
+              width={1210}
+              height={1876}
+              style={{ width: '100%', height: 'auto' }}
+              alt='Orlando Briceño Atento'
+            />
             <ImageGradient />
           </figure>
           <div className={classNames('contact__information_text')}>

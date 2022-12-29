@@ -71,7 +71,8 @@
 }
 
 .profile_presentation__image {
-  width: 100%
+  width: 100%;
+  height: auto;
 }
 
 .profile_presentation--mobile {

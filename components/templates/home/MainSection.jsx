@@ -36,6 +36,7 @@ import profilePresentation from '../../../assets/images/profile-presentation.jpg
   * STYLES
 */
 import styles from '../../../styles/pages/home/home.module.css'
+import Image from 'next/image'
 
 const MainSection = ({ recommendations = [] }) => {
   const { t, ready } = useTranslate()
@@ -80,7 +81,14 @@ const MainSection = ({ recommendations = [] }) => {
 
         {/* Image Mobile */}
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
-          <img src={profilePresentation.src} className={styles.profile_presentation__image} alt='Orlando Briceño' />
+          <Image
+            src={profilePresentation.src}
+            width={340}
+            height={500}
+            className={styles.profile_presentation__image}
+            priority
+            alt='Orlando Briceño'
+          />
           <figcaption className={styles.profile_presentation__caption}>
             {ready && t('common--full-name')}<br />🇻🇪 Venezuela
           </figcaption>
@@ -96,7 +104,7 @@ const MainSection = ({ recommendations = [] }) => {
         {/* Presentation Video */}
         {/* <Container className={styles.home__presentation}>
           <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
-            <img src={profilePresentation.src} style={{
+            <Image src={profilePresentation.src} style={{
               width: '100%',
               aspectRatio: '16 / 9',
               borderRadius: '4px 0 0 4px',
@@ -140,7 +148,14 @@ const MainSection = ({ recommendations = [] }) => {
       </div>
       {/* Image */}
       <figure className={styles.profile_presentation}>
-        <img src={profilePresentation.src} className={styles.profile_presentation__image} alt='Orlando Briceño' />
+        <Image
+          src={profilePresentation.src}
+          width={340}
+          height={500}
+          className={styles.profile_presentation__image}
+          priority
+          alt='Orlando Briceño'
+        />
         <figcaption className={styles.profile_presentation__caption}>
           Orlando Jose Briceño Blanco<br />
           🇻🇪 Venezuela

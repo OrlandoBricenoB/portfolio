@@ -25,6 +25,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import { Controller, Navigation, Pagination, Scrollbar } from 'swiper'
+import Image from 'next/image'
 
 let timeoutSlide
 
@@ -137,7 +138,12 @@ const AboutSection = () => {
                   <SwiperSlide key={certification.id}>
                     <div className={classNames('about_certification')}>
                       <figure className={classNames('about_certification__image')}>
-                        <img src={certification.image.src} alt={certification.name} />
+                        <Image
+                          src={certification.image.src}
+                          width={330}
+                          height={225}
+                          alt={certification.name}
+                        />
                       </figure>
                       <div className={classNames('about_certification__content')}>
                         <Text type='big_paragraph' style={{ margin: 0 }}>{certification.name}</Text>
@@ -153,7 +159,13 @@ const AboutSection = () => {
         {/* About */}
         <div className={classNames('about__content')}>
           <figure className={classNames('about__content_image')} style={{ margin: 0, position: 'relative' }}>
-            <img src={ThinkingProfile.src} style={{ width: '100%' }} alt='Orlando Briceño Pensando' />
+            <Image
+              src={ThinkingProfile.src}
+              width={750}
+              height={1000}
+              style={{ width: '100%', height: 'auto' }}
+              alt='Orlando Briceño Pensando'
+            />
             <ImageGradient />
           </figure>
           <Container>

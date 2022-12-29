@@ -26,6 +26,7 @@ import Container from '../../atoms/Container'
 
 import LeadinGraph from '../../../assets/images/projects/leadingraph.png'
 import FileExt from '../../../assets/images/projects/file-ext.png'
+import Image from 'next/image'
 
 const ProjectsSection = () => {
   const { t, ready } = useTranslate()
@@ -122,8 +123,10 @@ const ProjectsSection = () => {
               display: 'flex',
               alignItems: 'flex-start'
             }}>
-              <img
+              <Image
                 src={LeadinGraph.src}
+                width={820}
+                height={312}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',
@@ -184,8 +187,10 @@ const ProjectsSection = () => {
               borderRadius: '4px',
               backgroundColor:'#0d1117'
             }}>
-              <img
+              <Image
                 src={FileExt.src}
+                width={554}
+                height={333}
                 style={{
                   maxWidth: '100%',
                   height: 'auto',
