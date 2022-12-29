@@ -20,7 +20,6 @@ function Document({ ...rest }) {
         />
 
         {/* Primary Meta Tags */}
-        <title>Desarrollador Web Full Stack - Orlando Briceño</title>
         <meta name="title" content="Desarrollador Web Full Stack - Orlando Briceño" />
         <meta name="description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
 
