@@ -2,6 +2,10 @@ import useTranslate from '../../hooks/useTranslate'
 import classNames from 'classnames'
 import Container from '../atoms/Container'
 import Text from '../atoms/texts/Text'
+import Image from 'next/image'
+
+import LeadinGraphLogo from '../../assets/images/brands/leadingraph.png'
+import PlatziLogo from '../../assets/images/brands/platzi.png'
 
 const Footer = () => {
   const { t } = useTranslate()
@@ -18,7 +22,28 @@ const Footer = () => {
           </Text>
         </div>
         <Container className={classNames('footer__brands')}>
-          xd
+          <figure className={classNames('footer__brand')}>
+            <a href='https://leadingraph.com' target='_blank' aria-label='LeadinGraph Website'>
+              <Image
+                src={LeadinGraphLogo}
+                width={128}
+                height={128}
+                className={classNames('footer__brand_image')}
+                alt='LeadinGraph'
+              />
+            </a>
+          </figure>
+          <figure className={classNames('footer__brand')}>
+            <a href='https://platzi.com' target='_blank' aria-label='Platzi Website'>
+              <Image
+                src={PlatziLogo}
+                width={128}
+                height={128}
+                className={classNames('footer__brand_image')}
+                alt='Platzi'
+              />
+            </a>
+          </figure>
         </Container>
       </div>
       <div className={classNames('footer__credits')}>
