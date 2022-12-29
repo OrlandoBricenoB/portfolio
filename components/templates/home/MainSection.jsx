@@ -83,8 +83,8 @@ const MainSection = ({ recommendations = [] }) => {
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <Image
             src={profilePresentation.src}
-            width={340}
-            height={500}
+            width={348}
+            height={499.2}
             className={styles.profile_presentation__image}
             priority
             alt='Orlando Briceño'
@@ -150,8 +150,8 @@ const MainSection = ({ recommendations = [] }) => {
       <figure className={styles.profile_presentation}>
         <Image
           src={profilePresentation.src}
-          width={340}
-          height={500}
+          width={348}
+          height={499.2}
           className={styles.profile_presentation__image}
           priority
           alt='Orlando Briceño'
