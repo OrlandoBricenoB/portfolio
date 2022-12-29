@@ -5,6 +5,7 @@ const Link = ({ children, to, ...rest }) => {
     <a
       className={styles.link}
       href={to}
+      aria-label={children}
       {...rest}
     >
       {children}

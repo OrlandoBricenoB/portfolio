@@ -11,6 +11,7 @@ const SocialButton = ({ Icon, children, keepCase = false, to = '#!' }) => {
       className={styles.social_button}
       href={to}
       target='_blank'
+      aria-label={`Visitar ${children} de Orlando Briceño`}
       style={{
         textTransform: keepCase ? 'none' : 'uppercase',
         color: color,

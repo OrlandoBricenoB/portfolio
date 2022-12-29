@@ -87,10 +87,20 @@ const ContactSection = ({ recommendations, users }) => {
             </Text>
             {/* Social Buttons */}
             <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem' }}>
-              <a href='https://linkedin.com/in/orlandobricenob' target='_blank' className={classNames('contact__social_button')}>
+              <a
+                href='https://linkedin.com/in/orlandobricenob'
+                target='_blank'
+                className={classNames('contact__social_button')}
+                aria-label='Visitar Perfil de LinkedIn de Orlando Briceno'
+              >
                 <Linkedin color='#21c2e1' size='32' />
               </a>
-              <a href='https://twitter.com/orlandobricenob' target='_blank' className={classNames('contact__social_button')}>
+              <a
+                href='https://twitter.com/orlandobricenob'
+                target='_blank'
+                className={classNames('contact__social_button')}
+                aria-label='Visitar Twitter de OrlandoBricenoB'
+              >
                 <Twitter color='#21c2e1' size='32' />
               </a>
             </div>
