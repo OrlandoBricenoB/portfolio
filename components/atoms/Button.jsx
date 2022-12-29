@@ -13,6 +13,7 @@ const Button = ({
 }) => {
   rest.className = `${styles.button} ${styles['button--' + type]} ${keepCase && styles.keep_case}`
   rest.className = rest.className + (disabled ? ' ' + styles['button--disabled'] : '')
+  rest.disabled = disabled
 
   const Content = () => (
     <>
