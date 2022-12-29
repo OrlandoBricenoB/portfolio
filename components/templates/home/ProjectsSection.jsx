@@ -139,7 +139,7 @@ const ProjectsSection = () => {
                   Este proyecto...
                 </Text>
                 {/* Badge Tools */}
-                <div style={{ display: 'flex', gap: '.5rem' }}>
+                <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}>
                   <Badge
                     Icon={<HTML size='24' />}
                   >HTML</Badge>
@@ -197,7 +197,7 @@ const ProjectsSection = () => {
                 Su propósito es hacer más fácil el trabajo del manejo de extensiones de archivos en el backend.
               </Text>
               {/* Badge Tools */}
-              <div style={{ display: 'flex', gap: '.5rem' }}> 
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
                 <Badge
                   Icon={<JavaScript size='24' />}
                   style={{ backgroundColor: '#070a2b' }}
