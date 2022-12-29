@@ -122,11 +122,14 @@ const ProjectsSection = () => {
               display: 'flex',
               alignItems: 'flex-start'
             }}>
-              <img src={LeadinGraph.src} style={{
+              <img
+                src={LeadinGraph.src}
+                style={{
                   maxWidth: '100%',
                   height: 'auto',
                   borderRadius: '4px'
                 }}
+                alt='Portada de LeadinGraph'
               />
             </figure>
             <div className={classNames('projects__item_content')}>
@@ -181,11 +184,14 @@ const ProjectsSection = () => {
               borderRadius: '4px',
               backgroundColor:'#0d1117'
             }}>
-              <img src={FileExt.src} style={{
+              <img
+                src={FileExt.src}
+                style={{
                   maxWidth: '100%',
                   height: 'auto',
                   borderRadius: '4px'
                 }}
+                alt='Documentación de @jo-sword/FileExt'
               />
             </figure>
             <div className={classNames('projects__item_content')}>

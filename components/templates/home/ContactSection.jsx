@@ -67,7 +67,7 @@ const ContactSection = ({ recommendations, users }) => {
         {/* Contact */}
         <div className={classNames('contact__information')}>
           <figure style={{ margin: 0, position: 'relative' }}>
-            <img src={ContactProfile.src} style={{ width: '100%' }} />
+            <img src={ContactProfile.src} style={{ width: '100%' }} alt='Orlando Briceño Atento' />
             <ImageGradient />
           </figure>
           <div className={classNames('contact__information_text')}>

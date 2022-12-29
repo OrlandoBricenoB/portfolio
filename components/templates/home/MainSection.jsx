@@ -80,7 +80,7 @@ const MainSection = ({ recommendations = [] }) => {
 
         {/* Image Mobile */}
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
-          <img src={profilePresentation.src} className={styles.profile_presentation__image} />
+          <img src={profilePresentation.src} className={styles.profile_presentation__image} alt='Orlando Briceño' />
           <figcaption className={styles.profile_presentation__caption}>
             {ready && t('common--full-name')}<br />🇻🇪 Venezuela
           </figcaption>
@@ -140,7 +140,7 @@ const MainSection = ({ recommendations = [] }) => {
       </div>
       {/* Image */}
       <figure className={styles.profile_presentation}>
-        <img src={profilePresentation.src} className={styles.profile_presentation__image} />
+        <img src={profilePresentation.src} className={styles.profile_presentation__image} alt='Orlando Briceño' />
         <figcaption className={styles.profile_presentation__caption}>
           Orlando Jose Briceño Blanco<br />
           🇻🇪 Venezuela
