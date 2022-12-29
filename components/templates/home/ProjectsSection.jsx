@@ -3,6 +3,7 @@ import useTranslate from '../../../hooks/useTranslate'
 import classNames from 'classnames'
 import Clock from '../../atoms/icons/Clock'
 import UserTie from '../../atoms/icons/UserTie'
+import GoToFile from '../../atoms/icons/GoToFile'
 
 import HTML from '../../atoms/icons/tools/HTML'
 import CSS from '../../atoms/icons/tools/CSS'
@@ -18,8 +19,13 @@ import MongoDB from '../../atoms/icons/tools/MongoDB'
 
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
+import Button from '../../atoms/Button'
 import Separator from '../../atoms/Separator'
 import Badge from '../../atoms/Badge'
+import Container from '../../atoms/Container'
+
+import LeadinGraph from '../../../assets/images/projects/leadingraph.png'
+import FileExt from '../../../assets/images/projects/file-ext.png'
 
 const ProjectsSection = () => {
   const { t, ready } = useTranslate()
@@ -109,8 +115,107 @@ const ProjectsSection = () => {
           </div>
         </div>
         {/* Projects */}
-        <div>
-          Right
+        <div className={classNames('projects__list')}>
+          <Container className={classNames('projects__item', 'projects__item--big')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <img src={LeadinGraph.src} style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
+                {/* Project Information */}
+                <Heading type='h3' style={{ margin: 0 }}>
+                  LeadinGraph
+                </Heading>
+                <Text type='big_paragraph' style={{ color: '#8E92C2', margin: 0 }}>
+                  Este proyecto...
+                </Text>
+                {/* Badge Tools */}
+                <div style={{ display: 'flex', gap: '.5rem' }}>
+                  <Badge
+                    Icon={<HTML size='24' />}
+                  >HTML</Badge>
+                  <Badge
+                    Icon={<CSS size='24' />}
+                  >CSS</Badge>
+                  <Badge
+                    Icon={<JavaScript size='24' />}
+                  >JavaScript</Badge>
+                  <Badge
+                    Icon={<React size='24' />}
+                  >React</Badge>
+                  <Badge
+                    Icon={<NodeJS size='24' />}
+                  >NodeJS</Badge>
+                  <Badge
+                    Icon={<PostgreSQL size='24' />}
+                  >PostgreSQL</Badge>
+                </div>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+              >
+                Ver el proyecto
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#0d1117'
+            }}>
+              <img src={FileExt.src} style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                File Ext
+              </Text>
+              <Text type='paragraph' style={{ color: '#8E92C2', margin: 0 }}>
+                Construí esta librería de JavaScript que obtiene la extensión y/o mimeType de un nombre de archivo o ruta.
+                <br /><br />
+                Su propósito es hacer más fácil el trabajo del manejo de extensiones de archivos en el backend.
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', gap: '.5rem' }}> 
+                <Badge
+                  Icon={<JavaScript size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >JavaScript</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://www.npmjs.com/package/@jo-sword/file-ext'
+                target='_blank'
+              >
+                Ver el proyecto
+              </Button>
+            </div>
+          </Container>
         </div>
       </div>
     </div>
