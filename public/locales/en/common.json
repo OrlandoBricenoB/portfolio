@@ -63,10 +63,16 @@
   "recommendations--title": "Leave a Recommendation",
   "recommendations--placeholder-name": "What's your name?",
   "recommendations--placeholder-message": "What do you think about me? 200 characters maximum.",
+  "recommendations--upload-image": "Click to upload an image",
+  "recommendations--replace-image": "Click to replace image",
   "recommendations--cta": "Send Recommendation",
 
   "recommendation--empty-1": "There are no Recommendations.",
   "recommendation--empty-2": "You can be the first to comment!",
+
+  "recommendation--thank-you-title": "Thanks for leaving your recommendation!",
+  "recommendation--thank-you-content": "Your support is a great help to me, thank you for being a part of this.",
+  "recommendation--thank-you-content-2": "Your recommendation is currently under review, it will appear on the list very soon.",
 
   "footer--title": "A bit more about myself, since not everyone reads this.",
   "footer--content-1": "When I'm not creating content for develandia or spending time with my wife, I'm creating amazing things with my colleagues.",

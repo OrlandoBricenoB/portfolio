@@ -333,7 +333,7 @@ const ContactSection = ({ recommendations, users }) => {
                             <>
                               <Upload size='128' />
                               <Text type='paragraph' style={{ margin: 0 }}>
-                                Clic para subir una imagen
+                                {t('recommendations--upload-image')}
                               </Text>
                             </>
                           )
@@ -341,7 +341,7 @@ const ContactSection = ({ recommendations, users }) => {
                             <>
                               <img src={avatar} width={128} height={128} />
                               <Text type='paragraph'>{avatarFile.name.split('.')[0].slice(0, 35)}.{avatarFile.name.split('.')[1]}</Text>
-                              <Text type='paragraph' style={{ color: '#8E92C2', margin: 0 }}>Clic para reemplazar la imagen</Text>
+                              <Text type='paragraph' style={{ color: '#8E92C2', margin: 0 }}>{t('recommendations--replace-image')}</Text>
                             </>
                           )
                       }
@@ -365,14 +365,14 @@ const ContactSection = ({ recommendations, users }) => {
                     flexDirection: 'column',
                     textAlign: 'center'
                   }}>
-                    <Heading type='h3'>¡Gracias por dejar tu recomendación!</Heading>
-                    <Text type='paragraph'>Tu apoyo es de gran ayuda para mí, gracias por ser parte de esto.</Text>
+                    <Heading type='h3'>{t('recommendation--thank-you-title')}</Heading>
+                    <Text type='paragraph'>{t('recommendation--thank-you-content')}</Text>
                     {
                       !recommendations.find(recommendation => {
                         return recommendation.uuid === recommendationSent
                       }) && (
                         <Text type='paragraph' style={{ margin: 0 }}>
-                          En estos momentos tu recomendación está en revisión, muy pronto aparecerá en el listado.
+                          {t('recommendation--thank-you-content-2')}
                         </Text>
                       )
                     }

@@ -63,10 +63,16 @@
   "recommendations--title": "Deja tu recomendación",
   "recommendations--placeholder-name": "¿Cuál es tu nombre?",
   "recommendations--placeholder-message": "¿Cómo me veo para ti? En máximo 200 caracteres.",
+  "recommendations--upload-image": "Clic para subir una imagen",
+  "recommendations--replace-image": "Clic para reemplazar la imagen",
   "recommendations--cta": "Enviar recomendación",
 
   "recommendation--empty-1": "No hay recomendaciones",
   "recommendation--empty-2": "¡Puedes ser el primero!",
+
+  "recommendation--thank-you-title": "¡Gracias por dejar tu recomendación!",
+  "recommendation--thank-you-content": "Tu apoyo es de gran ayuda para mí, gracias por ser parte de esto.",
+  "recommendation--thank-you-content-2": "En estos momentos tu recomendación está en revisión, muy pronto aparecerá en el listado.",
 
   "footer--title": "Un poco más de mí, ya que no todos leen esto",
   "footer--content-1": "Cuando no estoy creando contenido para Develandia o compartiendo tiempo con mi esposa, estoy creando cosas increíbles junto a mis compañeros.",
