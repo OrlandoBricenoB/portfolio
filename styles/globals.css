@@ -143,6 +143,15 @@ input::placeholder, textarea::placeholder {
   }
 }
 
+.Toastify__toast {
+  background-color: #33375e!important;
+  color: #fff!important
+}
+
+.Toastify__close-button {
+  color: #fff!important
+}
+
 /* Scroll Bar */
 ::-webkit-scrollbar {
   width: 8px
