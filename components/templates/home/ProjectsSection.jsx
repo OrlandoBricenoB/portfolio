@@ -139,7 +139,7 @@ const ProjectsSection = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
                 {/* Project Information */}
                 <Heading type='h3' style={{ margin: 0 }}>
-                  LeadinGraph
+                  LeadinGraph ({t('common--in-process')})
                 </Heading>
                 <Text type='big_paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                   {t('projects--leadingraph-content-1')}<br /><br />
