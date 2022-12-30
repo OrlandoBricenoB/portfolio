@@ -4,8 +4,8 @@ import Multirating from "../molecules/rating/Multirating"
 import Image from 'next/image'
 
 const Recommendation = ({
-  image,
   name,
+  image,
   message,
   stars = 1
 }) => {
@@ -17,7 +17,7 @@ const Recommendation = ({
           width={128}
           height={128}
           className={classNames('recommendation__image')}
-          alt={false}
+          alt={`Recomendación de ${name}`}
         />
       </figure>
       <div className={classNames('recommendation__content')}>
