@@ -19,6 +19,15 @@ function Document({ ...rest }) {
           content="width=device-width, initial-scale=1.0"
         />
 
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#070a2b" />
+        <meta name="theme-color" content="#21c2e1" />
+
         {/* Primary Meta Tags */}
         <meta name="title" content="Desarrollador Web Full Stack - Orlando Briceño" />
         <meta name="description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
