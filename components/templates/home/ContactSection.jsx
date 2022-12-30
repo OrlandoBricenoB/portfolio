@@ -371,12 +371,13 @@ const ContactSection = ({ recommendations, users }) => {
                     <Text type='paragraph'>Tu apoyo es de gran ayuda para mí, gracias por ser parte de esto.</Text>
                     {
                       !recommendations.find(recommendation => {
-                        return recommendation === recommendationSent
-                      })
+                        return recommendation.uuid === recommendationSent
+                      }) && (
+                        <Text type='paragraph' style={{ margin: 0 }}>
+                          En estos momentos tu recomendación está en revisión, muy pronto aparecerá en el listado.
+                        </Text>
+                      )
                     }
-                    <Text type='paragraph' style={{ margin: 0 }}>
-                      En estos momentos tu recomendación está en revisión, muy pronto aparecerá en el listado.
-                    </Text>
                   </Container>
                 )
             }
