@@ -206,12 +206,10 @@ const ContactSection = ({ recommendations, users }) => {
                       const user = users.find(user => user.uuid === recommendation.userUUID)
                       if (!user || !recommendation.uuid) return null
 
-                      const fullName = user.name + ' ' + user.lastname
-
                       return (
                         <SwiperSlide key={recommendation.uuid}>
                           <Recommendation
-                            name={fullName}
+                            name={user.name}
                             image={user.image || ContactProfile.src}
                             message={recommendation.message}
                             stars={recommendation.quantity}
