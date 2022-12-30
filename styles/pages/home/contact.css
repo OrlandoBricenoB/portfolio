@@ -62,6 +62,26 @@
   background-color: var(--white);
 }
 
+.contact__form {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 1.5rem
+}
+
+.contact__form--thankyou {
+  grid-template-columns: 1fr
+}
+
+@media screen and (max-width: 1050px) {
+  .contact__form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__recommendation_image {
+    padding-top: 1rem!important
+  }
+}
+
 @media screen and (max-width: 768px) {
   .contact__recommendations {
     grid-template-columns: 1fr;
@@ -75,5 +95,9 @@
 
   .contact__information_text {
     padding: 0;
+  }
+
+  .contact__form {
+    grid-template-columns: 1fr;
   }
 }
