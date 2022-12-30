@@ -3,7 +3,7 @@ const { i18n } = require('./next-i18next.config')
 module.exports = {
   i18n,
   images: {
-    domains: ['orlandobricenob.dev'],
+    domains: ['localhost', 'orlandobricenob.dev'],
   },
   webpack(config) {
     config.module.rules.push({
