@@ -114,7 +114,7 @@ const ContactSection = ({ recommendations, users }) => {
     if (recommendationSent) return
 
     // * Hacer la petición fetch para crear la recomendación.
-    const response = await fetch('http://localhost:4000/api/v1/recommendations/create', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/api/v1/recommendations/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
