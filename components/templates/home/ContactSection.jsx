@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 import { Controller } from 'swiper'
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Pagination from '../../molecules/Pagination'
 import 'swiper/css'
 
@@ -11,6 +11,7 @@ import Text from '../../atoms/texts/Text'
 
 import Email from '../../atoms/icons/Email'
 import AccountStar from '../../atoms/icons/AccountStar'
+import Upload from '../../atoms/icons/Upload'
 
 import ContactProfile from '../../../assets/images/contact-profile.png'
 import Linkedin from '../../atoms/icons/Linkedin'
@@ -20,10 +21,22 @@ import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
 import Container from '../../atoms/Container'
 import useTranslate from '../../../hooks/useTranslate'
-import Image from 'next/image'
+import NextImage from 'next/image'
+
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ContactSection = ({ recommendations, users }) => {
   const { t } = useTranslate()
+  const [avatar, setAvatar] = useState(null)
+  const [avatarFile, setAvatarFile] = useState(null)
+  const [recommendationSent, setRecommendationSent] = useState(false)
+
+  useEffect(() => {
+    setRecommendationSent(
+      window.localStorage.getItem('recommendation-sent') || false
+    )
+  }, [])
 
   /* * Swiper of Recommendations */
   const [swiper, setSwiper] = useState(null)
@@ -41,6 +54,10 @@ const ContactSection = ({ recommendations, users }) => {
   })
   const [isValidForm, setIsValidForm] = useState(false)
 
+  useEffect(() => {
+    checkValidForm()
+  }, [avatar])
+
   const handleRateRecommendation = value => {
     setFormData(prev => {
       prev.quantity = value
@@ -52,23 +69,81 @@ const ContactSection = ({ recommendations, users }) => {
   const checkValidForm = () => {
     if (!formData.name || 
       !formData.message || formData.message.length > 200 ||
-      !formData.quantity) return setIsValidForm(false)
+      !formData.quantity || 
+      !avatar) return setIsValidForm(false)
   
     return setIsValidForm(true)
   }
 
-  const handleCreateRecommendation = () => {
-    console.log({ formData })
+  const handleSelectImage = event => {
+    if (!event.target.files.length) return
+    const file = event.target.files[0]
+
+    if (file.size > 5000000) {
+      return toast('La imagen debe pesar máximo 5MB', {
+        type: 'error'
+      })
+    }
+
+    const reader = new FileReader()
+    reader.onload = function (e) {
+        var img = new Image()     
+        img.src = e.target.result
+
+        img.onload = function () {
+          const [width, height] = [this.width, this.height]
+
+          if (width !== height) {
+            return toast('La imagen debe ser cuadrada.', {
+              type: 'error'
+            })
+          }
+
+          setAvatar(e.target.result)
+          setAvatarFile(file)
+        }
+    }
+    reader.readAsDataURL(file)
+
+  }
+
+  const handleCreateRecommendation = async () => {
+    if (!isValidForm) return
+
+    const recommendationSent = window.localStorage.getItem('recommendation-sent') || false
+    if (recommendationSent) return
+
+    // * Hacer la petición fetch para crear la recomendación.
+    const response = await fetch('http://localhost:4000/api/v1/recommendations/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          name: formData.name,
+          image: avatar
+        },
+        message: formData.message,
+        quantity: formData.quantity
+      })
+    })
+    const data = await response.json()
+
+    // * Limpiar el formulario.
+    window.localStorage.setItem('recommendation-sent', data.uuid)
+    setRecommendationSent(data.uuid)
   }
 
   return (
     <div className={classNames('contact', 'section')} id='contact'>
+      <ToastContainer />
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('contact--title')}</Heading>
       <div className={classNames('contact_content')}>
         {/* Contact */}
         <div className={classNames('contact__information')}>
           <figure style={{ margin: 0, position: 'relative' }}>
-            <Image
+            <NextImage
               src={ContactProfile.src}
               width={1210}
               height={1876}
@@ -136,8 +211,8 @@ const ContactSection = ({ recommendations, users }) => {
                       return (
                         <SwiperSlide key={recommendation.uuid}>
                           <Recommendation
-                            image={recommendation.image || ContactProfile.src}
                             name={fullName}
+                            image={user.image || ContactProfile.src}
                             message={recommendation.message}
                             stars={recommendation.quantity}
                           />
@@ -196,42 +271,115 @@ const ContactSection = ({ recommendations, users }) => {
             )
           }
           {/* Write Recommendation */}
-          <div>
-            <Text type='big_paragraph'>{t('recommendations--title')}</Text>
-            <Multirating onRate={handleRateRecommendation} />
-            <input
-              type='text'
-              placeholder={t('recommendations--placeholder-name')}
-              style={{ marginTop: '1rem' }}
-              onChange={event => {
-                setFormData(prev => {
-                  prev.name = event.target.value
-                  return prev
-                })
-                checkValidForm()
-              }}
-            />
-            <textarea
-              rows={4}
-              maxLength={200}
-              defaultValue={''}
-              placeholder={t('recommendations--placeholder-message')}
-              style={{ marginTop: '1rem' }}
-              onChange={event => {
-                setFormData(prev => {
-                  prev.message = event.target.value
-                  return prev
-                })
-                checkValidForm()
-              }}
-            />
-            <Button
-              Icon={<AccountStar color='#070a2b' />}
-              keepCase
-              disabled={!isValidForm}
-              style={{ marginTop: '1.5rem' }}
-              onClick={handleCreateRecommendation}
-            >{t('recommendations--cta')}</Button>
+          <div className={classNames('contact__form', { 'contact__form--thankyou': recommendationSent })}>
+            {
+              !recommendationSent
+                ? (
+                  <>
+                    {/* Form */}
+                    <div>
+                      <Text type='big_paragraph'>{t('recommendations--title')}</Text>
+                      <Multirating onRate={handleRateRecommendation} />
+                      <input
+                        type='text'
+                        placeholder={t('recommendations--placeholder-name')}
+                        style={{ marginTop: '1rem' }}
+                        onChange={event => {
+                          setFormData(prev => {
+                            prev.name = event.target.value
+                            return prev
+                          })
+                          checkValidForm()
+                        }}
+                      />
+                      <textarea
+                        rows={4}
+                        maxLength={200}
+                        defaultValue={''}
+                        placeholder={t('recommendations--placeholder-message')}
+                        style={{ marginTop: '1rem' }}
+                        onChange={event => {
+                          setFormData(prev => {
+                            prev.message = event.target.value
+                            return prev
+                          })
+                          checkValidForm()
+                        }}
+                      />
+                    </div>
+                    {/* Upload Image */}
+                    <input
+                      id='imageInput'
+                      name='imageInput'
+                      type='file'
+                      accept="image/png, image/jpeg"
+                      onChange={handleSelectImage}
+                      hidden
+                    />
+                    <Container
+                      componentElement='label'
+                      htmlFor='imageInput'
+                      className={classNames('contact__recommendation_image')}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        cursor: 'pointer',
+                        paddingTop: 0
+                      }}
+                    >
+                      {
+                        !avatar
+                          ? (
+                            <>
+                              <Upload size='128' />
+                              <Text type='paragraph' style={{ margin: 0 }}>
+                                Clic para subir una imagen
+                              </Text>
+                            </>
+                          )
+                          : (
+                            <>
+                              <img src={avatar} width={128} height={128} />
+                              <Text type='paragraph'>{avatarFile.name.split('.')[0].slice(0, 35)}.{avatarFile.name.split('.')[1]}</Text>
+                              <Text type='paragraph' style={{ color: '#8E92C2', margin: 0 }}>Clic para reemplazar la imagen</Text>
+                            </>
+                          )
+                      }
+                    </Container>
+        
+                    {/* CTA */}
+                    <Button
+                      Icon={<AccountStar color='#070a2b' />}
+                      keepCase
+                      disabled={!isValidForm}
+                      style={{ marginTop: '1.5rem' }}
+                      onClick={handleCreateRecommendation}
+                    >{t('recommendations--cta')}</Button>
+                  </>
+                )
+                : (
+                  <Container style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    textAlign: 'center'
+                  }}>
+                    <Heading type='h3'>¡Gracias por dejar tu recomendación!</Heading>
+                    <Text type='paragraph'>Tu apoyo es de gran ayuda para mí, gracias por ser parte de esto.</Text>
+                    {
+                      !recommendations.find(recommendation => {
+                        return recommendation === recommendationSent
+                      })
+                    }
+                    <Text type='paragraph' style={{ margin: 0 }}>
+                      En estos momentos tu recomendación está en revisión, muy pronto aparecerá en el listado.
+                    </Text>
+                  </Container>
+                )
+            }
           </div>
         </div>
       </div>
