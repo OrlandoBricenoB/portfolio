@@ -34,7 +34,7 @@ const ContactSection = ({ recommendations, users }) => {
 
   useEffect(() => {
     setRecommendationSent(
-      window.localStorage.getItem('recommendation-sent') || false
+      window.localStorage.getItem('is-recommendation-sent') || false
     )
   }, [])
 
@@ -110,7 +110,7 @@ const ContactSection = ({ recommendations, users }) => {
   const handleCreateRecommendation = async () => {
     if (!isValidForm) return
 
-    const recommendationSent = window.localStorage.getItem('recommendation-sent') || false
+    const recommendationSent = window.localStorage.getItem('is-recommendation-sent') || false
     if (recommendationSent) return
 
     // * Hacer la petición fetch para crear la recomendación.
@@ -131,7 +131,7 @@ const ContactSection = ({ recommendations, users }) => {
     const data = await response.json()
 
     // * Limpiar el formulario.
-    window.localStorage.setItem('recommendation-sent', data.uuid)
+    window.localStorage.setItem('is-recommendation-sent', data.uuid)
     setRecommendationSent(data.uuid)
   }
 
