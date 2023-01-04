@@ -26,6 +26,7 @@ import Container from '../../atoms/Container'
 
 import LeadinGraph from '../../../assets/images/projects/leadingraph.png'
 import FileExt from '../../../assets/images/projects/file-ext.png'
+import AdventBanner from '../../../assets/images/projects/adventjs.png'
 import Image from 'next/image'
 
 const ProjectsSection = () => {
@@ -223,6 +224,57 @@ const ProjectsSection = () => {
                 style={{ width: 'fit-content' }}
                 componentElement='a'
                 href='https://www.npmjs.com/package/@jo-sword/file-ext'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#141211'
+            }}>
+              <Image
+                src={AdventBanner}
+                width={300}
+                height={300}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Soluciones del AdventJS'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                AdventJS 2022
+              </Text>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                Un repositorio donde compartí la solución de los 24 retos del AdventJS, una iniciativa de @midudev donde por cada día de diciembre se publica un reto de JavaScript hasta el 24 de Diciembre.
+                <br /><br />
+                Construí los mismos tests de todos los retos en mi propio entorno e hice una manera muy fácil y cómoda para ejecutar los tests.                
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
+                <Badge
+                  Icon={<JavaScript size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >JavaScript</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://github.com/OrlandoBricenoB/adventjs-2022'
                 target='_blank'
               >
                 {t('projects--item-cta')}

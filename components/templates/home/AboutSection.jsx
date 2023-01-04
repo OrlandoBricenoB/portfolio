@@ -76,21 +76,21 @@ const AboutSection = () => {
     },
     {
       id: 6,
+      name: t('certification--logical-thinking'),
+      description: '...',
+      image: LogicThinking
+    },
+    {
+      id: 7,
       name: t('certification--time-management'),
       description: '...',
       image: TimeManagement
     },
     {
-      id: 7,
+      id: 8,
       name: t('certification--emotional-intelligence'),
       description: '...',
       image: Intelligence
-    },
-    {
-      id: 8,
-      name: t('certification--logical-thinking'),
-      description: '...',
-      image: LogicThinking
     }
   ]
 
