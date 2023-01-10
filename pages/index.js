@@ -7,7 +7,7 @@ import ContactSection from '../components/templates/home/ContactSection'
 
 import useRecommendations from '../hooks/useRecommendations'
 import useUsers from '../hooks/useUsers'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const {
