@@ -140,7 +140,7 @@ const ProjectsSection = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
                 {/* Project Information */}
                 <Heading type='h3' style={{ margin: 0 }}>
-                  Gadmin ({t('common--in-process')})
+                  Gadmin
                 </Heading>
                 <Text type='big_paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                   {t('projects--gadmin-content-1')}<br /><br />
