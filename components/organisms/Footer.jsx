@@ -4,7 +4,7 @@ import Container from '../atoms/Container'
 import Text from '../atoms/texts/Text'
 import Image from 'next/image'
 
-import LeadinGraphLogo from '../../assets/images/brands/leadingraph.png'
+import GadminLogo from '../../assets/images/brands/gadmin.png'
 import PlatziLogo from '../../assets/images/brands/platzi.png'
 
 const Footer = () => {
@@ -23,13 +23,13 @@ const Footer = () => {
         </div>
         <Container className={classNames('footer__brands')}>
           <figure className={classNames('footer__brand')}>
-            <a href='https://leadingraph.com' target='_blank' aria-label='LeadinGraph Website'>
+            <a href='https://gadmin.app' target='_blank' aria-label='Gadmin Website'>
               <Image
-                src={LeadinGraphLogo}
+                src={GadminLogo}
                 width={128}
                 height={128}
                 className={classNames('footer__brand_image')}
-                alt='LeadinGraph'
+                alt='Gadmin'
               />
             </a>
           </figure>

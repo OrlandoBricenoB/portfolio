@@ -24,7 +24,7 @@ import Separator from '../../atoms/Separator'
 import Badge from '../../atoms/Badge'
 import Container from '../../atoms/Container'
 
-import LeadinGraph from '../../../assets/images/projects/leadingraph.png'
+import Gadmin from '../../../assets/images/projects/gadmin.png'
 import FileExt from '../../../assets/images/projects/file-ext.png'
 import AdventBanner from '../../../assets/images/projects/adventjs.png'
 import Image from 'next/image'
@@ -125,7 +125,7 @@ const ProjectsSection = () => {
               alignItems: 'flex-start'
             }}>
               <Image
-                src={LeadinGraph.src}
+                src={Gadmin.src}
                 width={820}
                 height={312}
                 style={{
@@ -133,18 +133,18 @@ const ProjectsSection = () => {
                   height: 'auto',
                   borderRadius: '4px'
                 }}
-                alt='Portada de LeadinGraph'
+                alt='Portada de Gadmin'
               />
             </figure>
             <div className={classNames('projects__item_content')}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
                 {/* Project Information */}
                 <Heading type='h3' style={{ margin: 0 }}>
-                  LeadinGraph ({t('common--in-process')})
+                  Gadmin ({t('common--in-process')})
                 </Heading>
                 <Text type='big_paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
-                  {t('projects--leadingraph-content-1')}<br /><br />
-                  {t('projects--leadingraph-content-2')}
+                  {t('projects--gadmin-content-1')}<br /><br />
+                  {t('projects--gadmin-content-2')}
                   <br /><br />
                 </Text>
                 {/* Badge Tools */}
@@ -172,7 +172,7 @@ const ProjectsSection = () => {
                 Icon={<GoToFile color='#21c2e1' />}
                 style={{ width: 'fit-content' }}
                 componentElement='a'
-                href='https://leadingraph.com'
+                href='https://gadmin.app'
                 target='_blank'
               >
                 {t('projects--item-cta')}
