@@ -3,7 +3,13 @@ const { i18n } = require('./next-i18next.config')
 module.exports = {
   i18n,
   images: {
-    domains: ['localhost', 'orlandobricenob.dev'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'orlandobricenob.com',
+        pathname: '**',
+      },
+    ],
   },
   webpack(config) {
     config.module.rules.push({

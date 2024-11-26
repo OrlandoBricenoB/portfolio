@@ -1,15 +1,30 @@
-import { useQuery } from 'react-query'
+// import { useQuery } from 'react-query'
 
 const useRecommendations = () => {
-  const { isLoading, error, data } = useQuery('recommendations', () =>
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/recommendations`).then(res =>
-      res.json()
-    )
-  )
+  // const { isLoading, error, data } = useQuery('recommendations', () =>
+  //   fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/recommendations`).then(res =>
+  //     res.json()
+  //   )
+  // )
+
+  const data = [
+    {
+      createDate: new Date(),
+    },
+    {
+      createDate: new Date(),
+    },
+    {
+      createDate: new Date(),
+    },
+    {
+      createDate: new Date(),
+    }
+  ]
 
   return {
-    isLoading,
-    error,
+    isLoading: false,
+    error: null,
     data: data || []
   }
 }

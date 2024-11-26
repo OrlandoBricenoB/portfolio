@@ -4,9 +4,7 @@ import Container from '../atoms/Container'
 import Text from '../atoms/texts/Text'
 import Image from 'next/image'
 
-import WithMyWife from '../../assets/images/with-my-wife.png'
 import GadminLogo from '../../assets/images/brands/gadmin.png'
-import PlatziLogo from '../../assets/images/brands/platzi.png'
 
 const Footer = () => {
   const { t } = useTranslate()
@@ -23,17 +21,6 @@ const Footer = () => {
           </Text>
         </div>
         <Container className={classNames('footer__brands')}>
-          <figure className={classNames('footer__brand', 'footer__brand--vertical')}>
-            <Image
-              src={WithMyWife}
-              width={128}
-              height={128}
-              className={classNames('footer__brand_image')}
-              alt="Orlando's Wife"
-              title="Orlando's Wife"
-              style={{ maxWidth: '96px', margin: '0 auto' }}
-            />
-          </figure>
           <figure className={classNames('footer__brand')}>
             <a href='https://gadmin.app' target='_blank' aria-label='Gadmin Website'>
               <Image
@@ -43,17 +30,6 @@ const Footer = () => {
                 className={classNames('footer__brand_image')}
                 alt='Gadmin'
                 style={{ maxWidth: '96px', margin: '0 auto' }}
-              />
-            </a>
-          </figure>
-          <figure className={classNames('footer__brand')}>
-            <a href='https://platzi.com' target='_blank' aria-label='Platzi Website'>
-              <Image
-                src={PlatziLogo}
-                width={128}
-                height={128}
-                className={classNames('footer__brand_image')}
-                alt='Platzi'
               />
             </a>
           </figure>

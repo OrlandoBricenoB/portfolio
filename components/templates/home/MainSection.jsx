@@ -7,18 +7,17 @@ import useTranslate from '../../../hooks/useTranslate'
   * COMPONENTS
 */
 import Button from '../../atoms/Button'
-import Link from '../../atoms/links/Link'
+// import Link from '../../atoms/links/Link'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
 
-import Multirating from '../../molecules/rating/Multirating'
+// import Multirating from '../../molecules/rating/Multirating'
 import SocialButton from '../../molecules/socials/SocialButton'
 
 /*
   * ICONS
 */
 import Linkedin from '../../atoms/icons/Linkedin'
-import Twitter from '../../atoms/icons/Twitter'
 import Github from '../../atoms/icons/Github'
 import StackOverflow from '../../atoms/icons/StackOverflow'
 import CloudDownload from '../../atoms/icons/CloudDownload'
@@ -46,9 +45,6 @@ const MainSection = ({ recommendations = [] }) => {
         <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>LinkedIn</Text>
         </SocialButton>
-        <SocialButton Icon={Twitter} to='https://twitter.com/orlandobricenob'>
-          <Text type='small_paragraph' style={{ textAlign: 'center' }}>Twitter</Text>
-        </SocialButton>
         <SocialButton Icon={Github} to='https://github.com/OrlandoBricenoB'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>Github</Text>
         </SocialButton>
@@ -71,7 +67,7 @@ const MainSection = ({ recommendations = [] }) => {
           <Text type='big_paragraph' className={styles.home__title}>{
             t('common--specialization')
           }</Text>
-          <div className={styles.home__rating}>
+          {/* <div className={styles.home__rating}>
             <Multirating filled={5} hoverLess />
             <Link
               style={{ cursor: 'pointer' }}
@@ -80,7 +76,7 @@ const MainSection = ({ recommendations = [] }) => {
             >{recommendations.length} {
               t('common--recommendations')
             }</Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Image Mobile */}
@@ -135,18 +131,10 @@ const MainSection = ({ recommendations = [] }) => {
         <div className={styles.home__cta}>
           <Button
             type='outlined'
-            Icon={<CloudDownload color='#21c2e1' />}
-            componentElement='a'
-            href='https://drive.google.com/drive/folders/1bsw5DEICWihZpYH6XEXqm0TMuabJxmuy?usp=sharing'
-            target='_blank'
-          >{t('main--cta-1')}</Button>
-          <Button
             Icon={<Email color='#21c2e1' />}
-            type='ghost'
             componentElement='a'
-            href='mailto:orlando.briceno.blanco@gmail.com'
-            style={{ width: 'fit-content' }}
-            keepCase
+            href='mailto:hola@orlandobricenob.com'
+            target='_blank'
           >{t('common--cta-email')}</Button>
         </div>
       </div>

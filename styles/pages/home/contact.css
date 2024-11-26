@@ -1,3 +1,8 @@
+.contact {
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+}
+
 .contact__information {
   display: grid;
   grid-template-columns: 2fr 8fr; 

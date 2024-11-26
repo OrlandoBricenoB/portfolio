@@ -34,17 +34,17 @@ function Document({ ...rest }) {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://orlandobricenob.dev/" />
+        <meta property="og:url" content="https://orlandobricenob.com/" />
         <meta property="og:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
         <meta property="og:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
-        <meta property="og:image" content="https://orlandobricenob.dev/meta-cover.png" />
+        <meta property="og:image" content="https://orlandobricenob.com/meta-cover.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://orlandobricenob.dev/" />
+        <meta property="twitter:url" content="https://orlandobricenob.com/" />
         <meta property="twitter:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
         <meta property="twitter:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
-        <meta property="twitter:image" content="https://orlandobricenob.dev/meta-cover.png" />
+        <meta property="twitter:image" content="https://orlandobricenob.com/meta-cover.png" />
       </Head>
       <body>
         <Main />

@@ -1,15 +1,17 @@
-import { useQuery } from 'react-query'
+// import { useQuery } from 'react-query'
 
 const useUsers = () => {
-  const { isLoading, error, data } = useQuery('users', () =>
-    fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/users`).then(res =>
-      res.json()
-    )
-  )
+  // const { isLoading, error, data } = useQuery('users', () =>
+  //   fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/users`).then(res =>
+  //     res.json()
+  //   )
+  // )
+
+  const data = []
 
   return {
-    isLoading,
-    error,
+    isLoading: false,
+    error: null,
     data: data || []
   }
 }

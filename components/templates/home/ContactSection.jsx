@@ -15,7 +15,6 @@ import Upload from '../../atoms/icons/Upload'
 
 import ContactProfile from '../../../assets/images/contact-profile.png'
 import Linkedin from '../../atoms/icons/Linkedin'
-import Twitter from '../../atoms/icons/Twitter'
 import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
@@ -170,27 +169,18 @@ const ContactSection = ({ recommendations, users }) => {
               >
                 <Linkedin color='#21c2e1' size='32' />
               </a>
-              <a
-                href='https://twitter.com/orlandobricenob'
-                target='_blank'
-                className={classNames('contact__social_button')}
-                aria-label='Visitar Twitter de OrlandoBricenoB'
-              >
-                <Twitter color='#21c2e1' size='32' />
-              </a>
             </div>
             <Button
               Icon={<Email color='#070a2b' />}
               keepCase
               componentElement='a'
-              href='mailto:orlando.briceno.blanco@gmail.com'
+              href='mailto:hola@orlandobricenob.com'
               style={{ width: 'fit-content' }}
             >{t('common--cta-email')}</Button>
           </div>
         </div>
         {/* Recommendations */}
-        <div className={classNames('contact__recommendations')} id="recommendations">
-          {/* Swiper Recommendations */}
+        {/* <div className={classNames('contact__recommendations')} id="recommendations">
           {
             recommendations.length !== 0 && (
               <div style={{ overflow: 'hidden' }}>
@@ -268,13 +258,12 @@ const ContactSection = ({ recommendations, users }) => {
               </Container>
             )
           }
-          {/* Write Recommendation */}
+
           <div className={classNames('contact__form', { 'contact__form--thankyou': recommendationSent })}>
             {
               !recommendationSent
                 ? (
                   <>
-                    {/* Form */}
                     <div>
                       <Text type='big_paragraph'>{t('recommendations--title')}</Text>
                       <Multirating onRate={handleRateRecommendation} />
@@ -305,7 +294,7 @@ const ContactSection = ({ recommendations, users }) => {
                         }}
                       />
                     </div>
-                    {/* Upload Image */}
+
                     <input
                       id='imageInput'
                       name='imageInput'
@@ -346,8 +335,7 @@ const ContactSection = ({ recommendations, users }) => {
                           )
                       }
                     </Container>
-        
-                    {/* CTA */}
+
                     <Button
                       Icon={<AccountStar color='#070a2b' />}
                       keepCase
@@ -380,7 +368,7 @@ const ContactSection = ({ recommendations, users }) => {
                 )
             }
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

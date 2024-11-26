@@ -5,36 +5,36 @@ import ProjectsSection from '../components/templates/home/ProjectsSection'
 import AboutSection from '../components/templates/home/AboutSection'
 import ContactSection from '../components/templates/home/ContactSection'
 
-import useRecommendations from '../hooks/useRecommendations'
-import useUsers from '../hooks/useUsers'
-import { useEffect, useState } from 'react'
+// import useRecommendations from '../hooks/useRecommendations'
+// import useUsers from '../hooks/useUsers'
+// import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const {
-    data: recommendations
-  } = useRecommendations()
+  // const {
+  //   data: recommendations
+  // } = useRecommendations()
 
-  const [sortRecommendations, setSortRecommendations] = useState([])
+  // const [sortRecommendations, setSortRecommendations] = useState([])
 
-  useEffect(() => {
-    setSortRecommendations(recommendations.sort(
-      (a, b) => {
-      const aDate = new Date(a.createDate).getTime()
-      const bDate = new Date(b.createDate).getTime()
-      return bDate - aDate
-    }))
-  }, [recommendations])
+  // useEffect(() => {
+  //   setSortRecommendations(recommendations.sort(
+  //     (a, b) => {
+  //     const aDate = new Date(a.createDate).getTime()
+  //     const bDate = new Date(b.createDate).getTime()
+  //     return bDate - aDate
+  //   }))
+  // }, [recommendations])
 
-  const {
-    data: users
-  } = useUsers()
+  // const {
+  //   data: users
+  // } = useUsers()
 
   return (
     <>
-      <MainSection recommendations={recommendations} users={users} />
+      <MainSection recommendations={[]} users={[]} />
       <ProjectsSection />
       <AboutSection />
-      <ContactSection recommendations={sortRecommendations} users={users} />
+      <ContactSection recommendations={[]} users={[]} />
     </>
   )
 }
