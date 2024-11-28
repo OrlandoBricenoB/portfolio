@@ -135,6 +135,7 @@ const MainSection = ({ recommendations = [] }) => {
             componentElement='a'
             href='mailto:hola@orlandobricenob.com'
             target='_blank'
+            data-sln-event="user: send email"
           >{t('common--cta-email')}</Button>
         </div>
       </div>

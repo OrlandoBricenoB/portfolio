@@ -78,6 +78,7 @@ const Navbar = () => {
           componentElement='a'
           Icon={<ContactPage color='#070a2b' />}
           href='#contact'
+          data-sln-event="user: contact"
         >{t('common--cta-contact')}</Button>
       </div>
     </header>

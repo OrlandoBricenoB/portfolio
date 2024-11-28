@@ -176,6 +176,7 @@ const ContactSection = ({ recommendations, users }) => {
               componentElement='a'
               href='mailto:hola@orlandobricenob.com'
               style={{ width: 'fit-content' }}
+              data-sln-event="user: send email"
             >{t('common--cta-email')}</Button>
           </div>
         </div>
