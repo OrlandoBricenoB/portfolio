@@ -45,6 +45,8 @@ function Document({ ...rest }) {
         <meta property="twitter:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
         <meta property="twitter:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
         <meta property="twitter:image" content="https://orlandobricenob.com/meta-cover.png" />
+
+        <script async src="https://cdn.seline.so/seline.js" data-token="4e832700dab5473"></script>
       </Head>
       <body>
         <Main />
