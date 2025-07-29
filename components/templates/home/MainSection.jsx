@@ -19,10 +19,7 @@ import SocialButton from '../../molecules/socials/SocialButton'
 */
 import Linkedin from '../../atoms/icons/Linkedin'
 import Github from '../../atoms/icons/Github'
-import StackOverflow from '../../atoms/icons/StackOverflow'
-import CloudDownload from '../../atoms/icons/CloudDownload'
 import Email from '../../atoms/icons/Email'
-import Codepen from '../../atoms/icons/Codepen'
 
 /*
   * IMAGES
@@ -47,14 +44,6 @@ const MainSection = ({ recommendations = [] }) => {
         </SocialButton>
         <SocialButton Icon={Github} to='https://github.com/OrlandoBricenoB'>
           <Text type='small_paragraph' style={{ textAlign: 'center' }}>Github</Text>
-        </SocialButton>
-        <SocialButton Icon={Codepen} to='https://codepen.io/orlandobricenob'>
-          <Text type='small_paragraph' style={{ textAlign: 'center' }}>Codepen</Text>
-        </SocialButton>
-        <SocialButton Icon={StackOverflow} to='https://stackoverflow.com/users/20795121/orlando-jose-brice%C3%B1o-blanco'>
-          <Text type='small_paragraph' style={{ textAlign: 'center' }}>
-            Stack<br />Overflow
-          </Text>
         </SocialButton>
       </aside>
       {/* Content */}

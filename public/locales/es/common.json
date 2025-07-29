@@ -28,6 +28,13 @@
 
   "projects--file-content-1": "Construí esta librería de JavaScript que obtiene la extensión y/o mimeType de un nombre de archivo o ruta.",
   "projects--file-content-2": "Su propósito es hacer más fácil el trabajo del manejo de extensiones de archivos en el backend.",
+
+  "projects--adventjs-1": "Un repositorio donde compartí la solución de los 24 retos del AdventJS, una iniciativa de @midudev donde por cada día de diciembre se publica un reto de JavaScript hasta el 24 de Diciembre.",
+  "projects--adventjs-2": "Construí los mismos tests de todos los retos en mi propio entorno e hice una manera muy fácil y cómoda para ejecutar los tests.",
+
+  "projects--narubyond-1": "De niño me emocioné por crear videojuegos, aprendí usando un proyecto existente y escribí sobre él mientras aprendía inglés traduciendo el juego entero.",
+  "projects--narubyond-2": "Recuerdo que pasé días entendiendo qué hacía un fragmento de código, es divertido mirar atrás y pensar que hoy he enseñado a tantas personas a entender código como ese.",
+
   "projects--item-cta": "Ver el Proyecto",
 
   "certification--professional-git": "Curso Profesional de Git y Github",

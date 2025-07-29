@@ -16,6 +16,7 @@ import React from '../../atoms/icons/tools/React'
 import NextJS from '../../atoms/icons/tools/NextJS'
 import PostgreSQL from '../../atoms/icons/tools/PostgreSQL'
 import MongoDB from '../../atoms/icons/tools/MongoDB'
+import ByondLogo from '../../../assets/images/brands/byondLogo.webp'
 
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
@@ -27,6 +28,7 @@ import Container from '../../atoms/Container'
 import Gadmin from '../../../assets/images/projects/gadmin.png'
 import FileExt from '../../../assets/images/projects/file-ext.png'
 import AdventBanner from '../../../assets/images/projects/adventjs.png'
+import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
 import Image from 'next/image'
 
 const ProjectsSection = () => {
@@ -257,9 +259,9 @@ const ProjectsSection = () => {
                 AdventJS 2022
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
-                Un repositorio donde compartí la solución de los 24 retos del AdventJS, una iniciativa de @midudev donde por cada día de diciembre se publica un reto de JavaScript hasta el 24 de Diciembre.
+                {t('projects--adventjs-1')}
                 <br /><br />
-                Construí los mismos tests de todos los retos en mi propio entorno e hice una manera muy fácil y cómoda para ejecutar los tests.                
+                {t('projects--adventjs-2')}
               </Text>
               {/* Badge Tools */}
               <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
@@ -275,6 +277,65 @@ const ProjectsSection = () => {
                 style={{ width: 'fit-content' }}
                 componentElement='a'
                 href='https://github.com/OrlandoBricenoB/adventjs-2022'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#141211'
+            }}>
+              <Image
+                src={NarubyondProject}
+                width={300}
+                height={300}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Narubyond 1.8'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                NaruByond
+              </Text>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                {t('projects--narubyond-1')}
+                <br /><br />
+                {t('projects--narubyond-2')}
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
+                <Badge
+                  Icon={
+                    <Image
+                      src={ByondLogo}
+                      width={24}
+                      height={24}
+                      alt="Byond Logo"
+                      style={{ borderRadius: '4px' }}
+                    />
+                  }
+                  style={{ backgroundColor: '#070a2b' }}
+                >Dream Maker (C Based)</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://www.byond.com/games/RedFill/NaruByond'
                 target='_blank'
               >
                 {t('projects--item-cta')}
