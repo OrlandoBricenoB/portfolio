@@ -29,6 +29,8 @@ import Gadmin from '../../../assets/images/projects/gadmin.png'
 import FileExt from '../../../assets/images/projects/file-ext.png'
 import AdventBanner from '../../../assets/images/projects/adventjs.png'
 import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
+import NgnProject from '../../../assets/images/projects/ngn.webp'
+import CorreFution from '../../../assets/images/projects/correfution.webp'
 import Image from 'next/image'
 
 const ProjectsSection = () => {
@@ -293,6 +295,116 @@ const ProjectsSection = () => {
               backgroundColor:'#141211'
             }}>
               <Image
+                src={CorreFution}
+                width={300}
+                height={300}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Corre Fution'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                Corre Fution
+              </Text>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                {t('projects--correfution-1')}
+                <br /><br />
+                {t('projects--correfution-2')}
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
+                <Badge
+                  Icon={<JavaScript size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >JavaScript (Phaser JS)</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://gamejolt.com/games/jo-corre-fution/390714'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#141211'
+            }}>
+              <Image
+                src={NgnProject}
+                width={300}
+                height={300}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Naruto Guerra Ninja'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                Naruto Guerra Ninja (Online RPG)
+              </Text>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                {t('projects--ngn-1')}
+                <br /><br />
+                {t('projects--ngn-2')}
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
+                <Badge
+                  Icon={
+                    <Image
+                      src={ByondLogo}
+                      width={24}
+                      height={24}
+                      alt="Byond Logo"
+                      style={{ borderRadius: '4px' }}
+                    />
+                  }
+                  style={{ backgroundColor: '#070a2b' }}
+                >Dream Maker (C Based)</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://www.byond.com/games/RedFill/NarutoGuerraNinja'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#141211'
+            }}>
+              <Image
                 src={NarubyondProject}
                 width={300}
                 height={300}
@@ -307,7 +419,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                NaruByond
+                NaruByond (Online RPG)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--narubyond-1')}
