@@ -31,6 +31,7 @@ import AdventBanner from '../../../assets/images/projects/adventjs.png'
 import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
 import NgnProject from '../../../assets/images/projects/ngn.webp'
 import CorreFution from '../../../assets/images/projects/correfution.webp'
+import PaypalCalculator from '../../../assets/images/projects/paypal-calculator.webp'
 import Image from 'next/image'
 
 const ProjectsSection = () => {
@@ -295,6 +296,57 @@ const ProjectsSection = () => {
               backgroundColor:'#141211'
             }}>
               <Image
+                src={PaypalCalculator}
+                width={300}
+                height={300}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Calculadora PayPal'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                {t('projects--calculadora-title')}
+              </Text>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                {t('projects--calculadora-1')}
+                <br /><br />
+                {t('projects--calculadora-2')}
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
+                <Badge
+                  Icon={<JavaScript size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >JavaScript</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://github.com/OrlandoBricenoB/calculadora-paypal'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#141211'
+            }}>
+              <Image
                 src={CorreFution}
                 width={300}
                 height={300}
@@ -329,7 +381,7 @@ const ProjectsSection = () => {
                 Icon={<GoToFile color='#21c2e1' />}
                 style={{ width: 'fit-content' }}
                 componentElement='a'
-                href='https://gamejolt.com/games/jo-corre-fution/390714'
+                href='https://jo-sword.itch.io/corre-fution'
                 target='_blank'
               >
                 {t('projects--item-cta')}
