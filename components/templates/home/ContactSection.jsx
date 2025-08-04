@@ -13,7 +13,7 @@ import Email from '../../atoms/icons/Email'
 import AccountStar from '../../atoms/icons/AccountStar'
 import Upload from '../../atoms/icons/Upload'
 
-import ContactProfile from '../../../assets/images/contact-profile.png'
+import ContactProfile from '../../../assets/images/contact-me.webp'
 import Linkedin from '../../atoms/icons/Linkedin'
 import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
@@ -144,8 +144,8 @@ const ContactSection = ({ recommendations, users }) => {
           <figure style={{ margin: 0, position: 'relative' }}>
             <NextImage
               src={ContactProfile.src}
-              width={1210}
-              height={1876}
+              width={1080}
+              height={1080}
               style={{ width: '100%', height: 'auto' }}
               alt='Orlando Briceño Atento'
             />

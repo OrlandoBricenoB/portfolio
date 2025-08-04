@@ -20,7 +20,7 @@ const Footer = () => {
             {t('footer--content-2')}
           </Text>
         </div>
-        <Container className={classNames('footer__brands')}>
+        <div className={classNames('footer__brands')}>
           <figure className={classNames('footer__brand')}>
             <a href='https://gadmin.app' target='_blank' aria-label='Gadmin Website'>
               <Image
@@ -33,7 +33,7 @@ const Footer = () => {
               />
             </a>
           </figure>
-        </Container>
+        </div>
       </div>
       <div className={classNames('footer__credits')}>
         <Text type='big_paragraph' style={{ margin: 0 }}>

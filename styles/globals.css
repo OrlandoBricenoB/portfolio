@@ -87,8 +87,11 @@ input::placeholder, textarea::placeholder {
 
 /* Footer */
 .footer {
-  background-color: var(--primary);
-  color: var(--bg);
+  background-color: var(--bg);
+  color: var(--white);
+  border: 1px solid var(--container-bg);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .footer__content {
@@ -110,7 +113,6 @@ input::placeholder, textarea::placeholder {
   align-items: center;
   gap: .5rem;
   width: 100%;
-  background-color: var(--bg)!important;
   color: #fff;
 }
 

@@ -24,7 +24,7 @@ import Email from '../../atoms/icons/Email'
 /*
   * IMAGES
 */
-import profilePresentation from '../../../assets/images/profile-presentation.jpg'
+import profilePresentation from '../../../assets/images/profile.webp'
 
 /*
   * STYLES
@@ -72,8 +72,8 @@ const MainSection = ({ recommendations = [] }) => {
         <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
           <Image
             src={profilePresentation.src}
-            width={348}
-            height={499.2}
+            width={1080}
+            height={1080}
             className={styles.profile_presentation__image}
             priority
             alt='Orlando Briceño'
@@ -132,8 +132,8 @@ const MainSection = ({ recommendations = [] }) => {
       <figure className={styles.profile_presentation}>
         <Image
           src={profilePresentation.src}
-          width={348}
-          height={499.2}
+          width={1080}
+          height={1080}
           className={styles.profile_presentation__image}
           priority
           alt='Orlando Briceño'

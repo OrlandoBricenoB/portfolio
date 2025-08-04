@@ -16,7 +16,7 @@ import JavaScriptPractice from '../../../assets/images/certifications/diploma-ja
 import JavaScriptProfessional from '../../../assets/images/certifications/diploma-javascript-profesional.png'
 import LogicThinking from '../../../assets/images/certifications/diploma-pensamiento-logico.jpg'
 
-import ThinkingProfile from '../../../assets/images/thinking-cut.png'
+import AboutMeProfile from '../../../assets/images/guitar-keyboard.webp'
 import ImageGradient from '../../atoms/ImageGradient'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -161,9 +161,9 @@ const AboutSection = () => {
         <div className={classNames('about__content')}>
           <figure className={classNames('about__content_image')} style={{ margin: 0, position: 'relative' }}>
             <Image
-              src={ThinkingProfile.src}
-              width={750}
-              height={1000}
+              src={AboutMeProfile.src}
+              width={2500}
+              height={2597}
               style={{ width: '100%', height: 'auto' }}
               alt='Orlando Briceño Pensando'
             />
