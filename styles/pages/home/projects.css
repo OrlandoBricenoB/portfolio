@@ -8,12 +8,13 @@
   width: 100%;
   padding: 1rem 0;
 }
-
 .projects__list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .projects__item {

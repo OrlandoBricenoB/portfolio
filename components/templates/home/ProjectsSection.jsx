@@ -333,17 +333,6 @@ const ProjectsSection = () => {
                   style={{ backgroundColor: '#070a2b' }}
                 >JavaScript</Badge>
               </div>
-              {/* Take a look - CTA */}
-              <Button
-                type='outlined'
-                Icon={<GoToFile color='#21c2e1' />}
-                style={{ width: 'fit-content' }}
-                componentElement='a'
-                href='https://github.com/OrlandoBricenoB/calculadora-paypal'
-                target='_blank'
-              >
-                {t('projects--item-cta')}
-              </Button>
             </div>
           </Container>
           <Container className={classNames('projects__item')}>
