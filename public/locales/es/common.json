@@ -32,6 +32,10 @@
   "projects--adventjs-1": "Un repositorio donde compartí la solución de los 24 retos del AdventJS, una iniciativa de @midudev donde por cada día de diciembre se publica un reto de JavaScript hasta el 24 de Diciembre.",
   "projects--adventjs-2": "Construí los mismos tests de todos los retos en mi propio entorno e hice una manera muy fácil y cómoda para ejecutar los tests.",
 
+  "projects--bokados-title": "Precios de Bokados",
+  "projects--bokados-1": "Una panadería quería tener un menú de precios actualizados en tiempo real con la tasa de cambio del dólar en Venezuela.",
+  "projects--bokados-2": "Este fue el inicio de la Startup Gadmin, cuando aún siquiera sabía que quería facilitar la vida de la gente a tal escala.",
+
   "projects--calculadora-title": "Calculadora PayPal",
   "projects--calculadora-1": "Me cansé de calcular las comisiones de PayPal, así que construí esta calculadora en menos de 2 horas para calcular las comisiones de los pagos que recibía y hacía.",
   "projects--calculadora-2": "No soy fan de las comisiones de PayPal. Hoy en día ya no lo uso, si puedes irte, hazlo.",

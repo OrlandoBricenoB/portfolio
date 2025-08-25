@@ -32,6 +32,7 @@ import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
 import NgnProject from '../../../assets/images/projects/ngn.webp'
 import CorreFution from '../../../assets/images/projects/correfution.webp'
 import PaypalCalculator from '../../../assets/images/projects/paypal-calculator.webp'
+import BokadosPreview from '../../../assets/images/projects/bokados-preview.webp'
 import Image from 'next/image'
 
 const ProjectsSection = () => {
@@ -280,6 +281,65 @@ const ProjectsSection = () => {
                 style={{ width: 'fit-content' }}
                 componentElement='a'
                 href='https://github.com/OrlandoBricenoB/adventjs-2022'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#141211'
+            }}>
+              <Image
+                src={BokadosPreview}
+                width={300}
+                height={300}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Bokados Menu Prices'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              {/* Project Information */}
+              <Text type='big_paragraph' style={{ margin: 0 }}>
+                {t('projects--bokados-title')}
+              </Text>
+              <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                {t('projects--bokados-1')}
+                <br /><br />
+                {t('projects--bokados-2')}
+              </Text>
+              {/* Badge Tools */}
+              <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}> 
+                <Badge
+                  Icon={<HTML size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >HTML</Badge>
+                <Badge
+                  Icon={<CSS size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >CSS</Badge>
+                <Badge
+                  Icon={<JavaScript size='24' />}
+                  style={{ backgroundColor: '#070a2b' }}
+                >JavaScript</Badge>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://github.com/OrlandoBricenoB/calculadora-paypal'
                 target='_blank'
               >
                 {t('projects--item-cta')}
