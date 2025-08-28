@@ -178,7 +178,7 @@ const ProjectsSection = () => {
                 Icon={<GoToFile color='#21c2e1' />}
                 style={{ width: 'fit-content' }}
                 componentElement='a'
-                href='https://gadmin.app'
+                href='https://app.gadmin.app'
                 target='_blank'
               >
                 {t('projects--item-cta')}
