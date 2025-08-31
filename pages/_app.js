@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <title>Desarrollador Web Full Stack - Orlando Briceño</title>
+        <title>Orlando Briceño | Gadmin Founder</title>
       </Head>
       <Layout>
         <Component {...pageProps} />

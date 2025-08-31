@@ -29,21 +29,21 @@ function Document({ ...rest }) {
         <meta name="theme-color" content="#21c2e1" />
 
         {/* Primary Meta Tags */}
-        <meta name="title" content="Desarrollador Web Full Stack - Orlando Briceño" />
-        <meta name="description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
+        <meta name="title" content="Orlando Briceño | Gadmin Founder" />
+        <meta name="description" content="Hi there! I'm Orlando Briceño, founder of Gadmin and entrepreneur." />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://orlandobricenob.com/" />
-        <meta property="og:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
-        <meta property="og:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
+        <meta property="og:title" content="Orlando Briceño | Gadmin Founder" />
+        <meta property="og:description" content="Hi there! I'm Orlando Briceño, founder of Gadmin and entrepreneur." />
         <meta property="og:image" content="https://orlandobricenob.com/meta-cover.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://orlandobricenob.com/" />
-        <meta property="twitter:title" content="Desarrollador Web Full Stack - Orlando Briceño" />
-        <meta property="twitter:description" content="Hi there! I'm Full Stack Developer NodeJS & React and Content Creator at Develandia." />
+        <meta property="twitter:title" content="Orlando Briceño | Gadmin Founder" />
+        <meta property="twitter:description" content="Hi there! I'm Orlando Briceño, founder of Gadmin and entrepreneur." />
         <meta property="twitter:image" content="https://orlandobricenob.com/meta-cover.png" />
 
         <script async src="https://cdn.seline.so/seline.js" data-token="4e832700dab5473"></script>
