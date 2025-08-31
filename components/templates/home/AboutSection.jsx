@@ -178,26 +178,13 @@ const AboutSection = () => {
               <br /><br />
               {t('about--story-content-3')}
               <br /><br />
-              {t('about--story-content-4')}
+              {t('about--story-content-4-before')}<strong>{t('about--story-content-4-brand')}</strong>{t('about--story-content-4-after')}
               <br /><br />
-              {t('about--story-content-5')}
+              {t('about--story-content-5-before')}<strong>{t('about--story-content-5-brand')}</strong>{t('about--story-content-5-after')}
               <br /><br />
-              {t('about--story-content-6')}
-            </Text>
-            <ul style={{ paddingLeft: '1.5rem' }}>
-              <li>{t('about--story-content-6-a')}</li>
-              <li>{t('about--story-content-6-b')}</li>
-              <li>{t('about--story-content-6-c')}</li>
-              <li>{t('about--story-content-6-d')}</li>
-              <li>{t('about--story-content-6-e')}</li>
-              <li>{t('about--story-content-6-f')}</li>
-            </ul>
-            <Text type='paragraph'>
+              {t('about--story-content-6-before')}<strong>{t('about--story-content-6-brand')}</strong>{t('about--story-content-6-after')}
+              <br /><br />
               {t('about--story-content-7')}
-              <br /><br />
-              {t('about--story-content-8')}
-              <br /><br />
-              {t('about--story-content-9')}
             </Text>
           </Container>
         </div>

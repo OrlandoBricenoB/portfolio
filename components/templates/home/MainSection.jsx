@@ -122,7 +122,7 @@ const MainSection = ({ recommendations = [] }) => {
             type='outlined'
             Icon={<Email color='#21c2e1' />}
             componentElement='a'
-            href='mailto:hola@orlandobricenob.com'
+            href='mailto:orlando@gadmin.app'
             target='_blank'
             data-sln-event="user: send email"
           >{t('common--cta-email')}</Button>

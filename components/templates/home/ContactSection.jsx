@@ -174,7 +174,7 @@ const ContactSection = ({ recommendations, users }) => {
               Icon={<Email color='#070a2b' />}
               keepCase
               componentElement='a'
-              href='mailto:hola@orlandobricenob.com'
+              href='mailto:orlando@gadmin.app'
               style={{ width: 'fit-content' }}
               data-sln-event="user: send email"
             >{t('common--cta-email')}</Button>
