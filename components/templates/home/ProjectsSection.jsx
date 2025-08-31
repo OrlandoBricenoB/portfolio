@@ -25,7 +25,8 @@ import Separator from '../../atoms/Separator'
 import Badge from '../../atoms/Badge'
 import Container from '../../atoms/Container'
 
-import Gadmin from '../../../assets/images/projects/gadmin.png'
+import GadminLegacy from '../../../assets/images/projects/gadmin-legacy.webp'
+import GadminWebs from '../../../assets/images/projects/gadmin-webs.webp'
 import FileExt from '../../../assets/images/projects/file-ext.png'
 import AdventBanner from '../../../assets/images/projects/adventjs.png'
 import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
@@ -131,7 +132,7 @@ const ProjectsSection = () => {
               alignItems: 'flex-start'
             }}>
               <Image
-                src={Gadmin.src}
+                src={GadminWebs.src}
                 width={820}
                 height={312}
                 style={{
@@ -149,8 +150,71 @@ const ProjectsSection = () => {
                   Gadmin
                 </Heading>
                 <Text type='big_paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
-                  {t('projects--gadmin-content-1')}<br /><br />
-                  {t('projects--gadmin-content-2')}
+                  {t('projects--gadmin-content')}
+                  <br /><br />
+                </Text>
+                {/* Badge Tools */}
+                <div style={{ display: 'flex', flexWrap:' wrap', gap: '.5rem' }}>
+                  <Badge
+                    Icon={<JavaScript size='24' />}
+                  >JavaScript</Badge>
+                  <Badge
+                    Icon={<TypeScript size='24' />}
+                  >TypeScript</Badge>
+                  <Badge
+                    Icon={<React size='24' />}
+                  >React</Badge>
+                  <Badge
+                    Icon={<NodeJS size='24' />}
+                  >NodeJS</Badge>
+                  <Badge
+                    Icon={<PostgreSQL size='24' />}
+                  >PostgreSQL</Badge>
+                </div>
+              </div>
+              {/* Take a look - CTA */}
+              <Button
+                type='outlined'
+                Icon={<GoToFile color='#21c2e1' />}
+                style={{ width: 'fit-content' }}
+                componentElement='a'
+                href='https://app.gadmin.app'
+                target='_blank'
+              >
+                {t('projects--item-cta')}
+              </Button>
+            </div>
+          </Container>
+          <Container className={classNames('projects__item')}>
+            <figure style={{
+              margin: 0,
+              display: 'flex',
+              padding: '0 .5rem',
+              alignItems: 'center',
+              borderRadius: '4px',
+              backgroundColor:'#0d1117'
+            }}>
+              <Image
+                src={GadminLegacy.src}
+                width={554}
+                height={333}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  borderRadius: '4px'
+                }}
+                alt='Portada de Gadmin'
+              />
+            </figure>
+            <div className={classNames('projects__item_content')}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
+                {/* Project Information */}
+                <Heading type='h3' style={{ margin: 0 }}>
+                  Gadmin Legacy
+                </Heading>
+                <Text type='big_paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
+                  {t('projects--gadmin-legacy-content-1')}<br /><br />
+                  {t('projects--gadmin-legacy-content-2')}
                   <br /><br />
                 </Text>
                 {/* Badge Tools */}
@@ -209,7 +273,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                File Ext
+                File Ext (2022)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--file-content-1')}
@@ -311,7 +375,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                {t('projects--bokados-title')}
+                {t('projects--bokados-title')} (2021)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--bokados-1')}
@@ -359,7 +423,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                {t('projects--calculadora-title')}
+                {t('projects--calculadora-title')} (2020)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--calculadora-1')}
@@ -410,7 +474,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                Corre Fution
+                Corre Fution (2019)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--correfution-1')}
@@ -461,7 +525,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                Naruto Guerra Ninja (Online RPG)
+                Naruto Guerra Ninja (2013)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--ngn-1')}
@@ -520,7 +584,7 @@ const ProjectsSection = () => {
             <div className={classNames('projects__item_content')}>
               {/* Project Information */}
               <Text type='big_paragraph' style={{ margin: 0 }}>
-                NaruByond (Online RPG)
+                NaruByond (2013)
               </Text>
               <Text type='paragraph' style={{ color: '#e3e3e3', margin: 0 }}>
                 {t('projects--narubyond-1')}
