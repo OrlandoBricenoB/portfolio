@@ -18,133 +18,155 @@ import SocialButton from '../../molecules/socials/SocialButton'
   * ICONS
 */
 import Linkedin from '../../atoms/icons/Linkedin'
+import Instagram from '../../atoms/icons/Instagram'
 import Github from '../../atoms/icons/Github'
-import Email from '../../atoms/icons/Email'
+import WhatsApp from '../../atoms/icons/WhatsApp'
 
 /*
   * IMAGES
 */
-import profilePresentation from '../../../assets/images/profile.webp'
+import bgPresentation from '../../../assets/images/bg-presentation.webp'
+import logoGadmin from '../../../assets/images/logo-no-frame-light.webp'
 
 /*
   * STYLES
 */
 import styles from '../../../styles/pages/home/home.module.css'
 import Image from 'next/image'
+import Email from '../../atoms/icons/Email'
 
 const MainSection = ({ recommendations = [] }) => {
   const { t } = useTranslate()
 
   return (
-    <div className={styles.home_container} id='presentation'>
-      {/* Social Buttons */}
-      <aside className={styles.social_buttons}>
-        <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob'>
-          <Text type='small_paragraph' style={{ textAlign: 'center' }}>LinkedIn</Text>
-        </SocialButton>
-        <SocialButton Icon={Github} to='https://github.com/OrlandoBricenoB'>
-          <Text type='small_paragraph' style={{ textAlign: 'center' }}>Github</Text>
-        </SocialButton>
-      </aside>
-      {/* Content */}
-      <div className={styles.home__content}>
-        {/* Title */}
-        <div>
-          <Heading type='h1' className={styles.home__title}>{
-            t('common--title')
-          }</Heading>
-          <Text type='big_paragraph' className={styles.home__title}>{
-            t('common--specialization')
-          }</Text>
-          {/* <div className={styles.home__rating}>
-            <Multirating filled={5} hoverLess />
-            <Link
-              style={{ cursor: 'pointer' }}
-              to='#recommendations'
-              // onClick={() => { alerready && t('Open modal of recommendations') }}
-            >{recommendations.length} {
-              t('common--recommendations')
-            }</Link>
-          </div> */}
+    <div 
+      className={styles.home_container} 
+      id='presentation'
+      style={{
+        backgroundImage: `url(${bgPresentation.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      <div
+        className={'wrapper'}
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
+        {/* Content */}
+        <div className={styles.home__content_container}>
+          <div className={styles.home__content}>
+            {/* Title */}
+            <div>
+              <Text type='big_paragraph' className={styles.home__specialization}>{
+                '| ' + t('common--specialization') + ' |'
+              }</Text>
+              <Heading type='h1' className={styles.home__title}>{
+                t('common--title')
+              }</Heading>
+            </div>
+
+            {/* Bio */}
+            <Text type='paragraph' style={{ fontSize: '1.2rem' }}>
+              {t('main--greetings')}<br /><br />
+              {t('main--bio-1')}<br /><br />
+              {t('main--bio-2')}
+            </Text>
+
+            {/* CTA */}
+            <div className={styles.home__cta} style={{ display: 'flex', gap: '1rem' }}>
+              <Button
+                type='primary'
+                Icon={<WhatsApp size='32' color='#070a2b' />}
+                componentElement='a'
+                href='https://wa.me/584121689393?text=Hey%2C%20Orlando.%20Tengo%20una%20idea%20s%C3%BAper%20potente%20y%20quiero%20compartirla%20contigo.'
+                target='_blank'
+                data-sln-event="user: send whatsapp"
+              >
+                {t('common--cta-whatsapp')}
+              </Button>
+              <Button
+                type='outlined'
+                Icon={<Email color='#21c2e1' size='32' />}
+                componentElement='a'
+                href='mailto:orlando@gadmin.app'
+                target='_blank'
+                className={styles.home__cta_email}
+                aria-label='Enviar email a Orlando Briceno'
+                style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                data-sln-event="user: send email"
+              >
+                <span style={{ marginLeft: '0.5rem', fontWeight: 500, color: '#21c2e1' }}>
+                  {'Email'}
+                </span>
+              </Button>
+            </div>
+          </div>
+          
+          {/* Statistics */}
+          <div className={styles.home__statistics}>
+            <a
+              href="https://gadmin.app/"
+              target="_blank"
+              className={styles.gadmin_logo_container}
+              aria-label="Ir a Gadmin.app"
+            >
+              <div className={styles.gadmin_logo}>
+                <Image
+                  src={logoGadmin}
+                  alt="Logo Gadmin"
+                  width={64}
+                  height={64}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    borderRadius: '100%',
+                    background: 'transparent',
+                  }}
+                />
+              </div>
+            </a>
+            <div className={styles.home__statistics_item}>
+              <Text type='big_paragraph' className={styles.statistics_number}>15</Text>
+              <Text type='paragraph' className={styles.statistics_description}>años de experiencia</Text>
+            </div>
+            <div className={styles.home__statistics_item} style={{ marginTop: '2rem' }}>
+              <Text type='big_paragraph' className={styles.statistics_number}>10+</Text>
+              <Text type='paragraph' className={styles.statistics_description}>proyectos completados</Text>
+            </div>
+          </div>
         </div>
-
-        {/* Image Mobile */}
-        <figure className={`${styles.profile_presentation} ${styles['profile_presentation--mobile']}`}>
-          <Image
-            src={profilePresentation.src}
-            width={1080}
-            height={1080}
-            className={styles.profile_presentation__image}
-            priority
-            alt='Orlando Briceño'
-          />
-          <figcaption className={styles.profile_presentation__caption}>
-            {t('common--full-name')}<br />🇻🇪 Venezuela
-          </figcaption>
-        </figure>
-
-        {/* Bio */}
-        <Text type='paragraph'>
-          {t('main--greetings')}<br /><br />
-          {t('main--bio-1')}<br /><br />
-          {t('main--bio-2')}
-        </Text>
-
-        {/* Presentation Video */}
-        {/* <Container className={styles.home__presentation}>
-          <div style={{ display: 'flex', borderRadius: '4px 0 0 4px' }}>
-            <Image src={profilePresentation.src} style={{
-              width: '100%',
-              aspectRatio: '16 / 9',
-              borderRadius: '4px 0 0 4px',
-              objectFit: 'cover'
-            }} />
+        
+        {/* Social Buttons moved to bottom right */}
+        <div
+          className={styles.social_buttons}
+          style={{
+            marginTop: '2rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '1rem',
+          }}
+        >
+          <div></div>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
+            <SocialButton Icon={Linkedin} to='https://linkedin.com/in/orlandobricenob' />
+            <SocialButton Icon={Instagram} to='https://instagram.com/orlandobricenob' />
+            <SocialButton Icon={Github} to='https://github.com/OrlandoBricenoB' />
           </div>
-          <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <Text type='big_paragraph' style={{ margin: 0, marginBottom: '.5rem' }}>
-              {t('main--presentation-title')}
-            </Text>
-            <Text type='paragraph' style={{
-              color: '#8E92C2',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '.35rem',
-              margin: '0'
-            }}>
-              <Clock color='#8E92C2' /> 00:30
-            </Text>
-          </div>
-        </Container> */}
-
-        {/* CTA */}
-        <div className={styles.home__cta}>
-          <Button
-            type='outlined'
-            Icon={<Email color='#21c2e1' />}
-            componentElement='a'
-            href='mailto:orlando@gadmin.app'
-            target='_blank'
-            data-sln-event="user: send email"
-          >{t('common--cta-email')}</Button>
         </div>
       </div>
-      {/* Image */}
-      <figure className={styles.profile_presentation}>
-        <Image
-          src={profilePresentation.src}
-          width={1080}
-          height={1080}
-          className={styles.profile_presentation__image}
-          priority
-          alt='Orlando Briceño'
-        />
-        <figcaption className={styles.profile_presentation__caption}>
-          Orlando Jose Briceño Blanco<br />
-          🇻🇪 Venezuela
-        </figcaption>
-      </figure>
     </div>
   )
 }
 
 export default MainSection
+

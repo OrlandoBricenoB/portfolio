@@ -95,7 +95,7 @@ const AboutSection = () => {
   ]
 
   return (
-    <div className={classNames('section')} id='about'>
+    <div className={classNames('section', 'wrapper')} id='about'>
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('common--about-me')}</Heading>
       <div className={classNames('about__container')}>
         {/* Certificates */}

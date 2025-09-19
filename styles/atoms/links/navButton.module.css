@@ -1,7 +1,7 @@
 .nav_button {
   margin: .75rem 0;
   font-size: 1rem;
-  color: var(--gray);
+  color: var(--white);
   line-height: 1.25;
   text-decoration: none;
   transition: .2s ease color

@@ -24,6 +24,8 @@ import NextImage from 'next/image'
 
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Instagram from '../../atoms/icons/Instagram'
+import WhatsApp from '../../atoms/icons/WhatsApp'
 
 const ContactSection = ({ recommendations, users }) => {
   const { t } = useTranslate()
@@ -135,7 +137,7 @@ const ContactSection = ({ recommendations, users }) => {
   }
 
   return (
-    <div className={classNames('contact', 'section')} id='contact'>
+    <div className={classNames('contact', 'section', 'wrapper')} id='contact'>
       <ToastContainer />
       <Heading type='h2' style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('contact--title')}</Heading>
       <div className={classNames('contact_content')}>
@@ -169,15 +171,31 @@ const ContactSection = ({ recommendations, users }) => {
               >
                 <Linkedin color='#21c2e1' size='32' />
               </a>
+              <a
+                href='https://instagram.com/orlandobricenob'
+                target='_blank'
+                className={classNames('contact__social_button')}
+                aria-label='Visitar Perfil de Instagram de Orlando Briceno'
+              >
+                <Instagram color='#21c2e1' size='32' />
+              </a>
+              <a
+                href='mailto:orlando@gadmin.app'
+                target='_blank'
+                className={classNames('contact__social_button')}
+                aria-label='Enviar email a Orlando Briceno'
+              >
+                <Email color='#21c2e1' size='32' />
+              </a>
             </div>
             <Button
-              Icon={<Email color='#070a2b' />}
+              Icon={<WhatsApp color='#070a2b' />}
               keepCase
               componentElement='a'
-              href='mailto:orlando@gadmin.app'
+              href='https://wa.me/584121689393?text=Hey%2C%20Orlando.%20Tengo%20una%20idea%20s%C3%BAper%20potente%20y%20quiero%20compartirla%20contigo.'
               style={{ width: 'fit-content' }}
-              data-sln-event="user: send email"
-            >{t('common--cta-email')}</Button>
+              data-sln-event="user: send whatsapp"
+            >{t('common--cta-whatsapp')}</Button>
           </div>
         </div>
         {/* Recommendations */}

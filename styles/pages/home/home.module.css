@@ -2,17 +2,33 @@
   display: grid;
   grid-template-columns: auto 1fr 0.75fr;
   gap: 1rem;
-  padding-bottom: 1rem
+  padding: 0 2rem;
+  padding-top: 10rem;
+  padding-bottom: 1rem;
+  min-height: 100vh;
+}
+
+.home__content_container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
 .home__content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 100%;
+  max-width: 50%;
+  place-content: center;
 }
 
 .home__title {
+  font-size: 5rem;
+  margin: 0
+}
+
+.home__specialization {
+  font-size: 1.1rem;
   margin: 0
 }
 
@@ -33,10 +49,23 @@
   gap: .5rem
 }
 
-.social_buttons {
-  width: auto;
+.home__statistics {
   display: flex;
   flex-direction: column;
+  min-width: 200px;
+  padding-top: 1rem;
+}
+
+.home__statistics_item {
+  position: relative;
+  text-align: right;
+}
+
+.social_buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 2rem;
   padding: 1rem 0;
 }
@@ -75,34 +104,67 @@
   display: none
 }
 
+/* Gadmin Logo */
+.gadmin_logo {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  background: #ffffff;
+  padding: 0.5rem;
+  opacity: 0.85;
+  border-radius: 50%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gadmin_logo:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Statistics */
+.statistics_number {
+  font-size: 3rem;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.statistics_description {
+  margin: 0 0 0 auto;
+  color: #cccccc;
+  font-size: 0.9rem;
+  max-width: 50%;
+}
+
+.gadmin_logo_container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem
+}
+
 @media screen and (max-width: 768px) {
-  .home_container {
-    grid-template-areas: "content" "profile" "social";
+  .home__content_container {
+    flex-direction: column;
   }
 
   .home__content {
     height: fit-content
   }
 
-  .home__title {
-    text-align: center
+  .home__statistics {
+    justify-content: space-between;
+  }
+
+  .home__statistics_item {
+    text-align: left;
   }
 
   .home__presentation {
     width: 100%
   }
 
-  .home__rating,
-  .home__cta {
-    justify-content: center
-  }
-
-  
-
   .social_buttons {
-    flex-direction: row;
-    place-items: center;
-    justify-content: space-between
+    flex-direction: column;
   }
 
   .profile_presentation {
@@ -117,4 +179,12 @@
 
   .profile_presentation:not(.profile_presentation--mobile) { display: none }
   .profile_presentation--mobile { display: flex }
+
+  .statistics_description {
+    margin: 0
+  }
+
+  .gadmin_logo_container {
+    justify-content: flex-start;
+  }
 }

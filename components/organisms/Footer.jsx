@@ -10,7 +10,7 @@ const Footer = () => {
   const { t } = useTranslate()
 
   return (
-    <footer className={classNames('footer')}>
+    <footer className={classNames('footer', 'wrapper')}>
       <div className={classNames('footer__content')}>
         <div className={classNames('footer__description')}>
           <Text type='big_paragraph'>{t('footer--title')}</Text>
