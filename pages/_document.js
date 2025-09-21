@@ -30,21 +30,21 @@ function Document({ ...rest }) {
 
         {/* Primary Meta Tags */}
         <meta name="title" content="Orlando Briceño | Gadmin Founder" />
-        <meta name="description" content="Hi there! I'm Orlando Briceño, founder of Gadmin and entrepreneur." />
+        <meta name="description" content="¡Hola! Soy Orlando Briceño, fundador de Gadmin y emprendedor. Quiero ayudar a las personas, es por eso que creé las herramientas de Gadmin." />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://orlandobricenob.com/" />
         <meta property="og:title" content="Orlando Briceño | Gadmin Founder" />
-        <meta property="og:description" content="Hi there! I'm Orlando Briceño, founder of Gadmin and entrepreneur." />
-        <meta property="og:image" content="https://orlandobricenob.com/meta-cover.png" />
+        <meta property="og:description" content="¡Hola! Soy Orlando Briceño, fundador de Gadmin y emprendedor. Quiero ayudar a las personas, es por eso que creé las herramientas de Gadmin." />
+        <meta property="og:image" content="https://orlandobricenob.com/og-meta.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://orlandobricenob.com/" />
         <meta property="twitter:title" content="Orlando Briceño | Gadmin Founder" />
-        <meta property="twitter:description" content="Hi there! I'm Orlando Briceño, founder of Gadmin and entrepreneur." />
-        <meta property="twitter:image" content="https://orlandobricenob.com/meta-cover.png" />
+        <meta property="twitter:description" content="¡Hola! Soy Orlando Briceño, fundador de Gadmin y emprendedor. Quiero ayudar a las personas, es por eso que creé las herramientas de Gadmin." />
+        <meta property="twitter:image" content="https://orlandobricenob.com/og-meta.png" />
 
         <script async src="https://cdn.seline.so/seline.js" data-token="4e832700dab5473"></script>
       </Head>
