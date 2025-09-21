@@ -26,20 +26,26 @@
   "projects--expertises-1": "Desde 2011",
   "projects--expertises-2": "+10 años de experiencia",
 
-  "projects--gadmin-content": "Gadmin es una herramienta para crear sitios webs, tiendas online o blogs sin necesidad de saber programar. Es libertad en la web para todo el mundo.",
+  "projects--gadmin-content": "Gadmin es una herramienta para crear sitios webs, tiendas online o blogs sin necesidad de saber programar. Incluyendo lo mismo que el Gadmin anterior, ahora con una propuesta más atractiva para los pequeños emprendedores (Los cuales nos importan para reducir la métrica de que el 80% de las PyMEs mueren antes de cumplir 2 años).",
 
   "projects--gadmin-legacy-content-1": "2023-2024",
-  "projects--gadmin-legacy-content-2": "Este era el software que ahorra tiempo a los emprendedores en la administración entera de su empresa, inventario, facturación, etc. No encontraba mercado para el producto, así que migramos al nuevo Gadmin, que aún sigue incluyendo una gran parte de las funcionalidades de este software.",
+  "projects--gadmin-legacy-content-2": "Improved pasó a llamarse Gadmin, este fue el software que ahorra tiempo a los emprendedores en la administración entera de su empresa, inventario, facturación, etc. Varios emprendedores lo usaban y se alegraban, así que migramos al nuevo Gadmin, que aún sigue incluyendo una gran parte de las funcionalidades de este software.",
 
   "projects--file-content-1": "Construí esta librería de JavaScript que obtiene la extensión y/o mimeType de un nombre de archivo o ruta.",
   "projects--file-content-2": "Su propósito es hacer más fácil el trabajo del manejo de extensiones de archivos en el backend.",
 
   "projects--adventjs-1": "Un repositorio donde compartí la solución de los 24 retos del AdventJS, una iniciativa de @midudev donde por cada día de diciembre se publica un reto de JavaScript hasta el 24 de Diciembre.",
-  "projects--adventjs-2": "Construí los mismos tests de todos los retos en mi propio entorno e hice una manera muy fácil y cómoda para ejecutar los tests.",
+  "projects--adventjs-2": "Un amante de competir como yo tenía que hacerlo, aproveché ese año para disfrutarlo, y desde entonces, cada año lo hago.",
+
+  "projects--improved-website-app-1": "Gracias al proyecto con Bokados, pude crear una app móvil para hacer más eficiente la administración de los negocios locales, inventario, facturación, etc.",
+  "projects--improved-website-app-2": "Con este fundamento, nació el Gadmin de 2023 donde se pulió mucho la herramienta, me alegré cuando agregamos la impresión de tickets, escaneo de código de barra... Poco a poco iba entendiendo adonde quería llegar con Gadmin.",
 
   "projects--bokados-title": "Precios de Bokados",
   "projects--bokados-1": "Una panadería quería tener un menú de precios actualizados en tiempo real con la tasa de cambio del dólar en Venezuela.",
-  "projects--bokados-2": "Este fue el inicio de la Startup Gadmin, cuando aún siquiera sabía que quería facilitar la vida de la gente a tal escala.",
+  "projects--bokados-2": "Así fue como empezó el camino de Gadmin para administrar negocios, inventarios, pedidos, facturación, etc. Y terminamos con una herramienta que hace webs y esto también.",
+
+  "projects--improved-website-1": "Una agencia de diseño web que hiciera webs para el mundo, mi sueño siempre fue crear un editor para que las personas pudieran crear webs sin necesidad de saber programar, pero la agencia fue un buen inicio.",
+  "projects--improved-website-2": "Este fue el inicio de Gadmin, cuando aún siquiera sabía que quería facilitar la vida de la gente a gran escala, yo solo quería permitir que todo el mundo pudiera crear webs.",
 
   "projects--calculadora-title": "Calculadora PayPal",
   "projects--calculadora-1": "Me cansé de calcular las comisiones de PayPal, así que construí esta calculadora en menos de 2 horas para calcular las comisiones de los pagos que recibía y hacía.",

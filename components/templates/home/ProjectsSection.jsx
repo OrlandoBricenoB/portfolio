@@ -17,6 +17,8 @@ import NgnProject from '../../../assets/images/projects/ngn.webp'
 import CorreFution from '../../../assets/images/projects/correfution.webp'
 import PaypalCalculator from '../../../assets/images/projects/paypal-calculator.webp'
 import BokadosPreview from '../../../assets/images/projects/bokados-preview.webp'
+import ImprovedWebsite from '../../../assets/images/projects/improved-website.webp'
+import ImprovedAppWebsite from '../../../assets/images/projects/improved-app-website.webp'
 import Image from 'next/image'
 
 const IMAGE_WIDTH = 1200
@@ -31,27 +33,24 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      id: 1,
       title: 'Gadmin',
       year: '2025',
       description: t('projects--gadmin-content'),
       image: GadminWebs,
       backgroundColor: 'transparent',
-      technologies: ['JavaScript (TS)', 'React', 'NodeJS', 'PostgreSQL'],
+      technologies: ['JavaScript (TS)', 'React', 'NodeJS & PostgreSQL'],
       link: 'https://gadmin.app'
     },
     {
-      id: 2,
       title: 'Gadmin Legacy',
       year: '2022',
       description: `${t('projects--gadmin-legacy-content-1')}<br /><br />${t('projects--gadmin-legacy-content-2')}`,
       image: GadminLegacy,
       backgroundColor: '#0d1117',
-      technologies: ['JavaScript (TS)', 'React', 'NodeJS', 'PostgreSQL'],
+      technologies: ['JavaScript (TS)', 'React', 'NodeJS & PostgreSQL'],
       link: 'https://app.gadmin.app'
     },
     {
-      id: 3,
       title: 'File Ext',
       year: '2022',
       description: `${t('projects--file-content-1')}<br /><br />${t('projects--file-content-2')}`,
@@ -61,7 +60,6 @@ const ProjectsSection = () => {
       link: 'https://www.npmjs.com/package/@jo-sword/file-ext'
     },
     {
-      id: 4,
       title: 'AdventJS 2022',
       year: '2022',
       description: `${t('projects--adventjs-1')}<br /><br />${t('projects--adventjs-2')}`,
@@ -71,7 +69,15 @@ const ProjectsSection = () => {
       link: 'https://github.com/OrlandoBricenoB/adventjs-2022'
     },
     {
-      id: 5,
+      title: 'Improved App',
+      year: '2022',
+      description: `${t('projects--improved-website-app-1')}<br /><br />${t('projects--improved-website-app-2')}`,
+      image: ImprovedAppWebsite,
+      backgroundColor: '#141211',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'React (Native)'],
+      link: 'https://orlandobricenob.github.io/improved-website/'
+    },
+    {
       title: t('projects--bokados-title'),
       year: '2021',
       description: `${t('projects--bokados-1')}<br /><br />${t('projects--bokados-2')}`,
@@ -81,7 +87,15 @@ const ProjectsSection = () => {
       link: null
     },
     {
-      id: 6,
+      title: 'Improved Web',
+      year: '2020',
+      description: `${t('projects--improved-website-1')}<br /><br />${t('projects--improved-website-2')}`,
+      image: ImprovedWebsite,
+      backgroundColor: '#141211',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      link: 'https://orlandobricenob.github.io/improved-website/'
+    },
+    {
       title: t('projects--calculadora-title'),
       year: '2020',
       description: `${t('projects--calculadora-1')}<br /><br />${t('projects--calculadora-2')}`,
@@ -91,7 +105,6 @@ const ProjectsSection = () => {
       link: 'https://github.com/OrlandoBricenoB/calculadora-paypal'
     },
     {
-      id: 7,
       title: 'Corre Fution',
       year: '2019',
       description: `${t('projects--correfution-1')}<br /><br />${t('projects--correfution-2')}`,
@@ -101,7 +114,6 @@ const ProjectsSection = () => {
       link: 'https://jo-sword.itch.io/corre-fution'
     },
     {
-      id: 8,
       title: 'Naruto Guerra Ninja',
       year: '2013',
       description: `${t('projects--ngn-1')}<br /><br />${t('projects--ngn-2')}`,
@@ -111,7 +123,6 @@ const ProjectsSection = () => {
       link: 'https://www.byond.com/games/RedFill/NarutoGuerraNinja'
     },
     {
-      id: 9,
       title: 'NaruByond',
       year: '2013',
       description: `${t('projects--narubyond-1')}<br /><br />${t('projects--narubyond-2')}`,
@@ -152,7 +163,7 @@ const ProjectsSection = () => {
               )
 
               return (
-                <Container key={project.id} className={itemClasses}>
+                <Container key={project.title} className={itemClasses}>
                   <div className="projects__image-wrapper">
                     <div
                       className="projects__image-aspect"

@@ -27,20 +27,26 @@
   "projects--expertises-1": "Since 2011",
   "projects--expertises-2": "+10 years of experience",
 
-  "projects--gadmin-content": "Gadmin is a tool to create websites, online stores, or blogs without needing to know how to code. It is freedom on the web for everyone.",
+  "projects--gadmin-content": "Gadmin is a tool for creating websites, online stores, or blogs without needing to know how to program. It includes everything from the previous Gadmin, now with a more attractive proposal for small entrepreneurs (who matter to us, to help reduce the fact that 80% of SMEs die before reaching 2 years).",
 
   "projects--gadmin-legacy-content-1": "2023-2024",
-  "projects--gadmin-legacy-content-2": "This was the software that saved entrepreneurs time in the entire management of their business, inventory, invoicing, etc. We couldn't find a market for the product, so we migrated to the new Gadmin, which still includes a large part of the functionalities of this software.",
+  "projects--gadmin-legacy-content-2": "Improved was renamed Gadmin. This was the software that saved entrepreneurs time in the complete management of their business, inventory, invoicing, etc. Several entrepreneurs used it and were happy with it, so we migrated to the new Gadmin, which still includes a large part of the functionalities of this software.",
 
   "projects--file-content-1": "I've built this JavaScript library that gets the extension and/or mimeType of a filename or path.",
   "projects--file-content-2": "Its purpose is to make the job of managing file extensions in the backend easier.",
 
   "projects--adventjs-1": "A repository where I shared the solution of the 24 challenges of AdventJS, an initiative by @midudev where a JavaScript challenge is published every day of December until the 24th of December.",
-  "projects--adventjs-2": "I built the same tests of all the challenges in my own environment and made a very easy and comfortable way to run the tests.",
+  "projects--adventjs-2": "As a competition lover, I had to do it. I took that year to enjoy it, and since then, I do it every year.",
+
+  "projects--improved-website-app-1": "Thanks to the Bokados project, I was able to create a mobile app to make the management of local businesses, inventory, invoicing, etc. more efficient.",
+  "projects--improved-website-app-2": "With this foundation, the 2023 version of Gadmin was born, where the tool was greatly improved. I was happy when we added ticket printing, barcode scanning... Little by little, I was understanding where I wanted to go with Gadmin.",
 
   "projects--bokados-title": "Bokados Menu Prices",
   "projects--bokados-1": "A bakery wanted to have a price menu updated in real time with the dollar exchange rate in Venezuela.",
   "projects--bokados-2": "This was the beginning of the Gadmin Startup, when I didn't even know yet that I wanted to make people's lives easier on such a scale.",
+
+  "projects--improved-website-1": "A web design agency that makes websites for the world, my dream was always to create an editor so that people could create websites without needing to know how to program, but the agency was a good start.",
+  "projects--improved-website-2": "This was the beginning of Gadmin, when I didn't even know yet that I wanted to make people's lives easier on such a scale, I just wanted to allow everyone to create websites.",
 
   "projects--calculadora-title": "PayPal Calculator",
   "projects--calculadora-1": "I got tired of calculating PayPal commissions, so I built this calculator in less than 2 hours to calculate the commissions of my payments that I received and made.",
