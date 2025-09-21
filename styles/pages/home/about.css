@@ -1,3 +1,18 @@
+#about {
+  margin: 0;
+  /* El degradado radial ahora se extiende mucho más, la parte oscura ocupa aún menos y los celestes/blanco se extienden más */
+  /* background: radial-gradient(
+    ellipse 250% 100% at 50% 0%,
+    #0f2e44 0%,
+    #0f2e44 2%,
+    #016f9a 25%,
+    #21c2e1 100%
+  ); */
+  background-color: #21c2e1;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+}
+
 .about__container {
   max-width: calc(100vw - 4rem)
 }
@@ -14,19 +29,7 @@
 
 .about_certification {
   width: 100%;
-  background-color: var(--container-bg);
   border-radius: 0 0 4px 4px;
-}
-
-.about_certification__image {
-  margin: 0;
-  border-radius: 4px 4px 0 0;
-}
-
-.about_certification__image img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px 4px 0 0;
 }
 
 .about_certification__content {
@@ -39,16 +42,18 @@
 .about__content {
   display: grid;
   grid-template-columns: 4fr 6fr;
-  padding-top: 4rem;
-  align-items: flex-end;
+  gap: 4rem;
+  padding-bottom: 4rem;
+  align-items: center;
 }
 
 .swiper-scrollbar {
-  background-color: rgb(142 146 194 / 10%)!important;
+  background-color: #ffffff20!important;
+  opacity: 1!important;
 }
 
 .swiper-scrollbar-drag {
-  background-color: rgb(33 194 225 / 50%)!important
+  background-color: var(--dark-lighter)!important
 }
 
 @media screen and (max-width: 1024px) {

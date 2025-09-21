@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <>
       <MainSection recommendations={[]} users={[]} />
-      <ProjectsSection />
       <AboutSection />
+      <ProjectsSection />
       <ContactSection recommendations={[]} users={[]} />
     </>
   );

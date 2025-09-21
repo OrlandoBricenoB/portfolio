@@ -57,8 +57,8 @@ const Navbar = () => {
         {/* Buttons */}
         <div className={styles.nav_buttons}>
           <NavButton to='#presentation'>{t('nav--presentation')}</NavButton>
-          <NavButton to='#projects'>{t('common--projects')}</NavButton>
           <NavButton to='#about'>{t('common--about-me')}</NavButton>
+          <NavButton to='#projects'>{t('common--projects')}</NavButton>
         </div>
 
         {/* CTA */}

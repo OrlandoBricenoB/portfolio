@@ -137,11 +137,11 @@ const MainSection = ({ recommendations = [] }) => {
             </a>
             <div className={styles.home__statistics_item}>
               <Text type='big_paragraph' className={styles.statistics_number}>15</Text>
-              <Text type='paragraph' className={styles.statistics_description}>años de experiencia</Text>
+              <Text type='paragraph' className={styles.statistics_description}>{t('common--experience-years')}</Text>
             </div>
             <div className={styles.home__statistics_item} style={{ marginTop: '2rem' }}>
               <Text type='big_paragraph' className={styles.statistics_number}>10+</Text>
-              <Text type='paragraph' className={styles.statistics_description}>proyectos completados</Text>
+              <Text type='paragraph' className={styles.statistics_description}>{t('common--done-projects')}</Text>
             </div>
           </div>
         </div>

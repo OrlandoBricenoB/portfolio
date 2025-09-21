@@ -15,7 +15,6 @@ import Upload from '../../atoms/icons/Upload'
 
 import ContactProfile from '../../../assets/images/contact-me.webp'
 import Linkedin from '../../atoms/icons/Linkedin'
-import ImageGradient from '../../atoms/ImageGradient'
 import Recommendation from '../../organisms/Recommendation'
 import Multirating from '../../molecules/rating/Multirating'
 import Container from '../../atoms/Container'
@@ -151,7 +150,6 @@ const ContactSection = ({ recommendations, users }) => {
               style={{ width: '100%', height: 'auto' }}
               alt='Orlando Briceño Atento'
             />
-            <ImageGradient />
           </figure>
           <div className={classNames('contact__information_text')}>
             <Heading type='h3' style={{ margin: 0, marginBottom: '4px' }}>Orlando Jose Briceño Blanco</Heading>

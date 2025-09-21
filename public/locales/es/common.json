@@ -12,6 +12,9 @@
   "common--cta-whatsapp": "Envíame un mensaje",
   "common--cta-contact": "Hablemos",
   "common--in-process": "En desarrollo",
+  "common--experience-years": "años de experiencia",
+  "common--done-projects": "proyectos completados",
+  "common--projects-title": "Un poco de lo que he hecho desde niño hasta hoy",
 
   "main--greetings": "¡Hola! Soy Orlando. 👋🏼",
   "main--bio-1": "Paso la vida disfrutando desarrollar soluciones automatizadas para todo tipo de problemas (o al menos los que me encuentro 😂).",
@@ -84,5 +87,14 @@
   "footer--title": "Un poco más de mí para premiar que llegaste hasta acá",
   "footer--content-1": "Si te parezco alguien ambicioso, no te equivocas. Pero aún así mi familia es superior al resto. Cuando no estoy intentando cambiar medio mundo con Gadmin, estoy compartiendo tiempo con mi esposa.",
   "footer--content-2": "De algo puedes estar seguro: Siempre seré muy honesto, aunque algunas veces no te gustará.",
-  "footer--credits": "Hecho por mí para mí 😂"
+  "footer--credits": "Hecho por mí para mí 😂",
+
+  "certification--practical-javascript-desc": "Un curso que me hizo repasar práctica del día a día y aprendí algunas buenas prácticas.",
+  "certification--professional-javascript-desc": "Profundicé en JavaScript avanzado, closures, hoisting, event loops y más locuras de asincronía.",
+  "certification--nodejs-desc": "Reforcé algunos conceptos mientras estudiaba este curso, tocaron el tema de cómo funcionan frameworks que se usan a diario y no entiendes su trasfondo.",
+  "certification--professional-git-desc": "Aquí sí aprendí de metodologías de Git para agilizar el trabajo en equipo de forma eficiente.",
+  "certification--html-css-desc": "Luego de 12 años usando HTML y CSS, todavía aprendes cosas nuevas cuando te enfocas en aprender.",
+  "certification--logical-thinking-desc": "Lo importante de este curso fue poner en práctica, la resolución de problemas está en el día a día.",
+  "certification--time-management-desc": "Aprendí técnicas para gestionar el tiempo y mejorar la productividad. Te recomiendo leer el libro Deep Work, por cierto.",
+  "certification--emotional-intelligence-desc": "Aprendí acerca de la inteligencia emocional, un área importante para la vida y aún muy poco mencionado."
 }

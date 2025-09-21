@@ -1,5 +1,6 @@
 .projects {
-  padding-top: 4rem
+  padding-top: 4rem;
+  background: radial-gradient(ellipse 300% 60% at 50% 0%, #21c2e1 0%, #21c2e1 15%, #fff 60%, #fff 100%);
 }
 
 .projects__content {

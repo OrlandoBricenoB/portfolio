@@ -12,6 +12,10 @@
   "common--cta-whatsapp": "Send me a message",
   "common--cta-contact": "Let's talk",
   "common--in-process": "Developing",
+  "common--experience-years": "years of experience",
+  "common--done-projects": "projects completed",
+  "common--projects-title": "A little of what I've done from childhood to today",
+
 
   "main--greetings": "Hi! I'm Orlando. 👋🏼",
   "main--bio-1": "I spend my life developing automated solutions to all kinds of problems (or at least the ones I find 😂).",
@@ -84,5 +88,14 @@
   "footer--title": "A bit more about me to reward you for making it this far",
   "footer--content-1": "If I seem ambitious to you, you're not wrong. But even so, my family is above everything else. When I'm not trying to change half the world with Gadmin, I'm spending time with my wife.",
   "footer--content-2": "One thing you can be sure of: I will always be very honest, although sometimes you might not like it.",
-  "footer--credits": "Made by me for me 😂"
+  "footer--credits": "Made by me for me 😂",
+
+  "certification--practical-javascript-desc": "A course that made me review daily practice and I learned some good practices.",
+  "certification--professional-javascript-desc": "I delved into advanced JavaScript, closures, hoisting, event loops, and more craziness with asynchrony.",
+  "certification--nodejs-desc": "I reinforced some concepts while studying this course, they touched on how frameworks work that you use daily and don't understand their background.",
+  "certification--professional-git-desc": "Here I really learned Git methodologies to streamline teamwork efficiently.",
+  "certification--html-css-desc": "After 12 years using HTML and CSS, you still learn new things when you focus on learning.",
+  "certification--logical-thinking-desc": "The important thing about this course was putting it into practice, problem solving is part of everyday life.",
+  "certification--time-management-desc": "I learned techniques to manage time and improve productivity. I recommend reading the book Deep Work, by the way.",
+  "certification--emotional-intelligence-desc": "I learned about emotional intelligence, an important area of life and still very little mentioned."
 }

@@ -1,10 +1,11 @@
 .header {
-  padding: 0.25rem 2rem;
+  padding: 0.25rem 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  color: var(--white);
   border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
 }
