@@ -45,6 +45,7 @@ body {
 }
 
 .wrapper {
+  width: 100%;
   max-width: 1550px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -84,11 +85,8 @@ input::placeholder, textarea::placeholder {
 
 /* Footer */
 .footer {
-  background-color: var(--bg);
-  color: var(--dark);
-  border: 1px solid var(--container-bg);
-  border-radius: 1rem;
-  margin-bottom: 1rem;
+  background-color: #052638;
+  color: var(--white);
 }
 
 .footer__content {
@@ -135,8 +133,6 @@ input::placeholder, textarea::placeholder {
 }
 
 .footer__credits {
-  background-color: var(--bg);
-  color: var(--dark);
   padding: 1.5rem;
   grid-area: credits;
   text-align: center
