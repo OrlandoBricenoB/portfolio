@@ -10,8 +10,8 @@ import Container from '../../atoms/Container'
 
 import GadminLegacy from '../../../assets/images/projects/gadmin-legacy.webp'
 import GadminWebs from '../../../assets/images/projects/gadmin-webs.webp'
-import FileExt from '../../../assets/images/projects/file-ext.png'
-import AdventBanner from '../../../assets/images/projects/adventjs.png'
+import FileExt from '../../../assets/images/projects/file-ext.webp'
+import AdventBanner from '../../../assets/images/projects/adventjs.webp'
 import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
 import NgnProject from '../../../assets/images/projects/ngn.webp'
 import CorreFution from '../../../assets/images/projects/correfution.webp'
@@ -19,9 +19,8 @@ import PaypalCalculator from '../../../assets/images/projects/paypal-calculator.
 import BokadosPreview from '../../../assets/images/projects/bokados-preview.webp'
 import Image from 'next/image'
 
-const IMAGE_ASPECT_RATIO = 16 / 9
-const IMAGE_WIDTH = 900
-const IMAGE_HEIGHT = Math.round(IMAGE_WIDTH / IMAGE_ASPECT_RATIO)
+const IMAGE_WIDTH = 1200
+const IMAGE_HEIGHT = 628
 
 // Colores a usar para todos los proyectos (del id 1)
 const COMMON_TITLE_COLOR = 'var(--dark)'
