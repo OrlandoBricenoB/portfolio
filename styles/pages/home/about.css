@@ -47,6 +47,11 @@
   align-items: center;
 }
 
+.about__content-text {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 .swiper-scrollbar {
   background-color: #ffffff20!important;
   opacity: 1!important;
@@ -62,8 +67,8 @@
     grid-template-columns: 1fr
   }
 
-  .about__content_image {
-    display: none
+  .about__content-text {
+    max-width: 100%;
   }
 
   .about__container {

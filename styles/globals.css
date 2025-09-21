@@ -143,6 +143,10 @@ input::placeholder, textarea::placeholder {
 }
 
 @media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+
   .footer__content {
     grid-template-columns: 1fr;
   }

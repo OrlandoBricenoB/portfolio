@@ -210,7 +210,7 @@ const AboutSection = () => {
                 alt='Orlando Briceño Pensando'
               />
             </figure>
-            <div style={{ maxWidth: '80%', margin: '0 auto' }}>
+            <div className="about__content-text">
               <Heading type='h1' color='var(--dark)'>{t('about--story-title')}</Heading>
               <Text type='paragraph' style={{ fontSize: '1.1rem', marginBottom: '0' }}>
                 {t('about--story-content-1')}
