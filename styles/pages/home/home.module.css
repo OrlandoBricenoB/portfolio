@@ -148,7 +148,8 @@
   }
 
   .home__content {
-    height: fit-content
+    height: fit-content;
+    max-width: fit-content;
   }
 
   .home__statistics {

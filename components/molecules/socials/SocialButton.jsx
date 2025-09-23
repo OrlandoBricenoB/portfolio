@@ -2,9 +2,9 @@ import { useState } from 'react'
 import styles from '../../../styles/molecules/socialButton.module.css'
 
 const SocialButton = ({ Icon, children, keepCase = false, to = '#!' }) => {
-  const [color, setColor] = useState('#030e16')
-  const handleMouseEnter = () => { setColor('#002033') }
-  const handleMouseLeave = () => { setColor('#030e16') }
+  const [color, setColor] = useState('#ffffff')
+  const handleMouseEnter = () => { setColor('#cccccc') }
+  const handleMouseLeave = () => { setColor('#ffffff') }
 
   return (
     <a
