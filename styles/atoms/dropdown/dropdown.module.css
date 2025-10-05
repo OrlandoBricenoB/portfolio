@@ -2,26 +2,28 @@
   position: absolute;
   z-index: 1000;
   transform: scale(0);
-  background: #021825f2;
+  background: #021825f2 !important;
   backdrop-filter: blur(2rem) saturate(180%);
   -webkit-backdrop-filter: blur(2rem) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 24px #00000014;
-  transition: .2s ease transform
+  transition: 0.2s ease transform;
 }
 
 .dropdown--bottom {
-  top: calc(100% + .35rem);
+  top: calc(100% + 0.35rem);
   transform-origin: top right;
   left: -6rem;
 }
 
 .dropdown--top {
-  bottom: calc(100% + .35rem);
+  bottom: calc(100% + 0.35rem);
   transform-origin: bottom left;
   left: 0;
 }
-.dropdown--open { transform: scale(1) }
+.dropdown--open {
+  transform: scale(1);
+}
 
 .overlayer {
   position: fixed;
@@ -29,5 +31,5 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 900
+  z-index: 900;
 }

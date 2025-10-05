@@ -101,6 +101,19 @@
   box-sizing: border-box;
 }
 
+.projects__businesses {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 999px) {
+  .projects__businesses {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
 @media screen and (max-width: 999px) {
   .projects__header {
     justify-content: flex-start;

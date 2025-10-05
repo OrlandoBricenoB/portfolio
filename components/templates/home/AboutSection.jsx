@@ -12,7 +12,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import { Controller, Navigation, Pagination, Scrollbar } from 'swiper'
+import { Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import Image from 'next/image'
 
 // Importar los iconos
@@ -276,7 +276,7 @@ const AboutSection = () => {
             }}
           >
             <Swiper
-              modules={[Controller, Pagination, Navigation, Scrollbar]}
+              modules={[Pagination, Navigation, Scrollbar]}
               spaceBetween={16}
               slidesPerView={4}
               breakpoints={{
@@ -290,7 +290,6 @@ const AboutSection = () => {
                   slidesPerView: 4
                 }
               }}
-              controller
               scrollbar={{
                 draggable: true,
                 hide: true

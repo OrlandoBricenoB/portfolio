@@ -1,4 +1,4 @@
-// import { useQuery } from 'react-query'
+// import { useQuery } from '@tanstack/react-query'
 
 const useUsers = () => {
   // const { isLoading, error, data } = useQuery('users', () =>
