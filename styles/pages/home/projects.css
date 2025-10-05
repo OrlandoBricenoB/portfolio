@@ -107,6 +107,28 @@
   gap: 1rem;
 }
 
+.projects__business {
+  width: 100%;
+  position: relative;
+}
+
+/* Líneas de separación para los negocios en desktop */
+.projects__business--left {
+  border-right: 1.5px solid #e0e0e0;
+}
+
+.projects__business--right {
+  border-left: 1.5px solid #e0e0e0;
+}
+
+@media screen and (max-width: 999px) {
+  .projects__business--left,
+  .projects__business--center,
+  .projects__business--right {
+    border: none;
+  }
+}
+
 @media screen and (max-width: 999px) {
   .projects__businesses {
     flex-direction: column;

@@ -64,6 +64,15 @@
 
   "projects--item-cta": "Ver el Proyecto",
 
+  "business--kunzapp-content-1": "Una corta pero rica experiencia ayudando a Kunzapp en sus primeros pasos en el lanzamiento de su MVP y presentaciones en el Demo Day de Platanus Ventures, con quienes levantaron USD $150,000 de capital.",
+  "business--kunzapp-content-2": "Junto al equipo construí la mejor herramienta que consigue ahorros, visibilidad y control de todos los SaaS de tu organización.",
+  
+  "business--smartcompliance-content-1": "Un pequeño equipo y yo convertimos un backend construido sobre arquitectura monolítica a arquitectura de microservicios utilizando Lambdas de AWS, aumentando el rendimiento, escalabilidad y eficiencia de los servidores, y, reduciendo los costes de infraestructura en más de un 60%.",
+  "business--smartcompliance-content-2": "El equipo de trabajo acá es la mejor parte de todo, gente que se disfruta el día a día y con la que se comparte con mucha fluidez.",
+  
+  "business--gadmin-content-1": "Aquí estoy siendo feliz cambiando la vida de muchos.",
+  "business--gadmin-content-2": "Crea tu página web, blog o tienda online en instantes sin conocimiento técnico, deja que la IA te ayude a crear el negocio que sueñas. 😉",
+
   "certification--professional-git": "Curso Profesional de Git y Github",
   "certification--practical-javascript": "Curso Práctico de JavaScript",
   "certification--professional-javascript": "Curso Profesional de JavaScript",

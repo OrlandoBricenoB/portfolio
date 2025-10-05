@@ -233,7 +233,7 @@ const ProjectsSection = () => {
           </div>
         </div>
         <div className={classNames('projects__businesses')}>
-          <div className={classNames('about_certification')}>
+          <div className={classNames('about_certification', 'projects__business', 'projects__business--left')}>
             <div className={classNames('about_certification__content')} style={{
               display: 'flex',
               flexDirection: 'column',
@@ -251,17 +251,17 @@ const ProjectsSection = () => {
                   Kunzapp
                 </Text>
               </a>
-              <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem' }}>
+              <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem', color: 'var(--dark-lighter)' }}>
                 🇨🇱 Chile & 🇲🇽 México - 02/2023 - 05/2023
               </Text>
               <Text type='paragraph' style={{ margin: 0, color: 'var(--dark-lighter)' }}>
-                Una corta pero rica experiencia ayudando a Kunzapp en sus primeros pasos en el lanzamiento de su MVP y presentaciones en el Demo Day de Platanus Ventures, con quienes levantaron USD $150,000 de capital.
+                {t('business--kunzapp-content-1')}
                 <br /><br />
-                Junto al equipo construí la mejor herramienta que consigue ahorros, visibilidad y control de todos los SaaS de tu organización.
+                {t('business--kunzapp-content-2')}
               </Text>
             </div>
           </div>
-          <div className={classNames('about_certification')}>
+          <div className={classNames('about_certification', 'projects__business', 'projects__business--center')}>
             <div className={classNames('about_certification__content')} style={{
               display: 'flex',
               flexDirection: 'column',
@@ -279,15 +279,17 @@ const ProjectsSection = () => {
                   Smart Compliance
                 </Text>
               </a>
-              <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem' }}>
+              <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem', color: 'var(--dark-lighter)' }}>
                 🇨🇱 Chile - 11/2023 - {t('common--actuality-word')}
               </Text>
               <Text type='paragraph' style={{ margin: 0, color: 'var(--dark-lighter)' }}>
-                Un pequeño equipo y yo convertimos un backend construido sobre arquitectura monolítica a arquitectura de microservicios utilizando Lambdas de AWS, aumentando el rendimiento, escalabilidad y eficiencia de los servidores, y, reduciendo los costes de infraestructura en más de un 60%.
+                {t('business--smartcompliance-content-1')}
+                <br /><br />
+                {t('business--smartcompliance-content-2')}
               </Text>
             </div>
           </div>
-          <div className={classNames('about_certification')}>
+          <div className={classNames('about_certification', 'projects__business', 'projects__business--right')}>
             <div className={classNames('about_certification__content')} style={{
               display: 'flex',
               flexDirection: 'column',
@@ -305,13 +307,13 @@ const ProjectsSection = () => {
                   Gadmin
                 </Text>
               </a>
-              <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem' }}>
+              <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem', color: 'var(--dark-lighter)' }}>
                 🇻🇪 Venezuela & 🇨🇱 Chile - 2023 - {t('common--actuality-word')}
               </Text>
               <Text type='paragraph' style={{ margin: 0, color: 'var(--dark-lighter)' }}>
-                Aquí estoy siendo feliz cambiando la vida de muchos.
+                {t('business--gadmin-content-1')}
                 <br /><br />
-                Crea tu página web, blog o tienda online en instantes sin conocimiento técnico, deja que la IA te ayude a crear el negocio que sueñas. 😉
+                {t('business--gadmin-content-2')}
               </Text>
             </div>
           </div>
