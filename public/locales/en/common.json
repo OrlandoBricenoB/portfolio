@@ -30,6 +30,9 @@
 
   "projects--gadmin-content": "Gadmin is a tool for creating websites, online stores, or blogs without needing to know how to program. It includes everything from the previous Gadmin, now with a more attractive proposal for small entrepreneurs (who matter to us, to help reduce the fact that 80% of SMEs die before reaching 2 years).",
 
+  "projects--sorteos-mdb-content-1": "I created this Md'B Raffles website so my wife could run as many raffles as she wanted, and participants could register automatically and easily.",
+  "projects--sorteos-mdb-content-2": "Additionally, a random roulette wheel was linked to select the winner by automatically taking the numbers of all participants.",
+
   "projects--gadmin-legacy-content-1": "2023-2024",
   "projects--gadmin-legacy-content-2": "Improved was renamed Gadmin. This was the software that saved entrepreneurs time in the complete management of their business, inventory, invoicing, etc. Several entrepreneurs used it and were happy with it, so we migrated to the new Gadmin, which still includes a large part of the functionalities of this software.",
 

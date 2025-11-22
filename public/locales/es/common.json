@@ -30,6 +30,9 @@
 
   "projects--gadmin-content": "Gadmin es una herramienta para crear sitios webs, tiendas online o blogs sin necesidad de saber programar. Incluyendo lo mismo que el Gadmin anterior, ahora con una propuesta más atractiva para los pequeños emprendedores (Los cuales nos importan para reducir la métrica de que el 80% de las PyMEs mueren antes de cumplir 2 años).",
 
+  "projects--sorteos-mdb-content-1": "Creé esta web de Sorteos Md'B para que mi esposa pudiera ejecutar tantos sorteos como quisiera y los participantes pudieran registrarse de forma automática y fácil.",
+  "projects--sorteos-mdb-content-2": "Además, se vinculó una ruleta aleatoria para seleccionar el ganador tomando los números de todos los participantes automáticamente.",
+
   "projects--gadmin-legacy-content-1": "2023-2024",
   "projects--gadmin-legacy-content-2": "Improved pasó a llamarse Gadmin, este fue el software que ahorra tiempo a los emprendedores en la administración entera de su empresa, inventario, facturación, etc. Varios emprendedores lo usaban y se alegraban, así que migramos al nuevo Gadmin, que aún sigue incluyendo una gran parte de las funcionalidades de este software.",
 

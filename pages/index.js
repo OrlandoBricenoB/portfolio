@@ -6,7 +6,6 @@ import AboutSection from "../components/templates/home/AboutSection";
 import ContactSection from "../components/templates/home/ContactSection";
 
 export default function Home() {
-
   return (
     <>
       <MainSection recommendations={[]} users={[]} />

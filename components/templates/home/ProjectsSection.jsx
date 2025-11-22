@@ -19,6 +19,7 @@ import PaypalCalculator from '../../../assets/images/projects/paypal-calculator.
 import BokadosPreview from '../../../assets/images/projects/bokados-preview.webp'
 import ImprovedWebsite from '../../../assets/images/projects/improved-website.webp'
 import ImprovedAppWebsite from '../../../assets/images/projects/improved-app-website.webp'
+import SorteosMdB from '../../../assets/images/projects/sorteosmdb.webp'
 
 import Kunzapp from '../../../assets/images/brands/kunzapp.webp'
 import SmartCompliance from '../../../assets/images/brands/smartcompliance.webp'
@@ -45,6 +46,15 @@ const ProjectsSection = () => {
       backgroundColor: 'transparent',
       technologies: ['JavaScript (TS)', 'React', 'NodeJS & PostgreSQL'],
       link: 'https://gadmin.app'
+    },
+    {
+      title: 'Sorteos Md\'B',
+      year: '2025',
+      description: `${t('projects--sorteos-mdb-content-1')}<br /><br />${t('projects--sorteos-mdb-content-2')}`,
+      image: SorteosMdB,
+      backgroundColor: '#0d1117',
+      technologies: ['Astro', 'Tailwind CSS', 'Cloudflare', 'JavaScript'],
+      link: 'https://sorteosmdb.com/?r=QAZ815U3'
     },
     {
       title: 'Gadmin Legacy',
