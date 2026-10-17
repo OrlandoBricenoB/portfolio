@@ -36,11 +36,5 @@ module.exports = {
     })
     return config
   },
-  // Configuración experimental para Turbopack (usado en desarrollo si se habilita)
-  experimental: {
-    // Habilitar Turbopack
-    turbo: true,
-    // Configuración específica para módulos
-    serverComponentsExternalPackages: ['@svgr/core', '@svgr/plugin-jsx']
-  }
+  serverExternalPackages: ['@svgr/core', '@svgr/plugin-jsx'],
 }
