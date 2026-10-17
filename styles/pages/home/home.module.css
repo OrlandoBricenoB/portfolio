@@ -207,6 +207,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .home__title {
+    font-size: clamp(2.35rem, 11vw, 3.25rem);
+  }
+
   .home__content_container {
     flex-direction: column;
   }

@@ -80,19 +80,29 @@ const MainSection = ({ recommendations = [] }) => {
           ease: 'power2.out',
         })
 
+        const mobileQuery = window.matchMedia('(max-width: 768px)')
+
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: root,
             start: 'top top',
             end: 'bottom top',
             scrub: 0.65,
+            invalidateOnRefresh: true,
           },
         })
 
-        timeline.to(copy, { y: -72, autoAlpha: 0, ease: 'none' }, 0)
-        timeline.to(media, { scale: 1.1, yPercent: 8, ease: 'none' }, 0)
-        timeline.to(shade, { autoAlpha: 0.72, ease: 'none' }, 0)
-        timeline.to(cue, { autoAlpha: 0, y: -16, ease: 'none', duration: 0.35 }, 0)
+        if (mobileQuery.matches) {
+          timeline.to(cue, { autoAlpha: 0, y: -12, ease: 'none', duration: 0.2 }, 0)
+          timeline.to(copy, { autoAlpha: 1, duration: 0.72, ease: 'none' }, 0)
+          timeline.to(copy, { y: -36, autoAlpha: 0, ease: 'none', duration: 0.28 }, 0.72)
+          timeline.to(shade, { autoAlpha: 0.72, ease: 'none', duration: 0.28 }, 0.72)
+        } else {
+          timeline.to(copy, { y: -72, autoAlpha: 0, ease: 'none' }, 0)
+          timeline.to(media, { scale: 1.1, yPercent: 8, ease: 'none' }, 0)
+          timeline.to(shade, { autoAlpha: 0.72, ease: 'none' }, 0)
+          timeline.to(cue, { autoAlpha: 0, y: -16, ease: 'none', duration: 0.35 }, 0)
+        }
       }, root)
     }
 
