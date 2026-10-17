@@ -29,12 +29,12 @@ const ContactSection = () => {
       }}
     >
       <div className="wrapper">
-        <Text type='big_paragraph' style={{ color: 'var(--white)' }}>{
+        <Text type='big_paragraph' data-reveal="up" style={{ color: 'var(--white)' }}>{
           '| ' + t('contact--title') + ' |'
         }</Text>
         <div className={classNames('contact_content')}>
           {/* Contenido de texto a la derecha */}
-          <div className={classNames('contact__information')}>
+          <div className={classNames('contact__information')} data-reveal="up">
             <div className={classNames('contact__information_text')}>
               <Heading type='h3' color={'var(--dark)'} style={{ margin: 0, marginBottom: '4px' }}>Orlando Jose Briceño Blanco</Heading>
               <Text type='big_paragraph' style={{ margin: 0 }}>{t('common--role')}</Text>

@@ -8,6 +8,69 @@
   color: var(--white);
 }
 
+.home__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform-origin: 72% 42%;
+  will-change: transform;
+}
+
+.home__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home__cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+}
+
+.home__video_overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(7, 10, 43, 0.88) 0%, rgba(7, 10, 43, 0.45) 46%, rgba(7, 10, 43, 0.12) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #070a2b;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.home__cue {
+  position: absolute;
+  left: 2rem;
+  bottom: 1.35rem;
+  z-index: 3;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
 .home__content_container {
   display: flex;
   gap: 2rem;
@@ -51,14 +114,15 @@
 
 .home__statistics {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   min-width: 200px;
   padding-top: 1rem;
 }
 
 .home__statistics_item {
   position: relative;
-  text-align: right;
+  text-align: center;
 }
 
 .social_buttons {
@@ -130,16 +194,16 @@
 }
 
 .statistics_description {
-  margin: 0 0 0 auto;
+  margin: 0 auto;
   color: #cccccc;
   font-size: 0.9rem;
-  max-width: 50%;
+  text-align: center;
+  width: 50%;
 }
 
 .gadmin_logo_container {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 2rem
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -187,5 +251,10 @@
 
   .gadmin_logo_container {
     justify-content: flex-start;
+  }
+
+  .home__cue {
+    left: 1.25rem;
+    bottom: 0.85rem;
   }
 }

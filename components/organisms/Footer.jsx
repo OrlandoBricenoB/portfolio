@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className={classNames('footer')}>
       <div className="wrapper">
-        <div className={classNames('footer__content')}>
+        <div className={classNames('footer__content')} data-reveal="up">
           <div className={classNames('footer__description')}>
             <Heading type='h1'>{t('footer--title')}</Heading>
             <Text type='paragraph' style={{ fontSize: '1.1rem' }}>

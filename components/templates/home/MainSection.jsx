@@ -1,3 +1,5 @@
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+
 /*
   * i18n
 */
@@ -25,7 +27,8 @@ import WhatsApp from '../../atoms/icons/WhatsApp'
 /*
   * IMAGES
 */
-import bgPresentation from '../../../assets/images/bg-presentation.webp'
+import cover from '../../../assets/images/cover.png'
+import coverWebp from '../../../assets/images/cover.webp'
 import logoGadmin from '../../../assets/images/logo-no-frame-light.webp'
 
 /*
@@ -37,21 +40,105 @@ import Email from '../../atoms/icons/Email'
 
 const MainSection = ({ recommendations = [] }) => {
   const { t } = useTranslate()
+  const rootRef = useRef(null)
+  const [showVideo, setShowVideo] = useState(false)
+
+  useEffect(() => {
+    setShowVideo(true)
+  }, [])
+
+  useLayoutEffect(() => {
+    const root = rootRef.current
+    if (!root) return undefined
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (mediaQuery.matches) return undefined
+
+    let ctx
+    let cancelled = false
+
+    const setup = async () => {
+      const { gsap } = await import('gsap')
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      if (cancelled || !rootRef.current) return
+
+      gsap.registerPlugin(ScrollTrigger)
+
+      ctx = gsap.context(() => {
+        const content = root.querySelector('[data-hero="content"]')
+        const social = root.querySelector('[data-hero="social"]')
+        const media = root.querySelector('[data-hero="media"]')
+        const shade = root.querySelector('[data-hero="shade"]')
+        const cue = root.querySelector('[data-hero="cue"]')
+        const copy = [content, social]
+
+        gsap.from(copy, {
+          y: 32,
+          autoAlpha: 0,
+          duration: 0.95,
+          stagger: 0.08,
+          ease: 'power2.out',
+        })
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: root,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.65,
+          },
+        })
+
+        timeline.to(copy, { y: -72, autoAlpha: 0, ease: 'none' }, 0)
+        timeline.to(media, { scale: 1.1, yPercent: 8, ease: 'none' }, 0)
+        timeline.to(shade, { autoAlpha: 0.72, ease: 'none' }, 0)
+        timeline.to(cue, { autoAlpha: 0, y: -16, ease: 'none', duration: 0.35 }, 0)
+      }, root)
+    }
+
+    setup()
+
+    return () => {
+      cancelled = true
+      ctx?.revert()
+    }
+  }, [])
 
   return (
     <div 
-      className={styles.home_container} 
+      className={styles.home_container}
       id='presentation'
+      ref={rootRef}
       style={{
-        backgroundImage: `url(${bgPresentation.src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundColor: '#070a2b',
         display: 'flex',
         flexDirection: 'column',
         minHeight: '100vh',
       }}
     >
+      <div className={styles.home__media} data-hero="media">
+        {showVideo && (
+          <video
+            className={styles.home__video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+          >
+            <source src="/videos/background-video.webm" type="video/webm" />
+            <source src="/videos/background-video.mp4" type="video/mp4" />
+          </video>
+        )}
+        <picture className={styles.home__cover} aria-hidden="true">
+          <source srcSet={coverWebp.src} type="image/webp" />
+          <img src={cover.src} alt="" />
+        </picture>
+      </div>
+      <div className={styles.home__video_overlay} aria-hidden="true" />
+      <div className={styles.home__shade} data-hero="shade" aria-hidden="true" />
       <div
         className={'wrapper'}
         style={{
@@ -59,11 +146,13 @@ const MainSection = ({ recommendations = [] }) => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         {/* Content */}
         <div className={styles.home__content_container}>
-          <div className={styles.home__content}>
+          <div className={styles.home__content} data-hero="content">
             {/* Title */}
             <div>
               <Text type='big_paragraph' className={styles.home__specialization}>{
@@ -109,9 +198,8 @@ const MainSection = ({ recommendations = [] }) => {
                 </span>
               </Button>
             </div>
-          </div>
-          
-          {/* Statistics */}
+
+                      {/* Statistics */}
           <div className={styles.home__statistics}>
             <a
               href="https://gadmin.app/"
@@ -139,16 +227,18 @@ const MainSection = ({ recommendations = [] }) => {
               <Text type='big_paragraph' className={styles.statistics_number}>15</Text>
               <Text type='paragraph' className={styles.statistics_description}>{t('common--experience-years')}</Text>
             </div>
-            <div className={styles.home__statistics_item} style={{ marginTop: '2rem' }}>
+            <div className={styles.home__statistics_item}>
               <Text type='big_paragraph' className={styles.statistics_number}>10+</Text>
               <Text type='paragraph' className={styles.statistics_description}>{t('common--done-projects')}</Text>
             </div>
+          </div>
           </div>
         </div>
         
         {/* Social Buttons moved to bottom right */}
         <div
           className={styles.social_buttons}
+          data-hero="social"
           style={{
             marginTop: '2rem',
             display: 'flex',
@@ -164,6 +254,9 @@ const MainSection = ({ recommendations = [] }) => {
           </div>
         </div>
       </div>
+      <p className={styles.home__cue} data-hero="cue">
+        {t('stories--hint')}
+      </p>
     </div>
   )
 }

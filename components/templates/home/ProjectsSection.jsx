@@ -151,10 +151,10 @@ const ProjectsSection = () => {
   return (
     <div className={classNames('projects')} id='projects'>
       <div className={classNames('wrapper')}>
-        <Text type='big_paragraph'>{
+        <Text type='big_paragraph' data-reveal="up">{
           '| ' + t('common--projects') + ' |'
         }</Text>
-        <div className="projects__header">
+        <div className="projects__header" data-reveal="up">
           <Heading
             type='h1'
             color={COMMON_TITLE_COLOR}
@@ -178,7 +178,7 @@ const ProjectsSection = () => {
               )
 
               return (
-                <Container key={project.title} className={itemClasses}>
+                <Container key={project.title} className={itemClasses} data-reveal={isRight ? 'right' : 'left'}>
                   <div className="projects__image-wrapper">
                     <div
                       className="projects__image-aspect"
@@ -243,7 +243,7 @@ const ProjectsSection = () => {
           </div>
         </div>
         <div className={classNames('projects__businesses')}>
-          <div className={classNames('about_certification', 'projects__business', 'projects__business--left')}>
+          <div className={classNames('about_certification', 'projects__business', 'projects__business--left')} data-reveal="up">
             <div className={classNames('about_certification__content')} style={{
               display: 'flex',
               flexDirection: 'column',
@@ -271,7 +271,7 @@ const ProjectsSection = () => {
               </Text>
             </div>
           </div>
-          <div className={classNames('about_certification', 'projects__business', 'projects__business--center')}>
+          <div className={classNames('about_certification', 'projects__business', 'projects__business--center')} data-reveal="up" data-reveal-delay="0.08">
             <div className={classNames('about_certification__content')} style={{
               display: 'flex',
               flexDirection: 'column',
@@ -299,7 +299,7 @@ const ProjectsSection = () => {
               </Text>
             </div>
           </div>
-          <div className={classNames('about_certification', 'projects__business', 'projects__business--right')}>
+          <div className={classNames('about_certification', 'projects__business', 'projects__business--right')} data-reveal="up" data-reveal-delay="0.16">
             <div className={classNames('about_certification__content')} style={{
               display: 'flex',
               flexDirection: 'column',

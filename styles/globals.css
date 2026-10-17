@@ -6,6 +6,7 @@
 
 @import url("./pages/home/projects.css");
 @import url("./pages/home/about.css");
+@import url("./pages/home/stories.css");
 @import url("./pages/home/contact.css");
 
 /*
@@ -55,8 +56,52 @@ html {
 body {
   width: 100%;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
+
+@keyframes site-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.site-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  height: 3px;
+  pointer-events: none;
+  background: rgba(7, 10, 43, 0.18);
+}
+
+.site-scroll span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: var(--primary);
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  #presentation [data-reveal] {
+    animation: site-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-scroll {
+    display: none;
+  }
+} */
 
 .wrapper {
   width: 100%;
