@@ -54,7 +54,7 @@ const stories = [
     bodyKey: 'stories--barber-body',
     altKey: 'stories--barber-alt',
     fit: 'cover',
-    position: 'center 25%',
+    position: 'center',
   },
   {
     image: holdingAmda,
