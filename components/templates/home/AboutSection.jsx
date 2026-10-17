@@ -5,7 +5,10 @@ import classNames from 'classnames'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
 
-import AboutMeProfile from '../../../assets/images/guitar-keyboard.webp'
+import oldStarts from '../../../assets/images/stories/old-starts.jpg'
+import oldStartsTwo from '../../../assets/images/stories/old-starts-2.png'
+import oldStartsTwoWebp from '../../../assets/images/stories/old-starts-2.webp'
+import aboutPortrait from '../../../assets/images/guitar-keyboard.webp'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
@@ -195,22 +198,56 @@ const AboutSection = () => {
   return (
     <div className={classNames('section')} id='about'>
       <div className="wrapper">
-        <Text type='big_paragraph'>{
+        <Text type='big_paragraph' data-reveal="up">{
           '| ' + t('common--about-me') + ' |'
         }</Text>
         <div className={classNames('about__container')}>
           {/* About */}
-          <div className={classNames('about__content')}>
-            <figure className={classNames('about__content_image')} style={{ margin: 0, position: 'relative' }}>
-              <Image
-                src={AboutMeProfile.src}
-                width={2500}
-                height={2597}
-                style={{ width: '100%', height: 'auto' }}
-                alt='Orlando Briceño Pensando'
-              />
+          <div className={classNames('about__content')} data-reveal="up" data-reveal-delay="0.08">
+            <figure className={classNames('about__content_image')} style={{ margin: 0 }}>
+              <div className="about__photos">
+                <div className="about__photo">
+                  <Image
+                    src={aboutPortrait}
+                    alt="Orlando Briceño"
+                    width={aboutPortrait.width}
+                    height={aboutPortrait.height}
+                  />
+                </div>
+                <div className="about__photo">
+                  <Image
+                    src={oldStarts}
+                    alt={t('stories--start-alt')}
+                    width={oldStarts.width}
+                    height={oldStarts.height}
+                  />
+                </div>
+                <div className="about__photo">
+                  <picture>
+                    <source srcSet={oldStartsTwoWebp.src} type="image/webp" />
+                    <img
+                      src={oldStartsTwo.src}
+                      alt={t('stories--start-two-alt')}
+                      width={oldStartsTwo.width}
+                      height={oldStartsTwo.height}
+                    />
+                  </picture>
+                </div>
+                <div className="about__photo" aria-hidden="true">
+                  <Image
+                    src={aboutPortrait}
+                    alt=""
+                    width={aboutPortrait.width}
+                    height={aboutPortrait.height}
+                  />
+                </div>
+              </div>
             </figure>
             <div className="about__content-text">
+              <Heading type='h2' color='var(--dark)'>{t('stories--start-title')}</Heading>
+              <Text type='paragraph' style={{ fontSize: '1.1rem' }}>
+                {t('stories--start-body')}
+              </Text>
               <Heading type='h1' color='var(--dark)'>{t('about--story-title')}</Heading>
               <Text type='paragraph' style={{ fontSize: '1.1rem', marginBottom: '0' }}>
                 {t('about--story-content-1')}
@@ -261,6 +298,7 @@ const AboutSection = () => {
           {/* Certificados */}
           <div
             className={classNames('about_certifications')}
+            data-reveal="up"
             onMouseEnter={() => {
               clearTimeout(timeoutSlide)
             }}
