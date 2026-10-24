@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import useTranslate from '../../../hooks/useTranslate'
 import classNames from 'classnames'
 
@@ -6,8 +6,11 @@ import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
 
 import oldStarts from '../../../assets/images/stories/old-starts.jpg'
+import oldStartsWebp from '../../../assets/images/stories/old-starts.webp'
 import oldStartsTwo from '../../../assets/images/stories/old-starts-2.png'
 import oldStartsTwoWebp from '../../../assets/images/stories/old-starts-2.webp'
+import holdingCarnet from '../../../assets/images/stories/holding-carnet.png'
+import holdingCarnetWebp from '../../../assets/images/stories/holding-carnet.webp'
 import aboutPortrait from '../../../assets/images/guitar-keyboard.webp'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -51,6 +54,25 @@ const AboutSection = () => {
   const { t } = useTranslate()
 
   const [, setSwiper] = useState(null)
+  const photosRef = useRef(null)
+
+  // Hold on the first photo until the visitor actually reaches the section
+  useEffect(() => {
+    const el = photosRef.current
+    if (!el) return
+    if (typeof IntersectionObserver === 'undefined') {
+      el.classList.add('is-playing')
+      return
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.classList.add('is-playing')
+        observer.disconnect()
+      }
+    }, { threshold: 0.6 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   const autoSlide = (_swiper, clonnedSwiper) => {
     if (!clonnedSwiper || !_swiper) return
@@ -204,7 +226,7 @@ const AboutSection = () => {
         <div className={classNames('about__container')}>
           {/* About */}
           <div className={classNames('about__content')} data-reveal="up" data-reveal-delay="0.08">
-            <figure className={classNames('about__content_image')} style={{ margin: 0 }}>
+            <figure ref={photosRef} className={classNames('about__content_image')} style={{ margin: 0 }}>
               <div className="about__photos">
                 <div className="about__photo">
                   <Image
@@ -215,12 +237,26 @@ const AboutSection = () => {
                   />
                 </div>
                 <div className="about__photo">
-                  <Image
-                    src={oldStarts}
-                    alt={t('stories--start-alt')}
-                    width={oldStarts.width}
-                    height={oldStarts.height}
-                  />
+                  <picture>
+                    <source srcSet={holdingCarnetWebp.src} type="image/webp" />
+                    <img
+                      src={holdingCarnet.src}
+                      alt={t('about--carnet-alt')}
+                      width={holdingCarnet.width}
+                      height={holdingCarnet.height}
+                    />
+                  </picture>
+                </div>
+                <div className="about__photo">
+                  <picture>
+                    <source srcSet={oldStartsWebp.src} type="image/webp" />
+                    <img
+                      src={oldStarts.src}
+                      alt={t('stories--start-alt')}
+                      width={oldStarts.width}
+                      height={oldStarts.height}
+                    />
+                  </picture>
                 </div>
                 <div className="about__photo">
                   <picture>

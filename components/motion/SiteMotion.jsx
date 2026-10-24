@@ -1,11 +1,12 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useRef } from 'react'
+import useIsomorphicLayoutEffect from '../../hooks/useIsomorphicLayoutEffect'
 import useTranslate from '../../hooks/useTranslate'
 
 const SiteMotion = () => {
   const { ready, i18n } = useTranslate()
   const barRef = useRef(null)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!ready) return undefined
 
     // const media = window.matchMedia('(prefers-reduced-motion: reduce)')

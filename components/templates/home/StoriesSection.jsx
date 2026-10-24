@@ -1,31 +1,23 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
+import useIsomorphicLayoutEffect from '../../../hooks/useIsomorphicLayoutEffect'
 import useTranslate from '../../../hooks/useTranslate'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
 import Image from 'next/image'
 
 import destroyedBuildings from '../../../assets/images/stories/destroyed-buildings.jpg'
+import destroyedBuildingsWebp from '../../../assets/images/stories/destroyed-buildings.webp'
 import bringingLoveToKids from '../../../assets/images/stories/bringing-love-to-kids.jpg'
+import bringingLoveToKidsWebp from '../../../assets/images/stories/bringing-love-to-kids.webp'
 import wck from '../../../assets/images/stories/wck.jpg'
+import wckWebp from '../../../assets/images/stories/wck.webp'
 import barber from '../../../assets/images/stories/barber.jpg'
-
-import holdingAmda from '../../../assets/images/holding-amda.png'
-import holdingAmdaWebp from '../../../assets/images/holding-amda.webp'
-import holdingGvp from '../../../assets/images/holding-gvp.png'
-import holdingGvpWebp from '../../../assets/images/holding-gvp.webp'
-import holdingMcdonalds from '../../../assets/images/holding-mcdonalds.png'
-import holdingMcdonaldsWebp from '../../../assets/images/holding-mcdonalds.webp'
-
-import amdaCertificate from '../../../assets/images/amda-certificate.png'
-import amdaCertificateWebp from '../../../assets/images/amda-certificate.webp'
-import gvpCertificate from '../../../assets/images/gvp-certificate.png'
-import gvpCertificateWebp from '../../../assets/images/gvp-certificate.webp'
-import mcdonaldsCertificate from '../../../assets/images/mcdonalds-certificate.png'
-import mcdonaldsCertificateWebp from '../../../assets/images/mcdonalds-certificate.webp'
+import barberWebp from '../../../assets/images/stories/barber.webp'
 
 const stories = [
   {
     image: destroyedBuildings,
+    imageWebp: destroyedBuildingsWebp,
     titleKey: 'stories--zone-title',
     bodyKey: 'stories--zone-body',
     altKey: 'stories--zone-alt',
@@ -34,6 +26,7 @@ const stories = [
   },
   {
     image: bringingLoveToKids,
+    imageWebp: bringingLoveToKidsWebp,
     titleKey: 'stories--kids-title',
     bodyKey: 'stories--kids-body',
     altKey: 'stories--kids-alt',
@@ -42,6 +35,7 @@ const stories = [
   },
   {
     image: wck,
+    imageWebp: wckWebp,
     titleKey: 'stories--wck-title',
     bodyKey: 'stories--wck-body',
     altKey: 'stories--wck-alt',
@@ -50,49 +44,16 @@ const stories = [
   },
   {
     image: barber,
+    imageWebp: barberWebp,
     titleKey: 'stories--barber-title',
     bodyKey: 'stories--barber-body',
     altKey: 'stories--barber-alt',
     fit: 'cover',
     position: 'center',
   },
-  {
-    image: holdingAmda,
-    imageWebp: holdingAmdaWebp,
-    titleKey: 'stories--amda-title',
-    bodyKey: 'stories--amda-body',
-    altKey: 'stories--amda-alt',
-    fit: 'contain',
-    position: 'center bottom',
-    certificate: amdaCertificate,
-    certificateWebp: amdaCertificateWebp,
-    certificateAltKey: 'stories--amda-certificate-alt',
-  },
-  {
-    image: holdingGvp,
-    imageWebp: holdingGvpWebp,
-    titleKey: 'stories--gvp-title',
-    bodyKey: 'stories--gvp-body',
-    altKey: 'stories--gvp-alt',
-    fit: 'contain',
-    position: 'center bottom',
-    certificate: gvpCertificate,
-    certificateWebp: gvpCertificateWebp,
-    certificateAltKey: 'stories--gvp-certificate-alt',
-  },
-  {
-    image: holdingMcdonalds,
-    imageWebp: holdingMcdonaldsWebp,
-    titleKey: 'stories--mcdonalds-title',
-    bodyKey: 'stories--mcdonalds-body',
-    altKey: 'stories--mcdonalds-alt',
-    fit: 'contain',
-    position: 'center bottom',
-    certificate: mcdonaldsCertificate,
-    certificateWebp: mcdonaldsCertificateWebp,
-    certificateAltKey: 'stories--mcdonalds-certificate-alt',
-  },
 ]
+
+const HOLD = 0.5
 
 const StoriesSection = () => {
   const { t, ready, i18n } = useTranslate()
@@ -102,7 +63,7 @@ const StoriesSection = () => {
   const [step, setStep] = useState(0)
   const [reducedMotion, setReducedMotion] = useState(false)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!ready || !pinRef.current) return undefined
 
     // const media = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -142,14 +103,14 @@ const StoriesSection = () => {
           scrollTrigger: {
             trigger: pinRef.current,
             start: 'top top',
-            end: () => `+=${window.innerHeight * count * 0.95}`,
+            end: () => `+=${window.innerHeight * (count + HOLD) * 0.6}`,
             pin: true,
             scrub: 0.55,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               if (!alive || !pinRef.current) return
-              const time = self.animation ? self.animation.time() : 0
+              const time = Math.max(0, (self.animation ? self.animation.time() : 0) - HOLD)
               let index = 0
               for (let i = 1; i < count; i += 1) {
                 if (time >= i + 0.18) index = i
@@ -217,6 +178,10 @@ const StoriesSection = () => {
           }
         })
 
+        // Hold the first story on screen for the first stretch of scroll so it is
+        // always what the viewer sees on arrival, even after a fast scroll.
+        timeline.shiftChildren(HOLD, true)
+        timeline.to({}, { duration: HOLD }, 0)
         timeline.to({}, { duration: 0.4 })
         timelineRef.current = timeline
       }, pinRef)
@@ -245,7 +210,7 @@ const StoriesSection = () => {
     const label = timeline.labels[`story-${index}`] ?? 0
     const chapterHasCertificate = Boolean(stories[index]?.certificate)
     const offset = chapterHasCertificate ? 0.9 : 0.5
-    const time = Math.min(timeline.duration() - 0.01, label + (index === 0 ? 0.02 : offset))
+    const time = Math.min(timeline.duration() - 0.01, index === 0 ? 0 : label + offset)
     const top = trigger.start + (trigger.end - trigger.start) * (time / timeline.duration())
     window.scrollTo({ top, behavior: 'auto' })
   }

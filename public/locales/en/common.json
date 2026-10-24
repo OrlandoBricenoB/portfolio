@@ -1,6 +1,5 @@
 {
   "nav--presentation": "Presentation",
-
   "common--title": "Gadmin: Webs, Academy, Games",
   "common--specialization": "Gadmin Founder",
   "common--role": "Gadmin Founder",
@@ -15,67 +14,46 @@
   "common--experience-years": "years of experience",
   "common--done-projects": "projects completed",
   "common--projects-title": "A little of what I've done from childhood to today",
-
   "common--actuality-word": "Actuality",
-
   "main--greetings": "Hi! I'm Orlando. 👋🏼",
   "main--bio-1": "I spend my life developing automated solutions to all kinds of problems (or at least the ones I find 😂).",
   "main--bio-2": "At 16 years old, I went from loving programming to also making a living from it. I always wanted to build applications that could change people's lives, and that's why I founded Gadmin and all its tools.",
-
   "main--presentation-title": "Presentation: Who I am and What I do.",
-
   "projects--expertises-title": "Developing projects",
   "projects--expertises-1": "Since 2011",
   "projects--expertises-2": "+10 years of experience",
-
   "projects--gadmin-content": "Gadmin is a tool for creating websites, online stores, or blogs without needing to know how to program. It includes everything from the previous Gadmin, now with a more attractive proposal for small entrepreneurs (who matter to us, to help reduce the fact that 80% of SMEs die before reaching 2 years).",
-
   "projects--sorteos-mdb-content-1": "I created this Md'B Raffles website so my wife could run as many raffles as she wanted, and participants could register automatically and easily.",
   "projects--sorteos-mdb-content-2": "Additionally, a random roulette wheel was linked to select the winner by automatically taking the numbers of all participants.",
-
   "projects--gadmin-legacy-content-1": "2023-2024",
   "projects--gadmin-legacy-content-2": "Improved was renamed Gadmin. This was the software that saved entrepreneurs time in the complete management of their business, inventory, invoicing, etc. Several entrepreneurs used it and were happy with it, so we migrated to the new Gadmin, which still includes a large part of the functionalities of this software.",
-
   "projects--file-content-1": "I've built this JavaScript library that gets the extension and/or mimeType of a filename or path.",
   "projects--file-content-2": "Its purpose is to make the job of managing file extensions in the backend easier.",
-
   "projects--adventjs-1": "A repository where I shared the solution of the 24 challenges of AdventJS, an initiative by @midudev where a JavaScript challenge is published every day of December until the 24th of December.",
   "projects--adventjs-2": "As a competition lover, I had to do it. I took that year to enjoy it, and since then, I do it every year.",
-
   "projects--improved-website-app-1": "Thanks to the Bokados project, I was able to create a mobile app to make the management of local businesses, inventory, invoicing, etc. more efficient.",
   "projects--improved-website-app-2": "With this foundation, the 2023 version of Gadmin was born, where the tool was greatly improved. I was happy when we added ticket printing, barcode scanning... Little by little, I was understanding where I wanted to go with Gadmin.",
-
   "projects--bokados-title": "Bokados Menu Prices",
   "projects--bokados-1": "A bakery wanted to have a price menu updated in real time with the dollar exchange rate in Venezuela.",
   "projects--bokados-2": "This was the beginning of the Gadmin Startup, when I didn't even know yet that I wanted to make people's lives easier on such a scale.",
-
   "projects--improved-website-1": "A web design agency that makes websites for the world, my dream was always to create an editor so that people could create websites without needing to know how to program, but the agency was a good start.",
   "projects--improved-website-2": "This was the beginning of Gadmin, when I didn't even know yet that I wanted to make people's lives easier on such a scale, I just wanted to allow everyone to create websites.",
-
   "projects--calculadora-title": "PayPal Calculator",
   "projects--calculadora-1": "I got tired of calculating PayPal commissions, so I built this calculator in less than 2 hours to calculate the commissions of my payments that I received and made.",
   "projects--calculadora-2": "I'm not a fan of PayPal commissions. Today I don't use it, if you can go away, do it.",
-  
   "projects--narubyond-1": "As a child, I was excited to create video games. I learned by using an existing project and wrote about it while learning English by translating the entire game.",
   "projects--narubyond-2": "I remember spending days trying to understand what a piece of code did. It's fun to look back and think that today I've taught so many people to understand code like that.",
-
   "projects--ngn-1": "After my first project, I wanted to experiment with something more complex, it was quite fun and I learned a lot more about programming.",
   "projects--ngn-2": "1 year later I left the project and dedicated myself to full stack web development, since it was something that I started to like even more.",
-
   "projects--correfution-1": "Corre Fution is a topdown game that is quite difficult to play that I made in a RandomJam#2 where we competed by creating a game in 24 hours.",
   "projects--correfution-2": "I was already professionally developing web applications, since I had been experimenting with JavaScript for 5 years, the previous projects were lost. (To programmers it usually happens that we lose an entire hard drive 😭)",
-
   "projects--item-cta": "See the Project",
-
   "business--kunzapp-content-1": "A short but rich experience helping Kunzapp in its first steps launching their MVP and presenting at the Platanus Ventures Demo Day, where they raised USD $150,000 in capital.",
   "business--kunzapp-content-2": "Together with the team, I built the best tool to achieve savings, visibility, and control of all your organization's SaaS.",
-  
   "business--smartcompliance-content-1": "A small team and I transformed a backend built on monolithic architecture into a microservices architecture using AWS Lambdas, increasing server performance, scalability, and efficiency, while reducing infrastructure costs by more than 60%.",
   "business--smartcompliance-content-2": "The best part here is the team, people who enjoy the day-to-day and with whom you can share very fluidly.",
-
   "business--gadmin-content-1": "Here I am, happily changing the lives of many.",
   "business--gadmin-content-2": "Create your website, blog, or online store in moments without technical knowledge—let AI help you build the business you dream of. 😉",
-
   "certification--professional-git": "Professional Git and GitHub Course",
   "certification--practical-javascript": "Practical JavaScript Course",
   "certification--professional-javascript": "Professional JavaScript Course",
@@ -84,7 +62,6 @@
   "certification--time-management": "Effective Time Management Course",
   "certification--emotional-intelligence": "Emotional Intelligence Course",
   "certification--logical-thinking": "Logical Thinking Course",
-
   "about--story-title": "The guy behind Gadmin",
   "about--story-content-1": "Since I was young, programming was my way to overcome obstacles. I always dreamed of creating solutions that were accessible to everyone, even when I didn't have the resources to go to university or even reliable internet access, but I didn't want to stop.",
   "about--story-content-2": "Gadmin was born from that desire, driven by the fact that different people asked me for software to make their business lives easier. It went through several names, but \"Gadmin\" made a great connection with me.",
@@ -99,16 +76,13 @@
   "about--story-content-6-brand": "Gadmin Games",
   "about--story-content-6-after": ", was born because I love to create video games (I started programming with them), creating immersive experiences that teach and/or entertain.",
   "about--story-content-7": "And so more tools and branches of Gadmin will come. Today I keep learning and sharing, seeking to achieve my goals.",
-
   "contact--title": "Let's talk",
   "contact--content-1": "Did you like something I'm building?",
   "contact--content-2": "If you want to be part of the Gadmin team or you like to talk about an idea or project, don't hesitate for a second to write me.",
-
   "footer--title": "A bit more about me to reward you for making it this far",
   "footer--content-1": "If I seem ambitious to you, you're not wrong. But even so, my family is above everything else. When I'm not trying to change half the world with Gadmin, I'm spending time with my wife.",
   "footer--content-2": "One thing you can be sure of: I will always be very honest, although sometimes you might not like it.",
   "footer--credits": "Made by me for me 😂",
-
   "certification--practical-javascript-desc": "A course that made me review daily practice and I learned some good practices.",
   "certification--professional-javascript-desc": "I delved into advanced JavaScript, closures, hoisting, event loops, and more craziness with asynchrony.",
   "certification--nodejs-desc": "I reinforced some concepts while studying this course, they touched on how frameworks work that you use daily and don't understand their background.",
@@ -117,15 +91,15 @@
   "certification--logical-thinking-desc": "The important thing about this course was putting it into practice, problem solving is part of everyday life.",
   "certification--time-management-desc": "I learned techniques to manage time and improve productivity. I recommend reading the book Deep Work, by the way.",
   "certification--emotional-intelligence-desc": "I learned about emotional intelligence, an important area of life and still very little mentioned.",
-
   "stories--kicker": "Stories",
   "stories--title": "La Guaira, after the earthquakes",
-  "stories--intro": "When the earthquakes hit La Guaira, Venezuela, on June 24, 2026, I went to help. I arrived on June 28. This is the story, and the recognitions from the teams I worked with.",
+  "stories--intro": "When the earthquakes hit La Guaira, Venezuela, on June 24, 2026, I went to help. I arrived on June 28. This is the story.",
   "stories--hint": "Scroll to continue",
   "stories--start-title": "Just me and a computer",
   "stories--start-body": "I started with no resources and no money. Only myself and a computer. My wife's support was vital: with her I grew in every part of life, into the person I am today.",
   "stories--start-alt": "A young Orlando Briceño working at a computer on the floor of his home",
   "stories--start-two-alt": "Orlando Briceño and his wife at a small desk with two computers in a modest room",
+  "about--carnet-alt": "Orlando Briceño holding his ID card",
   "stories--zone-title": "Ground zero",
   "stories--zone-body": "This is what I found when I arrived. There were bodies in the rubble, and also teams and civilians working together to rescue people and bring some peace back to families, hoping to find someone still alive.",
   "stories--zone-alt": "Collapsed buildings in La Guaira, with rescue teams and civilians in the rubble",
@@ -138,16 +112,19 @@
   "stories--barber-title": "Months at the epicenter",
   "stories--barber-body": "Eating, getting a haircut, sleeping: for months I did all of it there. I moved completely so I could help as much as possible. I got sick several times from the polluted air. It was still worth every second. I cried with many people, and I also made others laugh in the middle of their grief.",
   "stories--barber-alt": "Orlando Briceño getting a haircut during the months he spent at the epicenter",
-  "stories--amda-title": "Interpreter with AMDA",
-  "stories--amda-body": "I communicated in English with Japanese members of AMDA, including its president, Dr. Takushi Sato. I helped them with their tasks and with support at the so-called McDonald's Hospital, run entirely by GVP.",
   "stories--amda-alt": "Orlando Briceño holding his AMDA interpretation certificate",
-  "stories--amda-certificate-alt": "AMDA certificate of recognition presented to Orlando Briceño",
-  "stories--gvp-title": "Software for GVP",
-  "stories--gvp-body": "I built software for the whole organization: consultations, morbidity records, statistical analysis of patients and donations, and inventory. I wanted the work on the ground not to disappear into the chaos of each day.",
   "stories--gvp-alt": "Orlando Briceño holding his GVP certificate of recognition",
-  "stories--gvp-certificate-alt": "GVP certificate of recognition presented to Orlando Briceño",
-  "stories--mcdonalds-title": "They called us heroes",
-  "stories--mcdonalds-body": "McDonald's recognized the effort of everyone who collaborated with GVP. They wanted to give us something simple, and enormous: they called us heroes.",
   "stories--mcdonalds-alt": "Orlando Briceño holding his McDonald's recognition",
-  "stories--mcdonalds-certificate-alt": "McDonald's certificate calling Orlando Briceño a hero"
+  "recognitions--kicker": "Recognitions",
+  "recognitions--title": "Recognized for helping",
+  "recognitions--intro": "Recognitions I received from the organizations I worked alongside while helping people in La Guaira.",
+  "recognitions--amda-title": "Interpreter with AMDA",
+  "recognitions--amda-body": "I communicated in English with Japanese members of AMDA, including its president, Dr. Takushi Sato. I helped them with their tasks and with support at the so-called McDonald's Hospital, run entirely by GVP.",
+  "recognitions--amda-certificate-alt": "AMDA certificate of recognition presented to Orlando Briceño",
+  "recognitions--gvp-title": "Software for GVP",
+  "recognitions--gvp-body": "I built software for the whole organization: consultations, morbidity records, statistical analysis of patients and donations, and inventory. I wanted the work on the ground not to disappear into the chaos of each day.",
+  "recognitions--gvp-certificate-alt": "GVP certificate of recognition presented to Orlando Briceño",
+  "recognitions--mcdonalds-title": "They called us heroes",
+  "recognitions--mcdonalds-body": "McDonald's recognized the effort of everyone who collaborated with GVP. They wanted to give us something simple, and enormous: they called us heroes.",
+  "recognitions--mcdonalds-certificate-alt": "McDonald's certificate calling Orlando Briceño a hero"
 }

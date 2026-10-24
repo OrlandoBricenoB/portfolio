@@ -1,4 +1,5 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import useIsomorphicLayoutEffect from '../../../hooks/useIsomorphicLayoutEffect'
 
 /*
   * i18n
@@ -47,7 +48,7 @@ const MainSection = ({ recommendations = [] }) => {
     setShowVideo(true)
   }, [])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const root = rootRef.current
     if (!root) return undefined
 
