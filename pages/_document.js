@@ -15,8 +15,8 @@ function Document({ ...rest }) {
       <Head>
         <meta charSet="utf-8" />
         <meta
-          property="viewport"
-          content="width=device-width, initial-scale=1.0"
+          name="viewport"
+          content="width=device-width, initial-scale=1"
         />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -25,8 +25,15 @@ function Document({ ...rest }) {
         <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#070a2b" />
-        <meta name="theme-color" content="#21c2e1" />
+        <meta name="msapplication-TileColor" content="#050528" />
+        <meta name="theme-color" content="#0051ff" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@400;500;600;700;900&display=swap"
+        />
 
         {/* Primary Meta Tags */}
         <meta name="title" content="Orlando Briceño | Gadmin Founder" />

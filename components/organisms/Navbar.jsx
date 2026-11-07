@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import NavButton from '../atoms/links/NavButton'
 import styles from '../../styles/organisms/navBar.module.css'
-import Text from '../atoms/texts/Text'
 
 import LanguageSelector from '../molecules/LanguageSelector'
 import Dropdown from '../atoms/dropdown/Dropdown'
@@ -15,19 +15,42 @@ import useTranslate from '../../hooks/useTranslate'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      setIsScrolled(scrollTop > 30)
+      setIsScrolled(scrollTop > 8)
     }
 
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   const { t } = useTranslate()
 
   const router = useRouter()
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [router.asPath])
+
+  useEffect(() => {
+    const closeOnDesktop = () => {
+      if (window.innerWidth > 980) setMenuOpen(false)
+    }
+
+    window.addEventListener('resize', closeOnDesktop)
+    return () => window.removeEventListener('resize', closeOnDesktop)
+  }, [])
 
   // * Dropdown
   const [isOpenDropdown, setIsOpenDropdown] = useState(false)
@@ -46,23 +69,38 @@ const Navbar = () => {
     router.push({ pathname, query }, asPathScrollLess, { locale: lang })
   }
 
+  const closeMenu = () => setMenuOpen(false)
+
+  const links = [
+    { href: '/#about', label: t('nav--about') },
+    { href: '/#services', label: t('nav--services') },
+    { href: '/#method', label: t('nav--method') },
+    { href: '/#ventures', label: t('nav--ventures') },
+    { href: '/impact', label: t('nav--impact'), active: router.pathname === '/impact' },
+    { href: '/courses', label: t('nav--courses'), active: router.pathname === '/courses' },
+  ]
+
   return (
-    <header className={`${styles.header} ${isScrolled ? styles['header--scrolled'] : ''}`}>
+    <header className={`${styles.header} ${(isScrolled || menuOpen) ? styles['header--scrolled'] : ''}`}>
       <div className={styles.nav + ' wrapper'}>
         {/* Logo */}
         <div style={{ justifySelf: 'flex-start' }}>
-          <Text type='big_paragraph' style={{ margin: '1rem 0' }}>Orlando Briceño</Text>
+          <Link href='/' className={styles.logo}>
+            Orlando <span>Briceño</span>
+          </Link>
         </div>
 
         {/* Buttons */}
         <div className={styles.nav_buttons}>
-          <NavButton to='#presentation'>{t('nav--presentation')}</NavButton>
-          <NavButton to='#about'>{t('common--about-me')}</NavButton>
-          <NavButton to='#projects'>{t('common--projects')}</NavButton>
+          {links.map(link => (
+            <NavButton key={link.href} to={link.href} active={link.active}>
+              {link.label}
+            </NavButton>
+          ))}
         </div>
 
         {/* CTA */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '.25rem', justifySelf: 'flex-end' }}>
+        <div className={styles.nav_end}>
           <div style={{ position: 'relative' }}>
             <LanguageSelector onClick={handleOpenModal} />
             <Dropdown
@@ -84,8 +122,42 @@ const Navbar = () => {
               >English</Badge>
             </Dropdown>
           </div>
+          <a
+            className={styles.cta}
+            href='mailto:orlando@gadmin.app'
+            data-sln-event='user: send email'
+          >
+            {t('common--cta-contact')}
+          </a>
+          <button
+            type='button'
+            className={`${styles.menu_toggle} ${menuOpen ? styles['menu_toggle--open'] : ''}`}
+            aria-expanded={menuOpen}
+            aria-controls='mobile-nav'
+            aria-label={menuOpen ? t('nav--close-menu') : t('nav--open-menu')}
+            onClick={() => setMenuOpen(open => !open)}
+          >
+            <span className={styles.menu_icon} />
+          </button>
         </div>
       </div>
+      {menuOpen && (
+        <nav id='mobile-nav' className={styles.mobile_menu}>
+          {links.map(link => (
+            <NavButton key={link.href} to={link.href} active={link.active} onClick={closeMenu}>
+              {link.label}
+            </NavButton>
+          ))}
+          <a
+            className={`${styles.cta} ${styles.mobile_cta}`}
+            href='mailto:orlando@gadmin.app'
+            data-sln-event='user: send email'
+            onClick={closeMenu}
+          >
+            {t('common--cta-contact')}
+          </a>
+        </nav>
+      )}
     </header>
   )
 }

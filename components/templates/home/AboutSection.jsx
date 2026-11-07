@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import useTranslate from '../../../hooks/useTranslate'
-import classNames from 'classnames'
 
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
+import Note from '../../atoms/ui/Note'
+import SectionHeader from '../../atoms/ui/SectionHeader'
 
 import oldStarts from '../../../assets/images/stories/old-starts.jpg'
 import oldStartsWebp from '../../../assets/images/stories/old-starts.webp'
@@ -21,10 +22,11 @@ import 'swiper/css/scrollbar'
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules'
 import Image from 'next/image'
 
+import presentation from '../../../styles/pages/home/presentation.module.css'
+
+const DISCIPLINES = ['dev', 'finance', 'economics', 'sales', 'marketing', 'investments', 'design']
+
 // Importar los iconos
-import Joystick from '../../atoms/icons/Joystick'
-import CursorPointer from '../../atoms/icons/CursorPointer'
-import Books from '../../atoms/icons/Books'
 
 import HTML from '../../atoms/icons/tools/HTML'
 import CSS from '../../atoms/icons/tools/CSS'
@@ -54,26 +56,6 @@ const AboutSection = () => {
   const { t } = useTranslate()
 
   const [, setSwiper] = useState(null)
-  const photosRef = useRef(null)
-
-  // Hold on the first photo until the visitor actually reaches the section
-  useEffect(() => {
-    const el = photosRef.current
-    if (!el) return
-    if (typeof IntersectionObserver === 'undefined') {
-      el.classList.add('is-playing')
-      return
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        el.classList.add('is-playing')
-        observer.disconnect()
-      }
-    }, { threshold: 0.6 })
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   const autoSlide = (_swiper, clonnedSwiper) => {
     if (!clonnedSwiper || !_swiper) return
     if (clonnedSwiper.isEnd) {
@@ -217,229 +199,179 @@ const AboutSection = () => {
     },
   ]
 
+  // Chronological "growth timeline": each photo is a commit on the way up
+  const photoTiles = [
+    {
+      key: 'start-two',
+      file: 'future.jpg',
+      hash: 'a1f03c',
+      node: (
+        <picture>
+          <source srcSet={oldStartsTwoWebp.src} type='image/webp' />
+          <img src={oldStartsTwo.src} alt={t('stories--start-two-alt')} width={oldStartsTwo.width} height={oldStartsTwo.height} loading='lazy' />
+        </picture>
+      )
+    },
+    {
+      key: 'start',
+      file: 'new-city.jpg',
+      hash: '7be42d',
+      node: (
+        <picture>
+          <source srcSet={oldStartsWebp.src} type='image/webp' />
+          <img src={oldStarts.src} alt={t('stories--start-alt')} width={oldStarts.width} height={oldStarts.height} loading='lazy' />
+        </picture>
+      )
+    },
+    {
+      key: 'portrait',
+      file: 'building.jpg',
+      hash: '3d9c81',
+      node: <Image src={aboutPortrait} alt='Orlando Briceño' width={aboutPortrait.width} height={aboutPortrait.height} />
+    },
+    {
+      key: 'carnet',
+      file: 'grown.jpg',
+      hash: 'f00d51',
+      node: (
+        <picture>
+          <source srcSet={holdingCarnetWebp.src} type='image/webp' />
+          <img src={holdingCarnet.src} alt={t('about--carnet-alt')} width={holdingCarnet.width} height={holdingCarnet.height} loading='lazy' />
+        </picture>
+      )
+    }
+  ]
+
   return (
-    <div className={classNames('section')} id='about'>
-      <div className="wrapper">
-        <Text type='big_paragraph' data-reveal="up">{
-          '| ' + t('common--about-me') + ' |'
-        }</Text>
-        <div className={classNames('about__container')}>
-          {/* About */}
-          <div className={classNames('about__content')} data-reveal="up" data-reveal-delay="0.08">
-            <figure ref={photosRef} className={classNames('about__content_image')} style={{ margin: 0 }}>
-              <div className="about__photos">
-                <div className="about__photo">
-                  <Image
-                    src={aboutPortrait}
-                    alt="Orlando Briceño"
-                    width={aboutPortrait.width}
-                    height={aboutPortrait.height}
-                  />
-                </div>
-                <div className="about__photo">
-                  <picture>
-                    <source srcSet={holdingCarnetWebp.src} type="image/webp" />
-                    <img
-                      src={holdingCarnet.src}
-                      alt={t('about--carnet-alt')}
-                      width={holdingCarnet.width}
-                      height={holdingCarnet.height}
-                    />
-                  </picture>
-                </div>
-                <div className="about__photo">
-                  <picture>
-                    <source srcSet={oldStartsWebp.src} type="image/webp" />
-                    <img
-                      src={oldStarts.src}
-                      alt={t('stories--start-alt')}
-                      width={oldStarts.width}
-                      height={oldStarts.height}
-                    />
-                  </picture>
-                </div>
-                <div className="about__photo">
-                  <picture>
-                    <source srcSet={oldStartsTwoWebp.src} type="image/webp" />
-                    <img
-                      src={oldStartsTwo.src}
-                      alt={t('stories--start-two-alt')}
-                      width={oldStartsTwo.width}
-                      height={oldStartsTwo.height}
-                    />
-                  </picture>
-                </div>
-                <div className="about__photo" aria-hidden="true">
-                  <Image
-                    src={aboutPortrait}
-                    alt=""
-                    width={aboutPortrait.width}
-                    height={aboutPortrait.height}
-                  />
-                </div>
-              </div>
-            </figure>
-            <div className="about__content-text">
-              <Heading type='h2' color='var(--dark)'>{t('stories--start-title')}</Heading>
-              <Text type='paragraph' style={{ fontSize: '1.1rem' }}>
-                {t('stories--start-body')}
-              </Text>
-              <Heading type='h1' color='var(--dark)'>{t('about--story-title')}</Heading>
-              <Text type='paragraph' style={{ fontSize: '1.1rem', marginBottom: '0' }}>
-                {t('about--story-content-1')}
-                <br /><br />
-                {t('about--story-content-2')}
-                <br /><br />
-                {t('about--story-content-3')}
-                <br /><br />
-              </Text>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-                    <span style={{ marginRight: '1rem', flexShrink: 0, borderRadius: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40 }}>
-                      <Joystick size={28} color="#21c2e1" />
-                    </span>
-                    <span>
-                      {t('about--story-content-4-before')}
-                      <strong>{t('about--story-content-4-brand')}</strong>
-                      {t('about--story-content-4-after')}
-                    </span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-                    <span style={{ marginRight: '1rem', flexShrink: 0, borderRadius: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40 }}>
-                      <CursorPointer size={28} color="#21c2e1" />
-                    </span>
-                    <span>
-                      {t('about--story-content-5-before')}
-                      <strong>{t('about--story-content-5-brand')}</strong>
-                      {t('about--story-content-5-after')}
-                    </span>
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center' }}>
-                    <span style={{ marginRight: '1rem', flexShrink: 0, borderRadius: '100%', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40 }}>
-                      <Books size={28} color="#21c2e1" />
-                    </span>
-                    <span>
-                      {t('about--story-content-6-before')}
-                      <strong>{t('about--story-content-6-brand')}</strong>
-                      {t('about--story-content-6-after')}
-                    </span>
-                  </li>
-                </ul>
-                <br /><br />
-                <Text type='paragraph' style={{ fontSize: '1.1rem', marginTop: '0' }}>
-                  {t('about--story-content-7')}
-                </Text>
-            </div>
+    <div className='section' id='about'>
+      <div className='wrapper'>
+        <SectionHeader
+          note={t('common--about-me')}
+          title={t('about--story-title')}
+          level='h1'
+        />
+
+        <div className='about__content' data-reveal='up'>
+          <div>
+            <Heading type='h3'>{t('stories--start-title')}</Heading>
+            <Text type='paragraph'>{t('stories--start-body')}</Text>
           </div>
-          {/* Certificados */}
-          <div
-            className={classNames('about_certifications')}
-            data-reveal="up"
-            onMouseEnter={() => {
+          <Text type='paragraph' style={{ margin: 0 }}>
+            {t('about--story-content-1')}
+            <br /><br />
+            {t('about--story-content-2')}
+            <br /><br />
+            {t('about--story-content-3')}
+          </Text>
+        </div>
+      </div>
+
+      <div className='wrapper'>
+        <div className='about__timeline' data-reveal-stagger>
+          {photoTiles.map((tile, index) => (
+            <figure key={tile.key} className={'about__win about__win--' + (index + 1)} data-reveal='up'>
+              <div className='about__win-bar'>
+                <i /><i /><i />
+                <span>~/story/{tile.file}</span>
+              </div>
+              <div className='about__win-photo'>{tile.node}</div>
+              <figcaption className='about__win-foot'>
+                <code>{tile.hash}</code>
+                <b>{t(`about--tl-${index + 1}`)}</b>
+                <span className='about__win-step'>{String(index + 1).padStart(2, '0')}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      <div className='wrapper'>
+        <div className={presentation.disciplines}>
+          <Note>{t('disciplines--title')}</Note>
+          <div className={presentation.disciplines_grid} data-reveal-stagger>
+            {DISCIPLINES.map((id, index) => (
+              <div
+                key={id}
+                className={presentation.discipline}
+                style={{ '--r': `${[-1.5, 1, -0.8, 1.4, -1, 0.8, -1.2][index % 7]}deg` }}
+                data-reveal='up'
+              >
+                <strong>{t(`disciplines--${id}-name`)}</strong>
+                <span>{t(`disciplines--${id}-desc`)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Certificados */}
+        <div
+          className='about_certifications'
+          data-reveal='up'
+          onMouseEnter={() => {
+            clearTimeout(timeoutSlide)
+          }}
+          onMouseLeave={e => {
+            const swiperEl = e.currentTarget.querySelector('.swiper')?.swiper
+            if (swiperEl) {
               clearTimeout(timeoutSlide)
+              timeoutSlide = setTimeout(() => {
+                autoSlide(swiperEl, { ...swiperEl })
+              }, 5000)
+            }
+          }}
+        >
+          <Swiper
+            modules={[Pagination, Navigation, Scrollbar]}
+            spaceBetween={16}
+            slidesPerView={4}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 }
             }}
-            onMouseLeave={e => {
-              // Busca el swiper en el DOM
-              const swiperEl = e.currentTarget.querySelector('.swiper')?.swiper
-              if (swiperEl) {
-                clearTimeout(timeoutSlide)
-                timeoutSlide = setTimeout(() => {
-                  autoSlide(swiperEl, { ...swiperEl })
-                }, 5000)
-              }
+            scrollbar={{ draggable: true, hide: true }}
+            simulateTouch={true}
+            onSwiper={_swiper => {
+              setSwiper(_swiper)
+              clearTimeout(timeoutSlide)
+              timeoutSlide = setTimeout(() => {
+                autoSlide(_swiper, { ..._swiper })
+              }, 5000)
+            }}
+            onSlideChange={_swiper => {
+              clearTimeout(timeoutSlide)
+              timeoutSlide = setTimeout(() => autoSlide(_swiper, { ..._swiper }), 5000)
             }}
           >
-            <Swiper
-              modules={[Pagination, Navigation, Scrollbar]}
-              spaceBetween={16}
-              slidesPerView={4}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1
-                },
-                640: {
-                  slidesPerView: 2
-                },
-                1024: {
-                  slidesPerView: 4
-                }
-              }}
-              scrollbar={{
-                draggable: true,
-                hide: true
-              }}
-              simulateTouch={true}
-              onSwiper={_swiper => {
-                setSwiper(_swiper)
-                clearTimeout(timeoutSlide)
-                timeoutSlide = setTimeout(() => {
-                  autoSlide(_swiper, { ..._swiper })
-                }, 5000)
-              }}
-              onSlideChange={_swiper => {
-                clearTimeout(timeoutSlide)
-                timeoutSlide = setTimeout(() => autoSlide(_swiper, { ..._swiper }), 5000)
-              }}
-            >
-              {/* Render certificate */}
-              {
-                certifications.map(certification => (
-                  <SwiperSlide key={certification.id}>
-                    <div className={classNames('about_certification')}>
-                      <div className={classNames('about_certification__content')} style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '.25rem',
-                        padding: '1.25rem 1rem'
-                      }}>
-                        <Text title={certification.name} type='big_paragraph' style={{ margin: 0, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                          {certification.name}
-                        </Text>
-                        <Text type='small' style={{ fontWeight: 500, marginBottom: '.25rem' }}>
-                          Platzi - {certification.date}
-                        </Text>
-                        <Text type='paragraph' style={{ margin: 0, color: 'var(--dark-lighter)' }}>
-                          {certification.description}
-                        </Text>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))
-              }
-            </Swiper>
-            {/* Expertises icons below certificates */}
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0.5rem',
-                marginTop: '0.5rem',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              {expertises.map((exp, idx) => {
-                const Icon = exp.icon
-                return (
-                  <span
-                    key={exp.name}
-                    title={exp.name}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      opacity: 1, // Full opacity
-                      width: 44,
-                      height: 44,
-                      background: '#070a2b80',
-                      borderRadius: '8px'
-                    }}
-                  >
-                    <Icon size={32} />
-                  </span>
-                )
-              })}
-            </div>
+            {certifications.map(certification => (
+              <SwiperSlide key={certification.id}>
+                <div className='about_certification'>
+                  <div className='about_certification__content'>
+                    <Text title={certification.name} type='big_paragraph' style={{ margin: 0, fontWeight: 700 }}>
+                      {certification.name}
+                    </Text>
+                    <span className='sticker sticker--soft' style={{ '--r': '-2deg', width: 'fit-content', fontSize: 13, padding: '6px 11px' }}>
+                      Platzi · {certification.date}
+                    </span>
+                    <Text type='paragraph' style={{ margin: 0, opacity: 0.8, fontSize: '0.95rem' }}>
+                      {certification.description}
+                    </Text>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Expertises icons below certificates */}
+          <div className='about__tools'>
+            {expertises.map(exp => {
+              const Icon = exp.icon
+              return (
+                <span key={exp.name} title={exp.name} className='about__tool'>
+                  <Icon size={30} />
+                </span>
+              )
+            })}
           </div>
         </div>
       </div>

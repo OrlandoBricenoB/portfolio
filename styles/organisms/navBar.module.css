@@ -1,41 +1,209 @@
 .header {
-  padding: 0.25rem 0;
+  --nav-ink: #fff;
+  --nav-hover: rgba(255, 255, 255, 0.14);
+  --nav-hover-ink: #fff;
+  --nav-active: rgba(255, 255, 255, 0.2);
+  padding: 0.35rem 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  color: var(--white);
+  color: var(--nav-ink);
+  background: transparent;
   border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  box-shadow: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .header--scrolled {
-  background: #2228318c;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-color: rgba(255, 255, 255, .12);
-  box-shadow: 0 4px 24px #00000014;
+  --nav-ink: var(--ink);
+  --nav-hover: var(--blue-50);
+  --nav-hover-ink: var(--blue-700);
+  --nav-active: var(--blue-100);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-color: rgba(5, 5, 40, 0.08);
+  box-shadow: 0 6px 24px rgba(5, 5, 40, 0.06);
 }
 
 .nav {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: auto 1fr auto;
   place-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  margin: 0.75rem 0;
+  text-decoration: none;
+  color: var(--nav-ink, var(--ink));
+  transition: color 0.3s ease;
+}
+
+.logo span {
+  color: var(--blue-700);
 }
 
 .nav_buttons {
   display: flex;
-  gap: 2rem
+  gap: 0.25rem;
+  justify-self: center;
 }
 
-@media screen and (max-width: 768px) {
-  .nav {
-    grid-template-columns: repeat(2, auto);
+.nav_end {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  justify-self: flex-end;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--blue-700);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cta:hover {
+  background: var(--blue-800);
+  transform: translateY(-1px);
+}
+
+.menu_toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-left: 0.15rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.menu_toggle:hover {
+  background: var(--nav-hover);
+}
+
+.menu_icon,
+.menu_icon::before,
+.menu_icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  position: relative;
+}
+
+.menu_icon::before,
+.menu_icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.menu_icon::before {
+  top: -6px;
+}
+
+.menu_icon::after {
+  top: 6px;
+}
+
+.menu_toggle--open .menu_icon {
+  background: transparent;
+}
+
+.menu_toggle--open .menu_icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu_toggle--open .menu_icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.mobile_menu {
+  display: none;
+}
+
+@media screen and (max-width: 980px) {
+  .nav_buttons {
+    display: none;
   }
 
-  .nav_buttons {
-    justify-content: space-between;
-    display: none
+  .nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  .logo {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .menu_toggle {
+    display: inline-flex;
+  }
+
+  .mobile_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - 4.25rem);
+    padding: 0.35rem 1.25rem 1.25rem;
+    overflow: auto;
+    background: #fff;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(5, 5, 40, 0.08);
+    box-shadow: 0 18px 40px rgba(5, 5, 40, 0.12);
+  }
+
+  .mobile_menu a {
+    justify-content: flex-start;
+    padding: 0.85rem 0.35rem;
+    font-size: 1.05rem;
+  }
+
+  .mobile_cta {
+    justify-content: center;
+    margin: 0.75rem 0 0.25rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .nav_end .cta {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1rem;
   }
 }

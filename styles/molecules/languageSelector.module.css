@@ -1,9 +1,19 @@
 .language_selector {
   display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 999px;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+.language_selector:hover {
+  background: var(--blue-50);
 }
 
 .language_selector__caret {
+  display: flex;
+  align-items: center;
   position: relative;
   right: .25rem;
 }

@@ -1,58 +1,70 @@
 .button {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 0.625rem;
-  padding: 0.5rem 1rem;
+  padding: 14px 24px;
   border: none;
-  background-color: var(--primary);
-  color: var(--dark);
-  border-radius: 4px;
-  text-transform: uppercase;
+  background-color: var(--blue-700);
+  color: #fff;
+  border-radius: 999px;
   text-decoration: none;
   outline: none;
-  transition: .2s ease color, .2s ease background-color, .2s ease transform
+  cursor: pointer;
+  font-family: inherit;
+  transition: .2s ease color, .2s ease background-color, .2s ease transform, .2s ease box-shadow
 }
 
 .button path {
   transition: .2s ease fill
 }
 
-.button--default:hover:not(.button--disabled) {
-  background-color: var(--primary-lighter);
+.button--default,
+.button--primary {
+  background-color: var(--blue-700);
+  color: #fff;
 }
 
-.button--default:hover path {
-  fill: var(--container-bg)
+.button--default:hover:not(.button--disabled),
+.button--primary:hover:not(.button--disabled) {
+  background-color: var(--blue-800);
+  transform: translateY(-2px);
+}
+
+.button--default path,
+.button--primary path {
+  fill: #fff;
 }
 
 .button--ghost {
   background-color: transparent;
-  color: var(--primary)
+  color: var(--blue-700)
 }
 
 .button--ghost:hover:not(.button--disabled) {
-  color: var(--primary-lighter);
+  color: var(--blue-800);
 }
 
 .button--outlined {
-  background-color: transparent;
-  border: 2px solid var(--primary);
-  color: var(--primary)
+  background-color: #fff;
+  box-shadow: inset 0 0 0 2px var(--ink);
+  color: var(--ink)
 }
 
 .button--outlined:hover:not(.button--disabled) {
-  border-color: var(--primary-lighter);
-  color: var(--primary-lighter);
+  box-shadow: inset 0 0 0 2px var(--blue-700);
+  color: var(--blue-700);
+  transform: translateY(-2px);
 }
 
-.button--outlined:hover path {
-  fill: var(--primary-lighter)
+.button--outlined path {
+  fill: currentColor;
 }
 
 .button--disabled {
   filter: grayscale(0.6);
-  opacity: 0.65
+  opacity: 0.65;
+  cursor: default;
 }
 
 .keep_case {

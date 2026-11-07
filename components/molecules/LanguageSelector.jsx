@@ -4,9 +4,9 @@ import CaretDown from '../atoms/icons/CaretDown'
 import styles from '../../styles/molecules/languageSelector.module.css'
 
 const LanguageSelector = ({ onClick = () => {} }) => {
-  const [color, setColor] = useState('#21c2e1')
-  const handleMouseEnter = () => { setColor('#6ee9ff') }
-  const handleMouseLeave = () => { setColor('#21c2e1') }
+  const [color, setColor] = useState('#0051ff')
+  const handleMouseEnter = () => { setColor('#083fc5') }
+  const handleMouseLeave = () => { setColor('#0051ff') }
 
   return (
     <div

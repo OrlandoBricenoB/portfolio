@@ -1,5 +1,5 @@
 .recognitions {
-  background-color: #070a2b;
+  background-color: var(--ink);
   color: var(--white);
   padding: 4.5rem 0 5rem;
 }
@@ -45,7 +45,7 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: 0.75rem;
-  background: #10144a;
+  background: var(--blue-950);
   margin-bottom: 1.1rem;
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.4);
 }

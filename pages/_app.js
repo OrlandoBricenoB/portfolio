@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
     <QueryClientProvider client={queryClient}>
       <Head>
         <title>Orlando Briceño | Gadmin Founder</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Layout>
         <Component {...pageProps} />

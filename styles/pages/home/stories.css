@@ -1,5 +1,5 @@
 .stories {
-  background-color: #070a2b;
+  background-color: var(--ink);
   color: var(--white);
 }
 
@@ -76,7 +76,7 @@
   min-height: 0;
   border-radius: 1rem;
   overflow: hidden;
-  background: #10144a;
+  background: var(--blue-950);
 }
 
 .stories__photo {

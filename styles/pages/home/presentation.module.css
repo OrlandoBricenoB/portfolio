@@ -1,0 +1,472 @@
+/* Shared styles for the presentation sections of the home page */
+
+.section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.light {
+  background: #fff;
+  color: var(--ink);
+}
+
+.soft {
+  background: var(--blue-50);
+  color: var(--ink);
+}
+
+.dark {
+  background:
+    radial-gradient(900px 420px at 90% -10%, rgba(0, 81, 255, 0.3), transparent 60%),
+    var(--ink);
+  color: #fff;
+}
+
+.dark.dark_join {
+  background: var(--ink);
+  padding-top: 2rem;
+}
+
+.dark.dark_head {
+  padding-bottom: 3rem;
+}
+
+.dark_divider {
+  height: 1px;
+  margin-bottom: 4rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.title {
+  margin: 0 0 0.9rem;
+  max-width: 46rem;
+}
+
+.intro {
+  max-width: 44rem;
+  margin: 0 0 2.5rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.grid3,
+.grid4 {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Service cards (light) */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.4rem 1.6rem;
+  border-radius: var(--radius-card);
+  background: var(--blue-50);
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--blue-700);
+}
+
+.card h3 {
+  margin: 0.9rem 0 0.6rem;
+}
+
+.card p {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 0.95rem;
+  opacity: 0.82;
+}
+
+.card_label {
+  margin: 0 0 0.6rem;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.index {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--blue-700);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 900;
+  transform: rotate(-8deg);
+  width: fit-content;
+  min-width: 46px;
+  padding: 0 10px;
+}
+
+/* Method cards (dark glass) */
+.dark .card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+}
+
+.dark .card:hover {
+  border-color: var(--blue-400);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.method_grid {
+  position: relative;
+}
+
+.method_line {
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  top: 2.65rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.method_line span {
+  display: block;
+  height: 100%;
+  background: var(--blue-400);
+  transform: scaleX(var(--p, 1));
+  transform-origin: left center;
+}
+
+.method_grid .card {
+  z-index: 1;
+}
+
+/* Ventures */
+.ventures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.venture {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.75rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.venture:hover {
+  transform: translateY(-3px);
+  border-color: var(--blue-400);
+}
+
+.venture_head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.venture_logo {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 0.5rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.venture h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.venture_tag {
+  margin: 0.15rem 0 0;
+  color: var(--blue-300);
+  font-size: 0.95rem;
+}
+
+.venture p {
+  margin: 0;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(72, 164, 255, 0.18);
+  color: var(--blue-300);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 2rem;
+  padding: 8px 18px 8px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  transform: rotate(-1deg);
+}
+
+.parent span {
+  min-width: 0;
+}
+
+.parent img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 4px;
+}
+
+/* Channels */
+.channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  padding: 0.4rem 1.3rem 0.4rem 1rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.channel:hover {
+  box-shadow: 0 0 0 2px var(--blue-700);
+  transform: translateY(-2px);
+}
+
+.channel_soon {
+  background: transparent;
+  box-shadow: none;
+  border: 2px dashed var(--blue-300);
+  color: var(--blue-900);
+  pointer-events: none;
+}
+
+/* Courses teaser (big blue card) */
+.big_card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 4rem);
+  border-radius: 32px;
+  background:
+    radial-gradient(600px 300px at 100% 0%, rgba(255, 255, 255, 0.18), transparent 60%),
+    var(--blue-700);
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0, 81, 255, 0.28);
+}
+
+.big_card .title {
+  color: #fff;
+}
+
+.big_card :global(.hl) {
+  background: #fff;
+  color: var(--blue-700);
+}
+
+.big_card .intro {
+  opacity: 0.92;
+}
+
+.big_card :global(.note) {
+  color: #fff;
+}
+
+.big_card :global(.note .ar) {
+  color: var(--blue-200);
+}
+
+/* Teasers */
+.teaser {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.teaser_list {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.5rem;
+}
+
+.teaser_list li {
+  padding: 9px 16px 10px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.2;
+  box-shadow: var(--shadow-soft);
+  transform: rotate(var(--r, 0deg));
+}
+
+.teaser_visual {
+  position: relative;
+  padding: 1rem;
+}
+
+.teaser_photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.link_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--blue-700);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.link_button:hover {
+  background: var(--blue-800);
+  transform: translateY(-2px);
+}
+
+.link_white {
+  background: #fff;
+  color: var(--blue-700);
+}
+
+.link_white:hover {
+  background: var(--blue-50);
+}
+
+/* Disciplines (inside About) */
+.disciplines {
+  margin-top: 1rem;
+}
+
+.disciplines_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.9rem;
+}
+
+.discipline {
+  padding: 1rem 1.1rem 1.15rem;
+  border-radius: 18px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(0, 81, 255, 0.12);
+  transform: rotate(var(--r, 0deg));
+  transition: transform 0.2s;
+}
+
+.discipline:hover {
+  transform: rotate(0deg) translateY(-3px);
+}
+
+.discipline strong {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--blue-700);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.discipline span {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+/* Older projects (collapsed) */
+.more {
+  margin-top: 3rem;
+}
+
+.more summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .method_line {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .grid3,
+  .ventures,
+  .teaser {
+    grid-template-columns: 1fr;
+  }
+
+  .teaser {
+    gap: 2rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .grid4 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -9,12 +9,12 @@ const SiteMotion = () => {
   useIsomorphicLayoutEffect(() => {
     if (!ready) return undefined
 
-    // const media = window.matchMedia('(prefers-reduced-motion: reduce)')
-    // if (media.matches) return undefined
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     let ctx
     let cancelled = false
     let refreshTimer
+    let refresh
 
     const setup = async () => {
       const { gsap } = await import('gsap')
@@ -24,7 +24,8 @@ const SiteMotion = () => {
       gsap.registerPlugin(ScrollTrigger)
 
       ctx = gsap.context(() => {
-        if (barRef.current) {
+        // Scroll progress bar (always on, it is not decorative motion)
+        if (barRef.current && !reduced) {
           gsap.set(barRef.current, { scaleX: 0, transformOrigin: 'left center' })
           ScrollTrigger.create({
             start: 0,
@@ -35,59 +36,108 @@ const SiteMotion = () => {
           })
         }
 
-        const nodes = gsap.utils.toArray('[data-reveal]').filter((node) => (
-          !node.closest('#stories') && !node.closest('#presentation')
-        ))
+        if (reduced) return
 
-        nodes.forEach((node) => {
-          const inAbout = Boolean(node.closest('#about'))
+        const skip = (node) => Boolean(node.closest('#stories'))
+        const once = (trigger, start = 'top 92%') => ({ trigger, start, once: true })
+
+        // 1. Reveal on enter: fade + rise once, with stagger for grouped children
+        const staggerParents = gsap.utils.toArray('[data-reveal-stagger]').filter(node => !skip(node))
+        const staggered = new Set()
+
+        staggerParents.forEach((parent) => {
+          const children = Array.from(parent.querySelectorAll(':scope > [data-reveal], :scope > * > [data-reveal]'))
+            .filter(child => child.closest('[data-reveal-stagger]') === parent)
+          if (!children.length) return
+          children.forEach(child => staggered.add(child))
+
+          gsap.from(children, {
+            y: 28,
+            autoAlpha: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.08,
+            clearProps: 'transform,opacity,visibility',
+            scrollTrigger: once(parent, 'top 88%'),
+          })
+        })
+
+        gsap.utils.toArray('[data-reveal]').forEach((node) => {
+          if (skip(node) || staggered.has(node)) return
           const direction = node.getAttribute('data-reveal')
-          const x = direction === 'left' ? (inAbout ? -18 : -28) : direction === 'right' ? (inAbout ? 18 : 28) : 0
-          const y = x === 0 ? (inAbout ? 22 : 28) : (inAbout ? 0 : 8)
+          const x = direction === 'left' ? -32 : direction === 'right' ? 32 : 0
+          const y = x === 0 ? 24 : 0
           const delay = Number(node.getAttribute('data-reveal-delay') || 0)
 
-          if (inAbout) {
-            gsap.from(node, {
-              x,
-              y,
-              autoAlpha: 0,
-              duration: 0.85,
-              delay,
-              ease: 'power2.out',
-              clearProps: 'transform',
-              scrollTrigger: {
-                trigger: node,
-                start: 'top 90%',
-                once: true,
-              },
-            })
-            return
-          }
-
-          gsap.fromTo(node, {
+          gsap.from(node, {
             x,
             y,
             autoAlpha: 0,
-          }, {
-            x: 0,
-            y: 0,
-            autoAlpha: 1,
+            duration: 0.8,
+            delay,
+            ease: 'power3.out',
+            clearProps: 'transform,opacity,visibility',
+            scrollTrigger: once(node),
+          })
+        })
+
+        // 2. Stickers pop in with a little bounce
+        gsap.utils.toArray('[data-pop]').forEach((node) => {
+          if (skip(node)) return
+          gsap.from(node, {
+            scale: 0.5,
+            autoAlpha: 0,
+            duration: 0.6,
+            delay: 0.15,
+            ease: 'back.out(2.2)',
+            clearProps: 'transform,opacity,visibility',
+            scrollTrigger: once(node, 'top 94%'),
+          })
+        })
+
+        // 3. Polaroids drop and settle
+        gsap.utils.toArray('[data-drop]').forEach((node) => {
+          gsap.from(node, {
+            y: -34,
+            scale: 1.05,
+            autoAlpha: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            clearProps: 'transform,opacity,visibility',
+            scrollTrigger: once(node, 'top 92%'),
+          })
+        })
+
+        // 4. Highlighter wipe behind keywords
+        gsap.utils.toArray('[data-hl]').forEach((node) => {
+          if (skip(node)) return
+          gsap.fromTo(node, { '--wipe': '0%' }, {
+            '--wipe': '100%',
+            duration: 0.7,
+            delay: 0.25,
+            ease: 'power2.inOut',
+            scrollTrigger: once(node, 'top 90%'),
+          })
+        })
+
+        // 5. Method line draws itself
+        gsap.utils.toArray('[data-method-line]').forEach((node) => {
+          gsap.fromTo(node, { '--p': 0 }, {
+            '--p': 1,
             ease: 'none',
             scrollTrigger: {
-              trigger: node,
-              start: 'top 94%',
-              end: 'top 62%',
-              scrub: 0.35,
+              trigger: node.parentElement,
+              start: 'top 75%',
+              end: 'bottom 60%',
+              scrub: 0.5,
             },
           })
         })
       })
 
-      const refresh = () => ScrollTrigger.refresh()
+      refresh = () => ScrollTrigger.refresh()
       refreshTimer = window.setTimeout(refresh, 350)
       window.addEventListener('load', refresh)
-
-      ctx._refresh = refresh
     }
 
     setup()
@@ -95,7 +145,7 @@ const SiteMotion = () => {
     return () => {
       cancelled = true
       window.clearTimeout(refreshTimer)
-      if (ctx?._refresh) window.removeEventListener('load', ctx._refresh)
+      if (refresh) window.removeEventListener('load', refresh)
       ctx?.revert()
     }
   }, [ready, i18n.language])

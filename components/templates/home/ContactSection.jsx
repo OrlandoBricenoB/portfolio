@@ -1,90 +1,91 @@
-import classNames from 'classnames'
+import Image from 'next/image'
+
 import Button from '../../atoms/Button'
 import Heading from '../../atoms/texts/Heading'
 import Text from '../../atoms/texts/Text'
+import Note from '../../atoms/ui/Note'
 import Email from '../../atoms/icons/Email'
-import ContactProfile from '../../../assets/images/contact-me.webp'
 import Linkedin from '../../atoms/icons/Linkedin'
-import useTranslate from '../../../hooks/useTranslate'
 import Instagram from '../../atoms/icons/Instagram'
-import WhatsApp from '../../atoms/icons/WhatsApp'
+import ContactProfile from '../../../assets/images/contact-me.webp'
+import useTranslate from '../../../hooks/useTranslate'
 
 const ContactSection = () => {
   const { t } = useTranslate()
 
   return (
-    <div 
-      className={classNames('contact')} 
-      id='contact'
-      style={{
-        backgroundImage: `url(${ContactProfile.src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-      }}
-    >
-      <div className="wrapper">
-        <Text type='big_paragraph' data-reveal="up" style={{ color: 'var(--white)' }}>{
-          '| ' + t('contact--title') + ' |'
-        }</Text>
-        <div className={classNames('contact_content')}>
-          {/* Contenido de texto a la derecha */}
-          <div className={classNames('contact__information')} data-reveal="up">
-            <div className={classNames('contact__information_text')}>
-              <Heading type='h3' color={'var(--dark)'} style={{ margin: 0, marginBottom: '4px' }}>Orlando Jose Briceño Blanco</Heading>
-              <Text type='big_paragraph' style={{ margin: 0 }}>{t('common--role')}</Text>
-              <Text type='paragraph' style={{ margin: '1.5rem 0' }}>
-                {t('contact--content-1')}
-                <br /><br />
-                {t('contact--content-2')}
-              </Text>
-              {/* Social Buttons */}
-              <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem' }}>
-                <a
-                  href='https://linkedin.com/in/orlandobricenob'
-                  target='_blank'
-                  className={classNames('contact__social_button')}
-                  aria-label='Visitar Perfil de LinkedIn de Orlando Briceno'
-                >
-                  <Linkedin color='#21c2e1' size='32' />
-                </a>
-                <a
-                  href='https://instagram.com/orlandobricenob'
-                  target='_blank'
-                  className={classNames('contact__social_button')}
-                  aria-label='Visitar Perfil de Instagram de Orlando Briceno'
-                >
-                  <Instagram color='#21c2e1' size='32' />
-                </a>
-                <a
-                  href='mailto:orlando@gadmin.app'
-                  target='_blank'
-                  className={classNames('contact__social_button')}
-                  aria-label='Enviar email a Orlando Briceno'
-                >
-                  <Email color='#21c2e1' size='32' />
-                </a>
-              </div>
-              <Button
-                type='primary'
-                Icon={<WhatsApp size='32' color='#070a2b' />}
-                componentElement='a'
-                href='https://wa.me/584121689393?text=Hey%2C%20Orlando.%20Tengo%20una%20idea%20s%C3%BAper%20potente%20y%20quiero%20compartirla%20contigo.'
-                target='_blank'
-                data-sln-event="user: send whatsapp"
-              >
-                {t('common--cta-whatsapp')}
-              </Button>
-            </div>
+    <section className='contact' id='contact'>
+      <div className='wrapper contact__grid'>
+        <div className='contact__information' data-reveal='up'>
+          <Note>{t('contact--title')}</Note>
+          <Heading type='h2' style={{ margin: 0 }}>Orlando Briceño</Heading>
+          <Text type='big_paragraph' style={{ margin: '0.5rem 0 0', color: 'var(--blue-300)', fontWeight: 600 }}>
+            {t('common--role')}
+          </Text>
+          <Text type='paragraph' style={{ margin: '1.5rem 0', opacity: 0.85 }}>
+            {t('contact--content-1')}
+            <br /><br />
+            {t('contact--content-2')}
+          </Text>
+
+          <div className='contact__socials'>
+            <a
+              href='https://linkedin.com/in/orlandobricenob'
+              target='_blank'
+              rel='noreferrer'
+              className='contact__social_button'
+              aria-label='Visitar Perfil de LinkedIn de Orlando Briceno'
+            >
+              <Linkedin color='#ffffff' size='20' />
+            </a>
+            <a
+              href='https://instagram.com/orlandobricenob'
+              target='_blank'
+              rel='noreferrer'
+              className='contact__social_button'
+              aria-label='Visitar Perfil de Instagram de Orlando Briceno'
+            >
+              <Instagram color='#ffffff' size='20' />
+            </a>
+            <a
+              href='mailto:orlando@gadmin.app'
+              target='_blank'
+              rel='noreferrer'
+              className='contact__social_button'
+              aria-label='Enviar email a Orlando Briceno'
+            >
+              <Email color='#ffffff' size='20' />
+            </a>
           </div>
+
+          <Button
+            type='primary'
+            Icon={<Email size='24' color='#ffffff' />}
+            componentElement='a'
+            href='mailto:orlando@gadmin.app'
+            data-sln-event='user: send email'
+          >
+            {t('common--cta-email')}
+          </Button>
+          <p className='contact__mail'>
+            <a href='mailto:orlando@gadmin.app'>orlando@gadmin.app</a>
+          </p>
         </div>
-      </div>
-    </div>
+
+        <div className='contact__visual' data-reveal='right'>
+          <Image
+            src={ContactProfile}
+            alt='Orlando Briceño'
+            width={ContactProfile.width}
+            height={ContactProfile.height}
+            className='contact__photo'
+          />
+          <div className='contact__visual_fade' aria-hidden='true' />
+          <div className='contact__visual_chips'>
+            <span className='contact__chip contact__chip--blue'>Gadmin founder</span>
+          </div>
+        </div>      </div>
+    </section>
   )
 }
 

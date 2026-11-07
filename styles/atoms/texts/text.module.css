@@ -1,21 +1,22 @@
 .text {
   margin: .75rem 0;
-  line-height: 1.25
+  line-height: 1.6
 }
 
 .big_paragraph {
   font-size: 1.2rem;
-  line-height: 1.3
+  line-height: 1.4
 }
 
-.paragraph { font-size: 1rem }
+.paragraph { font-size: 1.05rem }
 
 .button {
   font-size: 1rem;
-  font-weight: bold
+  font-weight: 600
 }
 
-.small_paragraph {
+.small_paragraph,
+.small {
   margin: .5rem 0;
   font-size: .85rem
 }
