@@ -1,7 +1,12 @@
 import useTranslate from '../../../hooks/useTranslate'
 import Heading from '../../atoms/texts/Heading'
 import Note from '../../atoms/ui/Note'
+import Polaroid from '../../atoms/ui/Polaroid'
+import Sticker from '../../atoms/ui/Sticker'
 import styles from '../../../styles/pages/home/presentation.module.css'
+
+import contentPhoto from '../../../assets/images/content-image.png'
+import contentPhotoWebp from '../../../assets/images/content-image.webp'
 
 import Youtube from '../../atoms/icons/Youtube'
 import Instagram from '../../atoms/icons/Instagram'
@@ -12,11 +17,11 @@ import Email from '../../atoms/icons/Email'
 
 // Set a channel's url to a string to enable it. `null` renders it as "coming soon".
 export const CHANNELS = [
-  { id: 'youtube', name: 'YouTube', Icon: Youtube, url: null },
+  { id: 'youtube', name: 'YouTube', Icon: Youtube, url: 'https://www.youtube.com/@OrlandoBricenoB' },
   { id: 'instagram', name: 'Instagram', Icon: Instagram, url: 'https://instagram.com/orlandobricenob' },
-  { id: 'tiktok', name: 'TikTok', Icon: TikTok, url: null },
+  { id: 'tiktok', name: 'TikTok', Icon: TikTok, url: 'https://www.tiktok.com/@orlandobricenob' },
   { id: 'linkedin', name: 'LinkedIn', Icon: Linkedin, url: 'https://linkedin.com/in/orlandobricenob' },
-  { id: 'x', name: 'X', Icon: XIcon, url: null },
+  { id: 'x', name: 'X', Icon: XIcon, url: 'https://x.com/orlandobricenob' },
   { id: 'newsletter', name: 'Newsletter', Icon: Email, url: null },
 ]
 
@@ -26,25 +31,47 @@ const ContentSection = () => {
   return (
     <section className={`${styles.section} ${styles.soft}`} id='content'>
       <div className='wrapper'>
-        <div data-reveal='up'><Note>{t('content--kicker')}</Note></div>
-        <Heading type='h2' className={styles.title} data-reveal='up'>
-          {t('content--title')}
-        </Heading>
-        <p className={styles.intro} data-reveal='up'>{t('content--body')}</p>
-        <div className={styles.channels} data-reveal-stagger>
-          {CHANNELS.map(({ id, name, Icon, url }) => (
-            url ? (
-              <a key={id} className={styles.channel} href={url} target='_blank' rel='noreferrer' data-reveal='up'>
-                <Icon size='26' color='#0051ff' />
-                {name}
-              </a>
-            ) : (
-              <span key={id} className={`${styles.channel} ${styles.channel_soon}`} aria-disabled='true' data-reveal='up'>
-                <Icon size='26' color='#48a4ff' />
-                {name} · {t('content--soon')}
-              </span>
-            )
-          ))}
+        <div className={styles.content_layout}>
+          <div className={styles.content_copy}>
+            <div data-reveal='up'><Note>{t('content--kicker')}</Note></div>
+            <Heading type='h2' className={styles.title} data-reveal='up'>
+              {t('content--title')}
+            </Heading>
+            <p className={styles.intro} data-reveal='up'>{t('content--body')}</p>
+            <div className={styles.channels} data-reveal-stagger>
+              {CHANNELS.map(({ id, name, Icon, url }) => (
+                url ? (
+                  <a key={id} className={styles.channel} href={url} target='_blank' rel='noreferrer' data-reveal='up'>
+                    <Icon size='26' color='#0051ff' />
+                    {name}
+                  </a>
+                ) : (
+                  <span key={id} className={`${styles.channel} ${styles.channel_soon}`} aria-disabled='true' data-reveal='up'>
+                    <Icon size='26' color='#48a4ff' />
+                    {name} · {t('content--soon')}
+                  </span>
+                )
+              ))}
+            </div>
+          </div>
+          <div className={styles.content_visual} data-reveal='right'>
+            <Polaroid rotate={2.5}>
+              <picture>
+                <source srcSet={contentPhotoWebp.src} type='image/webp' />
+                <img
+                  className={styles.content_photo}
+                  src={contentPhoto.src}
+                  alt={t('content--image-alt')}
+                  width={contentPhoto.width}
+                  height={contentPhoto.height}
+                  loading='lazy'
+                />
+              </picture>
+            </Polaroid>
+            <Sticker abs variant='blue' rotate={-7} style={{ top: 8, left: 0 }}>
+              {t('content--kicker')}
+            </Sticker>
+          </div>
         </div>
       </div>
     </section>
