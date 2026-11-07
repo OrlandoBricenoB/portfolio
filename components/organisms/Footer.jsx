@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <footer className={classNames('footer')}>
       <div className='wrapper'>
-        <div className={classNames('footer__content')} data-reveal='up'>
+        <div className={classNames('footer__content')} data-reveal='up' data-reveal-start='top bottom'>
           <div className={classNames('footer__description')}>
             <Note>{t('common--role')}</Note>
             <Heading type='h2'>{t('footer--title')}</Heading>

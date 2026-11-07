@@ -39,7 +39,19 @@ const SiteMotion = () => {
         if (reduced) return
 
         const skip = (node) => Boolean(node.closest('#stories'))
-        const once = (trigger, start = 'top 92%') => ({ trigger, start, once: true })
+        // clamp() keeps the start inside the scrollable range, so a block
+        // sitting at the bottom of the page (the footer) still fires.
+        // The tween is created on enter only. A from() tween owned by
+        // ScrollTrigger gets rewound to opacity 0 on refresh() after it has
+        // already played once, which left the footer invisible.
+        const enter = (trigger, start, play) => {
+          ScrollTrigger.create({
+            trigger,
+            start: `clamp(${start})`,
+            once: true,
+            onEnter: play,
+          })
+        }
 
         // 1. Reveal on enter: fade + rise once, with stagger for grouped children
         const staggerParents = gsap.utils.toArray('[data-reveal-stagger]').filter(node => !skip(node))
@@ -51,14 +63,15 @@ const SiteMotion = () => {
           if (!children.length) return
           children.forEach(child => staggered.add(child))
 
-          gsap.from(children, {
-            y: 28,
-            autoAlpha: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            stagger: 0.08,
-            clearProps: 'transform,opacity,visibility',
-            scrollTrigger: once(parent, 'top 88%'),
+          enter(parent, 'top 88%', () => {
+            gsap.from(children, {
+              y: 28,
+              autoAlpha: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              stagger: 0.08,
+              clearProps: 'transform,opacity,visibility',
+            })
           })
         })
 
@@ -68,55 +81,60 @@ const SiteMotion = () => {
           const x = direction === 'left' ? -32 : direction === 'right' ? 32 : 0
           const y = x === 0 ? 24 : 0
           const delay = Number(node.getAttribute('data-reveal-delay') || 0)
+          const start = node.getAttribute('data-reveal-start') || 'top 92%'
 
-          gsap.from(node, {
-            x,
-            y,
-            autoAlpha: 0,
-            duration: 0.8,
-            delay,
-            ease: 'power3.out',
-            clearProps: 'transform,opacity,visibility',
-            scrollTrigger: once(node),
+          enter(node, start, () => {
+            gsap.from(node, {
+              x,
+              y,
+              autoAlpha: 0,
+              duration: 0.8,
+              delay,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity,visibility',
+            })
           })
         })
 
         // 2. Stickers pop in with a little bounce
         gsap.utils.toArray('[data-pop]').forEach((node) => {
           if (skip(node)) return
-          gsap.from(node, {
-            scale: 0.5,
-            autoAlpha: 0,
-            duration: 0.6,
-            delay: 0.15,
-            ease: 'back.out(2.2)',
-            clearProps: 'transform,opacity,visibility',
-            scrollTrigger: once(node, 'top 94%'),
+          enter(node, 'top 94%', () => {
+            gsap.from(node, {
+              scale: 0.5,
+              autoAlpha: 0,
+              duration: 0.6,
+              delay: 0.15,
+              ease: 'back.out(2.2)',
+              clearProps: 'transform,opacity,visibility',
+            })
           })
         })
 
         // 3. Polaroids drop and settle
         gsap.utils.toArray('[data-drop]').forEach((node) => {
-          gsap.from(node, {
-            y: -34,
-            scale: 1.05,
-            autoAlpha: 0,
-            duration: 0.9,
-            ease: 'power3.out',
-            clearProps: 'transform,opacity,visibility',
-            scrollTrigger: once(node, 'top 92%'),
+          enter(node, 'top 92%', () => {
+            gsap.from(node, {
+              y: -34,
+              scale: 1.05,
+              autoAlpha: 0,
+              duration: 0.9,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity,visibility',
+            })
           })
         })
 
         // 4. Highlighter wipe behind keywords
         gsap.utils.toArray('[data-hl]').forEach((node) => {
           if (skip(node)) return
-          gsap.fromTo(node, { '--wipe': '0%' }, {
-            '--wipe': '100%',
-            duration: 0.7,
-            delay: 0.25,
-            ease: 'power2.inOut',
-            scrollTrigger: once(node, 'top 90%'),
+          enter(node, 'top 90%', () => {
+            gsap.fromTo(node, { '--wipe': '0%' }, {
+              '--wipe': '100%',
+              duration: 0.7,
+              delay: 0.25,
+              ease: 'power2.inOut',
+            })
           })
         })
 
