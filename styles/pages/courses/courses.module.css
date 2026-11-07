@@ -157,7 +157,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem 1.25rem;
-  align-items: center;
+  align-items: start;
   padding: 1.15rem 1.25rem;
   scroll-margin-top: 6.5rem;
 }
@@ -567,4 +567,10 @@
 .price_card .price_from,
 .price_card .price_note {
   color: rgba(255, 255, 255, 0.9);
+}
+
+@media screen and (max-width: 640px) {
+  .module_index {
+    display: none;
+  }
 }

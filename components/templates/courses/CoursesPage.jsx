@@ -11,7 +11,7 @@ import Email from '../../atoms/icons/Email'
 import useTranslate from '../../../hooks/useTranslate'
 import styles from '../../../styles/pages/courses/courses.module.css'
 
-import mentorPhoto from '../../../assets/images/profile.webp'
+import mentorPhoto from '../../../assets/images/stories/holding-carnet.webp'
 
 const TIERS = ['low', 'mid', 'vip']
 const OUTCOMES = ['1', '2', '3']
@@ -19,13 +19,8 @@ const AUDIENCE_FOR = ['1', '2', '3', '4']
 const AUDIENCE_NOT = ['1', '2', '3']
 const FAQ = ['1', '2', '3', '4', '5', '6', '7']
 
-const MODULES = [
-  { id: 'basic', prices: { low: 25, mid: 50, vip: 80 } },
-  { id: 'mid', prices: { low: 35, mid: 60, vip: 90 } },
-  { id: 'advanced', prices: { low: 50, mid: 80, vip: 100 } },
-  { id: 'security', prices: { low: 55, mid: 85, vip: 105 } },
-  { id: 'ai', prices: { low: 60, mid: 90, vip: 125 } },
-]
+const MODULES = ['mindset', 'foundations', 'stack', 'project']
+const TOPICS = ['1', '2', '3']
 
 const PATH = {
   low: { price: 200, from: 225 },
@@ -43,21 +38,15 @@ const CoursesPage = () => {
   const saved = offer.from - offer.price
 
   const mail = useMemo(() => {
-    const full = t('courses--wa-full')
-    const single = t('courses--wa-module')
     const level = t(`courses--tier-${tier}`)
-    const withLevel = message => `${message} (${level})`
-    const link = body => `mailto:orlando@gadmin.app?body=${encodeURIComponent(withLevel(body))}`
-    return {
-      full: link(full),
-      module: link(single),
-    }
+    const body = `${t('courses--wa-full')} (${level})`
+    return `mailto:orlando@gadmin.app?body=${encodeURIComponent(body)}`
   }, [t, tier, locale])
 
   const reserveButton = (
     <Button
       componentElement='a'
-      href={mail.full}
+      href={mail}
       Icon={<Email size='24' color='#ffffff' />}
     >
       {t('courses--cta')}
@@ -156,22 +145,27 @@ const CoursesPage = () => {
           </div>
         </section>
 
-        {/* 5. The route: stages of one program, no prices */}
+        {/* 5. The route: four modules of one course, seen together */}
         <section className={styles.section} id='path'>
           <p className={styles.kicker}>{t('courses--path-kicker')}</p>
           <Heading type='h2'>{t('courses--path-title')}</Heading>
           <p className={styles.intro}>{t('courses--path-intro')}</p>
           <div className={styles.modules}>
-            {MODULES.map((module, index) => (
-              <article key={module.id} id={`module-${module.id}`} className={styles.module}>
+            {MODULES.map((id, index) => (
+              <article key={id} id={`module-${id}`} className={styles.module}>
                 <span className={styles.module_index}>0{index + 1}</span>
                 <div>
                   <p className={styles.stage_label}>{t('courses--stage')} {index + 1}</p>
-                  <Heading type='h3'>{t(`courses--mod-${module.id}-name`)}</Heading>
-                  <p className={styles.module_weeks}>{t(`courses--mod-${module.id}-weeks`)}</p>
-                  <p className={styles.module_focus}>{t(`courses--mod-${module.id}-focus`)}</p>
+                  <Heading type='h3'>{t(`courses--mod-${id}-name`)}</Heading>
+                  <p className={styles.module_weeks}>{t(`courses--mod-${id}-weeks`)}</p>
+                  <p className={styles.module_focus}>{t(`courses--mod-${id}-focus`)}</p>
+                  <ul className={styles.checklist}>
+                    {TOPICS.map(topic => (
+                      <li key={topic}>{t(`courses--mod-${id}-topics-${topic}`)}</li>
+                    ))}
+                  </ul>
                   <p className={styles.module_goal}>
-                    <strong>{t('courses--stage-goal')}</strong> {t(`courses--mod-${module.id}-goal`)}
+                    <strong>{t('courses--stage-goal')}</strong> {t(`courses--mod-${id}-goal`)}
                   </p>
                 </div>
               </article>
@@ -240,21 +234,6 @@ const CoursesPage = () => {
             </div>
           </article>
 
-          <details className={styles.stages_details}>
-            <summary>{t('courses--modules-label')}</summary>
-            <p className={styles.price_note}>{t('courses--modules-note')}</p>
-            <div className={styles.modules}>
-              {MODULES.map((module, index) => (
-                <article key={module.id} className={`${styles.module} ${styles.module_priced}`}>
-                  <div>
-                    <Heading type='h3'>{t('courses--stage')} {index + 1}: {t(`courses--mod-${module.id}-name`)}</Heading>
-                    <p className={styles.module_weeks}>{t(`courses--tier-${tier}`)}</p>
-                  </div>
-                  <p className={styles.module_price}>{money(module.prices[tier])}</p>
-                </article>
-              ))}
-            </div>
-          </details>
         </section>
 
         {/* 8. Rhythm */}
@@ -296,9 +275,6 @@ const CoursesPage = () => {
             </div>
             <div className={styles.actions}>
               {reserveButton}
-              <a className={styles.text_link} href={mail.module}>
-                {t('courses--cta-modules')}
-              </a>
             </div>
           </div>
         </section>
