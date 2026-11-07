@@ -70,7 +70,7 @@ const ProjectsSection = () => {
     },
     {
       title: 'Gadmin GVP',
-      year: '2023',
+      year: '2026',
       description: t('projects--gadmin-gvp-content'),
       image: GadminGvp,
       backgroundColor: '#0d1117',
