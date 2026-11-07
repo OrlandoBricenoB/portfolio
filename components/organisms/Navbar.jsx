@@ -71,6 +71,20 @@ const Navbar = () => {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const goToContact = event => {
+    closeMenu()
+    const onHome = router.pathname === '/'
+    if (!onHome) return
+
+    event.preventDefault()
+    const section = document.getElementById('contact')
+    if (!section) return
+
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const path = router.asPath.split('#')[0]
+    window.history.pushState(null, '', `${path}#contact`)
+  }
+
   const links = [
     { href: '/#about', label: t('nav--about') },
     { href: '/#services', label: t('nav--services') },
@@ -122,13 +136,13 @@ const Navbar = () => {
               >English</Badge>
             </Dropdown>
           </div>
-          <a
+          <Link
             className={styles.cta}
-            href='mailto:orlando@gadmin.app'
-            data-sln-event='user: send email'
+            href='/#contact'
+            onClick={goToContact}
           >
             {t('common--cta-contact')}
-          </a>
+          </Link>
           <button
             type='button'
             className={`${styles.menu_toggle} ${menuOpen ? styles['menu_toggle--open'] : ''}`}
@@ -148,14 +162,13 @@ const Navbar = () => {
               {link.label}
             </NavButton>
           ))}
-          <a
+          <Link
             className={`${styles.cta} ${styles.mobile_cta}`}
-            href='mailto:orlando@gadmin.app'
-            data-sln-event='user: send email'
-            onClick={closeMenu}
+            href='/#contact'
+            onClick={goToContact}
           >
             {t('common--cta-contact')}
-          </a>
+          </Link>
         </nav>
       )}
     </header>
