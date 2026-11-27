@@ -10,7 +10,7 @@ const tilts = [-2, 1.5, -1]
 ---
 <section class="section relative bg-white text-ink" id="courses-teaser">
   <div class="wrapper">
-    <div class="relative overflow-hidden rounded-[32px] bg-[radial-gradient(600px_300px_at_100%_0%,rgba(255,255,255,.18),transparent_60%),var(--color-blue-700)] p-[clamp(2rem,5vw,4rem)] text-white shadow-[0_30px_60px_rgba(0,81,255,.28)] [&_.hl]:bg-white [&_.hl]:text-blue-700 [&_.note]:text-white [&_.note_.ar]:text-blue-200" data-reveal="up">
+    <div class="relative overflow-hidden rounded-[32px] bg-blue-700 bg-[radial-gradient(600px_300px_at_100%_0%,rgba(255,255,255,.18),transparent_60%)] p-[clamp(2rem,5vw,4rem)] text-white shadow-[0_30px_60px_rgba(0,81,255,.28)] [--hl-bg:#fff] [--hl-ink:var(--color-blue-700)] [&_.note]:text-white [&_.note_.ar]:text-blue-200" data-reveal="up">
       <div data-reveal="up"><Note>{t('teaser-courses--kicker')}</Note></div>
       <Heading as="h2" class="mt-0! mb-[.9rem]! max-w-[46rem] text-white" data-reveal="up">{t('courses--title')}</Heading>
       <p class="mb-10 max-w-[44rem] text-[1.1rem] leading-[1.6] opacity-92" data-reveal="up">{t('teaser-courses--body')}</p>

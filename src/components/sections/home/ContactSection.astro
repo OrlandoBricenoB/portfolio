@@ -15,7 +15,7 @@ const { lang } = Astro.props as { lang: Lang }
 const t = useTranslations(lang)
 const social = 'inline-flex size-11 items-center justify-center rounded-full border border-white/16 bg-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-blue-700'
 ---
-<section class="relative mt-32 scroll-mt-[5.5rem] bg-[radial-gradient(900px_420px_at_10%_110%,rgba(0,81,255,.32),transparent_60%),var(--color-ink)] pt-20 pb-24 text-white max-[900px]:mt-16 max-[900px]:py-16" id="contact">
+<section class="relative mt-32 scroll-mt-[5.5rem] bg-ink bg-[radial-gradient(900px_420px_at_10%_110%,rgba(0,81,255,.32),transparent_60%)] pt-20 pb-24 text-white max-[900px]:mt-16 max-[900px]:py-16" id="contact">
   <div class="wrapper grid grid-cols-[minmax(0,1.1fr)_minmax(0,.8fr)] items-center gap-16 max-[900px]:grid-cols-1 max-[900px]:gap-12">
     <div class="max-w-xl" data-reveal="up">
       <Note>{t('contact--title')}</Note>

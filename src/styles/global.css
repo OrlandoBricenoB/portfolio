@@ -96,17 +96,17 @@
 
   /* Highlighted keyword chip; --wipe is animated by GSAP (data-hl) */
   .hl {
-    background: var(--color-blue-700);
-    color: #fff;
+    background: var(--hl-bg, var(--color-blue-700));
+    color: var(--hl-ink, #fff);
     border-radius: 9px;
     padding: 0 0.16em;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
   .hl--wipe {
-    background: linear-gradient(var(--color-blue-700), var(--color-blue-700)) no-repeat left center / var(--wipe, 100%) 100%;
+    background: linear-gradient(var(--hl-bg, var(--color-blue-700)), var(--hl-bg, var(--color-blue-700))) no-repeat left center / var(--wipe, 100%) 100%;
   }
-  .hl--light { background: #fff; color: var(--color-blue-700); }
+  .hl--light { --hl-bg: #fff; --hl-ink: var(--color-blue-700); }
 
   .rot { display: inline-block; white-space: nowrap; min-width: 0.6em; }
   .rot::after {

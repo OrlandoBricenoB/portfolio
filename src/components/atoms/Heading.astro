@@ -7,7 +7,12 @@ const sizes = {
   h2: 'text-[clamp(30px,3.2vw,40px)]',
   h3: 'text-[20px] leading-tight tracking-[-0.015em] font-bold',
 }
+// Translated strings passed as slot content arrive HTML-escaped: turn <hl> into the highlight chip.
+const slotHtml = text ? '' : (await Astro.slots.render('default')).replace(
+  /&lt;hl&gt;(.*?)&lt;\/hl&gt;/g,
+  '<span class="hl hl--wipe" data-hl>$1</span>',
+)
 ---
 <Tag class:list={['mt-2 mb-3 font-black leading-[1.08] tracking-[-0.03em] text-inherit', sizes[Tag], className]} {...rest}>
-  {text ? <RichText text={text} /> : <slot />}
+  {text ? <RichText text={text} /> : <Fragment set:html={slotHtml} />}
 </Tag>

@@ -46,7 +46,7 @@ const CoursesTierPicker = ({ tiers, mails, labels }) => {
         ))}
       </div>
 
-      <article className="mt-5 grid grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] items-center gap-8 rounded-[22px] border border-transparent bg-blue-700 bg-[radial-gradient(500px_240px_at_100%_0%,rgba(255,255,255,0.18),transparent_60%)] p-[1.4rem_1.4rem_1.5rem] shadow-[0_30px_60px_rgba(0,81,255,0.3)] max-nav:grid-cols-1">
+      <article className="[--hl-bg:#fff] [--hl-ink:var(--color-blue-700)] mt-5 grid grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] items-center gap-8 rounded-[22px] border border-transparent bg-blue-700 bg-[radial-gradient(500px_240px_at_100%_0%,rgba(255,255,255,0.18),transparent_60%)] p-[1.4rem_1.4rem_1.5rem] shadow-[0_30px_60px_rgba(0,81,255,0.3)] max-nav:grid-cols-1">
         <div>
           <p className="mb-2 inline-block -rotate-2 font-hand text-[24px] text-white/90 before:content-['→_']">{labels.fullLabel}</p>
           <h3 className="mt-1.5 mb-[0.45rem] text-xl leading-tight font-bold tracking-[-0.015em]">
