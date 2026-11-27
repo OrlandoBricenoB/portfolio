@@ -1,0 +1,60 @@
+---
+import { Picture } from 'astro:assets'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import Polaroid from '../../atoms/Polaroid.astro'
+import Sticker from '../../atoms/Sticker.astro'
+import Youtube from '../../icons/Youtube.jsx'
+import Instagram from '../../icons/Instagram.jsx'
+import TikTok from '../../icons/TikTok.jsx'
+import Linkedin from '../../icons/Linkedin.jsx'
+import XIcon from '../../icons/XIcon.jsx'
+import Email from '../../icons/Email.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import contentPhoto from '../../../assets/images/content-image.png'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+
+// Set a channel url to a string to enable it. null renders it as "coming soon".
+const channels = [
+  { id: 'youtube', name: 'YouTube', Icon: Youtube, url: 'https://www.youtube.com/@OrlandoBricenoB' },
+  { id: 'instagram', name: 'Instagram', Icon: Instagram, url: 'https://instagram.com/orlandobricenob' },
+  { id: 'tiktok', name: 'TikTok', Icon: TikTok, url: 'https://www.tiktok.com/@orlandobricenob' },
+  { id: 'linkedin', name: 'LinkedIn', Icon: Linkedin, url: 'https://linkedin.com/in/orlandobricenob' },
+  { id: 'x', name: 'X', Icon: XIcon, url: 'https://x.com/orlandobricenob' },
+  { id: 'newsletter', name: 'Newsletter', Icon: Email, url: null },
+]
+---
+<section class="section section--tint relative" id="content">
+  <div class="wrapper">
+    <div class="grid grid-cols-[minmax(0,1.05fr)_minmax(260px,.72fr)] items-center gap-[clamp(2rem,5vw,4.5rem)] max-[980px]:grid-cols-1">
+      <div>
+        <div data-reveal="up"><Note>{t('content--kicker')}</Note></div>
+        <Heading as="h2" class="mt-0! mb-[.9rem]! max-w-[46rem]" data-reveal="up">{t('content--title')}</Heading>
+        <p class="mb-7 max-w-[44rem] text-[1.1rem] leading-[1.6] opacity-85" data-reveal="up">{t('content--body')}</p>
+        <div class="flex flex-wrap gap-3" data-reveal-stagger>
+          {channels.map(({ name, Icon, url }) => url ? (
+            <a class="inline-flex min-h-[52px] items-center gap-[.6rem] rounded-full bg-white py-[.4rem] pr-[1.3rem] pl-4 font-bold text-ink no-underline shadow-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_var(--color-blue-700)]" href={url} target="_blank" rel="noreferrer" data-reveal="up">
+              <Icon size="26" color="#0051ff" />
+              {name}
+            </a>
+          ) : (
+            <span class="pointer-events-none inline-flex min-h-[52px] items-center gap-[.6rem] rounded-full border-2 border-dashed border-blue-300 bg-transparent py-[.4rem] pr-[1.3rem] pl-4 font-bold text-blue-900" aria-disabled="true" data-reveal="up">
+              <Icon size="26" color="#48a4ff" />
+              {name} · {t('content--soon')}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div class="relative w-[min(100%,380px)] justify-self-center px-3 pt-2 pb-5" data-reveal="right">
+        <Polaroid rotate={2.5}>
+          <Picture src={contentPhoto} formats={['webp']} fallbackFormat="png" alt={t('content--image-alt')} widths={[380, 760]} sizes="380px" loading="lazy" class="aspect-[3/4] w-full object-cover object-[center_18%]" />
+        </Polaroid>
+        <Sticker abs variant="blue" rotate={-7} style="top:8px;left:0">{t('content--kicker')}</Sticker>
+      </div>
+    </div>
+  </div>
+</section>

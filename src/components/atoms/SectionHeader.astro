@@ -1,0 +1,11 @@
+---
+import Heading from './Heading.astro'
+import Note from './Note.astro'
+interface Props { note?: string; title: string; intro?: string; arrow?: string; level?: 'h1' | 'h2' | 'h3'; class?: string }
+const { note, title, intro, arrow = '↓', level = 'h2', class: className = '' } = Astro.props
+---
+<header class:list={['max-w-[46rem]', className]}>
+  {note && <div data-reveal="up"><Note arrow={arrow}>{note}</Note></div>}
+  <Heading as={level} text={title} data-reveal="up" />
+  {intro && <p class="section__intro" data-reveal="up">{intro}</p>}
+</header>

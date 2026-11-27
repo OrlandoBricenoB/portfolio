@@ -1,0 +1,5 @@
+---
+interface Props { rotate?: number; class?: string; style?: string; [key: string]: unknown }
+const { rotate = 0, class: className = '', style = '', ...rest } = Astro.props
+---
+<div class:list={['polaroid', className]} style={`--r:${rotate}deg;${style}`} data-drop {...rest}><slot /></div>

@@ -1,0 +1,6 @@
+---
+interface Props { type?: 'paragraph' | 'big' | 'small'; as?: string; class?: string; [key: string]: unknown }
+const { type = 'paragraph', as: Tag = 'p', class: className = '', ...rest } = Astro.props
+const sizes = { paragraph: 'text-[1.05rem] my-3', big: 'text-[1.2rem] leading-[1.4] my-3', small: 'text-[.85rem] my-2' }
+---
+<Tag class:list={['leading-[1.6]', sizes[type], className]} {...rest}><slot /></Tag>

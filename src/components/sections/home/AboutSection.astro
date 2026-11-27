@@ -1,0 +1,176 @@
+---
+import { Image, Picture } from 'astro:assets'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import SectionHeader from '../../atoms/SectionHeader.astro'
+import AboutCarousel from '../../islands/AboutCarousel.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import oldStarts from '../../../assets/images/stories/old-starts.jpg'
+import oldStartsTwo from '../../../assets/images/stories/old-starts-2.png'
+import holdingCarnet from '../../../assets/images/stories/holding-carnet.png'
+import aboutPortrait from '../../../assets/images/guitar-keyboard.webp'
+
+import HTML from '../../icons/tools/HTML.jsx'
+import CSS from '../../icons/tools/CSS.jsx'
+import TailwindCSS from '../../icons/tools/TailwindCSS.jsx'
+import JavaScript from '../../icons/tools/JavaScript.jsx'
+import TypeScript from '../../icons/tools/TypeScript.jsx'
+import NodeJS from '../../icons/tools/NodeJS.jsx'
+import Express from '../../icons/tools/Express.jsx'
+import React from '../../icons/tools/React.jsx'
+import NextJS from '../../icons/tools/NextJS.jsx'
+import PostgreSQL from '../../icons/tools/PostgreSQL.jsx'
+import MongoDB from '../../icons/tools/MongoDB.jsx'
+import Hono from '../../icons/tools/Hono.jsx'
+import Cloudflare from '../../icons/tools/Cloudflare.jsx'
+import Lambdas from '../../icons/tools/Lambdas.jsx'
+import CloudWatch from '../../icons/tools/CloudWatch.jsx'
+import EC2 from '../../icons/tools/EC2.jsx'
+import Figma from '../../icons/tools/Figma.jsx'
+import AWS from '../../icons/tools/AWS.jsx'
+import ChatGPT from '../../icons/tools/ChatGPT.jsx'
+import N8N from '../../icons/tools/N8N.jsx'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+
+const disciplines = ['dev', 'finance', 'economics', 'sales', 'marketing', 'investments', 'design']
+const disciplineTilts = [-1.5, 1, -0.8, 1.4, -1, 0.8, -1.2]
+
+const certificationKeys = [
+  ['practical-javascript', 'JS práctico, fundamentos y ejercicios.'],
+  ['professional-javascript', 'JS avanzado, closures y asincronía.'],
+  ['nodejs', 'Node.js, módulos y servidores básicos.'],
+  ['professional-git', 'Git y GitHub, ramas y flujos de trabajo.'],
+  ['html-css', 'HTML5 y CSS3, maquetación web.'],
+  ['logical-thinking', 'Pensamiento lógico y resolución de problemas.'],
+  ['time-management', 'Gestión del tiempo y productividad.'],
+  ['emotional-intelligence', 'Inteligencia emocional y autogestión.'],
+]
+const certifications = certificationKeys.map(([key, fallback], index) => {
+  const description = t(`certification--${key}-desc`)
+  return {
+    id: index + 1,
+    name: t(`certification--${key}`),
+    date: '2022',
+    description: description === `certification--${key}-desc` ? fallback : description,
+  }
+})
+
+const expertises = [
+  { name: 'HTML', Icon: HTML },
+  { name: 'CSS', Icon: CSS },
+  { name: 'JavaScript', Icon: JavaScript },
+  { name: 'TypeScript', Icon: TypeScript },
+  { name: 'TailwindCSS', Icon: TailwindCSS },
+  { name: 'NodeJS', Icon: NodeJS },
+  { name: 'Hono', Icon: Hono },
+  { name: 'Express', Icon: Express },
+  { name: 'React', Icon: React },
+  { name: 'NextJS', Icon: NextJS },
+  { name: 'PostgreSQL', Icon: PostgreSQL },
+  { name: 'MongoDB', Icon: MongoDB },
+  { name: 'Cloudflare', Icon: Cloudflare },
+  { name: 'AWS', Icon: AWS },
+  { name: 'Lambdas (Amazon Web Services)', Icon: Lambdas },
+  { name: 'CloudWatch (Amazon Web Services)', Icon: CloudWatch },
+  { name: 'EC2 (Amazon Web Services)', Icon: EC2 },
+  { name: 'Figma', Icon: Figma },
+  { name: 'ChatGPT', Icon: ChatGPT },
+  { name: 'N8N', Icon: N8N },
+]
+
+// Chronological growth timeline: each photo is a commit on the way up
+const tiles = [
+  { file: 'future.jpg', hash: 'a1f03c', src: oldStartsTwo, alt: t('stories--start-two-alt'), fmt: 'png' },
+  { file: 'new-city.jpg', hash: '7be42d', src: oldStarts, alt: t('stories--start-alt'), fmt: 'jpg' },
+  { file: 'building.jpg', hash: '3d9c81', src: aboutPortrait, alt: 'Orlando Briceño', fmt: null },
+  { file: 'grown.jpg', hash: 'f00d51', src: holdingCarnet, alt: t('about--carnet-alt'), fmt: 'png' },
+]
+const winBase = 'relative z-[1] m-0 overflow-hidden rounded-[14px] border-2 border-ink bg-white transition duration-300 hover:-translate-y-1.5 hover:shadow-[12px_12px_0_var(--color-blue-700)]'
+const winVariants = [
+  'shadow-[8px_8px_0_var(--color-blue-700)] max-[560px]:shadow-[4px_4px_0_var(--color-blue-700)]',
+  'mb-6 shadow-[8px_8px_0_var(--color-blue-700)] max-[560px]:shadow-[4px_4px_0_var(--color-blue-700)] max-[900px]:mt-7 max-[900px]:mb-0',
+  'mb-12 shadow-[8px_8px_0_var(--color-blue-700)] max-[560px]:shadow-[4px_4px_0_var(--color-blue-700)] max-[900px]:mb-0',
+  'mb-[72px] shadow-[8px_8px_0_var(--color-ink)] max-[560px]:shadow-[4px_4px_0_var(--color-ink)] max-[900px]:mt-7 max-[900px]:mb-0',
+]
+const mono = 'font-[ui-monospace,SFMono-Regular,Menlo,Consolas,monospace]'
+const photo = 'block size-full object-cover transition-transform duration-[600ms] group-hover:scale-105'
+---
+<div class="section pb-20" id="about">
+  <div class="wrapper">
+    <SectionHeader note={t('common--about-me')} title={t('about--story-title')} level="h1" />
+
+    <div class="mt-6 grid grid-cols-2 gap-12 text-[1.1rem] max-[900px]:grid-cols-1 max-[900px]:gap-6" data-reveal="up">
+      <div>
+        <Heading as="h3">{t('stories--start-title')}</Heading>
+        <p class="my-3 text-[1.05rem] leading-[1.6]">{t('stories--start-body')}</p>
+      </div>
+      <p class="m-0 text-[1.05rem] leading-[1.6]">
+        {t('about--story-content-1')}
+        <br /><br />
+        {t('about--story-content-2')}
+        <br /><br />
+        {t('about--story-content-3')}
+      </p>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="relative my-10 grid grid-cols-4 items-end gap-5 max-[900px]:grid-cols-2 max-[900px]:items-start max-[900px]:gap-[18px] max-[560px]:mt-8 max-[560px]:gap-3" data-reveal-stagger>
+      {tiles.map((tile, index) => (
+        <figure class:list={['group', winBase, winVariants[index]]} data-reveal="up">
+          <div class={`flex items-center gap-1.5 bg-ink px-3 py-[9px] text-xs text-blue-200 ${mono}`}>
+            <i class="size-[9px] rounded-full bg-blue-400"></i>
+            <i class="size-[9px] rounded-full bg-blue-700"></i>
+            <i class="size-[9px] rounded-full bg-white"></i>
+            <span class="ml-1.5 truncate max-[560px]:hidden">~/story/{tile.file}</span>
+          </div>
+          <div class="aspect-[4/5] overflow-hidden bg-blue-100">
+            {tile.fmt
+              ? <Picture src={tile.src} formats={['webp']} fallbackFormat={tile.fmt} alt={tile.alt} widths={[320, 640]} sizes="(max-width: 900px) 50vw, 300px" loading="lazy" class={photo} pictureAttributes={{ class: 'block size-full' }} />
+              : <Image src={tile.src} alt={tile.alt} widths={[320, 640]} sizes="(max-width: 900px) 50vw, 300px" class={photo} />}
+          </div>
+          <figcaption class="flex items-center gap-2.5 border-t-2 border-ink px-3 py-2.5 text-[13px] text-ink">
+            <code class="rounded-md bg-blue-100 px-[7px] py-0.5 text-xs text-blue-800 max-[560px]:hidden">{tile.hash}</code>
+            <b class="min-w-0 flex-1 font-bold">{t(`about--tl-${index + 1}`)}</b>
+            <span class={`font-bold text-blue-700 ${mono}`}>{String(index + 1).padStart(2, '0')}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="mt-4">
+      <Note>{t('disciplines--title')}</Note>
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-[.9rem]" data-reveal-stagger>
+        {disciplines.map((id, index) => (
+          <div class="rounded-[18px] border border-blue-700/12 bg-white px-[1.1rem] pt-4 pb-[1.15rem] text-ink shadow-card transition-transform duration-200 [transform:rotate(var(--r,0deg))] hover:[transform:rotate(0deg)_translateY(-3px)]" style={`--r:${disciplineTilts[index % 7]}deg`} data-reveal="up">
+            <strong class="mb-2 inline-block rounded-full bg-blue-700 px-2.5 py-[3px] text-[.9rem] text-white">{t(`disciplines--${id}-name`)}</strong>
+            <span class="block text-[.92rem] leading-[1.45] opacity-85">{t(`disciplines--${id}-desc`)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mx-auto mt-14 w-full overflow-hidden px-1 pt-4 pb-2" data-reveal="up">
+      <AboutCarousel client:visible certifications={certifications} />
+
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-[.6rem]">
+        {expertises.map(({ name, Icon }) => (
+          <span title={name} class="grid size-[52px] place-items-center rounded-full bg-ink shadow-soft transition-transform duration-200 hover:-translate-y-[3px] hover:-rotate-6">
+            <Icon size={30} />
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .swiper-scrollbar { background-color: var(--color-blue-100) !important; opacity: 1 !important; }
+  .swiper-scrollbar-drag { background-color: var(--color-blue-700) !important; }
+</style>

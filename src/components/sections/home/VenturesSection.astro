@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import GoToFile from '../../icons/GoToFile.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import gadminLogo from '../../../assets/images/brands/gadmin.png'
+import sellLogo from '../../../assets/images/brands/sell-logo.png'
+import contyLogo from '../../../assets/images/brands/conty-logo.png'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+const ventures = [
+  { id: 'sell', name: 'Gadmin Sell', logo: sellLogo, href: 'https://gadminsell.com' },
+  { id: 'conty', name: 'Gadmin Conty', logo: contyLogo, href: 'https://gadminconty.com' },
+]
+---
+<section class="section relative bg-ink! pt-8 text-white" id="ventures">
+  <div class="wrapper">
+    <div class="mb-16 h-px bg-white/12"></div>
+    <div data-reveal="up"><Note>{t('ventures--kicker')}</Note></div>
+    <Heading as="h2" class="mt-0! mb-[.9rem]! max-w-[46rem]" data-reveal="up">{t('ventures--title')}</Heading>
+    <div class="mb-8 flex w-fit max-w-full -rotate-1 items-center gap-3 rounded-full border border-white/14 bg-white/8 py-2 pr-[18px] pl-2 text-white/85" data-reveal="up">
+      <Image src={gadminLogo} alt="Gadmin" width={40} height={40} class="size-10 rounded-full bg-white object-contain p-1" />
+      <span class="min-w-0">{t('ventures--parent')}</span>
+    </div>
+    <div class="grid grid-cols-2 gap-5 max-[980px]:grid-cols-1" data-reveal-stagger>
+      {ventures.map(venture => (
+        <article class="flex flex-col gap-[.9rem] rounded-3xl border border-white/14 bg-white/6 p-7 transition duration-200 hover:-translate-y-[3px] hover:border-blue-400" data-reveal="up">
+          <div class="flex items-center gap-4">
+            <Image src={venture.logo} alt={venture.name} width={68} height={68} class="size-[68px] rounded-full bg-white object-contain p-2 shadow-[0_10px_24px_rgba(0,0,0,.25)]" />
+            <div>
+              <Heading as="h3" class="m-0! text-[22px]">{venture.name}</Heading>
+              <p class="mt-[.15rem] mb-0 text-[.95rem] text-blue-300">{t(`ventures--${venture.id}-tagline`)}</p>
+            </div>
+          </div>
+          <span class="inline-block w-fit rounded-full bg-blue-400/18 px-[.8rem] py-[.3rem] text-[.8rem] font-bold text-blue-300">{t('ventures--badge')}</span>
+          <p class="m-0 leading-[1.55] text-white/82">{t(`ventures--${venture.id}-body`)}</p>
+          <a class="pill-link pill-link--white w-fit" href={venture.href} target="_blank" rel="noreferrer">
+            <GoToFile color="#0051ff" />
+            {t('ventures--cta')}
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

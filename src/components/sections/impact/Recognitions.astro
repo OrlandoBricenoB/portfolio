@@ -1,0 +1,71 @@
+---
+import { Picture } from 'astro:assets'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import amdaCertificate from '../../../assets/images/amda-certificate.png'
+import gvpCertificate from '../../../assets/images/gvp-certificate.png'
+import mcdonaldsCertificate from '../../../assets/images/mcdonalds-certificate.png'
+import holdingAmda from '../../../assets/images/holding-amda.png'
+import holdingGvp from '../../../assets/images/holding-gvp.png'
+import holdingMcdonalds from '../../../assets/images/holding-mcdonalds.png'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const recognitions = [
+  { id: 'amda', image: amdaCertificate, holding: holdingAmda },
+  { id: 'gvp', image: gvpCertificate, holding: holdingGvp },
+  { id: 'mcdonalds', image: mcdonaldsCertificate, holding: holdingMcdonalds },
+]
+---
+<section class="bg-ink pt-[4.5rem] pb-20 text-white max-[900px]:py-14" id="recognitions">
+  <div class="wrapper">
+    <header class="mb-9" data-reveal="up">
+      <p class="m-0 text-[1.2rem] leading-[1.4] tracking-[0.08em] text-blue-400 uppercase">{t('recognitions--kicker')}</p>
+      <h2 class="mt-1.5 mb-0 text-[clamp(1.7rem,2.4vw,2.35rem)] leading-[1.08] font-black tracking-[-0.03em]">{t('recognitions--title')}</h2>
+      <p class="mt-2 max-w-[46rem] text-[1.02rem] leading-[1.5] text-[#d6d9fd]">{t('recognitions--intro')}</p>
+    </header>
+
+    <div class="grid grid-cols-3 gap-[clamp(1.25rem,3vw,2.5rem)] max-[900px]:grid-cols-1 max-[900px]:gap-9">
+      {recognitions.map(({ id, image, holding }) => (
+        <article class="flex flex-col">
+          <div class="recognitions__stage relative mb-[1.1rem] aspect-[4/5] overflow-hidden rounded-xl bg-blue-950 shadow-[0_16px_28px_rgba(0,0,0,0.4)] max-[900px]:max-w-[30rem]">
+            <div class="recognitions__flat absolute inset-x-0 top-0 block will-change-[transform,opacity] [&_img]:block [&_img]:h-auto [&_img]:w-full">
+              <Picture src={image} formats={['webp']} alt={t(`recognitions--${id}-certificate-alt`)} loading="lazy" />
+            </div>
+            <div class="recognitions__person absolute inset-0 block will-change-[transform,opacity] [&_img]:block [&_img]:h-full [&_img]:w-full [&_img]:object-contain [&_img]:object-bottom">
+              <Picture src={holding} formats={['webp']} alt={t(`stories--${id}-alt`)} loading="lazy" />
+            </div>
+          </div>
+          <h3 class="mb-[0.55rem] text-[clamp(1.2rem,1.6vw,1.5rem)] leading-tight font-bold tracking-[-0.015em]">{t(`recognitions--${id}-title`)}</h3>
+          <p class="m-0 text-base leading-[1.6] text-[#e7e9ff]">{t(`recognitions--${id}-body`)}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  document.querySelectorAll('.recognitions__stage').forEach((stage) => {
+    const flat = stage.querySelector('.recognitions__flat')
+    const person = stage.querySelector('.recognitions__person')
+
+    // Scrubbed one-shot timeline: no repeat, no yoyo, no infinite tweens.
+    gsap
+      .timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: { trigger: stage, start: 'top 85%', end: 'top 25%', scrub: 0.6, invalidateOnRefresh: true },
+      })
+      .fromTo(person, { yPercent: 55, autoAlpha: 0, scale: 0.9 }, { yPercent: 0, autoAlpha: 1, scale: 1, transformOrigin: '50% 100%', duration: 1 }, 0)
+      .fromTo(flat, { scale: 1, autoAlpha: 1 }, { scale: 0.94, autoAlpha: 0.35, duration: 1 }, 0)
+  })
+
+  requestAnimationFrame(() => ScrollTrigger.refresh())
+</script>

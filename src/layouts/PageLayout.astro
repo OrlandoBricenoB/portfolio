@@ -1,0 +1,16 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import Navbar from '../components/islands/Navbar.jsx'
+import Footer from '../components/organisms/Footer.astro'
+import { stripLang } from '../i18n/utils'
+import type { Lang } from '../i18n/config'
+
+interface Props { lang: Lang; title?: string; description?: string }
+const { lang, title, description } = Astro.props
+const currentPath = (stripLang(Astro.url.pathname).replace(/\/+$/, '') || '/')
+---
+<BaseLayout lang={lang} title={title} description={description}>
+  <Navbar slot="header" client:load lang={lang} currentPath={currentPath} />
+  <slot />
+  <Footer slot="footer" lang={lang} />
+</BaseLayout>

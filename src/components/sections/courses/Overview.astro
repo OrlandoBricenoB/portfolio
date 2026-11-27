@@ -1,0 +1,59 @@
+---
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+import { kicker, section, intro, grid3, card, h2, h3, cardText, badge, checklist, checklistNo } from './ui'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const OUTCOMES = ['1', '2', '3']
+const AUDIENCE_FOR = ['1', '2', '3', '4']
+const AUDIENCE_NOT = ['1', '2', '3']
+---
+<section class={section} id="outcomes">
+  <p class={kicker}>{t('courses--outcomes-kicker')}</p>
+  <h2 class={h2}>{t('courses--outcomes-title')}</h2>
+  <p class={intro}>{t('courses--outcomes-intro')}</p>
+  <div class={grid3}>
+    {OUTCOMES.map((item, index) => (
+      <article class={card}>
+        <span class={badge}>0{index + 1}</span>
+        <h3 class={h3}>{t(`courses--outcome-${item}-title`)}</h3>
+        <p class={cardText}>{t(`courses--outcome-${item}-body`)}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class={section}>
+  <p class={kicker}>{t('courses--audience-kicker')}</p>
+  <h2 class={h2}>{t('courses--audience-title')}</h2>
+  <div class="mt-6 grid grid-cols-2 gap-4 max-nav:grid-cols-1">
+    <article class={`${card} border-blue-400/60`}>
+      <h3 class={h3}>{t('courses--audience-yes-title')}</h3>
+      <ul class={checklist}>
+        {AUDIENCE_FOR.map(item => <li>{t(`courses--audience-yes-${item}`)}</li>)}
+      </ul>
+    </article>
+    <article class={card}>
+      <h3 class={h3}>{t('courses--audience-no-title')}</h3>
+      <ul class={`${checklist} ${checklistNo}`}>
+        {AUDIENCE_NOT.map(item => <li>{t(`courses--audience-no-${item}`)}</li>)}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class={section}>
+  <p class={kicker}>{t('courses--live-kicker')}</p>
+  <h2 class={h2}>{t('courses--live-title')}</h2>
+  <p class={intro}>{t('courses--live-intro')}</p>
+  <div class={grid3}>
+    {['1', '2', '3'].map(item => (
+      <article class={card}>
+        <h3 class={h3}>{t(`courses--live-${item}-title`)}</h3>
+        <p class={cardText}>{t(`courses--live-${item}-body`)}</p>
+      </article>
+    ))}
+  </div>
+</section>

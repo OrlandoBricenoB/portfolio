@@ -1,0 +1,35 @@
+---
+import PageLayout from '../layouts/PageLayout.astro'
+import Hero from '../components/sections/courses/Hero.astro'
+import Overview from '../components/sections/courses/Overview.astro'
+import Path from '../components/sections/courses/Path.astro'
+import Mentor from '../components/sections/courses/Mentor.astro'
+import Pricing from '../components/sections/courses/Pricing.astro'
+import Closing from '../components/sections/courses/Closing.astro'
+import { useTranslations } from '../i18n/utils'
+import type { Lang } from '../i18n/config'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+// One mailto per tier; the tier picker island swaps them into every [data-reserve] link.
+const mails = Object.fromEntries(
+  ['low', 'mid', 'vip'].map(tier => {
+    const body = `${t('courses--wa-full')} (${t(`courses--tier-${tier}`)})`
+    return [tier, `mailto:orlando@gadmin.app?body=${encodeURIComponent(body)}`]
+  }),
+)
+---
+<PageLayout lang={lang} title={t('courses--meta-title')} description={t('courses--meta-description')}>
+  <main class="bg-ink bg-[radial-gradient(900px_420px_at_85%_-10%,rgba(0,81,255,0.22),transparent_60%)] pt-[7.5rem] text-white max-[640px]:pt-[6.5rem]">
+    <div class="wrapper">
+      <Hero lang={lang} mail={mails.mid} />
+      <Overview lang={lang} />
+      <Path lang={lang} />
+      <Mentor lang={lang} />
+      <Pricing lang={lang} mails={mails} />
+      <Closing lang={lang} mail={mails.mid} />
+    </div>
+  </main>
+</PageLayout>

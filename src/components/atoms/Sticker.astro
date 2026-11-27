@@ -1,0 +1,5 @@
+---
+interface Props { variant?: string; rotate?: number; abs?: boolean; class?: string; style?: string; [key: string]: unknown }
+const { variant = '', rotate = 0, abs = false, class: className = '', style = '', ...rest } = Astro.props
+---
+<span class:list={['sticker', variant && `sticker--${variant}`, abs && 'sticker--abs', className]} style={`--r:${rotate}deg;${style}`} data-pop {...rest}><slot /></span>

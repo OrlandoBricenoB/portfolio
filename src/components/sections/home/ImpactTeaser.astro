@@ -1,0 +1,32 @@
+---
+import { Picture } from 'astro:assets'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import Polaroid from '../../atoms/Polaroid.astro'
+import Sticker from '../../atoms/Sticker.astro'
+import { localizePath, useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import kids from '../../../assets/images/stories/bringing-love-to-kids.jpg'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+---
+<section class="section section--tint relative" id="impact-teaser">
+  <div class="wrapper">
+    <div class="grid grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] items-center gap-16 max-[980px]:grid-cols-1 max-[980px]:gap-8">
+      <div>
+        <div data-reveal="up"><Note>{t('teaser-impact--kicker')}</Note></div>
+        <Heading as="h2" class="mt-0! mb-[.9rem]! max-w-[46rem]" data-reveal="up">{t('teaser-impact--title')}</Heading>
+        <p class="mb-10 max-w-[44rem] text-[1.1rem] leading-[1.6] opacity-85" data-reveal="up">{t('teaser-impact--body')}</p>
+        <a class="pill-link" href={localizePath('/impact', lang)} data-reveal="up">{t('teaser-impact--cta')} →</a>
+      </div>
+      <div class="relative p-4">
+        <Polaroid rotate={-2.5}>
+          <Picture src={kids} formats={['webp']} fallbackFormat="jpg" alt={t('stories--kids-alt')} widths={[520, 1040]} sizes="520px" loading="lazy" class="block aspect-[4/3] w-full object-cover" />
+        </Polaroid>
+        <Sticker abs variant="blue" rotate={-8} style="top:0;right:12px">La Guaira</Sticker>
+      </div>
+    </div>
+  </div>
+</section>

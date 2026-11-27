@@ -1,0 +1,53 @@
+---
+import Button from '../../atoms/Button.astro'
+import Heading from '../../atoms/Heading.astro'
+import Email from '../../icons/Email.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+import { kicker, section, card, h2, h3, cardText } from './ui'
+
+interface Props { lang: Lang; mail: string }
+const { lang, mail } = Astro.props
+const t = useTranslations(lang)
+const FAQ = ['1', '2', '3', '4', '5', '6', '7']
+---
+<section class={section}>
+  <p class={kicker}>{t('courses--week-kicker')}</p>
+  <h2 class={h2}>{t('courses--week-title')}</h2>
+  <div class="mt-6 grid grid-cols-3 gap-4 max-nav:grid-cols-1">
+    {['1', '2', '3'].map(item => (
+      <article class={card}>
+        <h3 class={h3}>{t(`courses--week-${item}-title`)}</h3>
+        <p class={cardText}>{t(`courses--week-${item}-body`)}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class={section}>
+  <p class={kicker}>{t('courses--faq-kicker')}</p>
+  <h2 class={h2}>{t('courses--faq-title')}</h2>
+  <div class="mt-6 flex max-w-[52rem] flex-col gap-[0.7rem]">
+    {FAQ.map(item => (
+      <details class="rounded-[18px] border border-white/10 bg-white/6 px-5 py-4">
+        <summary class="cursor-pointer font-bold">{t(`courses--faq-${item}-q`)}</summary>
+        <p class="mt-[0.7rem] mb-0 leading-[1.5] text-white/78">{t(`courses--faq-${item}-a`)}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+<section class={section}>
+  <div class="flex items-end justify-between gap-6 pb-20 max-nav:grid">
+    <div class="max-w-[40rem]">
+      <Heading as="h2" text={t('courses--final-title')} />
+      <p class="my-3 text-[1.2rem] leading-[1.4] text-white/80">{t('courses--final-body')}</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <Button href={mail} data-reserve>
+        <Email slot="icon" size="24" color="#ffffff" />
+        {t('courses--cta')}
+      </Button>
+    </div>
+  </div>
+</section>

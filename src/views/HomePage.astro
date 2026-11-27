@@ -1,0 +1,28 @@
+---
+import PageLayout from '../layouts/PageLayout.astro'
+import MainSection from '../components/sections/home/MainSection.astro'
+import AboutSection from '../components/sections/home/AboutSection.astro'
+import ServicesSection from '../components/sections/home/ServicesSection.astro'
+import MethodSection from '../components/sections/home/MethodSection.astro'
+import VenturesSection from '../components/sections/home/VenturesSection.astro'
+import ContentSection from '../components/sections/home/ContentSection.astro'
+import CoursesTeaser from '../components/sections/home/CoursesTeaser.astro'
+import ImpactTeaser from '../components/sections/home/ImpactTeaser.astro'
+import ProjectsSection from '../components/sections/home/ProjectsSection.astro'
+import ContactSection from '../components/sections/home/ContactSection.astro'
+import type { Lang } from '../i18n/config'
+
+const { lang } = Astro.props as { lang: Lang }
+---
+<PageLayout lang={lang}>
+  <MainSection lang={lang} />
+  <AboutSection lang={lang} />
+  <ServicesSection lang={lang} />
+  <MethodSection lang={lang} />
+  <VenturesSection lang={lang} />
+  <ContentSection lang={lang} />
+  <CoursesTeaser lang={lang} />
+  <ImpactTeaser lang={lang} />
+  <ProjectsSection lang={lang} />
+  <ContactSection lang={lang} />
+</PageLayout>

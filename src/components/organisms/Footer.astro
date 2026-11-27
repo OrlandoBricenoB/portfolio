@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets'
+import Heading from '../atoms/Heading.astro'
+import Note from '../atoms/Note.astro'
+import { localizePath, useTranslations } from '../../i18n/utils'
+import type { Lang } from '../../i18n/config'
+
+import GadminLogo from '../../assets/images/brands/gadmin.webp'
+import SellLogo from '../../assets/images/brands/sell-logo.webp'
+import ContyLogo from '../../assets/images/brands/conty-logo.webp'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const BRANDS = [
+  { href: 'https://gadmin.app', label: 'Gadmin Website', name: 'Gadmin', logo: GadminLogo },
+  { href: 'https://gadminsell.com', label: 'Gadmin Sell Website', name: 'Gadmin Sell', logo: SellLogo },
+  { href: 'https://gadminconty.com', label: 'Gadmin Conty Website', name: 'Gadmin Conty', logo: ContyLogo },
+]
+
+const STICKERS = [
+  { href: '/impact', key: 'nav--impact', cls: 'bg-blue-700 text-white', r: -2 },
+  { href: '/courses', key: 'nav--courses', cls: 'bg-ink text-white', r: 1.5 },
+  { href: '/#services', key: 'nav--services', cls: 'bg-blue-100 text-ink', r: -1 },
+  { href: '/#ventures', key: 'nav--ventures', cls: 'bg-blue-100 text-ink', r: 2 },
+]
+---
+<footer class="border-t-[1.5px] border-ink/10 bg-white pb-5 pt-12 text-ink max-[480px]:pb-5 min-[481px]:pb-6 min-[481px]:pt-16">
+  <div class="wrapper">
+    <div class="grid grid-cols-1 items-start gap-8 min-[769px]:grid-cols-[1fr_auto] min-[769px]:gap-12" data-reveal="up" data-reveal-start="top bottom">
+      <div class="w-full max-w-[640px]">
+        <Note>{t('common--role')}</Note>
+        <Heading as="h2">{t('footer--title')}</Heading>
+        <p class="my-3 text-[1.05rem] leading-[1.6] opacity-80">
+          {t('footer--content-1')}
+          <br /><br />
+          {t('footer--content-2')}
+        </p>
+        <nav aria-label="Footer" class="mt-5 flex flex-wrap gap-2">
+          {STICKERS.map(({ href, key, cls, r }) => (
+            <a
+              href={localizePath(href, lang)}
+              class:list={['inline-flex h-[42px] items-center rounded-full px-[18px] text-[15px] font-bold no-underline outline-[1.5px] outline-transparent transition-[outline-color] duration-200 hover:outline-blue-700 focus-visible:outline-blue-700', cls]}
+              style={`transform:rotate(${r}deg)`}
+            >
+              {t(key)}
+            </a>
+          ))}
+        </nav>
+      </div>
+      <div class="flex flex-col items-start gap-5">
+        {BRANDS.map(({ href, label, name, logo }) => (
+          <figure class="m-0 flex justify-center">
+            <a href={href} target="_blank" rel="noreferrer" aria-label={label} class="flex items-center gap-4 text-ink no-underline">
+              <Image src={logo} width={96} height={96} alt={name} class="size-20 rounded-full bg-white p-2 shadow-[0_0_10px_0_rgba(0,0,0,0.1)]" />
+              <span class="text-[1.75rem] font-black tracking-[-0.03em]">{name}</span>
+            </a>
+          </figure>
+        ))}
+      </div>
+    </div>
+    <div class="mt-12 border-t-[1.5px] border-ink/10 pt-5 text-left text-[0.95rem]">
+      <p class="m-0 text-[0.95rem] leading-[1.6]">{t('footer--credits')}</p>
+    </div>
+  </div>
+</footer>

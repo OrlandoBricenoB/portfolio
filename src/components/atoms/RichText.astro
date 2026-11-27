@@ -1,0 +1,10 @@
+---
+// Turns <hl>word</hl> inside a translated string into a highlighted chip.
+interface Props { text: string; variant?: string }
+const { text, variant = '' } = Astro.props
+const parts = text.split(/(<hl>.*?<\/hl>)/g).filter(Boolean).map(part => {
+  const match = part.match(/^<hl>(.*?)<\/hl>$/)
+  return match ? { hl: true, value: match[1] } : { hl: false, value: part }
+})
+---
+{parts.map(p => p.hl ? <span class={`hl hl--wipe ${variant}`} data-hl>{p.value}</span> : p.value)}
