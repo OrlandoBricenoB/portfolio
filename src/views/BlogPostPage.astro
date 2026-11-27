@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content'
+import { Image } from 'astro:assets'
 import PageLayout from '../layouts/PageLayout.astro'
 import Button from '../components/atoms/Button.astro'
 import Email from '../components/icons/Email.jsx'
@@ -11,7 +12,7 @@ interface Props { lang: Lang; post: Post }
 const { lang, post } = Astro.props
 const t = useTranslations(lang)
 const { Content } = await render(post)
-const { title, description, date, updated, tags, translation } = post.data
+const { title, description, date, updated, tags, translation, cover } = post.data
 
 const other: Lang = lang === 'en' ? 'es' : 'en'
 const selfPath = localizePath(`/blog/${postSlug(post)}/`, lang)
@@ -19,6 +20,7 @@ const otherPath = translation ? localizePath(`/blog/${translation}/`, other) : u
 const alternates = { [lang]: selfPath, ...(otherPath && { [other]: otherPath }) }
 
 const site = 'https://orlandobricenob.com'
+const ogImage = cover ? new URL(cover.src, site).href : `${site}/og-meta.png`
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -30,10 +32,10 @@ const jsonLd = {
   keywords: tags.join(', '),
   mainEntityOfPage: new URL(selfPath, site).href,
   author: { '@type': 'Person', name: 'Orlando Briceño', url: site },
-  image: `${site}/og-meta.png`,
+  image: ogImage,
 }
 ---
-<PageLayout lang={lang} title={`${title} | Orlando Briceño`} description={description} type="article" published={date} modified={updated} alternates={alternates}>
+<PageLayout lang={lang} title={`${title} | Orlando Briceño`} description={description} type="article" published={date} modified={updated} image={ogImage} alternates={alternates}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <main>
     <section class="bg-[radial-gradient(900px_420px_at_85%_-10%,rgba(0,81,255,0.3),transparent_60%)] bg-ink pt-36 pb-14 text-white max-[640px]:pt-28">
@@ -56,6 +58,7 @@ const jsonLd = {
 
     <article class="bg-white pt-14 pb-16">
       <div class="wrapper max-w-[46rem]!">
+        {cover && <Image class="mb-10 w-full rounded-[22px]" src={cover} alt="" width={1200} height={630} widths={[640, 1200]} sizes="(max-width: 46rem) 100vw, 46rem" loading="eager" />}
         <div class="prose-post"><Content /></div>
 
         <aside class="mt-14 rounded-[22px] bg-ink p-8 text-white">

@@ -9,6 +9,8 @@ interface Props {
   type?: 'website' | 'article'
   published?: Date
   modified?: Date
+  // Absolute URL for og:image / twitter:image; defaults to the site card.
+  image?: string
   // Overrides the default same-path hreflang pairs (e.g. blog posts that exist in one language only).
   alternates?: Partial<Record<Lang, string>>
 }
@@ -18,10 +20,12 @@ const {
   type = 'website',
   published,
   modified,
+  image,
   alternates,
   description = '¡Hola! Soy Orlando Briceño, fundador de Gadmin y emprendedor. Quiero ayudar a las personas, es por eso que creé las herramientas de Gadmin.',
 } = Astro.props
 const site = 'https://orlandobricenob.com'
+const ogImage = image ?? `${site}/og-meta.png`
 const url = new URL(Astro.url.pathname, site).href
 const basePath = Astro.url.pathname.replace(/^\/es(?=\/|$)/, '') || '/'
 ---
@@ -65,12 +69,12 @@ const basePath = Astro.url.pathname.replace(/^\/es(?=\/|$)/, '') || '/'
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${site}/og-meta.png`} />
+    <meta property="og:image" content={ogImage} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${site}/og-meta.png`} />
+    <meta property="twitter:image" content={ogImage} />
 
     <script is:inline async src="https://cdn.seline.so/seline.js" data-token="4e832700dab5473"></script>
   </head>

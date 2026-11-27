@@ -12,6 +12,8 @@ interface Props {
   type?: 'website' | 'article'
   published?: Date
   modified?: Date
+  // Absolute URL for og:image / twitter:image; defaults to the site card.
+  image?: string
   alternates?: Partial<Record<Lang, string>>
 }
 const { lang, ...meta } = Astro.props
