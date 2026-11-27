@@ -5,11 +5,20 @@ import Footer from '../components/organisms/Footer.astro'
 import { stripLang } from '../i18n/utils'
 import type { Lang } from '../i18n/config'
 
-interface Props { lang: Lang; title?: string; description?: string }
-const { lang, title, description } = Astro.props
+interface Props {
+  lang: Lang
+  title?: string
+  description?: string
+  type?: 'website' | 'article'
+  published?: Date
+  modified?: Date
+  alternates?: Partial<Record<Lang, string>>
+}
+const { lang, ...meta } = Astro.props
 const currentPath = (stripLang(Astro.url.pathname).replace(/\/+$/, '') || '/')
 ---
-<BaseLayout lang={lang} title={title} description={description}>
+<BaseLayout lang={lang} {...meta}>
+  <slot name="head" slot="head" />
   <Navbar slot="header" client:load lang={lang} currentPath={currentPath} />
   <slot />
   <Footer slot="footer" lang={lang} />

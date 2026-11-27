@@ -1,0 +1,44 @@
+---
+import PageLayout from '../layouts/PageLayout.astro'
+import Heading from '../components/atoms/Heading.astro'
+import { formatDate, getPosts, postSlug, readingMinutes } from '../i18n/blog'
+import { localizePath, useTranslations } from '../i18n/utils'
+import type { Lang } from '../i18n/config'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const posts = await getPosts(lang)
+---
+<PageLayout lang={lang} title={t('blog--meta-title')} description={t('blog--meta-description')}>
+  <main>
+    <section class="bg-[radial-gradient(900px_420px_at_85%_-10%,rgba(0,81,255,0.3),transparent_60%)] bg-ink pt-36 pb-16 text-white max-[640px]:pt-28">
+      <div class="wrapper">
+        <p class="mb-2 inline-block -rotate-2 font-hand text-[24px] text-blue-300 before:text-blue-400 before:content-['→_']">{t('blog--kicker')}</p>
+        <Heading as="h1" text={t('blog--title')} class="m-0! max-w-[46rem] text-[clamp(2.4rem,5vw,3.8rem)]! leading-[1.12]!" />
+        <p class="mt-4 max-w-[44rem] text-[1.2rem] leading-[1.55] text-white/85">{t('blog--lead')}</p>
+      </div>
+    </section>
+    <section class="bg-white py-14">
+      <div class="wrapper max-w-[52rem]!">
+        {posts.length === 0 && <p>{t('blog--empty')}</p>}
+        <ul class="m-0 flex list-none flex-col gap-8 p-0">
+          {posts.map(post => (
+            <li>
+              <article>
+                <p class="text-sm text-ink/60">
+                  <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time>
+                  · {readingMinutes(post.body)} {t('blog--min-read')}
+                </p>
+                <h2 class="mt-1 text-[1.6rem] font-extrabold leading-tight">
+                  <a class="text-ink no-underline hover:text-blue-700" href={localizePath(`/blog/${postSlug(post)}`, lang)}>{post.data.title}</a>
+                </h2>
+                <p class="mt-2 text-[1.05rem] leading-[1.6] text-ink/80">{post.data.description}</p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</PageLayout>

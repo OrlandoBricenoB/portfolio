@@ -2,10 +2,23 @@
 import '../styles/global.css'
 import type { Lang } from '../i18n/config'
 
-interface Props { lang: Lang; title?: string; description?: string }
+interface Props {
+  lang: Lang
+  title?: string
+  description?: string
+  type?: 'website' | 'article'
+  published?: Date
+  modified?: Date
+  // Overrides the default same-path hreflang pairs (e.g. blog posts that exist in one language only).
+  alternates?: Partial<Record<Lang, string>>
+}
 const {
   lang,
   title = 'Orlando Briceño | Gadmin Founder',
+  type = 'website',
+  published,
+  modified,
+  alternates,
   description = '¡Hola! Soy Orlando Briceño, fundador de Gadmin y emprendedor. Quiero ayudar a las personas, es por eso que creé las herramientas de Gadmin.',
 } = Astro.props
 const site = 'https://orlandobricenob.com'
@@ -34,10 +47,21 @@ const basePath = Astro.url.pathname.replace(/^\/es(?=\/|$)/, '') || '/'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Inter:wght@400;500;600;700;900&display=swap" />
 
-    <link rel="alternate" hreflang="en" href={new URL(basePath, site).href} />
-    <link rel="alternate" hreflang="es" href={new URL(`/es${basePath}`, site).href} />
+    <link rel="canonical" href={url} />
+    {alternates ? (
+      Object.entries(alternates).map(([code, path]) => <link rel="alternate" hreflang={code} href={new URL(path, site).href} />)
+    ) : (
+      <>
+        <link rel="alternate" hreflang="en" href={new URL(basePath, site).href} />
+        <link rel="alternate" hreflang="es" href={new URL(`/es${basePath}`, site).href} />
+      </>
+    )}
+    <link rel="alternate" type="application/rss+xml" title="Orlando Briceño" href={lang === 'es' ? '/es/rss.xml' : '/rss.xml'} />
+    <slot name="head" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

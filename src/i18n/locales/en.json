@@ -326,5 +326,18 @@
   "courses--faq-7-a": "Small, because the class is live and I want to answer everyone's questions.",
   "courses--final-title": "Seats stay small because the class is live",
   "courses--final-body": "Tell me the level you want and I confirm your seat in the course by email.",
-  "courses--wa-full": "Hi Orlando, I want to reserve my seat in the course AI Builder with an engineering base."
+  "courses--wa-full": "Hi Orlando, I want to reserve my seat in the course AI Builder with an engineering base.",
+  "nav--blog": "Blog",
+  "blog--meta-title": "Blog | Orlando Briceño",
+  "blog--meta-description": "Practical notes on building with AI: agents, automation, software and business, by Orlando Briceño.",
+  "blog--kicker": "Notes",
+  "blog--title": "Building with AI, in the open",
+  "blog--lead": "Practical notes for AI builders: what works, what breaks, and how to ship software that makes business sense.",
+  "blog--empty": "No posts yet.",
+  "blog--back": "All posts",
+  "blog--updated": "Updated",
+  "blog--min-read": "min read",
+  "blog--cta-title": "Building something with AI?",
+  "blog--cta-body": "I help businesses ship software and AI that grows them, and I teach builders how to do it.",
+  "blog--read-in-other": "Read this post in Spanish"
 }

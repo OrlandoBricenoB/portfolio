@@ -326,5 +326,18 @@
   "courses--faq-7-a": "Pequeños, porque la clase es en vivo y quiero responder las dudas de todos.",
   "courses--final-title": "Los cupos se quedan chicos porque la clase es en vivo",
   "courses--final-body": "Dime el nivel que quieres y confirmo tu cupo en el curso por email.",
-  "courses--wa-full": "Hola Orlando, quiero reservar mi cupo en el curso AI Builder con base de ingeniería."
+  "courses--wa-full": "Hola Orlando, quiero reservar mi cupo en el curso AI Builder con base de ingeniería.",
+  "nav--blog": "Blog",
+  "blog--meta-title": "Blog | Orlando Briceño",
+  "blog--meta-description": "Notas prácticas para construir con IA: agentes, automatización, software y negocios, por Orlando Briceño.",
+  "blog--kicker": "Notas",
+  "blog--title": "Construyendo con IA, en público",
+  "blog--lead": "Notas prácticas para quienes construyen con IA: qué funciona, qué se rompe y cómo lanzar software con sentido de negocio.",
+  "blog--empty": "Aún no hay publicaciones.",
+  "blog--back": "Todas las publicaciones",
+  "blog--updated": "Actualizado",
+  "blog--min-read": "min de lectura",
+  "blog--cta-title": "¿Estás construyendo algo con IA?",
+  "blog--cta-body": "Ayudo a negocios a lanzar software e IA que los hacen crecer, y enseño a otros builders a hacerlo.",
+  "blog--read-in-other": "Lee este artículo en inglés"
 }

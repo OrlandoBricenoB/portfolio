@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orlandobricenob.com/sitemap-index.xml

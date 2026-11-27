@@ -77,6 +77,7 @@ const Navbar = ({ lang = 'en', currentPath = '/' }) => {
     { href: '/#ventures', label: t('nav--ventures') },
     { href: '/impact', label: t('nav--impact'), active: currentPath === '/impact' },
     { href: '/courses', label: t('nav--courses'), active: currentPath === '/courses' },
+    { href: '/blog', label: t('nav--blog'), active: currentPath.startsWith('/blog') },
   ]
 
   const solid = isScrolled || menuOpen
