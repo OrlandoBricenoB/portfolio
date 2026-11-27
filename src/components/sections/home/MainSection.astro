@@ -1,0 +1,78 @@
+---
+import { Image, Picture } from 'astro:assets'
+import Button from '../../atoms/Button.astro'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import Email from '../../icons/Email.jsx'
+import Linkedin from '../../icons/Linkedin.jsx'
+import Instagram from '../../icons/Instagram.jsx'
+import Github from '../../icons/Github.jsx'
+import RotatingWord from '../../islands/RotatingWord.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import cover from '../../../assets/images/cover.png'
+import logoGadmin from '../../../assets/images/logo-no-frame-light.webp'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+const disciplines = ['dev', 'finance', 'sales', 'marketing', 'design']
+const words = disciplines.map(id => t(`disciplines--${id}-name`))
+const social = 'inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/10 px-[15px] py-[9px] text-sm text-white no-underline backdrop-blur-[10px] transition duration-200 hover:border-blue-700 hover:bg-blue-700'
+---
+<section class="relative flex min-h-dvh flex-col justify-center overflow-hidden bg-ink pt-32 pb-6 text-white max-[980px]:pt-28 max-[560px]:pt-25 max-[560px]:pb-10" id="presentation">
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <video class="pointer-events-none absolute inset-0 size-full object-cover object-[right_center]" autoplay muted loop playsinline preload="metadata">
+      <source src="/videos/background-video.webm" type="video/webm" />
+      <source src="/videos/background-video.mp4" type="video/mp4" />
+    </video>
+    <Picture src={cover} formats={['webp']} fallbackFormat="png" alt="" widths={[960, 1920]} sizes="100vw" loading="eager" pictureAttributes={{ class: 'pointer-events-none absolute inset-0 z-[1]' }} class="size-full object-contain object-[right_center]" />
+  </div>
+  <div class="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(5,5,40,.92)_0%,rgba(5,5,40,.55)_46%,rgba(5,5,40,.1)_100%),radial-gradient(700px_420px_at_0%_100%,rgba(0,81,255,.28),transparent_70%)] max-[980px]:bg-[linear-gradient(180deg,rgba(5,5,40,.88)_0%,rgba(5,5,40,.7)_60%,rgba(5,5,40,.9)_100%)]" aria-hidden="true"></div>
+
+  <div class="wrapper relative z-[3] flex w-full items-end justify-between gap-8 max-[980px]:flex-col max-[980px]:items-start">
+    <div class="flex max-w-[44rem] flex-col items-start">
+      <div data-reveal="up">
+        <Note arrow="→" class="text-2xl text-white">{t('common--specialization')}</Note>
+      </div>
+      <Heading as="h1" text={t('common--title')} class="m-0! max-w-[16ch] text-[clamp(38px,5.2vw,68px)]! max-[560px]:max-w-none max-[560px]:text-[clamp(32px,10vw,44px)]!" data-reveal="up" />
+
+      <div class="mt-4 text-[clamp(28px,3.4vw,44px)] leading-[1.15] font-black tracking-[-0.03em] max-[560px]:text-[clamp(24px,8vw,32px)] [&_.hl]:inline-block [&_.hl]:rounded-xl [&_.hl]:px-[.28em] [&_.hl]:pt-[.04em] [&_.hl]:pb-[.1em]" data-reveal="up">
+        <span class="hl"><RotatingWord client:load words={words} /></span>
+      </div>
+
+      <p class="mt-7 mb-0 max-w-[34rem] text-[1.1rem] leading-[1.6] text-white/90 max-[560px]:text-base" data-reveal="up">
+        {t('main--greetings')}<br /><br />
+        {t('main--bio-1')}<br /><br />
+        {t('main--bio-2')}
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3 max-[560px]:w-full max-[560px]:*:justify-center" data-reveal="up">
+        <Button type="primary" href="mailto:orlando@gadmin.app" data-sln-event="user: send email">
+          <Fragment slot="icon"><Email size="24" color="#ffffff" /></Fragment>
+          {t('common--cta-email')}
+        </Button>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3" data-reveal="up">
+        <a href="https://gadmin.app/" target="_blank" rel="noreferrer" class="inline-flex size-14 rounded-full bg-white p-2 shadow-[0_8px_20px_rgba(0,0,0,.3)] transition-transform duration-250 hover:scale-110 hover:-rotate-6" aria-label="Ir a Gadmin.app">
+          <Image src={logoGadmin} alt="Logo Gadmin" width={64} height={64} class="size-full rounded-full object-contain" />
+        </a>
+        <div class="flex items-center gap-2 rounded-full border border-white/18 bg-white/10 px-4 py-2.5 backdrop-blur-[10px] max-[560px]:max-w-full">
+          <b class="text-[1.4rem] font-black tracking-[-0.02em] text-white">15</b>
+          <span class="text-[.9rem] text-white/78 max-[560px]:leading-tight">{t('common--experience-years')}</span>
+        </div>
+        <div class="flex items-center gap-2 rounded-full border border-white/18 bg-white/10 px-4 py-2.5 backdrop-blur-[10px] max-[560px]:max-w-full">
+          <b class="text-[1.4rem] font-black tracking-[-0.02em] text-white">10+</b>
+          <span class="text-[.9rem] text-white/78 max-[560px]:leading-tight">{t('common--done-projects')}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-[3] mb-1 flex flex-none flex-wrap justify-end gap-2 max-[980px]:mt-8 max-[980px]:mb-0 max-[980px]:justify-start max-[560px]:w-full" data-reveal="up">
+      <a href="https://linkedin.com/in/orlandobricenob" target="_blank" rel="noreferrer" aria-label="LinkedIn" class={social}><Linkedin size="18" color="#ffffff" /> <b>LinkedIn</b></a>
+      <a href="https://instagram.com/orlandobricenob" target="_blank" rel="noreferrer" aria-label="Instagram" class={social}><Instagram size="18" color="#ffffff" /> <b>Instagram</b></a>
+      <a href="https://github.com/OrlandoBricenoB" target="_blank" rel="noreferrer" aria-label="GitHub" class={social}><Github size="18" color="#ffffff" /> <b>GitHub</b></a>
+    </div>
+  </div>
+</section>

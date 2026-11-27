@@ -1,0 +1,30 @@
+---
+import { Picture } from 'astro:assets'
+import { localizePath, useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+import { kicker, section, intro, h2, ghost } from './ui'
+import mentorPhoto from '../../../assets/images/stories/holding-carnet.webp'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+---
+<section class={section}>
+  <div class="grid grid-cols-[minmax(200px,0.5fr)_minmax(0,1fr)] items-center gap-12 max-nav:grid-cols-1">
+    <Picture
+      src={mentorPhoto}
+      formats={['webp']}
+      width={360}
+      height={360}
+      alt={t('courses--mentor-alt')}
+      class="aspect-square h-auto w-full -rotate-2 rounded-[3px] bg-white object-cover p-[11px] shadow-pol"
+    />
+    <div>
+      <p class={kicker}>{t('courses--mentor-kicker')}</p>
+      <h2 class={h2}>{t('courses--mentor-title')}</h2>
+      <p class={intro}>{t('courses--mentor-body-1')}</p>
+      <p class={intro}>{t('courses--mentor-body-2')}</p>
+      <a class={ghost} href={localizePath('/', lang)}>{t('courses--mentor-link')}</a>
+    </div>
+  </div>
+</section>

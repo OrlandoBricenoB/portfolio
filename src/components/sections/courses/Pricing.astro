@@ -1,0 +1,30 @@
+---
+import CoursesTierPicker from '../../islands/CoursesTierPicker.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+import { kicker, section, intro, h2 } from './ui'
+
+interface Props { lang: Lang; mails: Record<string, string> }
+const { lang, mails } = Astro.props
+const t = useTranslations(lang)
+
+const tiers = ['low', 'mid', 'vip'].map(id => ({
+  id,
+  name: t(`courses--tier-${id}`),
+  desc: t(`courses--tier-${id}-desc`),
+}))
+const labels = {
+  from: t('courses--from'),
+  fullLabel: t('courses--full-label'),
+  title: t('courses--title'),
+  fullNote: t('courses--full-note'),
+  save: t('courses--save'),
+  cta: t('courses--cta'),
+}
+---
+<section class={section} id="pricing">
+  <p class={kicker}>{t('courses--price-kicker')}</p>
+  <h2 class={h2}>{t('courses--price-title')}</h2>
+  <p class={intro}>{t('courses--price-intro')}</p>
+  <CoursesTierPicker client:visible tiers={tiers} mails={mails} labels={labels} />
+</section>

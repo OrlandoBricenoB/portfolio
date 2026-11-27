@@ -1,0 +1,13 @@
+---
+import RichText from './RichText.astro'
+interface Props { as?: 'h1' | 'h2' | 'h3'; text?: string; class?: string; [key: string]: unknown }
+const { as: Tag = 'h3', text, class: className = '', ...rest } = Astro.props
+const sizes = {
+  h1: 'text-[clamp(34px,4.4vw,56px)]',
+  h2: 'text-[clamp(30px,3.2vw,40px)]',
+  h3: 'text-[20px] leading-tight tracking-[-0.015em] font-bold',
+}
+---
+<Tag class:list={['mt-2 mb-3 font-black leading-[1.08] tracking-[-0.03em] text-inherit', sizes[Tag], className]} {...rest}>
+  {text ? <RichText text={text} /> : <slot />}
+</Tag>

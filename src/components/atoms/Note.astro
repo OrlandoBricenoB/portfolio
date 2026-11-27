@@ -1,0 +1,5 @@
+---
+interface Props { arrow?: string; arrowAfter?: boolean; class?: string; [key: string]: unknown }
+const { arrow = '↓', arrowAfter = false, class: className = '', ...rest } = Astro.props
+---
+<span class:list={['note', className]} {...rest}>{!arrowAfter && arrow && <span class="ar">{arrow} </span>}<slot />{arrowAfter && arrow && <span class="ar"> {arrow}</span>}</span>

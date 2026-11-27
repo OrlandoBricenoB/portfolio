@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets'
+import Button from '../../atoms/Button.astro'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import Email from '../../icons/Email.jsx'
+import Linkedin from '../../icons/Linkedin.jsx'
+import Instagram from '../../icons/Instagram.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import contactProfile from '../../../assets/images/contact-me.webp'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+const social = 'inline-flex size-11 items-center justify-center rounded-full border border-white/16 bg-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-blue-700'
+---
+<section class="relative mt-32 scroll-mt-[5.5rem] bg-[radial-gradient(900px_420px_at_10%_110%,rgba(0,81,255,.32),transparent_60%),var(--color-ink)] pt-20 pb-24 text-white max-[900px]:mt-16 max-[900px]:py-16" id="contact">
+  <div class="wrapper grid grid-cols-[minmax(0,1.1fr)_minmax(0,.8fr)] items-center gap-16 max-[900px]:grid-cols-1 max-[900px]:gap-12">
+    <div class="max-w-xl" data-reveal="up">
+      <Note>{t('contact--title')}</Note>
+      <Heading as="h2" class="m-0!">Orlando Briceño</Heading>
+      <p class="mt-2 mb-0 text-[1.2rem] leading-[1.4] font-semibold text-blue-300">{t('common--role')}</p>
+      <p class="my-6 text-[1.05rem] leading-[1.6] opacity-85">
+        {t('contact--content-1')}
+        <br /><br />
+        {t('contact--content-2')}
+      </p>
+
+      <div class="mb-6 flex gap-2 max-[768px]:flex-wrap">
+        <a href="https://linkedin.com/in/orlandobricenob" target="_blank" rel="noreferrer" class={social} aria-label="Visitar Perfil de LinkedIn de Orlando Briceno"><Linkedin color="#ffffff" size="20" /></a>
+        <a href="https://instagram.com/orlandobricenob" target="_blank" rel="noreferrer" class={social} aria-label="Visitar Perfil de Instagram de Orlando Briceno"><Instagram color="#ffffff" size="20" /></a>
+        <a href="mailto:orlando@gadmin.app" target="_blank" rel="noreferrer" class={social} aria-label="Enviar email a Orlando Briceno"><Email color="#ffffff" size="20" /></a>
+      </div>
+
+      <Button type="primary" href="mailto:orlando@gadmin.app" data-sln-event="user: send email">
+        <Fragment slot="icon"><Email size="24" color="#ffffff" /></Fragment>
+        {t('common--cta-email')}
+      </Button>
+      <p class="mt-5 mb-0 text-white/70">
+        <a class="font-medium text-white underline underline-offset-[3px]" href="mailto:orlando@gadmin.app">orlando@gadmin.app</a>
+      </p>
+    </div>
+
+    <div class="relative ml-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-[40px_40px_160px_40px] shadow-[0_0_0_1px_rgba(255,255,255,.14),0_40px_80px_rgba(0,81,255,.35)] max-[900px]:mx-auto max-[900px]:max-w-[340px] max-[900px]:rounded-[32px_32px_110px_32px]" data-reveal="right">
+      <Image src={contactProfile} alt="Orlando Briceño" width={460} class="block size-full object-cover object-[center_top]" />
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(5,5,40,.85)_100%),linear-gradient(90deg,rgba(0,81,255,.18),transparent_50%)]" aria-hidden="true"></div>
+      <div class="absolute right-5 bottom-6 left-5 flex flex-wrap gap-2">
+        <span class="rounded-full border border-blue-700 bg-blue-700 px-3.5 py-2 text-sm font-semibold text-white backdrop-blur-[10px]">Gadmin founder</span>
+      </div>
+    </div>
+  </div>
+</section>

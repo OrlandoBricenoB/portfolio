@@ -1,0 +1,41 @@
+---
+import Button from '../../atoms/Button.astro'
+import Heading from '../../atoms/Heading.astro'
+import Email from '../../icons/Email.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+import { kicker, ghost, actions } from './ui'
+
+interface Props { lang: Lang; mail: string }
+const { lang, mail } = Astro.props
+const t = useTranslations(lang)
+const OUTCOMES = ['1', '2', '3']
+---
+<section class="grid grid-cols-[minmax(0,1.35fr)_minmax(280px,0.75fr)] items-end gap-12 pb-[4.5rem] max-nav:grid-cols-1">
+  <div>
+    <p class={kicker}>{t('courses--kicker')}</p>
+    <Heading as="h1" text={t('courses--title')} class="mt-[0.65rem]! mb-4! text-[clamp(2.4rem,5vw,3.8rem)]! leading-[1.12]!" />
+    <p class="max-w-[40rem] text-[1.15rem] leading-[1.45] text-white/85">{t('courses--subtitle')}</p>
+    <div class={actions}>
+      <Button href={mail} data-reserve>
+        <Email slot="icon" size="24" color="#ffffff" />
+        {t('courses--cta')}
+      </Button>
+      <a class={ghost} href="#outcomes">{t('courses--see-path')}</a>
+    </div>
+  </div>
+
+  <ol class="m-0 flex list-none flex-col gap-[0.65rem] p-0">
+    {OUTCOMES.map((item, index) => (
+      <li>
+        <a href="#outcomes" class="grid grid-cols-[auto_1fr] items-center gap-[0.85rem] rounded-[18px] border border-white/8 bg-white/6 px-4 py-[0.85rem] text-inherit no-underline transition duration-200 hover:-translate-y-[3px] hover:border-blue-400">
+          <span class="inline-grid h-10 min-w-10 -rotate-[8deg] place-items-center rounded-xl bg-blue-700 px-2 text-base font-black tracking-[-0.03em] text-white">0{index + 1}</span>
+          <span>
+            <p class="m-0 font-bold">{t(`courses--outcome-${item}-title`)}</p>
+            <p class="mt-[0.15rem] mb-0 text-[0.85rem] text-white/62">{t(`courses--outcome-${item}-short`)}</p>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</section>

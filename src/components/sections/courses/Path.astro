@@ -1,0 +1,35 @@
+---
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+import { kicker, section, intro, card, h2, h3, cardText, badge, checklist } from './ui'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const MODULES = ['mindset', 'foundations', 'stack', 'project']
+const TOPICS = ['1', '2', '3']
+---
+<section class={section} id="path">
+  <p class={kicker}>{t('courses--path-kicker')}</p>
+  <h2 class={h2}>{t('courses--path-title')}</h2>
+  <p class={intro}>{t('courses--path-intro')}</p>
+  <div class="mt-7 flex flex-col gap-[0.85rem]">
+    {MODULES.map((id, index) => (
+      <article id={`module-${id}`} class={`${card} grid scroll-mt-[6.5rem] grid-cols-[auto_1fr] items-start gap-x-5 gap-y-4 px-5 py-[1.15rem] max-nav:grid-cols-1`}>
+        <span class={`${badge} max-[640px]:hidden`}>0{index + 1}</span>
+        <div>
+          <p class="m-0 text-[0.78rem] tracking-[0.12em] text-blue-300 uppercase">{t('courses--stage')} {index + 1}</p>
+          <h3 class={h3}>{t(`courses--mod-${id}-name`)}</h3>
+          <p class="mt-[0.35rem] mb-0 text-[0.85rem] text-blue-300">{t(`courses--mod-${id}-weeks`)}</p>
+          <p class={cardText}>{t(`courses--mod-${id}-focus`)}</p>
+          <ul class={checklist}>
+            {TOPICS.map(topic => <li>{t(`courses--mod-${id}-topics-${topic}`)}</li>)}
+          </ul>
+          <p class="mt-[0.6rem] mb-0 leading-[1.45] text-white/90">
+            <strong class="text-gold">{t('courses--stage-goal')}</strong> {t(`courses--mod-${id}-goal`)}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

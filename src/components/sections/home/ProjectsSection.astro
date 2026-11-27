@@ -1,0 +1,246 @@
+---
+import { Image } from 'astro:assets'
+import Button from '../../atoms/Button.astro'
+import Heading from '../../atoms/Heading.astro'
+import Note from '../../atoms/Note.astro'
+import Sticker from '../../atoms/Sticker.astro'
+import GoToFile from '../../icons/GoToFile.jsx'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+import GadminLegacy from '../../../assets/images/projects/gadmin-legacy.webp'
+import ContyEn from '../../../assets/images/projects/gadminconty-english.webp'
+import ContyEs from '../../../assets/images/projects/gadminconty-spanish.webp'
+import SellEn from '../../../assets/images/projects/gadminsell-english.webp'
+import SellEs from '../../../assets/images/projects/gadminsell-spanish.webp'
+import GadminGvp from '../../../assets/images/projects/gadmin-gvp.webp'
+import FileExt from '../../../assets/images/projects/file-ext.webp'
+import AdventBanner from '../../../assets/images/projects/adventjs.webp'
+import NarubyondProject from '../../../assets/images/projects/narubyond.webp'
+import NgnProject from '../../../assets/images/projects/ngn.webp'
+import CorreFution from '../../../assets/images/projects/correfution.webp'
+import PaypalCalculator from '../../../assets/images/projects/paypal-calculator.webp'
+import BokadosPreview from '../../../assets/images/projects/bokados-preview.webp'
+import ImprovedWebsite from '../../../assets/images/projects/improved-website.webp'
+import ImprovedAppWebsite from '../../../assets/images/projects/improved-app-website.webp'
+import SorteosMdB from '../../../assets/images/projects/sorteosmdb.webp'
+
+import Kunzapp from '../../../assets/images/brands/kunzapp.webp'
+import SmartCompliance from '../../../assets/images/brands/smartcompliance.webp'
+import GadminLogo from '../../../assets/images/brands/gadmin.png'
+import WekanLogo from '../../../assets/images/brands/wekanenterprisesolutions.webp'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+const isEs = lang === 'es'
+
+// The first projects are the most relevant for companies; the rest tell the origin story.
+const FEATURED_COUNT = 4
+const both = (a: string, b: string) => `${t(a)}<br /><br />${t(b)}`
+
+const projects = [
+  {
+    title: 'Gadmin Conty', year: '2026', description: t('projects--gadmin-conty-content'),
+    image: isEs ? ContyEs : ContyEn, bg: 'transparent',
+    technologies: [t('projects--tag-financial-analysis'), t('projects--tag-strategy'), t('projects--tag-reports')],
+    link: 'https://gadminconty.com/',
+  },
+  {
+    title: 'Gadmin Sell', year: '2026', description: t('projects--gadmin-sell-content'),
+    image: isEs ? SellEs : SellEn, bg: 'transparent',
+    technologies: ['WhatsApp', t('projects--tag-ai'), t('projects--tag-sales')],
+    link: 'https://gadminsell.com/',
+  },
+  {
+    title: 'Gadmin GVP', year: '2026', description: t('projects--gadmin-gvp-content'),
+    image: GadminGvp, bg: '#0d1117',
+    technologies: ['React', 'NodeJS & PostgreSQL', t('projects--tag-reports')],
+    link: 'https://gvpve.org/',
+  },
+  {
+    title: "Sorteos Md'B", year: '2025', description: both('projects--sorteos-mdb-content-1', 'projects--sorteos-mdb-content-2'),
+    image: SorteosMdB, bg: '#0d1117',
+    technologies: ['Astro', 'Tailwind CSS', 'Cloudflare', 'JavaScript'],
+    link: 'https://sorteosmdb.com/?r=QAZ815U3',
+  },
+  {
+    title: 'Gadmin Legacy', year: '2022', description: both('projects--gadmin-legacy-content-1', 'projects--gadmin-legacy-content-2'),
+    image: GadminLegacy, bg: '#0d1117',
+    technologies: ['JavaScript (TS)', 'React', 'NodeJS & PostgreSQL'],
+    link: 'https://app.gadmin.app',
+  },
+  {
+    title: 'File Ext', year: '2022', description: both('projects--file-content-1', 'projects--file-content-2'),
+    image: FileExt, bg: '#0d1117',
+    technologies: ['JavaScript (TS)'],
+    link: 'https://www.npmjs.com/package/@jo-sword/file-ext',
+  },
+  {
+    title: 'AdventJS 2022', year: '2022', description: both('projects--adventjs-1', 'projects--adventjs-2'),
+    image: AdventBanner, bg: '#141211',
+    technologies: ['JavaScript'],
+    link: 'https://github.com/OrlandoBricenoB/adventjs-2022',
+  },
+  {
+    title: 'Improved App', year: '2022', description: both('projects--improved-website-app-1', 'projects--improved-website-app-2'),
+    image: ImprovedAppWebsite, bg: '#141211',
+    technologies: ['HTML', 'CSS', 'JavaScript', 'React (Native)'],
+    link: 'https://orlandobricenob.github.io/improved-website/',
+  },
+  {
+    title: t('projects--bokados-title'), year: '2021', description: both('projects--bokados-1', 'projects--bokados-2'),
+    image: BokadosPreview, bg: '#141211',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    link: null,
+  },
+  {
+    title: 'Improved Web', year: '2020', description: both('projects--improved-website-1', 'projects--improved-website-2'),
+    image: ImprovedWebsite, bg: '#141211',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://orlandobricenob.github.io/improved-website/',
+  },
+  {
+    title: t('projects--calculadora-title'), year: '2020', description: both('projects--calculadora-1', 'projects--calculadora-2'),
+    image: PaypalCalculator, bg: '#141211',
+    technologies: ['JavaScript'],
+    link: 'https://github.com/OrlandoBricenoB/calculadora-paypal',
+  },
+  {
+    title: 'Corre Fution', year: '2019', description: both('projects--correfution-1', 'projects--correfution-2'),
+    image: CorreFution, bg: '#141211',
+    technologies: ['JavaScript (Phaser JS)'],
+    link: 'https://jo-sword.itch.io/corre-fution',
+  },
+  {
+    title: 'Naruto Guerra Ninja', year: '2013', description: both('projects--ngn-1', 'projects--ngn-2'),
+    image: NgnProject, bg: '#141211',
+    technologies: ['Dream Maker (C Based)'],
+    link: 'https://www.byond.com/games/RedFill/NarutoGuerraNinja',
+  },
+  {
+    title: 'NaruByond', year: '2013', description: both('projects--narubyond-1', 'projects--narubyond-2'),
+    image: NarubyondProject, bg: '#141211',
+    technologies: ['Dream Maker (C Based)'],
+    link: 'https://www.byond.com/games/RedFill/NaruByond',
+  },
+]
+
+const featured = projects.slice(0, FEATURED_COUNT)
+const older = projects.slice(FEATURED_COUNT)
+
+const businesses = [
+  {
+    id: 'kunzapp', href: 'https://www.kunzapp.com', name: 'Kunzapp', logo: Kunzapp, dark: false,
+    meta: '🇨🇱 & 🇲🇽 - 02/2023 - 05/2023',
+    body: [t('business--kunzapp-content-1'), t('business--kunzapp-content-2')], tilt: -0.8,
+  },
+  {
+    id: 'smartcompliance', href: 'https://smartcompliance.cl', name: 'Smart Compliance', logo: SmartCompliance, dark: false,
+    meta: '🇨🇱 - 11/2023 - 06/2026',
+    body: [t('business--smartcompliance-content-1'), t('business--smartcompliance-content-2')], tilt: 0.6,
+  },
+  {
+    id: 'gadmin', href: 'https://gadmin.app', name: 'Gadmin', logo: GadminLogo, dark: true,
+    meta: `🇻🇪 & 🇨🇱 - 2023 - ${t('common--actuality-word')}`,
+    body: [t('business--gadmin-content-1'), t('business--gadmin-content-2')], tilt: -0.5,
+  },
+  {
+    id: 'wekan', href: 'https://www.wekan.ai', name: 'WeKan', logo: WekanLogo, dark: false,
+    meta: `🇻🇪 - 09/2026 - ${t('common--actuality-word')}`,
+    body: [t('business--wekan-content-1'), t('business--wekan-content-2')], tilt: 0.7,
+  },
+]
+
+const techList = 'm-0 flex list-none flex-wrap gap-1.5 p-0'
+const techItem = 'rounded-full bg-blue-50 px-3 py-[5px] text-[.82rem] font-semibold text-blue-800'
+---
+<div class="section bg-white" id="projects">
+  <div class="wrapper">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-[40rem]">
+        <div data-reveal="up"><Note>{t('common--projects')}</Note></div>
+        <Heading as="h2" text={t('common--projects-title')} class="text-ink" data-reveal="up" />
+      </div>
+      <Sticker variant="blue" rotate={4} class="mb-4 text-lg">2013 – {new Date().getFullYear()}</Sticker>
+    </div>
+
+    <div class="flex w-full flex-col gap-12">
+      {featured.map((project, index) => {
+        const isRight = index % 2 === 1
+        return (
+          <article class:list={['group grid min-w-0 grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] items-center gap-12 max-[999px]:grid-cols-1 max-[999px]:gap-6', isRight && 'min-[1000px]:[direction:rtl] min-[1000px]:*:[direction:ltr]']} data-reveal={isRight ? 'right' : 'left'}>
+            <div class="relative max-w-full min-w-0">
+              <div class="aspect-[1200/628] w-full overflow-hidden rounded-img shadow-pol transition-transform duration-300 group-hover:-translate-y-1 group-hover:-rotate-[.6deg]" style={`background-color:${project.bg}`}>
+                <Image src={project.image} widths={[600, 1200]} sizes="(max-width: 999px) 100vw, 640px" alt={`Portada de ${project.title}`} class="size-full object-cover" />
+              </div>
+              <Sticker abs variant="ink" rotate={-6} style="top:-12px;left:-8px">{project.year}</Sticker>
+            </div>
+            <div class="flex flex-col gap-[.9rem]">
+              <Heading as="h3" class="m-0! text-[26px] text-ink">{project.title}</Heading>
+              <p class="m-0 text-base leading-[1.4] text-blue-950" set:html={project.description} />
+              <ul class={techList}>{project.technologies.map(tech => <li class={techItem}>{tech}</li>)}</ul>
+              {project.link && (
+                <a class="pill-link w-fit" href={project.link} target="_blank" rel="noreferrer">
+                  <GoToFile color="#ffffff" />
+                  {t('projects--item-cta')}
+                </a>
+              )}
+            </div>
+          </article>
+        )
+      })}
+    </div>
+
+    <div id="projects-older" class="mt-14 hidden grid-cols-3 gap-6 max-[999px]:grid-cols-1 min-[700px]:max-[999px]:grid-cols-2 [&:not([hidden])]:grid" hidden>
+      {older.map(project => (
+        <article class="flex flex-col gap-[.6rem] rounded-card border-2 border-transparent bg-blue-50 px-4 pt-4 pb-[1.3rem] transition duration-200 hover:-translate-y-[3px] hover:border-blue-700">
+          <div class="relative aspect-[1200/628] overflow-hidden rounded-img" style={`background-color:${project.bg}`}>
+            <Image src={project.image} widths={[400, 800]} sizes="(max-width: 999px) 100vw, 380px" alt={`Portada de ${project.title}`} loading="lazy" class="size-full object-cover" />
+            <span class="sticker sticker--ink absolute top-2.5 left-2.5 text-[13px]" style="--r:-5deg">{project.year}</span>
+          </div>
+          <Heading as="h3" class="mt-[.9rem]! mb-[.4rem]! text-ink">{project.title}</Heading>
+          <p class="m-0 line-clamp-5 text-[.92rem] leading-[1.6] text-blue-950" set:html={project.description} />
+          <ul class={techList}>{project.technologies.map(tech => <li class={techItem}>{tech}</li>)}</ul>
+          {project.link && <a class="text-link" href={project.link} target="_blank" rel="noreferrer">{t('projects--item-cta')} →</a>}
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-10 flex justify-center">
+      <Button type="outlined" id="projects-toggle" aria-expanded="false" aria-controls="projects-older" data-more={t('projects--show-more')} data-less={t('projects--show-less')}>
+        {t('projects--show-more')}
+      </Button>
+    </div>
+
+    <div class="mt-20 grid grid-cols-4 items-stretch gap-4 max-[999px]:mt-14 max-[999px]:grid-cols-1 min-[700px]:max-[999px]:grid-cols-2" data-reveal-stagger>
+      {businesses.map(biz => (
+        <article class="flex min-w-0 flex-col items-start gap-[.8rem] rounded-card border border-blue-700/14 bg-white px-[1.4rem] pt-6 pb-[1.6rem] [overflow-wrap:anywhere] shadow-card transition duration-200 [transform:rotate(var(--r,0deg))] hover:shadow-[0_16px_36px_rgba(0,81,255,.16)] hover:[transform:rotate(0deg)_translateY(-3px)] min-[1000px]:gap-[.7rem] min-[1000px]:px-[1.1rem] min-[1000px]:pt-5 min-[1000px]:pb-[1.4rem]" style={`--r:${biz.tilt}deg`} data-reveal="up">
+          <a href={biz.href} target="_blank" rel="noopener noreferrer" class="flex min-w-0 items-center gap-[.8rem] text-inherit no-underline">
+            <Image src={biz.logo} alt={biz.name} width={52} height={52} class:list={['size-[52px] shrink-0 rounded-[14px] object-cover', biz.dark && 'bg-ink object-contain! p-1.5']} />
+            <p title={biz.name} class="m-0 text-[1.2rem] leading-[1.4] font-extrabold">{biz.name}</p>
+          </a>
+          <span class="sticker sticker--soft px-[11px] py-1.5 text-xs whitespace-normal" style="--r:-1.5deg">{biz.meta}</span>
+          <p class="m-0 text-[.95rem] leading-[1.6] opacity-85 min-[1000px]:text-[.88rem] min-[1000px]:leading-[1.5]">
+            {biz.body[0]}
+            <br /><br />
+            {biz.body[1]}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('projects-toggle')
+  const list = document.getElementById('projects-older')
+  toggle?.addEventListener('click', () => {
+    if (!list) return
+    const open = list.hasAttribute('hidden')
+    list.toggleAttribute('hidden', !open)
+    toggle.setAttribute('aria-expanded', String(open))
+    const label = toggle.querySelector('span')
+    if (label) label.textContent = open ? toggle.dataset.less ?? '' : toggle.dataset.more ?? ''
+    if (open) list.querySelectorAll('[data-reveal]').forEach(node => node.removeAttribute('data-reveal'))
+  })
+</script>

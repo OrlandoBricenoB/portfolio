@@ -1,0 +1,31 @@
+---
+interface Props {
+  type?: 'default' | 'primary' | 'ghost' | 'outlined'
+  href?: string
+  disabled?: boolean
+  class?: string
+  [key: string]: unknown
+}
+const { type = 'default', href, disabled = false, class: className = '', ...rest } = Astro.props
+const Tag = href ? 'a' : 'button'
+const variants = {
+  default: 'bg-blue-700 text-white hover:enabled:bg-blue-800 hover:-translate-y-0.5 [&_path]:fill-white',
+  primary: 'bg-blue-700 text-white hover:enabled:bg-blue-800 hover:-translate-y-0.5 [&_path]:fill-white',
+  ghost: 'bg-transparent text-blue-700 hover:text-blue-800',
+  outlined: 'bg-white text-ink shadow-[inset_0_0_0_2px_var(--color-ink)] hover:text-blue-700 hover:shadow-[inset_0_0_0_2px_var(--color-blue-700)] hover:-translate-y-0.5 [&_path]:fill-current',
+}
+---
+<Tag
+  href={href}
+  disabled={Tag === 'button' ? disabled : undefined}
+  class:list={[
+    'inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-full border-0 px-6 py-3.5 font-[inherit] text-base font-semibold no-underline outline-none transition duration-200 [&_path]:transition-[fill]',
+    variants[type],
+    disabled && 'cursor-default opacity-65 grayscale-[0.6]',
+    className,
+  ]}
+  {...rest}
+>
+  <slot name="icon" />
+  <span><slot /></span>
+</Tag>

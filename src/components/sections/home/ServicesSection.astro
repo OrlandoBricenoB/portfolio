@@ -1,0 +1,24 @@
+---
+import SectionHeader from '../../atoms/SectionHeader.astro'
+import Heading from '../../atoms/Heading.astro'
+import { useTranslations } from '../../../i18n/utils'
+import type { Lang } from '../../../i18n/config'
+
+const { lang } = Astro.props as { lang: Lang }
+const t = useTranslations(lang)
+const items = ['1', '2', '3', '4']
+---
+<section class="section relative bg-white text-ink" id="services">
+  <div class="wrapper">
+    <SectionHeader note={t('services--kicker')} title={t('services--title')} intro={t('services--intro')} />
+    <div class="grid grid-cols-4 gap-4 max-[1100px]:grid-cols-2 max-[560px]:grid-cols-1" data-reveal-stagger>
+      {items.map(item => (
+        <article class="relative flex flex-col rounded-card border-2 border-transparent bg-blue-50 px-[1.4rem] pt-6 pb-[1.6rem] transition duration-200 hover:-translate-y-[3px] hover:border-blue-700" data-reveal="up">
+          <span class="inline-grid h-[46px] min-w-[46px] w-fit -rotate-[8deg] place-items-center rounded-[14px] bg-blue-700 px-2.5 text-[1.1rem] font-black text-white">0{item}</span>
+          <Heading as="h3" class="mt-[.9rem]! mb-[.6rem]!">{t(`services--${item}-title`)}</Heading>
+          <p class="m-0 text-[.95rem] leading-[1.55] opacity-[.82]">{t(`services--${item}-body`)}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
